@@ -1,0 +1,644 @@
+grammar Java
+
+layout Layout
+
+@Start
+CompilationUnit
+  = PackageDeclaration? ImportDeclaration* TypeDeclaration*
+
+PackageDeclaration
+  = Annotation* "package" QualifiedIdentifier ";"
+
+ImportDeclaration
+  = "import" "static"? QualifiedIdentifier ("." "*")? ";"
+
+TypeDeclaration
+  = ClassDeclaration
+  | InterfaceDeclaration
+  | ";"
+
+ClassDeclaration
+  = NormalClassDeclaration
+  | EnumDeclaration
+
+NormalClassDeclaration
+  = ClassModifier* "class" Identifier TypeParameters? ("extends" Type)? ("implements" TypeList)?
+      ClassBody
+
+EnumDeclaration
+  = ClassModifier* "enum" Identifier ("implements" TypeList)? EnumBody
+
+InterfaceDeclaration
+  = NormalInterfaceDeclaration
+  | AnnotationTypeDeclaration
+
+NormalInterfaceDeclaration
+  = InterfaceModifier* "interface" Identifier TypeParameters? ("extends" TypeList)? InterfaceBody
+
+AnnotationTypeDeclaration
+  = InterfaceModifier* "@" "interface" Identifier AnnotationTypeBody
+
+ClassBody
+  = "{" ClassBodyDeclaration* "}"
+
+ClassBodyDeclaration
+  = Initializer
+  | ConstructorDeclaration
+  | FieldDeclaration
+  | MethodDeclaration
+  | ClassDeclaration
+  | InterfaceDeclaration
+  | ";"
+
+MethodDeclaration
+  = MethodModifier* TypeParameters? Result MethodDeclarator Throws? MethodBody
+
+MethodDeclarator
+  = Identifier "(" FormalParameterList? ")" ("[" "]")*
+
+FormalParameterList
+  = (FormalParameter ",")* LastFormalParameter
+
+FormalParameter
+  = VariableModifier* Type VariableDeclaratorId
+
+LastFormalParameter
+  = VariableModifier* Type "..." VariableDeclaratorId
+  | FormalParameter
+
+Result
+  = Type
+  | "void"
+
+Throws
+  = "throws" { QualifiedIdentifier "," }+
+
+MethodBody
+  = Block
+  | ";"
+
+ConstructorDeclaration
+  = ConstructorModifier* TypeParameters? Identifier "(" FormalParameterList? ")" Throws?
+      ConstructorBody
+
+ConstructorBody
+  = "{" ExplicitConstructorInvocation? BlockStatement* "}"
+
+ExplicitConstructorInvocation
+  = constructorInvocation:NonWildTypeArguments? "this" Arguments ";"
+  | superConstructorInvocation:(Primary ".")? NonWildTypeArguments? "super" Arguments ";"
+
+TypeList
+  = { Type "," }+
+
+TypeParameters
+  = "<" { TypeParameter "," }+ ">"
+
+TypeParameter
+  = Identifier TypeBound?
+
+TypeBound
+  = "extends" { ReferenceType "&" }+
+
+Initializer
+  = "static"? Block
+
+EnumBody
+  = "{" { EnumConstant "," }* ","? EnumBodyDeclarations? "}"
+
+EnumConstant
+  = Annotation* Identifier Arguments? ClassBody?
+
+Arguments
+  = "(" { Expression "," }* ")"
+
+EnumBodyDeclarations
+  = ";" ClassBodyDeclaration*
+
+Block
+  = "{" BlockStatement* "}"
+
+BlockStatement
+  = LocalVariableDeclarationStatement
+  | ClassDeclaration
+  | Statement
+
+LocalVariableDeclarationStatement
+  = VariableModifier* Type { VariableDeclarator "," }+ ";"
+
+FieldDeclaration
+  = FieldModifier* Type { VariableDeclarator "," }+ ";"
+
+VariableDeclarator
+  = VariableDeclaratorId ("=" VariableInitializer)?
+
+VariableDeclaratorId
+  = Identifier ("[" "]")*
+
+VariableInitializer
+  = ArrayInitializer
+  | Expression
+
+ArrayInitializer
+  = "{" { VariableInitializer "," }* ","? "}"
+
+Annotation
+  = "@" QualifiedIdentifier Values?
+
+Values
+  = "(" AnnotationElement? ")"
+
+AnnotationElement
+  = { ElementValuePair "," }+
+  | { ElementValue "," }+
+
+ElementValuePair
+  = Identifier "=" ElementValue
+
+ElementValue
+  = Expression!Assignment
+  | Annotation
+  | ElementValueArrayInitializer
+
+ElementValueArrayInitializer
+  = "{" { ElementValue "," }* ","? "}"
+
+InterfaceBody
+  = "{" InterfaceMemberDeclaration* "}"
+
+InterfaceMemberDeclaration
+  = ConstantDeclaration
+  | AbstractMethodDeclaration
+  | ClassDeclaration
+  | InterfaceDeclaration
+  | ";"
+
+ConstantDeclaration
+  = ConstantModifier* Type { VariableDeclarator "," }+ ";"
+
+AbstractMethodDeclaration
+  = AbstractMethodModifier* TypeParameters? Result MethodDeclarator Throws? ";"
+
+AnnotationTypeBody
+  = "{" AnnotationTypeElementDeclaration* "}"
+
+AnnotationTypeElementDeclaration
+  = AnnotationMethodDeclaration
+  | ConstantDeclaration
+  | ClassDeclaration
+  | InterfaceDeclaration
+  | AnnotationTypeDeclaration
+  | ";"
+
+AnnotationMethodDeclaration
+  = AbstractMethodModifier* Type Identifier "(" ")" ("[" "]")* DefaultValue? ";"
+
+DefaultValue
+  = "default" ElementValue
+
+ClassModifier
+  = Annotation
+  | "public"
+  | "protected"
+  | "private"
+  | "abstract"
+  | "static"
+  | "final"
+  | "strictfp"
+
+ConstructorModifier
+  = Annotation
+  | "public"
+  | "protected"
+  | "private"
+
+InterfaceModifier
+  = Annotation
+  | "public"
+  | "protected"
+  | "private"
+  | "abstract"
+  | "static"
+  | "strictfp"
+
+ConstantModifier
+  = Annotation
+  | "public"
+  | "static"
+  | "final"
+
+AbstractMethodModifier
+  = Annotation
+  | "public"
+  | "abstract"
+
+FieldModifier
+  = Annotation
+  | "public"
+  | "protected"
+  | "private"
+  | "static"
+  | "final"
+  | "transient"
+  | "volatile"
+
+MethodModifier
+  = Annotation
+  | "public"
+  | "protected"
+  | "private"
+  | "abstract"
+  | "static"
+  | "final"
+  | "synchronized"
+  | "native"
+  | "strictfp"
+
+VariableModifier
+  = Annotation
+  | "final"
+
+Statement
+  = Block                                                                       #Block
+  | ";"                                                                         #Empty
+  | StatementExpression ";"                                                     #Expression
+  | "assert" Expression (":" Expression)? ";"                                   #Assert
+  | "switch" "(" Expression ")" "{" SwitchBlockStatementGroup* SwitchLabel* "}" #Switch
+  | "do" Statement "while" "(" Expression ")" ";"                               #Do
+  | "break" Identifier? ";"                                                     #Break
+  | "continue" Identifier? ";"                                                  #Continue
+  | "return" Expression? ";"                                                    #Return
+  | "synchronized" "(" Expression ")" Block                                     #Synchronized
+  | "throw" Expression ";"                                                      #Throw
+  | "try" Block CatchClause+                                                    #Try
+  | "try" Block CatchClause* Finally                                            #TryFinally
+  | "try" ResourceSpecification Block CatchClause* Finally?                     #TryWithResourcesStmt
+  | Identifier ":" Statement                                                    #Label
+  | "if" "(" Expression ")" Statement !>> Else                                  #If
+  | "if" "(" Expression ")" Statement "else" Statement                          #IfElse
+  | "while" "(" Expression ")" Statement                                        #While
+  | "for" "(" ForControl ")" Statement                                          #For
+
+StatementExpression
+  = Expression!Comparison
+
+SwitchBlockStatementGroup
+  = SwitchLabel+ BlockStatement+
+
+SwitchLabel
+  = "case" Expression ":"
+  | "default" ":"
+
+ForControl
+  = ForInit? ";" Expression? ";" ForUpdate? #Traditional
+  | FormalParameter ":" Expression          #Enhanced
+
+CatchClause
+  = "catch" "(" VariableModifier* CatchType Identifier ")" Block
+
+CatchType
+  = { QualifiedIdentifier "|" }+
+
+Finally
+  = "finally" Block
+
+ResourceSpecification
+  = "(" { Resource ";" }+ ";"? ")"
+
+Resource
+  = VariableModifier* ReferenceType VariableDeclaratorId "=" Expression
+
+ForInit
+  = expressions:{ StatementExpression "," }+
+  | variableDecl:VariableModifier* Type { VariableDeclarator "," }+
+
+ForUpdate
+  = { Expression "," }+
+
+Expression
+  = Primary                                                           #Primary
+  > Expression!InstanceOf "." Selector                                #FieldAccess
+  | MethodInvocation                                                  #MethodInvocation
+  | Expression "[" Expression "]"                                     #ArrayAccess
+  | Expression ("++" | "--")                                          #Postfix
+  > ("+" | "-" | "++" | "--" | "!" | "~") Expression                  #Prefix
+  | "new" (ClassInstanceCreationExpression | ArrayCreationExpression) #New
+  | "(" PrimitiveType ")" Expression                                  #PrimitiveCast
+  | "(" ReferenceType ")" Expression!Prefix                           #RefCast
+  > left Expression ("*" | "/" | "%") Expression
+  > left Expression ("+" | "-") !>> Plus !>> Minus Expression
+  > left Expression ("<<" | ">>" | ">>>") Expression
+  > left Expression ("<" | ">" | "<=" | ">=") Expression              #Comparison
+  > Expression "instanceof" Type                                      #InstanceOf
+  > left Expression ("==" | "!=") Expression
+  > left Expression "&" Expression
+  > left Expression "^" Expression
+  > left Expression "|" Expression
+  > left Expression "&&" Expression
+  > left Expression "||" Expression
+  > right Expression "?" Expression ":" Expression                    #Conditional
+  > right Expression!Comparison AssignmentOperator Expression         #Assignment
+
+Primary
+  = Literal                           #Literal
+  | (QualifiedIdentifier ".")? "this" #This
+  | "super" SuperSuffix               #Super
+  | Identifier                        #Identifier
+  | (Type | "void") "." "class"       #Type
+  | "(" Expression ")"                #Expression
+
+QualifiedIdentifier
+  = { Identifier "." }+
+
+SuperSuffix
+  = "." NonWildTypeArguments? Identifier Arguments?
+
+NonWildTypeArguments
+  = "<" { Type "," }+ ">"
+
+Type
+  = PrimitiveType
+  | ReferenceType
+
+PrimitiveType
+  = "byte"
+  | "short"
+  | "char"
+  | "int"
+  | "long"
+  | "float"
+  | "double"
+  | "boolean"
+
+ReferenceType
+  = ReferenceTypeNonArrayType
+  | ArrayType
+
+ReferenceTypeNonArrayType
+  = TypeDeclSpecifier TypeArguments?
+
+TypeDeclSpecifier
+  = Identifier (TypeArguments? "." Identifier)*
+
+TypeArguments
+  = "<" { TypeArgument "," }+ ">"
+
+TypeArgument
+  = Type                                                   #Simple
+  | wildCardTypeArgument:"?" (("extends" | "super") Type)? #WildCard
+
+ArrayType
+  = (ReferenceTypeNonArrayType | PrimitiveType) ("[" "]")+
+
+Literal
+  = IntegerLiteral !>> Dot #Integer
+  | FloatingPointLiteral   #Float
+  | BooleanLiteral         #Boolean
+  | CharacterLiteral       #Character
+  | StringLiteral          #String
+  | NullLiteral            #Null
+
+Selector
+  = Identifier                                                                   #Identifier
+  | NonWildTypeArguments? MethodInvocation                                       #Method
+  | "super" SuperSuffix                                                          #Super
+  | "new" TypeArguments? Identifier TypeArgumentsOrDiamond? Arguments ClassBody? #New
+
+MethodInvocation
+  = Identifier Arguments
+
+TypeArgumentsOrDiamond
+  = "<" ">"
+  | TypeArguments
+
+ClassInstanceCreationExpression
+  = TypeArguments? TypeDeclSpecifier TypeArgumentsOrDiamond? Arguments ClassBody?
+
+ArrayCreationExpression
+  = (PrimitiveType | ReferenceType) ("[" Expression "]")+ ("[" "]")* !>> OpenBracket
+  | (PrimitiveType | ReferenceTypeNonArrayType) ("[" "]")+ ArrayInitializer
+
+Layout
+  = (WhiteSpace | Comment)* !>> WhiteSpace !>> Comment
+
+@regex
+HexDigit = [0-9a-fA-F]
+
+@regex
+IntegerLiteral
+  = DecimalIntegerLiteral
+  | HexIntegerLiteral
+  | OctalIntegerLiteral
+  | BinaryIntegerLiteral
+
+@regex
+FloatingPointLiteral
+  = DecimalFloatingPointLiteral
+  | HexadecimalFloatingPointLiteral
+
+@regex
+BooleanLiteral
+  = "true"
+  | "false"
+
+@regex
+CharacterLiteral = ['] (SingleCharacter | EscapeSequence) [']
+
+@regex
+DecimalIntegerLiteral = ([0] | ([1-9] (Digits? | ([_]+ Digits)))) [lL]?
+
+@regex
+StringLiteral = ["] StringCharacter* ["]
+
+@regex
+NullLiteral = "null"
+
+@regex
+Dot = "."
+
+@regex
+HexIntegerLiteral = [0] [xX] [0-9a-fA-F] ([0-9a-fA-F_]* [0-9a-fA-F])? [lL]?
+
+@regex
+OctalIntegerLiteral = [0] [_]* [0-7] ([0-7_]* [0-7])? [lL]?
+
+@regex
+BinaryIntegerLiteral = [0] [bB] [01] ([01_]* [01])? [lL]?
+
+@regex
+HexadecimalFloatingPointLiteral
+  = [0] [xX] ((HexDigits [.]?) | (HexDigits? [.] HexDigits)) [pP] Sign? Digits FloatTypeSuffix?
+
+@regex
+HexDigits = HexDigit (HexDigitOrUnderscore* HexDigit)?
+
+@regex
+HexDigitOrUnderscore = [0-9a-fA-F_]
+
+@regex
+DecimalFloatingPointLiteral
+  = ((Digits '.' Digits?) | ('.' Digits)) ExponentPart? FloatTypeSuffix?
+  | Digits ((ExponentPart FloatTypeSuffix?) | FloatTypeSuffix)
+
+@regex
+ExponentPart = ExponentIndicator SignedInteger
+
+@regex
+ExponentIndicator = [eE]
+
+@regex
+SignedInteger = Sign? Digits
+
+@regex
+Sign = [+\-]
+
+@regex
+Digits = [0-9] ([0-9_]* [0-9])?
+
+@regex
+FloatTypeSuffix = [fFdD]
+
+@regex
+OctalNumeral = [0] [_]* OctalDigits
+
+@regex
+OctalDigits = OctalDigit (OctalDigitOrUnderscore* OctalDigit)?
+
+@regex
+OctalDigit = [0-7]
+
+@regex
+OctalDigitOrUnderscore = [0-7_]
+
+@regex
+SingleCharacter
+  = ![\\\n\r']
+  | UnicodeEscape
+
+@regex
+StringCharacter
+  = ![\\\n\r"]
+  | UnicodeEscape
+  | EscapeSequence
+
+@regex
+EscapeSequence
+  = "\\" [btnfr"'\\]
+  | "\\" (ZeroToThree? OctalDigit)? OctalDigit
+
+@regex
+UnicodeEscape = [\\] [u]+ HexDigit HexDigit HexDigit HexDigit
+
+@regex
+ZeroToThree = [0-3]
+
+@regex
+AssignmentOperator
+  = "="
+  | "+="
+  | "-="
+  | "*="
+  | "/="
+  | "&="
+  | "|="
+  | "^="
+  | "%="
+  | "<<="
+  | ">>="
+  | ">>>="
+
+@regex
+Identifier = JavaLetter !<< IdentifierChars \ Keyword \ BooleanLiteral \ NullLiteral
+
+@regex
+IdentifierChars = JavaLetter (JavaLetter | JavaLetterOrDigit)*
+
+@regex
+JavaLetter = [A-Za-z$_]
+
+@regex
+JavaLetterOrDigit = [A-Za-z$_0-9]
+
+@regex
+Else = "else"
+
+@regex
+OpenBracket = "["
+
+@regex
+Plus = "+"
+
+@regex
+Minus = "-"
+
+@regex
+Keyword
+  = "abstract"
+  | "continue"
+  | "for"
+  | "new"
+  | "switch"
+  | "assert"
+  | "default"
+  | "if"
+  | "package"
+  | "synchronized"
+  | "boolean"
+  | "do"
+  | "goto"
+  | "private"
+  | "this"
+  | "break"
+  | "double"
+  | "implements"
+  | "protected"
+  | "throw"
+  | "byte"
+  | "else"
+  | "import"
+  | "public"
+  | "throws"
+  | "case"
+  | "enum"
+  | "instanceof"
+  | "return"
+  | "transient"
+  | "catch"
+  | "extends"
+  | "int"
+  | "short"
+  | "try"
+  | "char"
+  | "final"
+  | "interface"
+  | "static"
+  | "void"
+  | "class"
+  | "finally"
+  | "long"
+  | "strictfp"
+  | "volatile"
+  | "const"
+  | "float"
+  | "native"
+  | "super"
+  | "while"
+
+@regex
+WhiteSpace = [\ \t\f\r\n]
+
+@regex
+Comment
+  = TraditionalComment
+  | EndOfLineComment
+
+@regex
+CommentChar
+  = [/]
+  | [*]* ![/*]
+
+@regex
+TraditionalComment = "/*" CommentChar* [*]+ "/"
+
+@regex
+EndOfLineComment = "//" ![\r\n]* [\r\n]
