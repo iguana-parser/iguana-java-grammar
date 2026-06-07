@@ -22,18 +22,19 @@ ClassDeclaration
   | EnumDeclaration
 
 NormalClassDeclaration
-  = ClassModifier* "class" Identifier TypeParameters? ("extends" Type)? ("implements" TypeList)?
-      ClassBody
+  = ClassModifier* "class" Identifier TypeParameters? ("extends" ClassType)?
+      ("implements" ClassTypeList)? ClassBody
 
 EnumDeclaration
-  = ClassModifier* "enum" Identifier ("implements" TypeList)? EnumBody
+  = ClassModifier* "enum" Identifier ("implements" ClassTypeList)? EnumBody
 
 InterfaceDeclaration
   = NormalInterfaceDeclaration
   | AnnotationTypeDeclaration
 
 NormalInterfaceDeclaration
-  = InterfaceModifier* "interface" Identifier TypeParameters? ("extends" TypeList)? InterfaceBody
+  = InterfaceModifier* "interface" Identifier TypeParameters? ("extends" ClassTypeList)?
+      InterfaceBody
 
 AnnotationTypeDeclaration
   = InterfaceModifier* "@" "interface" Identifier AnnotationTypeBody
@@ -54,24 +55,28 @@ MethodDeclaration
   = MethodModifier* TypeParameters? Result MethodDeclarator Throws? MethodBody
 
 MethodDeclarator
-  = Identifier "(" FormalParameterList? ")" ("[" "]")*
+  = Identifier "(" FormalParameterList? ")" (Annotation* "[" "]")*
 
 FormalParameterList
-  = (FormalParameter ",")* LastFormalParameter
+  = ReceiverParameter ("," (FormalParameter ",")* LastFormalParameter)?
+  | (FormalParameter ",")* LastFormalParameter
 
 FormalParameter
-  = VariableModifier* Type VariableDeclaratorId
+  = VariableModifier* UnannType VariableDeclaratorId
 
 LastFormalParameter
-  = VariableModifier* Type "..." VariableDeclaratorId
+  = VariableModifier* UnannType "..." VariableDeclaratorId
   | FormalParameter
 
+ReceiverParameter
+  = Annotation* UnannType (Identifier ".")? "this"
+
 Result
-  = Type
+  = UnannType
   | "void"
 
 Throws
-  = "throws" { QualifiedIdentifier "," }+
+  = "throws" { ClassType "," }+
 
 MethodBody
   = Block
@@ -91,14 +96,17 @@ ExplicitConstructorInvocation
 TypeList
   = { Type "," }+
 
+ClassTypeList
+  = { ClassType "," }+
+
 TypeParameters
   = "<" { TypeParameter "," }+ ">"
 
 TypeParameter
-  = Identifier TypeBound?
+  = Annotation* Identifier TypeBound?
 
 TypeBound
-  = "extends" { ReferenceType "&" }+
+  = "extends" Annotation* ReferenceType ("&" Annotation* ReferenceType)*
 
 Initializer
   = "static"? Block
@@ -124,16 +132,16 @@ BlockStatement
   | Statement
 
 LocalVariableDeclarationStatement
-  = VariableModifier* Type { VariableDeclarator "," }+ ";"
+  = VariableModifier* UnannType { VariableDeclarator "," }+ ";"
 
 FieldDeclaration
-  = FieldModifier* Type { VariableDeclarator "," }+ ";"
+  = FieldModifier* UnannType { VariableDeclarator "," }+ ";"
 
 VariableDeclarator
   = VariableDeclaratorId ("=" VariableInitializer)?
 
 VariableDeclaratorId
-  = Identifier ("[" "]")*
+  = Identifier (Annotation* "[" "]")*
 
 VariableInitializer
   = ArrayInitializer
@@ -168,16 +176,16 @@ InterfaceBody
 
 InterfaceMemberDeclaration
   = ConstantDeclaration
-  | AbstractMethodDeclaration
+  | InterfaceMethodDeclaration
   | ClassDeclaration
   | InterfaceDeclaration
   | ";"
 
 ConstantDeclaration
-  = ConstantModifier* Type { VariableDeclarator "," }+ ";"
+  = ConstantModifier* UnannType { VariableDeclarator "," }+ ";"
 
-AbstractMethodDeclaration
-  = AbstractMethodModifier* TypeParameters? Result MethodDeclarator Throws? ";"
+InterfaceMethodDeclaration
+  = InterfaceMethodModifier* TypeParameters? Result MethodDeclarator Throws? (Block | ";")
 
 AnnotationTypeBody
   = "{" AnnotationTypeElementDeclaration* "}"
@@ -191,7 +199,7 @@ AnnotationTypeElementDeclaration
   | ";"
 
 AnnotationMethodDeclaration
-  = AbstractMethodModifier* Type Identifier "(" ")" ("[" "]")* DefaultValue? ";"
+  = InterfaceMethodModifier* UnannType Identifier "(" ")" (Annotation* "[" "]")* DefaultValue? ";"
 
 DefaultValue
   = "default" ElementValue
@@ -227,10 +235,13 @@ ConstantModifier
   | "static"
   | "final"
 
-AbstractMethodModifier
+InterfaceMethodModifier
   = Annotation
   | "public"
   | "abstract"
+  | "default"
+  | "static"
+  | "strictfp"
 
 FieldModifier
   = Annotation
@@ -297,7 +308,7 @@ CatchClause
   = "catch" "(" VariableModifier* CatchType Identifier ")" Block
 
 CatchType
-  = { QualifiedIdentifier "|" }+
+  = { ClassType "|" }+
 
 Finally
   = "finally" Block
@@ -306,7 +317,7 @@ ResourceSpecification
   = "(" { Resource ";" }+ ";"? ")"
 
 Resource
-  = VariableModifier* ReferenceType VariableDeclaratorId "=" Expression
+  = VariableModifier* UnannReferenceType VariableDeclaratorId "=" Expression
 
 ForInit
   = expressions:{ StatementExpression "," }+
@@ -321,10 +332,17 @@ Expression
   | MethodInvocation                                                  #MethodInvocation
   | Expression "[" Expression "]"                                     #ArrayAccess
   | Expression ("++" | "--")                                          #Postfix
+  | Expression "::" TypeArguments? Identifier                         #MethodRef
+  | QualifiedIdentifier TypeArguments ("." Identifier TypeArguments?)* "::" TypeArguments?
+      Identifier                                                      #ParameterizedMethodRef
+  | ClassType "::" TypeArguments? "new"                               #ConstructorRef
+  | ArrayType "::" "new"                                              #ArrayConstructorRef
+  | "super" "::" TypeArguments? Identifier                            #SuperMethodRef
+  | QualifiedIdentifier "." "super" "::" TypeArguments? Identifier    #QualifiedSuperMethodRef
   > ("+" | "-" | "++" | "--" | "!" | "~") Expression                  #Prefix
   | "new" (ClassInstanceCreationExpression | ArrayCreationExpression) #New
   | "(" PrimitiveType ")" Expression                                  #PrimitiveCast
-  | "(" ReferenceType ")" Expression!Prefix                           #RefCast
+  | "(" { ReferenceType "&" }+ ")" Expression!Prefix                  #RefCast
   > left Expression ("*" | "/" | "%") Expression
   > left Expression ("+" | "-") !>> Plus !>> Minus Expression
   > left Expression ("<<" | ">>" | ">>>") Expression
@@ -338,6 +356,7 @@ Expression
   > left Expression "||" Expression
   > right Expression "?" Expression ":" Expression                    #Conditional
   > right Expression!Comparison AssignmentOperator Expression         #Assignment
+  > Lambda                                                            #Lambda
 
 Primary
   = Literal                           #Literal
@@ -361,6 +380,33 @@ Type
   | ReferenceType
 
 PrimitiveType
+  = Annotation* ("byte" | "short" | "char" | "int" | "long" | "float" | "double" | "boolean")
+
+ReferenceType
+  = ClassType
+  | ArrayType
+
+ClassType
+  = Annotation* Identifier TypeArguments? ("." Annotation* Identifier TypeArguments?)*
+
+ClassTypeToInstantiate
+  = Annotation* Identifier ("." Annotation* Identifier)* TypeArgumentsOrDiamond?
+
+TypeArguments
+  = "<" { TypeArgument "," }+ ">"
+
+TypeArgument
+  = ReferenceType                                                                   #Simple
+  | wildCardTypeArgument:Annotation* "?" (("extends" | "super") ReferenceType)?     #WildCard
+
+ArrayType
+  = (ClassType | PrimitiveType) (Annotation* "[" "]")+
+
+UnannType
+  = UnannPrimitiveType
+  | UnannReferenceType
+
+UnannPrimitiveType
   = "byte"
   | "short"
   | "char"
@@ -370,25 +416,15 @@ PrimitiveType
   | "double"
   | "boolean"
 
-ReferenceType
-  = ReferenceTypeNonArrayType
-  | ArrayType
+UnannReferenceType
+  = UnannClassType
+  | UnannArrayType
 
-ReferenceTypeNonArrayType
-  = TypeDeclSpecifier TypeArguments?
+UnannClassType
+  = Identifier TypeArguments? ("." Annotation* Identifier TypeArguments?)*
 
-TypeDeclSpecifier
-  = Identifier (TypeArguments? "." Identifier)*
-
-TypeArguments
-  = "<" { TypeArgument "," }+ ">"
-
-TypeArgument
-  = Type                                                   #Simple
-  | wildCardTypeArgument:"?" (("extends" | "super") Type)? #WildCard
-
-ArrayType
-  = (ReferenceTypeNonArrayType | PrimitiveType) ("[" "]")+
+UnannArrayType
+  = (UnannClassType | UnannPrimitiveType) (Annotation* "[" "]")+
 
 Literal
   = IntegerLiteral !>> Dot #Integer
@@ -412,11 +448,26 @@ TypeArgumentsOrDiamond
   | TypeArguments
 
 ClassInstanceCreationExpression
-  = TypeArguments? TypeDeclSpecifier TypeArgumentsOrDiamond? Arguments ClassBody?
+  = TypeArguments? ClassTypeToInstantiate Arguments ClassBody?
 
 ArrayCreationExpression
-  = (PrimitiveType | ReferenceType) ("[" Expression "]")+ ("[" "]")* !>> OpenBracket
-  | (PrimitiveType | ReferenceTypeNonArrayType) ("[" "]")+ ArrayInitializer
+  = (PrimitiveType | ReferenceType) (Annotation* "[" Expression "]")+ (Annotation* "[" "]")* !>> OpenBracket
+  | (PrimitiveType | ClassType) (Annotation* "[" "]")+ ArrayInitializer
+
+Lambda
+  = LambdaParameters "->" LambdaBody
+
+LambdaParameters
+  = Identifier                           #LambdaSingle
+  | "(" InferredFormalParameterList? ")" #LambdaInferred
+  | "(" FormalParameterList ")"          #LambdaTyped
+
+InferredFormalParameterList
+  = { Identifier "," }+
+
+LambdaBody
+  = Expression
+  | Block
 
 Layout
   = (WhiteSpace | Comment)* !>> WhiteSpace !>> Comment
