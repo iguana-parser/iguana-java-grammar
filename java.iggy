@@ -4,7 +4,28 @@ layout Layout
 
 @Start
 CompilationUnit
+  = OrdinaryCompilationUnit
+  | ModularCompilationUnit
+
+OrdinaryCompilationUnit
   = PackageDeclaration? ImportDeclaration* TypeDeclaration*
+
+ModularCompilationUnit
+  = ImportDeclaration* ModuleDeclaration
+
+ModuleDeclaration
+  = Annotation* "open"? "module" QualifiedIdentifier "{" ModuleDirective* "}"
+
+ModuleDirective
+  = "requires" RequiresModifier* QualifiedIdentifier ";"                   #Requires
+  | "exports" QualifiedIdentifier ("to" { QualifiedIdentifier "," }+)? ";" #Exports
+  | "opens" QualifiedIdentifier ("to" { QualifiedIdentifier "," }+)? ";"   #Opens
+  | "uses" QualifiedIdentifier ";"                                         #Uses
+  | "provides" QualifiedIdentifier "with" { QualifiedIdentifier "," }+ ";" #Provides
+
+RequiresModifier
+  = "transitive"
+  | "static"
 
 PackageDeclaration
   = Annotation* "package" QualifiedIdentifier ";"
@@ -242,6 +263,7 @@ InterfaceMethodModifier
   | "default"
   | "static"
   | "strictfp"
+  | "private"
 
 FieldModifier
   = Annotation
@@ -318,6 +340,8 @@ ResourceSpecification
 
 Resource
   = VariableModifier* UnannReferenceType VariableDeclaratorId "=" Expression
+  | QualifiedIdentifier
+  | "this" "." Identifier
 
 ForInit
   = expressions:{ StatementExpression "," }+
@@ -396,8 +420,8 @@ TypeArguments
   = "<" { TypeArgument "," }+ ">"
 
 TypeArgument
-  = ReferenceType                                                                   #Simple
-  | wildCardTypeArgument:Annotation* "?" (("extends" | "super") ReferenceType)?     #WildCard
+  = ReferenceType                                                               #Simple
+  | wildCardTypeArgument:Annotation* "?" (("extends" | "super") ReferenceType)? #WildCard
 
 ArrayType
   = (ClassType | PrimitiveType) (Annotation* "[" "]")+
@@ -451,7 +475,8 @@ ClassInstanceCreationExpression
   = TypeArguments? ClassTypeToInstantiate Arguments ClassBody?
 
 ArrayCreationExpression
-  = (PrimitiveType | ReferenceType) (Annotation* "[" Expression "]")+ (Annotation* "[" "]")* !>> OpenBracket
+  = (PrimitiveType | ReferenceType) (Annotation* "[" Expression "]")+
+      (Annotation* "[" "]")* !>> OpenBracket
   | (PrimitiveType | ClassType) (Annotation* "[" "]")+ ArrayInitializer
 
 Lambda
@@ -674,6 +699,7 @@ Keyword
   | "native"
   | "super"
   | "while"
+  | "_"
 
 @regex
 WhiteSpace = [\ \t\f\r\n]

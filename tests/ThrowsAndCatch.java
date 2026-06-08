@@ -38,7 +38,7 @@ class ThrowsAndCatch {
         }
     }
 
-    // try-with-resources
+    // try-with-resources, declaration form (Java 7+)
     void twr() throws Exception {
         try (java.io.InputStream in = null) {
             in.read();
@@ -46,6 +46,41 @@ class ThrowsAndCatch {
             throw e;
         } finally {
             System.out.println("done");
+        }
+    }
+
+    // try-with-resources, variable-access form: effectively-final local (Java 9+)
+    void twrAccess() throws Exception {
+        java.io.InputStream src = null;
+        try (src) {
+            src.read();
+        }
+    }
+
+    // try-with-resources, variable-access form: static final field
+    static final java.io.InputStream SHARED = null;
+
+    void twrField() throws Exception {
+        try (SHARED) {
+            SHARED.read();
+        }
+    }
+
+    // try-with-resources, variable-access form: this.field
+    java.io.InputStream fieldStream;
+
+    void twrThisField() throws Exception {
+        try (this.fieldStream) {
+            this.fieldStream.read();
+        }
+    }
+
+    // Multiple resources mixing declaration and access forms
+    void twrMixed() throws Exception {
+        java.io.InputStream pre = null;
+        try (pre; java.io.InputStream fresh = null) {
+            pre.read();
+            fresh.read();
         }
     }
 }

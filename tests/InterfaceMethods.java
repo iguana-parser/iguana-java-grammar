@@ -19,4 +19,14 @@ interface InterfaceMethods {
 
     // Explicit public abstract
     public abstract String name();
+
+    // Private interface method (Java 9)
+    private int helper(int x) {
+        return x + 1;
+    }
+
+    // Private static interface method (Java 9)
+    private static int constant() {
+        return 42;
+    }
 }
