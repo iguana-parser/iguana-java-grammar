@@ -73,7 +73,7 @@ ClassBodyDeclaration
   | ";"
 
 MethodDeclaration
-  = MethodModifier* TypeParameters? Result MethodDeclarator Throws? MethodBody
+  = MethodModifier* (TypeParameters Annotation*)? Result MethodDeclarator Throws? MethodBody
 
 MethodDeclarator
   = Identifier "(" FormalParameterList? ")" (Annotation* "[" "]")*
@@ -206,7 +206,7 @@ ConstantDeclaration
   = ConstantModifier* UnannType { VariableDeclarator "," }+ ";"
 
 InterfaceMethodDeclaration
-  = InterfaceMethodModifier* TypeParameters? Result MethodDeclarator Throws? (Block | ";")
+  = InterfaceMethodModifier* (TypeParameters Annotation*)? Result MethodDeclarator Throws? (Block | ";")
 
 AnnotationTypeBody
   = "{" AnnotationTypeElementDeclaration* "}"

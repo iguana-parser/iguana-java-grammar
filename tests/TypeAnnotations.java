@@ -103,4 +103,12 @@ class TypeAnnotations {
     <T extends @NonNull Comparable<@NonNull T> & @Readonly Cloneable> T multiBound(T t) {
         return t;
     }
+
+    // Annotated return type after type parameters (the gap from JDK 9 corpus)
+    public <T> @NonNull String annotatedReturn() { return null; }
+
+    public <T extends Number> @NonNull T annotatedReturnGeneric(T t) { return t; }
+
+    // Mixed: annotated return + annotated parameter
+    <T> @NonNull List<@Tainted T> mixed(@NonNull T t) { return null; }
 }
