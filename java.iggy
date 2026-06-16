@@ -1,7 +1,5 @@
 grammar Java
 
-layout Layout
-
 @Start
 CompilationUnit
   = OrdinaryCompilationUnit
@@ -494,121 +492,122 @@ LambdaBody
   = Expression
   | Block
 
+@Layout
 Layout
   = (WhiteSpace | Comment)* !>> WhiteSpace !>> Comment
 
-@regex
+@Regex
 HexDigit = [0-9a-fA-F]
 
-@regex
+@Regex
 IntegerLiteral
   = DecimalIntegerLiteral
   | HexIntegerLiteral
   | OctalIntegerLiteral
   | BinaryIntegerLiteral
 
-@regex
+@Regex
 FloatingPointLiteral
   = DecimalFloatingPointLiteral
   | HexadecimalFloatingPointLiteral
 
-@regex
+@Regex
 BooleanLiteral
   = "true"
   | "false"
 
-@regex
+@Regex
 CharacterLiteral = ['] (SingleCharacter | EscapeSequence) [']
 
-@regex
+@Regex
 DecimalIntegerLiteral = ([0] | ([1-9] (Digits? | ([_]+ Digits)))) [lL]?
 
-@regex
+@Regex
 StringLiteral = ["] StringCharacter* ["]
 
-@regex
+@Regex
 NullLiteral = "null"
 
-@regex
+@Regex
 Dot = "."
 
-@regex
+@Regex
 HexIntegerLiteral = [0] [xX] [0-9a-fA-F] ([0-9a-fA-F_]* [0-9a-fA-F])? [lL]?
 
-@regex
+@Regex
 OctalIntegerLiteral = [0] [_]* [0-7] ([0-7_]* [0-7])? [lL]?
 
-@regex
+@Regex
 BinaryIntegerLiteral = [0] [bB] [01] ([01_]* [01])? [lL]?
 
-@regex
+@Regex
 HexadecimalFloatingPointLiteral
   = [0] [xX] ((HexDigits [.]?) | (HexDigits? [.] HexDigits)) [pP] Sign? Digits FloatTypeSuffix?
 
-@regex
+@Regex
 HexDigits = HexDigit (HexDigitOrUnderscore* HexDigit)?
 
-@regex
+@Regex
 HexDigitOrUnderscore = [0-9a-fA-F_]
 
-@regex
+@Regex
 DecimalFloatingPointLiteral
   = ((Digits '.' Digits?) | ('.' Digits)) ExponentPart? FloatTypeSuffix?
   | Digits ((ExponentPart FloatTypeSuffix?) | FloatTypeSuffix)
 
-@regex
+@Regex
 ExponentPart = ExponentIndicator SignedInteger
 
-@regex
+@Regex
 ExponentIndicator = [eE]
 
-@regex
+@Regex
 SignedInteger = Sign? Digits
 
-@regex
+@Regex
 Sign = [+\-]
 
-@regex
+@Regex
 Digits = [0-9] ([0-9_]* [0-9])?
 
-@regex
+@Regex
 FloatTypeSuffix = [fFdD]
 
-@regex
+@Regex
 OctalNumeral = [0] [_]* OctalDigits
 
-@regex
+@Regex
 OctalDigits = OctalDigit (OctalDigitOrUnderscore* OctalDigit)?
 
-@regex
+@Regex
 OctalDigit = [0-7]
 
-@regex
+@Regex
 OctalDigitOrUnderscore = [0-7_]
 
-@regex
+@Regex
 SingleCharacter
   = ![\\\n\r']
   | UnicodeEscape
 
-@regex
+@Regex
 StringCharacter
   = ![\\\n\r"]
   | UnicodeEscape
   | EscapeSequence
 
-@regex
+@Regex
 EscapeSequence
   = "\\" [btnfr"'\\]
   | "\\" (ZeroToThree? OctalDigit)? OctalDigit
 
-@regex
+@Regex
 UnicodeEscape = [\\] [u]+ HexDigit HexDigit HexDigit HexDigit
 
-@regex
+@Regex
 ZeroToThree = [0-3]
 
-@regex
+@Regex
 AssignmentOperator
   = "="
   | "+="
@@ -623,31 +622,31 @@ AssignmentOperator
   | ">>="
   | ">>>="
 
-@regex
+@Regex
 Identifier = JavaLetter !<< IdentifierChars \ Keyword \ BooleanLiteral \ NullLiteral
 
-@regex
+@Regex
 IdentifierChars = JavaLetter (JavaLetter | JavaLetterOrDigit)*
 
-@regex
+@Regex
 JavaLetter = [A-Za-z$_]
 
-@regex
+@Regex
 JavaLetterOrDigit = [A-Za-z$_0-9]
 
-@regex
+@Regex
 Else = "else"
 
-@regex
+@Regex
 OpenBracket = "["
 
-@regex
+@Regex
 Plus = "+"
 
-@regex
+@Regex
 Minus = "-"
 
-@regex
+@Regex
 Keyword
   = "abstract"
   | "continue"
@@ -701,21 +700,21 @@ Keyword
   | "while"
   | "_"
 
-@regex
+@Regex
 WhiteSpace = [\ \t\f\r\n]
 
-@regex
+@Regex
 Comment
   = TraditionalComment
   | EndOfLineComment
 
-@regex
+@Regex
 CommentChar
   = [/]
   | [*]* ![/*]
 
-@regex
+@Regex
 TraditionalComment = "/*" CommentChar* [*]+ "/"
 
-@regex
+@Regex
 EndOfLineComment = "//" ![\r\n]* [\r\n]

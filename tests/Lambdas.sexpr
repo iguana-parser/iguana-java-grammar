@@ -1,0 +1,599 @@
+(CompilationUnit
+  (OrdinaryCompilationUnit
+    (ImportDeclaration*
+      (ImportDeclaration
+        "import"
+        (QualifiedIdentifier
+          ({Identifier "."}+ Identifier "." Identifier "." Identifier))
+        ";")
+      (ImportDeclaration
+        "import"
+        (QualifiedIdentifier
+          ({Identifier "."}+ Identifier "." Identifier "." Identifier "." Identifier))
+        ";")
+      (ImportDeclaration
+        "import"
+        (QualifiedIdentifier
+          ({Identifier "."}+ Identifier "." Identifier "." Identifier "." Identifier))
+        ";")
+      (ImportDeclaration
+        "import"
+        (QualifiedIdentifier
+          ({Identifier "."}+ Identifier "." Identifier "." Identifier "." Identifier))
+        ";")
+      (ImportDeclaration
+        "import"
+        (QualifiedIdentifier
+          ({Identifier "."}+ Identifier "." Identifier "." Identifier "." Identifier))
+        ";")
+      (ImportDeclaration
+        "import"
+        (QualifiedIdentifier
+          ({Identifier "."}+ Identifier "." Identifier "." Identifier "." Identifier))
+        ";"))
+    (TypeDeclaration*
+      (TypeDeclaration
+        (ClassDeclaration
+          (NormalClassDeclaration
+            "class"
+            Identifier
+            (ClassBody
+              "{"
+              (ClassBodyDeclaration*
+                (ClassBodyDeclaration
+                  (FieldDeclaration
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannClassType Identifier)))
+                    ({VariableDeclarator ","}+
+                      (VariableDeclarator
+                        (VariableDeclaratorId Identifier)
+                        "="
+                        (VariableInitializer
+                          (Expression
+                            (Lambda
+                              (LambdaParameters Identifier)
+                              "->"
+                              (LambdaBody
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  "+"
+                                  (Expression
+                                    (Primary
+                                      (Literal IntegerLiteral))))))))))
+                    ";"))
+                (ClassBodyDeclaration
+                  (FieldDeclaration
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannClassType
+                          Identifier
+                          (TypeArguments
+                            "<"
+                            ({TypeArgument ","}+
+                              (TypeArgument
+                                (ReferenceType
+                                  (ClassType Identifier))))
+                            ">"))))
+                    ({VariableDeclarator ","}+
+                      (VariableDeclarator
+                        (VariableDeclaratorId Identifier)
+                        "="
+                        (VariableInitializer
+                          (Expression
+                            (Lambda
+                              (LambdaParameters "(" ")")
+                              "->"
+                              (LambdaBody
+                                (Expression
+                                  (Primary
+                                    (Literal StringLiteral)))))))))
+                    ";"))
+                (ClassBodyDeclaration
+                  (FieldDeclaration
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannClassType Identifier)))
+                    ({VariableDeclarator ","}+
+                      (VariableDeclarator
+                        (VariableDeclaratorId Identifier)
+                        "="
+                        (VariableInitializer
+                          (Expression
+                            (Lambda
+                              (LambdaParameters
+                                "("
+                                (InferredFormalParameterList
+                                  ({Identifier ","}+ Identifier))
+                                ")")
+                              "->"
+                              (LambdaBody
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  "*"
+                                  (Expression
+                                    (Primary
+                                      (Literal IntegerLiteral))))))))))
+                    ";"))
+                (ClassBodyDeclaration
+                  (FieldDeclaration
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannClassType Identifier)))
+                    ({VariableDeclarator ","}+
+                      (VariableDeclarator
+                        (VariableDeclaratorId Identifier)
+                        "="
+                        (VariableInitializer
+                          (Expression
+                            (Lambda
+                              (LambdaParameters
+                                "("
+                                (InferredFormalParameterList
+                                  ({Identifier ","}+ Identifier "," Identifier))
+                                ")")
+                              "->"
+                              (LambdaBody
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  "+"
+                                  (Expression
+                                    (Primary Identifier)))))))))
+                    ";"))
+                (ClassBodyDeclaration
+                  (FieldDeclaration
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannClassType Identifier)))
+                    ({VariableDeclarator ","}+
+                      (VariableDeclarator
+                        (VariableDeclaratorId Identifier)
+                        "="
+                        (VariableInitializer
+                          (Expression
+                            (Lambda
+                              (LambdaParameters
+                                "("
+                                (FormalParameterList
+                                  (LastFormalParameter
+                                    (FormalParameter
+                                      (UnannType
+                                        (UnannPrimitiveType "int"))
+                                      (VariableDeclaratorId Identifier))))
+                                ")")
+                              "->"
+                              (LambdaBody
+                                (Expression
+                                  (Primary Identifier))))))))
+                    ";"))
+                (ClassBodyDeclaration
+                  (FieldDeclaration
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannClassType Identifier)))
+                    ({VariableDeclarator ","}+
+                      (VariableDeclarator
+                        (VariableDeclaratorId Identifier)
+                        "="
+                        (VariableInitializer
+                          (Expression
+                            (Lambda
+                              (LambdaParameters
+                                "("
+                                (FormalParameterList
+                                  ((FormalParameter ",")*
+                                    (FormalParameter
+                                      (UnannType
+                                        (UnannPrimitiveType "int"))
+                                      (VariableDeclaratorId Identifier))
+                                    ",")
+                                  (LastFormalParameter
+                                    (FormalParameter
+                                      (UnannType
+                                        (UnannPrimitiveType "int"))
+                                      (VariableDeclaratorId Identifier))))
+                                ")")
+                              "->"
+                              (LambdaBody
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  "+"
+                                  (Expression
+                                    (Primary Identifier)))))))))
+                    ";"))
+                (ClassBodyDeclaration
+                  (FieldDeclaration
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannClassType Identifier)))
+                    ({VariableDeclarator ","}+
+                      (VariableDeclarator
+                        (VariableDeclaratorId Identifier)
+                        "="
+                        (VariableInitializer
+                          (Expression
+                            (Lambda
+                              (LambdaParameters
+                                "("
+                                (FormalParameterList
+                                  (LastFormalParameter
+                                    (FormalParameter
+                                      (VariableModifier*
+                                        (VariableModifier "final"))
+                                      (UnannType
+                                        (UnannPrimitiveType "int"))
+                                      (VariableDeclaratorId Identifier))))
+                                ")")
+                              "->"
+                              (LambdaBody
+                                (Expression
+                                  (Primary Identifier))))))))
+                    ";"))
+                (ClassBodyDeclaration
+                  (FieldDeclaration
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannClassType Identifier)))
+                    ({VariableDeclarator ","}+
+                      (VariableDeclarator
+                        (VariableDeclaratorId Identifier)
+                        "="
+                        (VariableInitializer
+                          (Expression
+                            (Lambda
+                              (LambdaParameters
+                                "("
+                                (FormalParameterList
+                                  (LastFormalParameter
+                                    (FormalParameter
+                                      (UnannType
+                                        (UnannPrimitiveType "int"))
+                                      (VariableDeclaratorId Identifier))))
+                                ")")
+                              "->"
+                              (LambdaBody
+                                (Block
+                                  "{"
+                                  (BlockStatement*
+                                    (BlockStatement
+                                      (Statement
+                                        "return"
+                                        (Expression
+                                          (Expression
+                                            (Primary Identifier))
+                                          "*"
+                                          (Expression
+                                            (Primary Identifier)))
+                                        ";")))
+                                  "}")))))))
+                    ";"))
+                (ClassBodyDeclaration
+                  (FieldDeclaration
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannClassType
+                          Identifier
+                          (TypeArguments
+                            "<"
+                            ({TypeArgument ","}+
+                              (TypeArgument
+                                (ReferenceType
+                                  (ClassType Identifier)))
+                              ","
+                              (TypeArgument
+                                (ReferenceType
+                                  (ClassType Identifier))))
+                            ">"))))
+                    ({VariableDeclarator ","}+
+                      (VariableDeclarator
+                        (VariableDeclaratorId Identifier)
+                        "="
+                        (VariableInitializer
+                          (Expression
+                            (Lambda
+                              (LambdaParameters Identifier)
+                              "->"
+                              (LambdaBody
+                                (Block
+                                  "{"
+                                  (BlockStatement*
+                                    (BlockStatement
+                                      (LocalVariableDeclarationStatement
+                                        (UnannType
+                                          (UnannPrimitiveType "int"))
+                                        ({VariableDeclarator ","}+
+                                          (VariableDeclarator
+                                            (VariableDeclaratorId Identifier)
+                                            "="
+                                            (VariableInitializer
+                                              (Expression
+                                                (Expression
+                                                  (Primary Identifier))
+                                                "*"
+                                                (Expression
+                                                  (Primary
+                                                    (Literal IntegerLiteral)))))))
+                                        ";"))
+                                    (BlockStatement
+                                      (Statement
+                                        "return"
+                                        (Expression
+                                          (Expression
+                                            (Primary Identifier))
+                                          "+"
+                                          (Expression
+                                            (Primary
+                                              (Literal IntegerLiteral))))
+                                        ";")))
+                                  "}")))))))
+                    ";"))
+                (ClassBodyDeclaration
+                  (FieldDeclaration
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannClassType
+                          Identifier
+                          (TypeArguments
+                            "<"
+                            ({TypeArgument ","}+
+                              (TypeArgument
+                                (ReferenceType
+                                  (ClassType Identifier)))
+                              ","
+                              (TypeArgument
+                                (ReferenceType
+                                  (ClassType
+                                    Identifier
+                                    (TypeArguments
+                                      "<"
+                                      ({TypeArgument ","}+
+                                        (TypeArgument
+                                          (ReferenceType
+                                            (ClassType Identifier)))
+                                        ","
+                                        (TypeArgument
+                                          (ReferenceType
+                                            (ClassType Identifier))))
+                                      ">")))))
+                            ">"))))
+                    ({VariableDeclarator ","}+
+                      (VariableDeclarator
+                        (VariableDeclaratorId Identifier)
+                        "="
+                        (VariableInitializer
+                          (Expression
+                            (Lambda
+                              (LambdaParameters Identifier)
+                              "->"
+                              (LambdaBody
+                                (Expression
+                                  (Lambda
+                                    (LambdaParameters Identifier)
+                                    "->"
+                                    (LambdaBody
+                                      (Expression
+                                        (Expression
+                                          (Primary Identifier))
+                                        "+"
+                                        (Expression
+                                          (Primary Identifier))))))))))))
+                    ";"))
+                (ClassBodyDeclaration
+                  (FieldDeclaration
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannClassType
+                          Identifier
+                          (TypeArguments
+                            "<"
+                            ({TypeArgument ","}+
+                              (TypeArgument
+                                (ReferenceType
+                                  (ClassType Identifier)))
+                              ","
+                              (TypeArgument
+                                (ReferenceType
+                                  (ClassType Identifier)))
+                              ","
+                              (TypeArgument
+                                (ReferenceType
+                                  (ClassType Identifier))))
+                            ">"))))
+                    ({VariableDeclarator ","}+
+                      (VariableDeclarator
+                        (VariableDeclaratorId Identifier)
+                        "="
+                        (VariableInitializer
+                          (Expression
+                            (Lambda
+                              (LambdaParameters
+                                "("
+                                (InferredFormalParameterList
+                                  ({Identifier ","}+ Identifier "," Identifier))
+                                ")")
+                              "->"
+                              (LambdaBody
+                                (Expression
+                                  (Expression
+                                    (Expression
+                                      (Primary Identifier))
+                                    ">"
+                                    (Expression
+                                      (Primary Identifier)))
+                                  "?"
+                                  (Expression
+                                    (Primary Identifier))
+                                  ":"
+                                  (Expression
+                                    (Primary Identifier)))))))))
+                    ";"))
+                (ClassBodyDeclaration
+                  (FieldDeclaration
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannClassType
+                          Identifier
+                          (TypeArguments
+                            "<"
+                            ({TypeArgument ","}+
+                              (TypeArgument
+                                (ReferenceType
+                                  (ClassType Identifier)))
+                              ","
+                              (TypeArgument
+                                (ReferenceType
+                                  (ClassType
+                                    Identifier
+                                    (TypeArguments
+                                      "<"
+                                      ({TypeArgument ","}+
+                                        (TypeArgument
+                                          (ReferenceType
+                                            (ClassType Identifier)))
+                                        ","
+                                        (TypeArgument
+                                          (ReferenceType
+                                            (ClassType Identifier))))
+                                      ">")))))
+                            ">"))))
+                    ({VariableDeclarator ","}+
+                      (VariableDeclarator
+                        (VariableDeclaratorId Identifier)
+                        "="
+                        (VariableInitializer
+                          (Expression
+                            (Lambda
+                              (LambdaParameters Identifier)
+                              "->"
+                              (LambdaBody
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  "::"
+                                  Identifier)))))))
+                    ";"))
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result "void")
+                    (MethodDeclarator
+                      Identifier
+                      "("
+                      (FormalParameterList
+                        (LastFormalParameter
+                          (FormalParameter
+                            (UnannType
+                              (UnannReferenceType
+                                (UnannClassType
+                                  Identifier
+                                  (TypeArguments
+                                    "<"
+                                    ({TypeArgument ","}+
+                                      (TypeArgument
+                                        (ReferenceType
+                                          (ClassType Identifier))))
+                                    ">"))))
+                            (VariableDeclaratorId Identifier))))
+                      ")")
+                    (MethodBody
+                      (Block
+                        "{"
+                        (BlockStatement*
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  "."
+                                  (Selector
+                                    (MethodInvocation
+                                      Identifier
+                                      (Arguments
+                                        "("
+                                        ({Expression ","}*
+                                          (Expression
+                                            (Lambda
+                                              (LambdaParameters Identifier)
+                                              "->"
+                                              (LambdaBody
+                                                (Expression
+                                                  (Expression
+                                                    (Expression
+                                                      (Primary Identifier))
+                                                    "."
+                                                    (Selector Identifier))
+                                                  "."
+                                                  (Selector
+                                                    (MethodInvocation
+                                                      Identifier
+                                                      (Arguments
+                                                        "("
+                                                        ({Expression ","}*
+                                                          (Expression
+                                                            (Primary Identifier)))
+                                                        ")"))))))))
+                                        ")")))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  "."
+                                  (Selector
+                                    (MethodInvocation
+                                      Identifier
+                                      (Arguments
+                                        "("
+                                        ({Expression ","}*
+                                          (Expression
+                                            (Lambda
+                                              (LambdaParameters Identifier)
+                                              "->"
+                                              (LambdaBody
+                                                (Expression
+                                                  (Expression
+                                                    (Primary Identifier))
+                                                  "<"
+                                                  (Expression
+                                                    (Primary
+                                                      (Literal IntegerLiteral))))))))
+                                        ")")))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  "."
+                                  (Selector
+                                    (MethodInvocation
+                                      Identifier
+                                      (Arguments
+                                        "("
+                                        ({Expression ","}*
+                                          (Expression
+                                            (Lambda
+                                              (LambdaParameters
+                                                "("
+                                                (InferredFormalParameterList
+                                                  ({Identifier ","}+ Identifier "," Identifier))
+                                                ")")
+                                              "->"
+                                              (LambdaBody
+                                                (Expression
+                                                  (Expression
+                                                    (Primary Identifier))
+                                                  "-"
+                                                  (Expression
+                                                    (Primary Identifier)))))))
+                                        ")")))))
+                              ";")))
+                        "}")))))
+              "}")))))))

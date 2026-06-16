@@ -1,0 +1,88 @@
+(CompilationUnit
+  (ModularCompilationUnit
+    (ImportDeclaration*
+      (ImportDeclaration
+        "import"
+        (QualifiedIdentifier
+          ({Identifier "."}+ Identifier "." Identifier "." Identifier "." Identifier))
+        ";"))
+    (ModuleDeclaration
+      (Annotation*
+        (Annotation
+          "@"
+          (QualifiedIdentifier
+            ({Identifier "."}+ Identifier))))
+      "open"
+      "module"
+      (QualifiedIdentifier
+        ({Identifier "."}+ Identifier "." Identifier "." Identifier))
+      "{"
+      (ModuleDirective*
+        (ModuleDirective
+          "requires"
+          (QualifiedIdentifier
+            ({Identifier "."}+ Identifier "." Identifier))
+          ";")
+        (ModuleDirective
+          "requires"
+          (RequiresModifier*
+            (RequiresModifier "transitive"))
+          (QualifiedIdentifier
+            ({Identifier "."}+ Identifier "." Identifier))
+          ";")
+        (ModuleDirective
+          "requires"
+          (RequiresModifier*
+            (RequiresModifier "static"))
+          (QualifiedIdentifier
+            ({Identifier "."}+ Identifier "." Identifier "." Identifier))
+          ";")
+        (ModuleDirective
+          "exports"
+          (QualifiedIdentifier
+            ({Identifier "."}+ Identifier "." Identifier "." Identifier "." Identifier))
+          ";")
+        (ModuleDirective
+          "exports"
+          (QualifiedIdentifier
+            ({Identifier "."}+ Identifier "." Identifier "." Identifier "." Identifier))
+          "to"
+          ({QualifiedIdentifier ","}+
+            (QualifiedIdentifier
+              ({Identifier "."}+ Identifier "." Identifier "." Identifier))
+            ","
+            (QualifiedIdentifier
+              ({Identifier "."}+ Identifier "." Identifier "." Identifier)))
+          ";")
+        (ModuleDirective
+          "opens"
+          (QualifiedIdentifier
+            ({Identifier "."}+ Identifier "." Identifier "." Identifier "." Identifier))
+          ";")
+        (ModuleDirective
+          "opens"
+          (QualifiedIdentifier
+            ({Identifier "."}+ Identifier "." Identifier "." Identifier "." Identifier))
+          "to"
+          ({QualifiedIdentifier ","}+
+            (QualifiedIdentifier
+              ({Identifier "."}+ Identifier "." Identifier "." Identifier)))
+          ";")
+        (ModuleDirective
+          "uses"
+          (QualifiedIdentifier
+            ({Identifier "."}+ Identifier "." Identifier "." Identifier "." Identifier))
+          ";")
+        (ModuleDirective
+          "provides"
+          (QualifiedIdentifier
+            ({Identifier "."}+ Identifier "." Identifier "." Identifier "." Identifier))
+          "with"
+          ({QualifiedIdentifier ","}+
+            (QualifiedIdentifier
+              ({Identifier "."}+ Identifier "." Identifier "." Identifier "." Identifier "." Identifier))
+            ","
+            (QualifiedIdentifier
+              ({Identifier "."}+ Identifier "." Identifier "." Identifier "." Identifier "." Identifier)))
+          ";"))
+      "}")))

@@ -1,0 +1,1118 @@
+(CompilationUnit
+  (OrdinaryCompilationUnit
+    (TypeDeclaration*
+      (TypeDeclaration
+        (ClassDeclaration
+          (NormalClassDeclaration
+            "class"
+            Identifier
+            (ClassBody
+              "{"
+              (ClassBodyDeclaration*
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result "void")
+                    (MethodDeclarator Identifier "(" ")")
+                    (MethodBody
+                      (Block
+                        "{"
+                        (BlockStatement*
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Expression
+                                      (Primary Identifier))
+                                    "+"
+                                    (Expression
+                                      (Primary Identifier)))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Expression
+                                      (Primary Identifier))
+                                    "-"
+                                    (Expression
+                                      (Primary Identifier)))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Expression
+                                      (Primary Identifier))
+                                    "*"
+                                    (Expression
+                                      (Primary Identifier)))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Expression
+                                      (Primary Identifier))
+                                    "/"
+                                    (Expression
+                                      (Primary Identifier)))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Expression
+                                      (Primary Identifier))
+                                    "%"
+                                    (Expression
+                                      (Primary Identifier)))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Expression
+                                      (Primary
+                                        (Literal IntegerLiteral)))
+                                    "+"
+                                    (Expression
+                                      (Expression
+                                        (Primary
+                                          (Literal IntegerLiteral)))
+                                      "*"
+                                      (Expression
+                                        (Primary
+                                          (Literal IntegerLiteral)))))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Expression
+                                      (Primary
+                                        "("
+                                        (Expression
+                                          (Expression
+                                            (Primary
+                                              (Literal IntegerLiteral)))
+                                          "+"
+                                          (Expression
+                                            (Primary
+                                              (Literal IntegerLiteral))))
+                                        ")"))
+                                    "*"
+                                    (Expression
+                                      (Primary
+                                        (Literal IntegerLiteral))))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Expression
+                                      (Expression
+                                        (Primary Identifier))
+                                      "+"
+                                      (Expression
+                                        (Expression
+                                          (Primary Identifier))
+                                        "*"
+                                        (Expression
+                                          (Primary Identifier))))
+                                    "-"
+                                    (Expression
+                                      (Expression
+                                        (Primary Identifier))
+                                      "/"
+                                      (Expression
+                                        (Primary Identifier))))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    "-"
+                                    (Expression
+                                      (Primary Identifier)))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    "+"
+                                    (Expression
+                                      (Primary Identifier)))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    "!"
+                                    (Expression
+                                      (Primary Identifier)))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    "~"
+                                    (Expression
+                                      (Primary Identifier)))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  "++"
+                                  (Expression
+                                    (Primary Identifier))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  "--"
+                                  (Expression
+                                    (Primary Identifier))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  "++"))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  "--"))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Expression
+                                      (Primary Identifier))
+                                    "<<"
+                                    (Expression
+                                      (Primary
+                                        (Literal IntegerLiteral))))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Expression
+                                      (Primary Identifier))
+                                    ">>"
+                                    (Expression
+                                      (Primary
+                                        (Literal IntegerLiteral))))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Expression
+                                      (Primary Identifier))
+                                    ">>>"
+                                    (Expression
+                                      (Primary
+                                        (Literal IntegerLiteral))))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Expression
+                                      (Primary Identifier))
+                                    "<"
+                                    (Expression
+                                      (Primary Identifier)))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Expression
+                                      (Primary Identifier))
+                                    ">"
+                                    (Expression
+                                      (Primary Identifier)))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Expression
+                                      (Primary Identifier))
+                                    "<="
+                                    (Expression
+                                      (Primary Identifier)))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Expression
+                                      (Primary Identifier))
+                                    ">="
+                                    (Expression
+                                      (Primary Identifier)))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Expression
+                                      (Primary Identifier))
+                                    "=="
+                                    (Expression
+                                      (Primary Identifier)))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Expression
+                                      (Primary Identifier))
+                                    "!="
+                                    (Expression
+                                      (Primary Identifier)))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Expression
+                                      (Primary Identifier))
+                                    "&"
+                                    (Expression
+                                      (Primary Identifier)))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Expression
+                                      (Primary Identifier))
+                                    "|"
+                                    (Expression
+                                      (Primary Identifier)))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Expression
+                                      (Primary Identifier))
+                                    "^"
+                                    (Expression
+                                      (Primary Identifier)))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Expression
+                                      (Primary Identifier))
+                                    "&&"
+                                    (Expression
+                                      (Primary Identifier)))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Expression
+                                      (Primary Identifier))
+                                    "||"
+                                    (Expression
+                                      (Primary Identifier)))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Expression
+                                      (Expression
+                                        (Primary Identifier))
+                                      ">"
+                                      (Expression
+                                        (Primary Identifier)))
+                                    "?"
+                                    (Expression
+                                      (Primary Identifier))
+                                    ":"
+                                    (Expression
+                                      (Primary Identifier)))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Expression
+                                      (Expression
+                                        (Primary Identifier))
+                                      ">"
+                                      (Expression
+                                        (Primary
+                                          (Literal IntegerLiteral))))
+                                    "?"
+                                    (Expression
+                                      (Primary
+                                        (Literal IntegerLiteral)))
+                                    ":"
+                                    (Expression
+                                      (Expression
+                                        (Expression
+                                          (Primary Identifier))
+                                        "<"
+                                        (Expression
+                                          (Primary
+                                            (Literal IntegerLiteral))))
+                                      "?"
+                                      (Expression
+                                        "-"
+                                        (Expression
+                                          (Primary
+                                            (Literal IntegerLiteral))))
+                                      ":"
+                                      (Expression
+                                        (Primary
+                                          (Literal IntegerLiteral)))))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Expression
+                                      (Primary Identifier))
+                                    "instanceof"
+                                    (Type
+                                      (ReferenceType
+                                        (ClassType Identifier))))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    "("
+                                    (PrimitiveType "int")
+                                    ")"
+                                    (Expression
+                                      (Primary
+                                        (Literal FloatingPointLiteral))))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    "("
+                                    ({ReferenceType "&"}+
+                                      (ReferenceType
+                                        (ClassType Identifier)))
+                                    ")"
+                                    (Expression
+                                      (Primary Identifier)))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    "("
+                                    ({ReferenceType "&"}+
+                                      (ReferenceType
+                                        (ClassType
+                                          Identifier
+                                          (TypeArguments
+                                            "<"
+                                            ({TypeArgument ","}+
+                                              (TypeArgument
+                                                (ReferenceType
+                                                  (ClassType Identifier))))
+                                            ">")))
+                                      "&"
+                                      (ReferenceType
+                                        (ClassType
+                                          Identifier
+                                          (("." Annotation* Identifier TypeArguments?)* "." Identifier "." Identifier))))
+                                    ")"
+                                    (Expression
+                                      (Primary Identifier)))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Primary
+                                      (Literal IntegerLiteral)))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Primary
+                                      (Literal IntegerLiteral)))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Primary
+                                      (Literal IntegerLiteral)))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Primary
+                                      (Literal IntegerLiteral)))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Primary
+                                      (Literal IntegerLiteral)))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Primary
+                                      (Literal IntegerLiteral)))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Primary
+                                      (Literal IntegerLiteral)))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Primary
+                                      (Literal IntegerLiteral)))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Primary
+                                      (Literal IntegerLiteral)))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Primary
+                                      (Literal IntegerLiteral)))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Primary
+                                      (Literal IntegerLiteral)))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Expression
+                                      (Primary Identifier))
+                                    "."
+                                    (Selector Identifier))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Expression
+                                      (Primary Identifier))
+                                    "."
+                                    (Selector
+                                      (MethodInvocation
+                                        Identifier
+                                        (Arguments "(" ")"))))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Expression
+                                      (Primary Identifier))
+                                    "["
+                                    (Expression
+                                      (Primary
+                                        (Literal IntegerLiteral)))
+                                    "]")))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Expression
+                                      (Expression
+                                        (Primary Identifier))
+                                      "["
+                                      (Expression
+                                        (Primary
+                                          (Literal IntegerLiteral)))
+                                      "]")
+                                    "["
+                                    (Expression
+                                      (Primary
+                                        (Literal IntegerLiteral)))
+                                    "]")))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Expression
+                                      (Primary
+                                        (Literal StringLiteral)))
+                                    "."
+                                    (Selector
+                                      (MethodInvocation
+                                        Identifier
+                                        (Arguments "(" ")"))))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Expression
+                                      (Primary
+                                        (Literal StringLiteral)))
+                                    "."
+                                    (Selector
+                                      (MethodInvocation
+                                        Identifier
+                                        (Arguments
+                                          "("
+                                          ({Expression ","}*
+                                            (Expression
+                                              (Primary
+                                                (Literal IntegerLiteral)))
+                                            ","
+                                            (Expression
+                                              (Primary
+                                                (Literal IntegerLiteral))))
+                                          ")"))))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Expression
+                                      (Expression
+                                        (Expression
+                                          (Primary
+                                            (Literal StringLiteral)))
+                                        "."
+                                        (Selector
+                                          (MethodInvocation
+                                            Identifier
+                                            (Arguments "(" ")"))))
+                                      "."
+                                      (Selector
+                                        (MethodInvocation
+                                          Identifier
+                                          (Arguments "(" ")"))))
+                                    "."
+                                    (Selector
+                                      (MethodInvocation
+                                        Identifier
+                                        (Arguments "(" ")"))))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    "new"
+                                    (ClassInstanceCreationExpression
+                                      (ClassTypeToInstantiate Identifier)
+                                      (Arguments "(" ")")))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    "new"
+                                    (ClassInstanceCreationExpression
+                                      (ClassTypeToInstantiate
+                                        Identifier
+                                        (("." Annotation* Identifier)* "." Identifier "." Identifier)
+                                        (TypeArgumentsOrDiamond
+                                          (TypeArguments
+                                            "<"
+                                            ({TypeArgument ","}+
+                                              (TypeArgument
+                                                (ReferenceType
+                                                  (ClassType Identifier))))
+                                            ">")))
+                                      (Arguments "(" ")")))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    "new"
+                                    (ClassInstanceCreationExpression
+                                      (ClassTypeToInstantiate
+                                        Identifier
+                                        (("." Annotation* Identifier)* "." Identifier "." Identifier)
+                                        (TypeArgumentsOrDiamond "<" ">"))
+                                      (Arguments "(" ")")))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    "new"
+                                    (ArrayCreationExpression
+                                      (PrimitiveType "int")
+                                      ((Annotation* "[" Expression "]")+
+                                        "["
+                                        (Expression
+                                          (Primary
+                                            (Literal IntegerLiteral)))
+                                        "]")))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    "new"
+                                    (ArrayCreationExpression
+                                      (PrimitiveType "int")
+                                      ((Annotation* "[" Expression "]")+
+                                        "["
+                                        (Expression
+                                          (Primary
+                                            (Literal IntegerLiteral)))
+                                        "]"
+                                        "["
+                                        (Expression
+                                          (Primary
+                                            (Literal IntegerLiteral)))
+                                        "]")))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    "new"
+                                    (ArrayCreationExpression
+                                      (PrimitiveType "int")
+                                      ((Annotation* "[" Expression "]")+
+                                        "["
+                                        (Expression
+                                          (Primary
+                                            (Literal IntegerLiteral)))
+                                        "]")
+                                      ((Annotation* "[" "]")* "[" "]")))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Primary "this"))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Primary
+                                      "super"
+                                      (SuperSuffix
+                                        "."
+                                        Identifier
+                                        (Arguments "(" ")"))))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Primary
+                                      (Type
+                                        (ReferenceType
+                                          (ClassType Identifier)))
+                                      "."
+                                      "class"))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Primary
+                                      (Type
+                                        (PrimitiveType "int"))
+                                      "."
+                                      "class"))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Primary "void" "." "class"))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Primary
+                                      "("
+                                      (Expression
+                                        (Primary
+                                          "("
+                                          (Expression
+                                            (Primary
+                                              "("
+                                              (Expression
+                                                (Primary Identifier))
+                                              ")"))
+                                          ")"))
+                                      ")"))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Lambda
+                                      (LambdaParameters "(" ")")
+                                      "->"
+                                      (LambdaBody
+                                        (Block "{" "}"))))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Lambda
+                                      (LambdaParameters Identifier)
+                                      "->"
+                                      (LambdaBody
+                                        (Expression
+                                          (Expression
+                                            (Primary Identifier))
+                                          "+"
+                                          (Expression
+                                            (Primary
+                                              (Literal IntegerLiteral)))))))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Lambda
+                                      (LambdaParameters
+                                        "("
+                                        (InferredFormalParameterList
+                                          ({Identifier ","}+ Identifier "," Identifier))
+                                        ")")
+                                      "->"
+                                      (LambdaBody
+                                        (Expression
+                                          (Expression
+                                            (Primary Identifier))
+                                          "+"
+                                          (Expression
+                                            (Primary Identifier))))))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Expression
+                                      (Primary Identifier))
+                                    "::"
+                                    Identifier)))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (ClassType Identifier)
+                                    "::"
+                                    "new")))
+                              ";")))
+                        "}")))))
+              "}")))))))

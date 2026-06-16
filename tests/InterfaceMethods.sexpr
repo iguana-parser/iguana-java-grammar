@@ -1,0 +1,176 @@
+(CompilationUnit
+  (OrdinaryCompilationUnit
+    (TypeDeclaration*
+      (TypeDeclaration
+        (InterfaceDeclaration
+          (NormalInterfaceDeclaration
+            "interface"
+            Identifier
+            (InterfaceBody
+              "{"
+              (InterfaceMemberDeclaration*
+                (InterfaceMemberDeclaration
+                  (InterfaceMethodDeclaration
+                    (Result
+                      (UnannType
+                        (UnannPrimitiveType "int")))
+                    (MethodDeclarator
+                      Identifier
+                      "("
+                      (FormalParameterList
+                        (LastFormalParameter
+                          (FormalParameter
+                            (UnannType
+                              (UnannPrimitiveType "int"))
+                            (VariableDeclaratorId Identifier))))
+                      ")")
+                    ";"))
+                (InterfaceMemberDeclaration
+                  (InterfaceMethodDeclaration
+                    (InterfaceMethodModifier*
+                      (InterfaceMethodModifier "default"))
+                    (Result
+                      (UnannType
+                        (UnannPrimitiveType "int")))
+                    (MethodDeclarator
+                      Identifier
+                      "("
+                      (FormalParameterList
+                        (LastFormalParameter
+                          (FormalParameter
+                            (UnannType
+                              (UnannPrimitiveType "int"))
+                            (VariableDeclaratorId Identifier))))
+                      ")")
+                    (Block
+                      "{"
+                      (BlockStatement*
+                        (BlockStatement
+                          (Statement
+                            "return"
+                            (Expression
+                              (Expression
+                                (Primary Identifier))
+                              "*"
+                              (Expression
+                                (Primary
+                                  (Literal IntegerLiteral))))
+                            ";")))
+                      "}")))
+                (InterfaceMemberDeclaration
+                  (InterfaceMethodDeclaration
+                    (InterfaceMethodModifier*
+                      (InterfaceMethodModifier "static"))
+                    (Result
+                      (UnannType
+                        (UnannPrimitiveType "int")))
+                    (MethodDeclarator Identifier "(" ")")
+                    (Block
+                      "{"
+                      (BlockStatement*
+                        (BlockStatement
+                          (Statement
+                            "return"
+                            (Expression
+                              (Primary
+                                (Literal IntegerLiteral)))
+                            ";")))
+                      "}")))
+                (InterfaceMemberDeclaration
+                  (InterfaceMethodDeclaration
+                    (InterfaceMethodModifier*
+                      (InterfaceMethodModifier "default"))
+                    (TypeParameters
+                      "<"
+                      ({TypeParameter ","}+
+                        (TypeParameter Identifier))
+                      ">")
+                    (Result
+                      (UnannType
+                        (UnannReferenceType
+                          (UnannClassType Identifier))))
+                    (MethodDeclarator
+                      Identifier
+                      "("
+                      (FormalParameterList
+                        (LastFormalParameter
+                          (FormalParameter
+                            (UnannType
+                              (UnannReferenceType
+                                (UnannClassType Identifier)))
+                            (VariableDeclaratorId Identifier))))
+                      ")")
+                    (Block
+                      "{"
+                      (BlockStatement*
+                        (BlockStatement
+                          (Statement
+                            "return"
+                            (Expression
+                              (Primary Identifier))
+                            ";")))
+                      "}")))
+                (InterfaceMemberDeclaration
+                  (InterfaceMethodDeclaration
+                    (InterfaceMethodModifier*
+                      (InterfaceMethodModifier "public")
+                      (InterfaceMethodModifier "abstract"))
+                    (Result
+                      (UnannType
+                        (UnannReferenceType
+                          (UnannClassType Identifier))))
+                    (MethodDeclarator Identifier "(" ")")
+                    ";"))
+                (InterfaceMemberDeclaration
+                  (InterfaceMethodDeclaration
+                    (InterfaceMethodModifier*
+                      (InterfaceMethodModifier "private"))
+                    (Result
+                      (UnannType
+                        (UnannPrimitiveType "int")))
+                    (MethodDeclarator
+                      Identifier
+                      "("
+                      (FormalParameterList
+                        (LastFormalParameter
+                          (FormalParameter
+                            (UnannType
+                              (UnannPrimitiveType "int"))
+                            (VariableDeclaratorId Identifier))))
+                      ")")
+                    (Block
+                      "{"
+                      (BlockStatement*
+                        (BlockStatement
+                          (Statement
+                            "return"
+                            (Expression
+                              (Expression
+                                (Primary Identifier))
+                              "+"
+                              (Expression
+                                (Primary
+                                  (Literal IntegerLiteral))))
+                            ";")))
+                      "}")))
+                (InterfaceMemberDeclaration
+                  (InterfaceMethodDeclaration
+                    (InterfaceMethodModifier*
+                      (InterfaceMethodModifier "private")
+                      (InterfaceMethodModifier "static"))
+                    (Result
+                      (UnannType
+                        (UnannPrimitiveType "int")))
+                    (MethodDeclarator Identifier "(" ")")
+                    (Block
+                      "{"
+                      (BlockStatement*
+                        (BlockStatement
+                          (Statement
+                            "return"
+                            (Expression
+                              (Primary
+                                (Literal IntegerLiteral)))
+                            ";")))
+                      "}"))))
+              "}")))))))

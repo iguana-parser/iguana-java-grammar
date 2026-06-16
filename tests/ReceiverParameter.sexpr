@@ -1,0 +1,258 @@
+(CompilationUnit
+  (OrdinaryCompilationUnit
+    (ImportDeclaration*
+      (ImportDeclaration
+        "import"
+        (QualifiedIdentifier
+          ({Identifier "."}+ Identifier "." Identifier "." Identifier "." Identifier))
+        ";")
+      (ImportDeclaration
+        "import"
+        (QualifiedIdentifier
+          ({Identifier "."}+ Identifier "." Identifier "." Identifier "." Identifier))
+        ";"))
+    (TypeDeclaration*
+      (TypeDeclaration
+        (InterfaceDeclaration
+          (AnnotationTypeDeclaration
+            (InterfaceModifier*
+              (InterfaceModifier
+                (Annotation
+                  "@"
+                  (QualifiedIdentifier
+                    ({Identifier "."}+ Identifier))
+                  (Values
+                    "("
+                    (AnnotationElement
+                      ({ElementValue ","}+
+                        (ElementValue
+                          (ElementValueArrayInitializer
+                            "{"
+                            ({ElementValue ","}*
+                              (ElementValue
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  "."
+                                  (Selector Identifier))))
+                            "}"))))
+                    ")"))))
+            "@"
+            "interface"
+            Identifier
+            (AnnotationTypeBody "{" "}"))))
+      (TypeDeclaration
+        (InterfaceDeclaration
+          (AnnotationTypeDeclaration
+            (InterfaceModifier*
+              (InterfaceModifier
+                (Annotation
+                  "@"
+                  (QualifiedIdentifier
+                    ({Identifier "."}+ Identifier))
+                  (Values
+                    "("
+                    (AnnotationElement
+                      ({ElementValue ","}+
+                        (ElementValue
+                          (ElementValueArrayInitializer
+                            "{"
+                            ({ElementValue ","}*
+                              (ElementValue
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  "."
+                                  (Selector Identifier))))
+                            "}"))))
+                    ")"))))
+            "@"
+            "interface"
+            Identifier
+            (AnnotationTypeBody "{" "}"))))
+      (TypeDeclaration
+        (ClassDeclaration
+          (NormalClassDeclaration
+            "class"
+            Identifier
+            (ClassBody
+              "{"
+              (ClassBodyDeclaration*
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result "void")
+                    (MethodDeclarator
+                      Identifier
+                      "("
+                      (FormalParameterList
+                        (ReceiverParameter
+                          (UnannType
+                            (UnannReferenceType
+                              (UnannClassType Identifier)))
+                          "this"))
+                      ")")
+                    (MethodBody
+                      (Block "{" "}"))))
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result "void")
+                    (MethodDeclarator
+                      Identifier
+                      "("
+                      (FormalParameterList
+                        (ReceiverParameter
+                          (Annotation*
+                            (Annotation
+                              "@"
+                              (QualifiedIdentifier
+                                ({Identifier "."}+ Identifier))))
+                          (UnannType
+                            (UnannReferenceType
+                              (UnannClassType Identifier)))
+                          "this"))
+                      ")")
+                    (MethodBody
+                      (Block "{" "}"))))
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result "void")
+                    (MethodDeclarator
+                      Identifier
+                      "("
+                      (FormalParameterList
+                        (ReceiverParameter
+                          (Annotation*
+                            (Annotation
+                              "@"
+                              (QualifiedIdentifier
+                                ({Identifier "."}+ Identifier))))
+                          (UnannType
+                            (UnannReferenceType
+                              (UnannClassType Identifier)))
+                          "this")
+                        ","
+                        ((FormalParameter ",")*
+                          (FormalParameter
+                            (UnannType
+                              (UnannPrimitiveType "int"))
+                            (VariableDeclaratorId Identifier))
+                          ",")
+                        (LastFormalParameter
+                          (FormalParameter
+                            (UnannType
+                              (UnannReferenceType
+                                (UnannClassType Identifier)))
+                            (VariableDeclaratorId Identifier))))
+                      ")")
+                    (MethodBody
+                      (Block "{" "}"))))
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result "void")
+                    (MethodDeclarator
+                      Identifier
+                      "("
+                      (FormalParameterList
+                        (ReceiverParameter
+                          (Annotation*
+                            (Annotation
+                              "@"
+                              (QualifiedIdentifier
+                                ({Identifier "."}+ Identifier))))
+                          (UnannType
+                            (UnannReferenceType
+                              (UnannClassType Identifier)))
+                          "this")
+                        ","
+                        (LastFormalParameter
+                          (UnannType
+                            (UnannPrimitiveType "int"))
+                          "..."
+                          (VariableDeclaratorId Identifier)))
+                      ")")
+                    (MethodBody
+                      (Block "{" "}"))))
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result "void")
+                    (MethodDeclarator
+                      Identifier
+                      "("
+                      (FormalParameterList
+                        (ReceiverParameter
+                          (Annotation*
+                            (Annotation
+                              "@"
+                              (QualifiedIdentifier
+                                ({Identifier "."}+ Identifier)))
+                            (Annotation
+                              "@"
+                              (QualifiedIdentifier
+                                ({Identifier "."}+ Identifier))))
+                          (UnannType
+                            (UnannReferenceType
+                              (UnannClassType Identifier)))
+                          "this"))
+                      ")")
+                    (MethodBody
+                      (Block "{" "}"))))
+                (ClassBodyDeclaration
+                  (ClassDeclaration
+                    (NormalClassDeclaration
+                      "class"
+                      Identifier
+                      (ClassBody
+                        "{"
+                        (ClassBodyDeclaration*
+                          (ClassBodyDeclaration
+                            (MethodDeclaration
+                              (Result "void")
+                              (MethodDeclarator
+                                Identifier
+                                "("
+                                (FormalParameterList
+                                  (ReceiverParameter
+                                    (Annotation*
+                                      (Annotation
+                                        "@"
+                                        (QualifiedIdentifier
+                                          ({Identifier "."}+ Identifier))))
+                                    (UnannType
+                                      (UnannReferenceType
+                                        (UnannClassType Identifier)))
+                                    Identifier
+                                    "."
+                                    "this"))
+                                ")")
+                              (MethodBody
+                                (Block "{" "}"))))
+                          (ClassBodyDeclaration
+                            (MethodDeclaration
+                              (Result "void")
+                              (MethodDeclarator
+                                Identifier
+                                "("
+                                (FormalParameterList
+                                  (ReceiverParameter
+                                    (Annotation*
+                                      (Annotation
+                                        "@"
+                                        (QualifiedIdentifier
+                                          ({Identifier "."}+ Identifier))))
+                                    (UnannType
+                                      (UnannReferenceType
+                                        (UnannClassType Identifier)))
+                                    Identifier
+                                    "."
+                                    "this")
+                                  ","
+                                  (LastFormalParameter
+                                    (FormalParameter
+                                      (UnannType
+                                        (UnannPrimitiveType "int"))
+                                      (VariableDeclaratorId Identifier))))
+                                ")")
+                              (MethodBody
+                                (Block "{" "}")))))
+                        "}")))))
+              "}")))))))

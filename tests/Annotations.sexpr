@@ -1,0 +1,659 @@
+(CompilationUnit
+  (OrdinaryCompilationUnit
+    (TypeDeclaration*
+      (TypeDeclaration
+        (InterfaceDeclaration
+          (AnnotationTypeDeclaration
+            "@"
+            "interface"
+            Identifier
+            (AnnotationTypeBody "{" "}"))))
+      (TypeDeclaration
+        (InterfaceDeclaration
+          (AnnotationTypeDeclaration
+            "@"
+            "interface"
+            Identifier
+            (AnnotationTypeBody
+              "{"
+              (AnnotationTypeElementDeclaration*
+                (AnnotationTypeElementDeclaration
+                  (AnnotationMethodDeclaration
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannClassType Identifier)))
+                    Identifier
+                    "("
+                    ")"
+                    ";")))
+              "}"))))
+      (TypeDeclaration
+        (InterfaceDeclaration
+          (AnnotationTypeDeclaration
+            "@"
+            "interface"
+            Identifier
+            (AnnotationTypeBody
+              "{"
+              (AnnotationTypeElementDeclaration*
+                (AnnotationTypeElementDeclaration
+                  (AnnotationMethodDeclaration
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannClassType Identifier)))
+                    Identifier
+                    "("
+                    ")"
+                    ";"))
+                (AnnotationTypeElementDeclaration
+                  (AnnotationMethodDeclaration
+                    (UnannType
+                      (UnannPrimitiveType "int"))
+                    Identifier
+                    "("
+                    ")"
+                    (DefaultValue
+                      "default"
+                      (ElementValue
+                        (Expression
+                          (Primary
+                            (Literal IntegerLiteral)))))
+                    ";"))
+                (AnnotationTypeElementDeclaration
+                  (AnnotationMethodDeclaration
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannClassType
+                          Identifier
+                          (TypeArguments
+                            "<"
+                            ({TypeArgument ","}+
+                              (TypeArgument "?"))
+                            ">"))))
+                    Identifier
+                    "("
+                    ")"
+                    (DefaultValue
+                      "default"
+                      (ElementValue
+                        (Expression
+                          (Primary
+                            (Type
+                              (ReferenceType
+                                (ClassType Identifier)))
+                            "."
+                            "class"))))
+                    ";")))
+              "}"))))
+      (TypeDeclaration
+        (InterfaceDeclaration
+          (AnnotationTypeDeclaration
+            "@"
+            "interface"
+            Identifier
+            (AnnotationTypeBody
+              "{"
+              (AnnotationTypeElementDeclaration*
+                (AnnotationTypeElementDeclaration
+                  (AnnotationMethodDeclaration
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannArrayType
+                          (UnannClassType Identifier)
+                          ((Annotation* "[" "]")+ "[" "]"))))
+                    Identifier
+                    "("
+                    ")"
+                    (DefaultValue
+                      "default"
+                      (ElementValue
+                        (ElementValueArrayInitializer "{" "}")))
+                    ";"))
+                (AnnotationTypeElementDeclaration
+                  (AnnotationMethodDeclaration
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannArrayType
+                          (UnannClassType
+                            Identifier
+                            (TypeArguments
+                              "<"
+                              ({TypeArgument ","}+
+                                (TypeArgument "?"))
+                              ">"))
+                          ((Annotation* "[" "]")+ "[" "]"))))
+                    Identifier
+                    "("
+                    ")"
+                    (DefaultValue
+                      "default"
+                      (ElementValue
+                        (ElementValueArrayInitializer "{" "}")))
+                    ";")))
+              "}"))))
+      (TypeDeclaration
+        (InterfaceDeclaration
+          (AnnotationTypeDeclaration
+            "@"
+            "interface"
+            Identifier
+            (AnnotationTypeBody
+              "{"
+              (AnnotationTypeElementDeclaration*
+                (AnnotationTypeElementDeclaration
+                  (AnnotationMethodDeclaration
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannClassType Identifier)))
+                    Identifier
+                    "("
+                    ")"
+                    (DefaultValue
+                      "default"
+                      (ElementValue
+                        (Annotation
+                          "@"
+                          (QualifiedIdentifier
+                            ({Identifier "."}+ Identifier)))))
+                    ";"))
+                (AnnotationTypeElementDeclaration
+                  (AnnotationMethodDeclaration
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannArrayType
+                          (UnannClassType Identifier)
+                          ((Annotation* "[" "]")+ "[" "]"))))
+                    Identifier
+                    "("
+                    ")"
+                    (DefaultValue
+                      "default"
+                      (ElementValue
+                        (ElementValueArrayInitializer "{" "}")))
+                    ";")))
+              "}"))))
+      (TypeDeclaration
+        (ClassDeclaration
+          (EnumDeclaration
+            "enum"
+            Identifier
+            (EnumBody
+              "{"
+              ({EnumConstant ","}*
+                (EnumConstant Identifier)
+                ","
+                (EnumConstant Identifier)
+                ","
+                (EnumConstant Identifier))
+              "}"))))
+      (TypeDeclaration
+        (InterfaceDeclaration
+          (AnnotationTypeDeclaration
+            "@"
+            "interface"
+            Identifier
+            (AnnotationTypeBody
+              "{"
+              (AnnotationTypeElementDeclaration*
+                (AnnotationTypeElementDeclaration
+                  (AnnotationMethodDeclaration
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannClassType Identifier)))
+                    Identifier
+                    "("
+                    ")"
+                    (DefaultValue
+                      "default"
+                      (ElementValue
+                        (Expression
+                          (Expression
+                            (Primary Identifier))
+                          "."
+                          (Selector Identifier))))
+                    ";")))
+              "}"))))
+      (TypeDeclaration
+        (InterfaceDeclaration
+          (AnnotationTypeDeclaration
+            (InterfaceModifier*
+              (InterfaceModifier
+                (Annotation
+                  "@"
+                  (QualifiedIdentifier
+                    ({Identifier "."}+ Identifier "." Identifier "." Identifier "." Identifier))
+                  (Values
+                    "("
+                    (AnnotationElement
+                      ({ElementValue ","}+
+                        (ElementValue
+                          (ElementValueArrayInitializer
+                            "{"
+                            ({ElementValue ","}*
+                              (ElementValue
+                                (Expression
+                                  (Expression
+                                    (Expression
+                                      (Expression
+                                        (Expression
+                                          (Primary Identifier))
+                                        "."
+                                        (Selector Identifier))
+                                      "."
+                                      (Selector Identifier))
+                                    "."
+                                    (Selector Identifier))
+                                  "."
+                                  (Selector Identifier)))
+                              ","
+                              (ElementValue
+                                (Expression
+                                  (Expression
+                                    (Expression
+                                      (Expression
+                                        (Expression
+                                          (Primary Identifier))
+                                        "."
+                                        (Selector Identifier))
+                                      "."
+                                      (Selector Identifier))
+                                    "."
+                                    (Selector Identifier))
+                                  "."
+                                  (Selector Identifier))))
+                            "}"))))
+                    ")")))
+              (InterfaceModifier
+                (Annotation
+                  "@"
+                  (QualifiedIdentifier
+                    ({Identifier "."}+ Identifier "." Identifier "." Identifier "." Identifier))
+                  (Values
+                    "("
+                    (AnnotationElement
+                      ({ElementValue ","}+
+                        (ElementValue
+                          (Expression
+                            (Expression
+                              (Expression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  "."
+                                  (Selector Identifier))
+                                "."
+                                (Selector Identifier))
+                              "."
+                              (Selector Identifier))
+                            "."
+                            (Selector Identifier)))))
+                    ")"))))
+            "@"
+            "interface"
+            Identifier
+            (AnnotationTypeBody "{" "}"))))
+      (TypeDeclaration
+        (ClassDeclaration
+          (NormalClassDeclaration
+            (ClassModifier*
+              (ClassModifier
+                (Annotation
+                  "@"
+                  (QualifiedIdentifier
+                    ({Identifier "."}+ Identifier)))))
+            "class"
+            Identifier
+            (ClassBody "{" "}"))))
+      (TypeDeclaration
+        (ClassDeclaration
+          (NormalClassDeclaration
+            (ClassModifier*
+              (ClassModifier
+                (Annotation
+                  "@"
+                  (QualifiedIdentifier
+                    ({Identifier "."}+ Identifier))
+                  (Values
+                    "("
+                    (AnnotationElement
+                      ({ElementValue ","}+
+                        (ElementValue
+                          (Expression
+                            (Primary
+                              (Literal StringLiteral))))))
+                    ")"))))
+            "class"
+            Identifier
+            (ClassBody "{" "}"))))
+      (TypeDeclaration
+        (ClassDeclaration
+          (NormalClassDeclaration
+            (ClassModifier*
+              (ClassModifier
+                (Annotation
+                  "@"
+                  (QualifiedIdentifier
+                    ({Identifier "."}+ Identifier))
+                  (Values
+                    "("
+                    (AnnotationElement
+                      ({ElementValuePair ","}+
+                        (ElementValuePair
+                          Identifier
+                          "="
+                          (ElementValue
+                            (Expression
+                              (Primary
+                                (Literal StringLiteral)))))
+                        ","
+                        (ElementValuePair
+                          Identifier
+                          "="
+                          (ElementValue
+                            (Expression
+                              (Primary
+                                (Literal IntegerLiteral)))))))
+                    ")"))))
+            "class"
+            Identifier
+            (ClassBody "{" "}"))))
+      (TypeDeclaration
+        (ClassDeclaration
+          (NormalClassDeclaration
+            (ClassModifier*
+              (ClassModifier
+                (Annotation
+                  "@"
+                  (QualifiedIdentifier
+                    ({Identifier "."}+ Identifier))
+                  (Values
+                    "("
+                    (AnnotationElement
+                      ({ElementValuePair ","}+
+                        (ElementValuePair
+                          Identifier
+                          "="
+                          (ElementValue
+                            (ElementValueArrayInitializer
+                              "{"
+                              ({ElementValue ","}*
+                                (ElementValue
+                                  (Expression
+                                    (Primary
+                                      (Literal StringLiteral))))
+                                ","
+                                (ElementValue
+                                  (Expression
+                                    (Primary
+                                      (Literal StringLiteral))))
+                                ","
+                                (ElementValue
+                                  (Expression
+                                    (Primary
+                                      (Literal StringLiteral)))))
+                              "}")))
+                        ","
+                        (ElementValuePair
+                          Identifier
+                          "="
+                          (ElementValue
+                            (ElementValueArrayInitializer
+                              "{"
+                              ({ElementValue ","}*
+                                (ElementValue
+                                  (Expression
+                                    (Primary
+                                      (Type
+                                        (ReferenceType
+                                          (ClassType Identifier)))
+                                      "."
+                                      "class")))
+                                ","
+                                (ElementValue
+                                  (Expression
+                                    (Primary
+                                      (Type
+                                        (ReferenceType
+                                          (ClassType Identifier)))
+                                      "."
+                                      "class"))))
+                              "}")))))
+                    ")"))))
+            "class"
+            Identifier
+            (ClassBody "{" "}"))))
+      (TypeDeclaration
+        (ClassDeclaration
+          (NormalClassDeclaration
+            (ClassModifier*
+              (ClassModifier
+                (Annotation
+                  "@"
+                  (QualifiedIdentifier
+                    ({Identifier "."}+ Identifier))
+                  (Values
+                    "("
+                    (AnnotationElement
+                      ({ElementValuePair ","}+
+                        (ElementValuePair
+                          Identifier
+                          "="
+                          (ElementValue
+                            (Annotation
+                              "@"
+                              (QualifiedIdentifier
+                                ({Identifier "."}+ Identifier)))))
+                        ","
+                        (ElementValuePair
+                          Identifier
+                          "="
+                          (ElementValue
+                            (ElementValueArrayInitializer
+                              "{"
+                              ({ElementValue ","}*
+                                (ElementValue
+                                  (Annotation
+                                    "@"
+                                    (QualifiedIdentifier
+                                      ({Identifier "."}+ Identifier))
+                                    (Values
+                                      "("
+                                      (AnnotationElement
+                                        ({ElementValuePair ","}+
+                                          (ElementValuePair
+                                            Identifier
+                                            "="
+                                            (ElementValue
+                                              (Expression
+                                                (Primary
+                                                  (Literal StringLiteral)))))))
+                                      ")")))
+                                ","
+                                (ElementValue
+                                  (Annotation
+                                    "@"
+                                    (QualifiedIdentifier
+                                      ({Identifier "."}+ Identifier))
+                                    (Values
+                                      "("
+                                      (AnnotationElement
+                                        ({ElementValuePair ","}+
+                                          (ElementValuePair
+                                            Identifier
+                                            "="
+                                            (ElementValue
+                                              (Expression
+                                                (Primary
+                                                  (Literal StringLiteral)))))
+                                          ","
+                                          (ElementValuePair
+                                            Identifier
+                                            "="
+                                            (ElementValue
+                                              (Expression
+                                                (Primary
+                                                  (Literal IntegerLiteral)))))))
+                                      ")"))))
+                              "}")))))
+                    ")"))))
+            "class"
+            Identifier
+            (ClassBody "{" "}"))))
+      (TypeDeclaration
+        (ClassDeclaration
+          (NormalClassDeclaration
+            (ClassModifier*
+              (ClassModifier
+                (Annotation
+                  "@"
+                  (QualifiedIdentifier
+                    ({Identifier "."}+ Identifier))
+                  (Values
+                    "("
+                    (AnnotationElement
+                      ({ElementValue ","}+
+                        (ElementValue
+                          (Expression
+                            (Primary
+                              (Literal StringLiteral))))))
+                    ")")))
+              (ClassModifier
+                (Annotation
+                  "@"
+                  (QualifiedIdentifier
+                    ({Identifier "."}+ Identifier))
+                  (Values
+                    "("
+                    (AnnotationElement
+                      ({ElementValue ","}+
+                        (ElementValue
+                          (Expression
+                            (Primary
+                              (Literal StringLiteral))))))
+                    ")"))))
+            "class"
+            Identifier
+            (ClassBody "{" "}"))))
+      (TypeDeclaration
+        (ClassDeclaration
+          (NormalClassDeclaration
+            "class"
+            Identifier
+            (ClassBody
+              "{"
+              (ClassBodyDeclaration*
+                (ClassBodyDeclaration
+                  (FieldDeclaration
+                    (FieldModifier*
+                      (FieldModifier
+                        (Annotation
+                          "@"
+                          (QualifiedIdentifier
+                            ({Identifier "."}+ Identifier)))))
+                    (UnannType
+                      (UnannPrimitiveType "int"))
+                    ({VariableDeclarator ","}+
+                      (VariableDeclarator
+                        (VariableDeclaratorId Identifier)))
+                    ";"))
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (MethodModifier*
+                      (MethodModifier
+                        (Annotation
+                          "@"
+                          (QualifiedIdentifier
+                            ({Identifier "."}+ Identifier))))
+                      (MethodModifier "public"))
+                    (Result
+                      (UnannType
+                        (UnannReferenceType
+                          (UnannClassType Identifier))))
+                    (MethodDeclarator Identifier "(" ")")
+                    (MethodBody
+                      (Block
+                        "{"
+                        (BlockStatement*
+                          (BlockStatement
+                            (Statement
+                              "return"
+                              (Expression
+                                (Primary
+                                  (Literal StringLiteral)))
+                              ";")))
+                        "}"))))
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result "void")
+                    (MethodDeclarator
+                      Identifier
+                      "("
+                      (FormalParameterList
+                        (LastFormalParameter
+                          (FormalParameter
+                            (VariableModifier*
+                              (VariableModifier
+                                (Annotation
+                                  "@"
+                                  (QualifiedIdentifier
+                                    ({Identifier "."}+ Identifier))
+                                  (Values
+                                    "("
+                                    (AnnotationElement
+                                      ({ElementValue ","}+
+                                        (ElementValue
+                                          (Expression
+                                            (Primary
+                                              (Literal StringLiteral))))))
+                                    ")"))))
+                            (UnannType
+                              (UnannPrimitiveType "int"))
+                            (VariableDeclaratorId Identifier))))
+                      ")")
+                    (MethodBody
+                      (Block "{" "}"))))
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result "void")
+                    (MethodDeclarator Identifier "(" ")")
+                    (MethodBody
+                      (Block
+                        "{"
+                        (BlockStatement*
+                          (BlockStatement
+                            (LocalVariableDeclarationStatement
+                              (VariableModifier*
+                                (VariableModifier
+                                  (Annotation
+                                    "@"
+                                    (QualifiedIdentifier
+                                      ({Identifier "."}+ Identifier))
+                                    (Values
+                                      "("
+                                      (AnnotationElement
+                                        ({ElementValue ","}+
+                                          (ElementValue
+                                            (Expression
+                                              (Primary
+                                                (Literal StringLiteral))))))
+                                      ")"))))
+                              (UnannType
+                                (UnannReferenceType
+                                  (UnannClassType
+                                    Identifier
+                                    (("." Annotation* Identifier TypeArguments?)* "." Identifier "." Identifier))))
+                              ({VariableDeclarator ","}+
+                                (VariableDeclarator
+                                  (VariableDeclaratorId Identifier)
+                                  "="
+                                  (VariableInitializer
+                                    (Expression
+                                      "new"
+                                      (ClassInstanceCreationExpression
+                                        (ClassTypeToInstantiate
+                                          Identifier
+                                          (("." Annotation* Identifier)* "." Identifier "." Identifier))
+                                        (Arguments "(" ")"))))))
+                              ";")))
+                        "}")))))
+              "}")))))))

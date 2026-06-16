@@ -1,0 +1,318 @@
+(CompilationUnit
+  (OrdinaryCompilationUnit
+    (ImportDeclaration*
+      (ImportDeclaration
+        "import"
+        (QualifiedIdentifier
+          ({Identifier "."}+ Identifier "." Identifier "." Identifier))
+        ";")
+      (ImportDeclaration
+        "import"
+        (QualifiedIdentifier
+          ({Identifier "."}+ Identifier "." Identifier "." Identifier))
+        ";"))
+    (TypeDeclaration*
+      (TypeDeclaration
+        (ClassDeclaration
+          (NormalClassDeclaration
+            "class"
+            Identifier
+            (ClassBody
+              "{"
+              (ClassBodyDeclaration*
+                (ClassBodyDeclaration
+                  (FieldDeclaration
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannClassType Identifier)))
+                    ({VariableDeclarator ","}+
+                      (VariableDeclarator
+                        (VariableDeclaratorId Identifier)
+                        "="
+                        (VariableInitializer
+                          (Expression
+                            "new"
+                            (ClassInstanceCreationExpression
+                              (ClassTypeToInstantiate
+                                Identifier
+                                (TypeArgumentsOrDiamond
+                                  (TypeArguments
+                                    "<"
+                                    ({TypeArgument ","}+
+                                      (TypeArgument
+                                        (ReferenceType
+                                          (ClassType Identifier))))
+                                    ">")))
+                              (Arguments "(" ")"))))))
+                    ";"))
+                (ClassBodyDeclaration
+                  (FieldDeclaration
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannClassType Identifier)))
+                    ({VariableDeclarator ","}+
+                      (VariableDeclarator
+                        (VariableDeclaratorId Identifier)
+                        "="
+                        (VariableInitializer
+                          (Expression
+                            "new"
+                            (ClassInstanceCreationExpression
+                              (ClassTypeToInstantiate
+                                Identifier
+                                (TypeArgumentsOrDiamond "<" ">"))
+                              (Arguments "(" ")"))))))
+                    ";"))
+                (ClassBodyDeclaration
+                  (FieldDeclaration
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannClassType Identifier)))
+                    ({VariableDeclarator ","}+
+                      (VariableDeclarator
+                        (VariableDeclaratorId Identifier)
+                        "="
+                        (VariableInitializer
+                          (Expression
+                            "new"
+                            (ClassInstanceCreationExpression
+                              (ClassTypeToInstantiate
+                                Identifier
+                                (TypeArgumentsOrDiamond
+                                  (TypeArguments
+                                    "<"
+                                    ({TypeArgument ","}+
+                                      (TypeArgument
+                                        (ReferenceType
+                                          (ClassType Identifier)))
+                                      ","
+                                      (TypeArgument
+                                        (ReferenceType
+                                          (ClassType Identifier))))
+                                    ">")))
+                              (Arguments "(" ")"))))))
+                    ";"))
+                (ClassBodyDeclaration
+                  (FieldDeclaration
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannClassType Identifier)))
+                    ({VariableDeclarator ","}+
+                      (VariableDeclarator
+                        (VariableDeclaratorId Identifier)
+                        "="
+                        (VariableInitializer
+                          (Expression
+                            "new"
+                            (ClassInstanceCreationExpression
+                              (ClassTypeToInstantiate
+                                Identifier
+                                (TypeArgumentsOrDiamond "<" ">"))
+                              (Arguments "(" ")"))))))
+                    ";"))
+                (ClassBodyDeclaration
+                  (FieldDeclaration
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannClassType Identifier)))
+                    ({VariableDeclarator ","}+
+                      (VariableDeclarator
+                        (VariableDeclaratorId Identifier)
+                        "="
+                        (VariableInitializer
+                          (Expression
+                            "new"
+                            (ClassInstanceCreationExpression
+                              (ClassTypeToInstantiate Identifier)
+                              (Arguments "(" ")"))))))
+                    ";"))
+                (ClassBodyDeclaration
+                  (FieldDeclaration
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannClassType Identifier)))
+                    ({VariableDeclarator ","}+
+                      (VariableDeclarator
+                        (VariableDeclaratorId Identifier)
+                        "="
+                        (VariableInitializer
+                          (Expression
+                            "new"
+                            (ClassInstanceCreationExpression
+                              (ClassTypeToInstantiate
+                                Identifier
+                                (("." Annotation* Identifier)* "." Identifier "." Identifier)
+                                (TypeArgumentsOrDiamond
+                                  (TypeArguments
+                                    "<"
+                                    ({TypeArgument ","}+
+                                      (TypeArgument
+                                        (ReferenceType
+                                          (ClassType Identifier))))
+                                    ">")))
+                              (Arguments "(" ")"))))))
+                    ";"))
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (MethodModifier*
+                      (MethodModifier "static"))
+                    (TypeParameters
+                      "<"
+                      ({TypeParameter ","}+
+                        (TypeParameter Identifier))
+                      ">")
+                    (Result
+                      (UnannType
+                        (UnannReferenceType
+                          (UnannClassType Identifier))))
+                    (MethodDeclarator Identifier "(" ")")
+                    (MethodBody
+                      (Block
+                        "{"
+                        (BlockStatement*
+                          (BlockStatement
+                            (Statement
+                              "return"
+                              (Expression
+                                "new"
+                                (ClassInstanceCreationExpression
+                                  (TypeArguments
+                                    "<"
+                                    ({TypeArgument ","}+
+                                      (TypeArgument
+                                        (ReferenceType
+                                          (ClassType Identifier))))
+                                    ">")
+                                  (ClassTypeToInstantiate Identifier)
+                                  (Arguments "(" ")")))
+                              ";")))
+                        "}"))))
+                (ClassBodyDeclaration
+                  (ClassDeclaration
+                    (NormalClassDeclaration
+                      "class"
+                      Identifier
+                      (ClassBody "{" "}"))))
+                (ClassBodyDeclaration
+                  (FieldDeclaration
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannClassType Identifier)))
+                    ({VariableDeclarator ","}+
+                      (VariableDeclarator
+                        (VariableDeclaratorId Identifier)
+                        "="
+                        (VariableInitializer
+                          (Expression
+                            (Expression
+                              "new"
+                              (ClassInstanceCreationExpression
+                                (ClassTypeToInstantiate Identifier)
+                                (Arguments "(" ")")))
+                            "."
+                            (Selector
+                              "new"
+                              Identifier
+                              (Arguments "(" ")"))))))
+                    ";"))
+                (ClassBodyDeclaration
+                  (FieldDeclaration
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannClassType Identifier)))
+                    ({VariableDeclarator ","}+
+                      (VariableDeclarator
+                        (VariableDeclaratorId Identifier)
+                        "="
+                        (VariableInitializer
+                          (Expression
+                            "new"
+                            (ClassInstanceCreationExpression
+                              (ClassTypeToInstantiate Identifier)
+                              (Arguments "(" ")")
+                              (ClassBody
+                                "{"
+                                (ClassBodyDeclaration*
+                                  (ClassBodyDeclaration
+                                    (MethodDeclaration
+                                      (MethodModifier*
+                                        (MethodModifier
+                                          (Annotation
+                                            "@"
+                                            (QualifiedIdentifier
+                                              ({Identifier "."}+ Identifier))))
+                                        (MethodModifier "public"))
+                                      (Result
+                                        (UnannType
+                                          (UnannReferenceType
+                                            (UnannClassType Identifier))))
+                                      (MethodDeclarator Identifier "(" ")")
+                                      (MethodBody
+                                        (Block
+                                          "{"
+                                          (BlockStatement*
+                                            (BlockStatement
+                                              (Statement
+                                                "return"
+                                                (Expression
+                                                  (Primary
+                                                    (Literal StringLiteral)))
+                                                ";")))
+                                          "}")))))
+                                "}"))))))
+                    ";"))
+                (ClassBodyDeclaration
+                  (FieldDeclaration
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannClassType Identifier)))
+                    ({VariableDeclarator ","}+
+                      (VariableDeclarator
+                        (VariableDeclaratorId Identifier)
+                        "="
+                        (VariableInitializer
+                          (Expression
+                            "new"
+                            (ClassInstanceCreationExpression
+                              (ClassTypeToInstantiate
+                                Identifier
+                                (TypeArgumentsOrDiamond
+                                  (TypeArguments
+                                    "<"
+                                    ({TypeArgument ","}+
+                                      (TypeArgument
+                                        (ReferenceType
+                                          (ClassType Identifier))))
+                                    ">")))
+                              (Arguments "(" ")")
+                              (ClassBody
+                                "{"
+                                (ClassBodyDeclaration*
+                                  (ClassBodyDeclaration
+                                    (MethodDeclaration
+                                      (MethodModifier*
+                                        (MethodModifier
+                                          (Annotation
+                                            "@"
+                                            (QualifiedIdentifier
+                                              ({Identifier "."}+ Identifier))))
+                                        (MethodModifier "public"))
+                                      (Result
+                                        (UnannType
+                                          (UnannPrimitiveType "boolean")))
+                                      (MethodDeclarator Identifier "(" ")")
+                                      (MethodBody
+                                        (Block
+                                          "{"
+                                          (BlockStatement*
+                                            (BlockStatement
+                                              (Statement
+                                                "return"
+                                                (Expression
+                                                  (Primary
+                                                    (Literal BooleanLiteral)))
+                                                ";")))
+                                          "}")))))
+                                "}"))))))
+                    ";")))
+              "}")))))))

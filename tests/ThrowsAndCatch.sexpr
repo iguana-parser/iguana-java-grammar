@@ -1,0 +1,548 @@
+(CompilationUnit
+  (OrdinaryCompilationUnit
+    (ImportDeclaration*
+      (ImportDeclaration
+        "import"
+        (QualifiedIdentifier
+          ({Identifier "."}+ Identifier "." Identifier "." Identifier))
+        ";")
+      (ImportDeclaration
+        "import"
+        (QualifiedIdentifier
+          ({Identifier "."}+ Identifier "." Identifier "." Identifier))
+        ";"))
+    (TypeDeclaration*
+      (TypeDeclaration
+        (ClassDeclaration
+          (NormalClassDeclaration
+            "class"
+            Identifier
+            (ClassBody
+              "{"
+              (ClassBodyDeclaration*
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result "void")
+                    (MethodDeclarator Identifier "(" ")")
+                    (Throws
+                      "throws"
+                      ({ClassType ","}+
+                        (ClassType Identifier)))
+                    (MethodBody
+                      (Block "{" "}"))))
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result "void")
+                    (MethodDeclarator Identifier "(" ")")
+                    (Throws
+                      "throws"
+                      ({ClassType ","}+
+                        (ClassType Identifier)
+                        ","
+                        (ClassType Identifier)
+                        ","
+                        (ClassType Identifier)))
+                    (MethodBody
+                      (Block "{" "}"))))
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result "void")
+                    (MethodDeclarator Identifier "(" ")")
+                    (Throws
+                      "throws"
+                      ({ClassType ","}+
+                        (ClassType
+                          Identifier
+                          (("." Annotation* Identifier TypeArguments?)* "." Identifier "." Identifier))
+                        ","
+                        (ClassType
+                          Identifier
+                          (("." Annotation* Identifier TypeArguments?)* "." Identifier "." Identifier))))
+                    (MethodBody
+                      (Block "{" "}"))))
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result "void")
+                    (MethodDeclarator Identifier "(" ")")
+                    (MethodBody
+                      (Block
+                        "{"
+                        (BlockStatement*
+                          (BlockStatement
+                            (Statement
+                              "try"
+                              (Block
+                                "{"
+                                (BlockStatement*
+                                  (BlockStatement
+                                    (Statement
+                                      (StatementExpression
+                                        (Expression
+                                          (MethodInvocation
+                                            Identifier
+                                            (Arguments "(" ")"))))
+                                      ";")))
+                                "}")
+                              (CatchClause+
+                                (CatchClause
+                                  "catch"
+                                  "("
+                                  (CatchType
+                                    ({ClassType "|"}+
+                                      (ClassType Identifier)))
+                                  Identifier
+                                  ")"
+                                  (Block
+                                    "{"
+                                    (BlockStatement*
+                                      (BlockStatement
+                                        (Statement
+                                          (StatementExpression
+                                            (Expression
+                                              (Expression
+                                                (Primary Identifier))
+                                              "."
+                                              (Selector
+                                                (MethodInvocation
+                                                  Identifier
+                                                  (Arguments "(" ")")))))
+                                          ";")))
+                                    "}"))))))
+                        "}"))))
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result "void")
+                    (MethodDeclarator Identifier "(" ")")
+                    (MethodBody
+                      (Block
+                        "{"
+                        (BlockStatement*
+                          (BlockStatement
+                            (Statement
+                              "try"
+                              (Block
+                                "{"
+                                (BlockStatement*
+                                  (BlockStatement
+                                    (Statement
+                                      (StatementExpression
+                                        (Expression
+                                          (MethodInvocation
+                                            Identifier
+                                            (Arguments "(" ")"))))
+                                      ";")))
+                                "}")
+                              (CatchClause+
+                                (CatchClause
+                                  "catch"
+                                  "("
+                                  (CatchType
+                                    ({ClassType "|"}+
+                                      (ClassType Identifier)
+                                      "|"
+                                      (ClassType Identifier)))
+                                  Identifier
+                                  ")"
+                                  (Block
+                                    "{"
+                                    (BlockStatement*
+                                      (BlockStatement
+                                        (Statement
+                                          (StatementExpression
+                                            (Expression
+                                              (Expression
+                                                (Primary Identifier))
+                                              "."
+                                              (Selector
+                                                (MethodInvocation
+                                                  Identifier
+                                                  (Arguments "(" ")")))))
+                                          ";")))
+                                    "}"))))))
+                        "}"))))
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result "void")
+                    (MethodDeclarator Identifier "(" ")")
+                    (MethodBody
+                      (Block
+                        "{"
+                        (BlockStatement*
+                          (BlockStatement
+                            (Statement
+                              "try"
+                              (Block
+                                "{"
+                                (BlockStatement*
+                                  (BlockStatement
+                                    (Statement
+                                      (StatementExpression
+                                        (Expression
+                                          (MethodInvocation
+                                            Identifier
+                                            (Arguments "(" ")"))))
+                                      ";")))
+                                "}")
+                              (CatchClause+
+                                (CatchClause
+                                  "catch"
+                                  "("
+                                  (CatchType
+                                    ({ClassType "|"}+
+                                      (ClassType
+                                        Identifier
+                                        (("." Annotation* Identifier TypeArguments?)* "." Identifier "." Identifier))))
+                                  Identifier
+                                  ")"
+                                  (Block
+                                    "{"
+                                    (BlockStatement*
+                                      (BlockStatement
+                                        (Statement
+                                          (StatementExpression
+                                            (Expression
+                                              (Expression
+                                                (Primary Identifier))
+                                              "."
+                                              (Selector
+                                                (MethodInvocation
+                                                  Identifier
+                                                  (Arguments "(" ")")))))
+                                          ";")))
+                                    "}"))))))
+                        "}"))))
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result "void")
+                    (MethodDeclarator Identifier "(" ")")
+                    (Throws
+                      "throws"
+                      ({ClassType ","}+
+                        (ClassType Identifier)))
+                    (MethodBody
+                      (Block
+                        "{"
+                        (BlockStatement*
+                          (BlockStatement
+                            (Statement
+                              "try"
+                              (ResourceSpecification
+                                "("
+                                ({Resource ";"}+
+                                  (Resource
+                                    (UnannReferenceType
+                                      (UnannClassType
+                                        Identifier
+                                        (("." Annotation* Identifier TypeArguments?)* "." Identifier "." Identifier)))
+                                    (VariableDeclaratorId Identifier)
+                                    "="
+                                    (Expression
+                                      (Primary
+                                        (Literal NullLiteral)))))
+                                ")")
+                              (Block
+                                "{"
+                                (BlockStatement*
+                                  (BlockStatement
+                                    (Statement
+                                      (StatementExpression
+                                        (Expression
+                                          (Expression
+                                            (Primary Identifier))
+                                          "."
+                                          (Selector
+                                            (MethodInvocation
+                                              Identifier
+                                              (Arguments "(" ")")))))
+                                      ";")))
+                                "}")
+                              (CatchClause*
+                                (CatchClause
+                                  "catch"
+                                  "("
+                                  (CatchType
+                                    ({ClassType "|"}+
+                                      (ClassType Identifier)))
+                                  Identifier
+                                  ")"
+                                  (Block
+                                    "{"
+                                    (BlockStatement*
+                                      (BlockStatement
+                                        (Statement
+                                          "throw"
+                                          (Expression
+                                            (Primary Identifier))
+                                          ";")))
+                                    "}")))
+                              (Finally
+                                "finally"
+                                (Block
+                                  "{"
+                                  (BlockStatement*
+                                    (BlockStatement
+                                      (Statement
+                                        (StatementExpression
+                                          (Expression
+                                            (Expression
+                                              (Expression
+                                                (Primary Identifier))
+                                              "."
+                                              (Selector Identifier))
+                                            "."
+                                            (Selector
+                                              (MethodInvocation
+                                                Identifier
+                                                (Arguments
+                                                  "("
+                                                  ({Expression ","}*
+                                                    (Expression
+                                                      (Primary
+                                                        (Literal StringLiteral))))
+                                                  ")")))))
+                                        ";")))
+                                  "}")))))
+                        "}"))))
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result "void")
+                    (MethodDeclarator Identifier "(" ")")
+                    (Throws
+                      "throws"
+                      ({ClassType ","}+
+                        (ClassType Identifier)))
+                    (MethodBody
+                      (Block
+                        "{"
+                        (BlockStatement*
+                          (BlockStatement
+                            (LocalVariableDeclarationStatement
+                              (UnannType
+                                (UnannReferenceType
+                                  (UnannClassType
+                                    Identifier
+                                    (("." Annotation* Identifier TypeArguments?)* "." Identifier "." Identifier))))
+                              ({VariableDeclarator ","}+
+                                (VariableDeclarator
+                                  (VariableDeclaratorId Identifier)
+                                  "="
+                                  (VariableInitializer
+                                    (Expression
+                                      (Primary
+                                        (Literal NullLiteral))))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              "try"
+                              (ResourceSpecification
+                                "("
+                                ({Resource ";"}+
+                                  (Resource
+                                    (QualifiedIdentifier
+                                      ({Identifier "."}+ Identifier))))
+                                ")")
+                              (Block
+                                "{"
+                                (BlockStatement*
+                                  (BlockStatement
+                                    (Statement
+                                      (StatementExpression
+                                        (Expression
+                                          (Expression
+                                            (Primary Identifier))
+                                          "."
+                                          (Selector
+                                            (MethodInvocation
+                                              Identifier
+                                              (Arguments "(" ")")))))
+                                      ";")))
+                                "}"))))
+                        "}"))))
+                (ClassBodyDeclaration
+                  (FieldDeclaration
+                    (FieldModifier*
+                      (FieldModifier "static")
+                      (FieldModifier "final"))
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannClassType
+                          Identifier
+                          (("." Annotation* Identifier TypeArguments?)* "." Identifier "." Identifier))))
+                    ({VariableDeclarator ","}+
+                      (VariableDeclarator
+                        (VariableDeclaratorId Identifier)
+                        "="
+                        (VariableInitializer
+                          (Expression
+                            (Primary
+                              (Literal NullLiteral))))))
+                    ";"))
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result "void")
+                    (MethodDeclarator Identifier "(" ")")
+                    (Throws
+                      "throws"
+                      ({ClassType ","}+
+                        (ClassType Identifier)))
+                    (MethodBody
+                      (Block
+                        "{"
+                        (BlockStatement*
+                          (BlockStatement
+                            (Statement
+                              "try"
+                              (ResourceSpecification
+                                "("
+                                ({Resource ";"}+
+                                  (Resource
+                                    (QualifiedIdentifier
+                                      ({Identifier "."}+ Identifier))))
+                                ")")
+                              (Block
+                                "{"
+                                (BlockStatement*
+                                  (BlockStatement
+                                    (Statement
+                                      (StatementExpression
+                                        (Expression
+                                          (Expression
+                                            (Primary Identifier))
+                                          "."
+                                          (Selector
+                                            (MethodInvocation
+                                              Identifier
+                                              (Arguments "(" ")")))))
+                                      ";")))
+                                "}"))))
+                        "}"))))
+                (ClassBodyDeclaration
+                  (FieldDeclaration
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannClassType
+                          Identifier
+                          (("." Annotation* Identifier TypeArguments?)* "." Identifier "." Identifier))))
+                    ({VariableDeclarator ","}+
+                      (VariableDeclarator
+                        (VariableDeclaratorId Identifier)))
+                    ";"))
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result "void")
+                    (MethodDeclarator Identifier "(" ")")
+                    (Throws
+                      "throws"
+                      ({ClassType ","}+
+                        (ClassType Identifier)))
+                    (MethodBody
+                      (Block
+                        "{"
+                        (BlockStatement*
+                          (BlockStatement
+                            (Statement
+                              "try"
+                              (ResourceSpecification
+                                "("
+                                ({Resource ";"}+
+                                  (Resource "this" "." Identifier))
+                                ")")
+                              (Block
+                                "{"
+                                (BlockStatement*
+                                  (BlockStatement
+                                    (Statement
+                                      (StatementExpression
+                                        (Expression
+                                          (Expression
+                                            (Expression
+                                              (Primary "this"))
+                                            "."
+                                            (Selector Identifier))
+                                          "."
+                                          (Selector
+                                            (MethodInvocation
+                                              Identifier
+                                              (Arguments "(" ")")))))
+                                      ";")))
+                                "}"))))
+                        "}"))))
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result "void")
+                    (MethodDeclarator Identifier "(" ")")
+                    (Throws
+                      "throws"
+                      ({ClassType ","}+
+                        (ClassType Identifier)))
+                    (MethodBody
+                      (Block
+                        "{"
+                        (BlockStatement*
+                          (BlockStatement
+                            (LocalVariableDeclarationStatement
+                              (UnannType
+                                (UnannReferenceType
+                                  (UnannClassType
+                                    Identifier
+                                    (("." Annotation* Identifier TypeArguments?)* "." Identifier "." Identifier))))
+                              ({VariableDeclarator ","}+
+                                (VariableDeclarator
+                                  (VariableDeclaratorId Identifier)
+                                  "="
+                                  (VariableInitializer
+                                    (Expression
+                                      (Primary
+                                        (Literal NullLiteral))))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              "try"
+                              (ResourceSpecification
+                                "("
+                                ({Resource ";"}+
+                                  (Resource
+                                    (QualifiedIdentifier
+                                      ({Identifier "."}+ Identifier)))
+                                  ";"
+                                  (Resource
+                                    (UnannReferenceType
+                                      (UnannClassType
+                                        Identifier
+                                        (("." Annotation* Identifier TypeArguments?)* "." Identifier "." Identifier)))
+                                    (VariableDeclaratorId Identifier)
+                                    "="
+                                    (Expression
+                                      (Primary
+                                        (Literal NullLiteral)))))
+                                ")")
+                              (Block
+                                "{"
+                                (BlockStatement*
+                                  (BlockStatement
+                                    (Statement
+                                      (StatementExpression
+                                        (Expression
+                                          (Expression
+                                            (Primary Identifier))
+                                          "."
+                                          (Selector
+                                            (MethodInvocation
+                                              Identifier
+                                              (Arguments "(" ")")))))
+                                      ";"))
+                                  (BlockStatement
+                                    (Statement
+                                      (StatementExpression
+                                        (Expression
+                                          (Expression
+                                            (Primary Identifier))
+                                          "."
+                                          (Selector
+                                            (MethodInvocation
+                                              Identifier
+                                              (Arguments "(" ")")))))
+                                      ";")))
+                                "}"))))
+                        "}")))))
+              "}")))))))

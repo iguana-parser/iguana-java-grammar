@@ -1,0 +1,323 @@
+(CompilationUnit
+  (OrdinaryCompilationUnit
+    (ImportDeclaration*
+      (ImportDeclaration
+        "import"
+        (QualifiedIdentifier
+          ({Identifier "."}+ Identifier "." Identifier "." Identifier))
+        ";")
+      (ImportDeclaration
+        "import"
+        (QualifiedIdentifier
+          ({Identifier "."}+ Identifier "." Identifier "." Identifier))
+        ";"))
+    (TypeDeclaration*
+      (TypeDeclaration
+        (ClassDeclaration
+          (NormalClassDeclaration
+            "class"
+            Identifier
+            (ClassBody
+              "{"
+              (ClassBodyDeclaration*
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result
+                      (UnannType
+                        (UnannReferenceType
+                          (UnannClassType Identifier))))
+                    (MethodDeclarator
+                      Identifier
+                      "("
+                      (FormalParameterList
+                        (LastFormalParameter
+                          (FormalParameter
+                            (UnannType
+                              (UnannReferenceType
+                                (UnannClassType Identifier)))
+                            (VariableDeclaratorId Identifier))))
+                      ")")
+                    (MethodBody
+                      (Block
+                        "{"
+                        (BlockStatement*
+                          (BlockStatement
+                            (Statement
+                              "return"
+                              (Expression
+                                "("
+                                ({ReferenceType "&"}+
+                                  (ReferenceType
+                                    (ClassType
+                                      Identifier
+                                      (TypeArguments
+                                        "<"
+                                        ({TypeArgument ","}+
+                                          (TypeArgument
+                                            (ReferenceType
+                                              (ClassType Identifier))))
+                                        ">")))
+                                  "&"
+                                  (ReferenceType
+                                    (ClassType Identifier)))
+                                ")"
+                                (Expression
+                                  (Primary Identifier)))
+                              ";")))
+                        "}"))))
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result
+                      (UnannType
+                        (UnannReferenceType
+                          (UnannClassType Identifier))))
+                    (MethodDeclarator
+                      Identifier
+                      "("
+                      (FormalParameterList
+                        (LastFormalParameter
+                          (FormalParameter
+                            (UnannType
+                              (UnannReferenceType
+                                (UnannClassType Identifier)))
+                            (VariableDeclaratorId Identifier))))
+                      ")")
+                    (MethodBody
+                      (Block
+                        "{"
+                        (BlockStatement*
+                          (BlockStatement
+                            (Statement
+                              "return"
+                              (Expression
+                                "("
+                                ({ReferenceType "&"}+
+                                  (ReferenceType
+                                    (ClassType
+                                      Identifier
+                                      (TypeArguments
+                                        "<"
+                                        ({TypeArgument ","}+
+                                          (TypeArgument
+                                            (ReferenceType
+                                              (ClassType Identifier))))
+                                        ">")))
+                                  "&"
+                                  (ReferenceType
+                                    (ClassType Identifier))
+                                  "&"
+                                  (ReferenceType
+                                    (ClassType Identifier)))
+                                ")"
+                                (Expression
+                                  (Primary Identifier)))
+                              ";")))
+                        "}"))))
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result
+                      (UnannType
+                        (UnannPrimitiveType "int")))
+                    (MethodDeclarator
+                      Identifier
+                      "("
+                      (FormalParameterList
+                        (LastFormalParameter
+                          (FormalParameter
+                            (UnannType
+                              (UnannReferenceType
+                                (UnannClassType Identifier)))
+                            (VariableDeclaratorId Identifier))))
+                      ")")
+                    (MethodBody
+                      (Block
+                        "{"
+                        (BlockStatement*
+                          (BlockStatement
+                            (Statement
+                              "return"
+                              (Expression
+                                (Expression
+                                  (Primary
+                                    "("
+                                    (Expression
+                                      "("
+                                      ({ReferenceType "&"}+
+                                        (ReferenceType
+                                          (ClassType
+                                            Identifier
+                                            (TypeArguments
+                                              "<"
+                                              ({TypeArgument ","}+
+                                                (TypeArgument
+                                                  (ReferenceType
+                                                    (ClassType Identifier))))
+                                              ">")))
+                                        "&"
+                                        (ReferenceType
+                                          (ClassType Identifier)))
+                                      ")"
+                                      (Expression
+                                        (Primary Identifier)))
+                                    ")"))
+                                "."
+                                (Selector
+                                  (MethodInvocation
+                                    Identifier
+                                    (Arguments
+                                      "("
+                                      ({Expression ","}*
+                                        (Expression
+                                          (Primary
+                                            (Literal IntegerLiteral))))
+                                      ")"))))
+                              ";")))
+                        "}"))))
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result
+                      (UnannType
+                        (UnannReferenceType
+                          (UnannClassType Identifier))))
+                    (MethodDeclarator
+                      Identifier
+                      "("
+                      (FormalParameterList
+                        (LastFormalParameter
+                          (FormalParameter
+                            (UnannType
+                              (UnannReferenceType
+                                (UnannClassType Identifier)))
+                            (VariableDeclaratorId Identifier))))
+                      ")")
+                    (MethodBody
+                      (Block
+                        "{"
+                        (BlockStatement*
+                          (BlockStatement
+                            (Statement
+                              "return"
+                              (Expression
+                                "("
+                                ({ReferenceType "&"}+
+                                  (ReferenceType
+                                    (ClassType Identifier)))
+                                ")"
+                                (Expression
+                                  (Primary Identifier)))
+                              ";")))
+                        "}"))))
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result
+                      (UnannType
+                        (UnannPrimitiveType "int")))
+                    (MethodDeclarator
+                      Identifier
+                      "("
+                      (FormalParameterList
+                        (LastFormalParameter
+                          (FormalParameter
+                            (UnannType
+                              (UnannReferenceType
+                                (UnannClassType Identifier)))
+                            (VariableDeclaratorId Identifier))))
+                      ")")
+                    (MethodBody
+                      (Block
+                        "{"
+                        (BlockStatement*
+                          (BlockStatement
+                            (Statement
+                              "return"
+                              (Expression
+                                "("
+                                (PrimitiveType "int")
+                                ")"
+                                (Expression
+                                  "("
+                                  ({ReferenceType "&"}+
+                                    (ReferenceType
+                                      (ClassType Identifier)))
+                                  ")"
+                                  (Expression
+                                    (Primary Identifier))))
+                              ";")))
+                        "}"))))
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result
+                      (UnannType
+                        (UnannPrimitiveType "int")))
+                    (MethodDeclarator
+                      Identifier
+                      "("
+                      (FormalParameterList
+                        ((FormalParameter ",")*
+                          (FormalParameter
+                            (UnannType
+                              (UnannPrimitiveType "int"))
+                            (VariableDeclaratorId Identifier))
+                          ",")
+                        (LastFormalParameter
+                          (FormalParameter
+                            (UnannType
+                              (UnannPrimitiveType "int"))
+                            (VariableDeclaratorId Identifier))))
+                      ")")
+                    (MethodBody
+                      (Block
+                        "{"
+                        (BlockStatement*
+                          (BlockStatement
+                            (Statement
+                              "return"
+                              (Expression
+                                (Expression
+                                  (Primary Identifier))
+                                "&"
+                                (Expression
+                                  (Primary Identifier)))
+                              ";")))
+                        "}"))))
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result
+                      (UnannType
+                        (UnannPrimitiveType "int")))
+                    (MethodDeclarator
+                      Identifier
+                      "("
+                      (FormalParameterList
+                        ((FormalParameter ",")*
+                          (FormalParameter
+                            (UnannType
+                              (UnannPrimitiveType "int"))
+                            (VariableDeclaratorId Identifier))
+                          ",")
+                        (LastFormalParameter
+                          (FormalParameter
+                            (UnannType
+                              (UnannPrimitiveType "int"))
+                            (VariableDeclaratorId Identifier))))
+                      ")")
+                    (MethodBody
+                      (Block
+                        "{"
+                        (BlockStatement*
+                          (BlockStatement
+                            (Statement
+                              "return"
+                              (Expression
+                                (Expression
+                                  (Primary
+                                    "("
+                                    (Expression
+                                      (Primary Identifier))
+                                    ")"))
+                                "&"
+                                (Expression
+                                  (Primary Identifier)))
+                              ";")))
+                        "}")))))
+              "}")))))))

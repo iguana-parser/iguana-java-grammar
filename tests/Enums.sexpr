@@ -1,0 +1,486 @@
+(CompilationUnit
+  (OrdinaryCompilationUnit
+    (TypeDeclaration*
+      (TypeDeclaration
+        (ClassDeclaration
+          (EnumDeclaration
+            "enum"
+            Identifier
+            (EnumBody
+              "{"
+              ({EnumConstant ","}*
+                (EnumConstant Identifier)
+                ","
+                (EnumConstant Identifier)
+                ","
+                (EnumConstant Identifier))
+              "}"))))
+      (TypeDeclaration
+        (ClassDeclaration
+          (EnumDeclaration
+            "enum"
+            Identifier
+            (EnumBody
+              "{"
+              ({EnumConstant ","}*
+                (EnumConstant Identifier)
+                ","
+                (EnumConstant Identifier)
+                ","
+                (EnumConstant Identifier))
+              ","
+              "}"))))
+      (TypeDeclaration
+        (ClassDeclaration
+          (EnumDeclaration
+            "enum"
+            Identifier
+            (EnumBody
+              "{"
+              ({EnumConstant ","}*
+                (EnumConstant Identifier)
+                ","
+                (EnumConstant Identifier)
+                ","
+                (EnumConstant Identifier))
+              (EnumBodyDeclarations ";")
+              "}"))))
+      (TypeDeclaration
+        (ClassDeclaration
+          (EnumDeclaration
+            "enum"
+            Identifier
+            (EnumBody
+              "{"
+              ({EnumConstant ","}*
+                (EnumConstant Identifier)
+                ","
+                (EnumConstant Identifier)
+                ","
+                (EnumConstant Identifier)
+                ","
+                (EnumConstant Identifier))
+              (EnumBodyDeclarations
+                ";"
+                (ClassBodyDeclaration*
+                  (ClassBodyDeclaration
+                    (MethodDeclaration
+                      (Result
+                        (UnannType
+                          (UnannReferenceType
+                            (UnannClassType Identifier))))
+                      (MethodDeclarator Identifier "(" ")")
+                      (MethodBody
+                        (Block
+                          "{"
+                          (BlockStatement*
+                            (BlockStatement
+                              (Statement
+                                "return"
+                                (Expression
+                                  (Primary "this"))
+                                ";")))
+                          "}"))))))
+              "}"))))
+      (TypeDeclaration
+        (ClassDeclaration
+          (EnumDeclaration
+            "enum"
+            Identifier
+            (EnumBody
+              "{"
+              ({EnumConstant ","}*
+                (EnumConstant
+                  Identifier
+                  (Arguments
+                    "("
+                    ({Expression ","}*
+                      (Expression
+                        (Primary
+                          (Literal FloatingPointLiteral)))
+                      ","
+                      (Expression
+                        (Primary
+                          (Literal FloatingPointLiteral))))
+                    ")"))
+                ","
+                (EnumConstant
+                  Identifier
+                  (Arguments
+                    "("
+                    ({Expression ","}*
+                      (Expression
+                        (Primary
+                          (Literal FloatingPointLiteral)))
+                      ","
+                      (Expression
+                        (Primary
+                          (Literal FloatingPointLiteral))))
+                    ")"))
+                ","
+                (EnumConstant
+                  Identifier
+                  (Arguments
+                    "("
+                    ({Expression ","}*
+                      (Expression
+                        (Primary
+                          (Literal FloatingPointLiteral)))
+                      ","
+                      (Expression
+                        (Primary
+                          (Literal FloatingPointLiteral))))
+                    ")")))
+              (EnumBodyDeclarations
+                ";"
+                (ClassBodyDeclaration*
+                  (ClassBodyDeclaration
+                    (FieldDeclaration
+                      (FieldModifier*
+                        (FieldModifier "final"))
+                      (UnannType
+                        (UnannPrimitiveType "double"))
+                      ({VariableDeclarator ","}+
+                        (VariableDeclarator
+                          (VariableDeclaratorId Identifier)))
+                      ";"))
+                  (ClassBodyDeclaration
+                    (FieldDeclaration
+                      (FieldModifier*
+                        (FieldModifier "final"))
+                      (UnannType
+                        (UnannPrimitiveType "double"))
+                      ({VariableDeclarator ","}+
+                        (VariableDeclarator
+                          (VariableDeclaratorId Identifier)))
+                      ";"))
+                  (ClassBodyDeclaration
+                    (ConstructorDeclaration
+                      Identifier
+                      "("
+                      (FormalParameterList
+                        ((FormalParameter ",")*
+                          (FormalParameter
+                            (UnannType
+                              (UnannPrimitiveType "double"))
+                            (VariableDeclaratorId Identifier))
+                          ",")
+                        (LastFormalParameter
+                          (FormalParameter
+                            (UnannType
+                              (UnannPrimitiveType "double"))
+                            (VariableDeclaratorId Identifier))))
+                      ")"
+                      (ConstructorBody
+                        "{"
+                        (BlockStatement*
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Expression
+                                      (Primary "this"))
+                                    "."
+                                    (Selector Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Primary Identifier))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Expression
+                                      (Primary "this"))
+                                    "."
+                                    (Selector Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Primary Identifier))))
+                              ";")))
+                        "}")))
+                  (ClassBodyDeclaration
+                    (MethodDeclaration
+                      (Result
+                        (UnannType
+                          (UnannPrimitiveType "double")))
+                      (MethodDeclarator Identifier "(" ")")
+                      (MethodBody
+                        (Block
+                          "{"
+                          (BlockStatement*
+                            (BlockStatement
+                              (Statement
+                                "return"
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  "/"
+                                  (Expression
+                                    (Primary
+                                      "("
+                                      (Expression
+                                        (Expression
+                                          (Primary Identifier))
+                                        "*"
+                                        (Expression
+                                          (Primary Identifier)))
+                                      ")")))
+                                ";")))
+                          "}"))))))
+              "}"))))
+      (TypeDeclaration
+        (ClassDeclaration
+          (EnumDeclaration
+            "enum"
+            Identifier
+            (EnumBody
+              "{"
+              ({EnumConstant ","}*
+                (EnumConstant
+                  Identifier
+                  (ClassBody
+                    "{"
+                    (ClassBodyDeclaration*
+                      (ClassBodyDeclaration
+                        (MethodDeclaration
+                          (MethodModifier*
+                            (MethodModifier "public"))
+                          (Result
+                            (UnannType
+                              (UnannPrimitiveType "int")))
+                          (MethodDeclarator
+                            Identifier
+                            "("
+                            (FormalParameterList
+                              ((FormalParameter ",")*
+                                (FormalParameter
+                                  (UnannType
+                                    (UnannPrimitiveType "int"))
+                                  (VariableDeclaratorId Identifier))
+                                ",")
+                              (LastFormalParameter
+                                (FormalParameter
+                                  (UnannType
+                                    (UnannPrimitiveType "int"))
+                                  (VariableDeclaratorId Identifier))))
+                            ")")
+                          (MethodBody
+                            (Block
+                              "{"
+                              (BlockStatement*
+                                (BlockStatement
+                                  (Statement
+                                    "return"
+                                    (Expression
+                                      (Expression
+                                        (Primary Identifier))
+                                      "+"
+                                      (Expression
+                                        (Primary Identifier)))
+                                    ";")))
+                              "}")))))
+                    "}"))
+                ","
+                (EnumConstant
+                  Identifier
+                  (ClassBody
+                    "{"
+                    (ClassBodyDeclaration*
+                      (ClassBodyDeclaration
+                        (MethodDeclaration
+                          (MethodModifier*
+                            (MethodModifier "public"))
+                          (Result
+                            (UnannType
+                              (UnannPrimitiveType "int")))
+                          (MethodDeclarator
+                            Identifier
+                            "("
+                            (FormalParameterList
+                              ((FormalParameter ",")*
+                                (FormalParameter
+                                  (UnannType
+                                    (UnannPrimitiveType "int"))
+                                  (VariableDeclaratorId Identifier))
+                                ",")
+                              (LastFormalParameter
+                                (FormalParameter
+                                  (UnannType
+                                    (UnannPrimitiveType "int"))
+                                  (VariableDeclaratorId Identifier))))
+                            ")")
+                          (MethodBody
+                            (Block
+                              "{"
+                              (BlockStatement*
+                                (BlockStatement
+                                  (Statement
+                                    "return"
+                                    (Expression
+                                      (Expression
+                                        (Primary Identifier))
+                                      "-"
+                                      (Expression
+                                        (Primary Identifier)))
+                                    ";")))
+                              "}")))))
+                    "}"))
+                ","
+                (EnumConstant
+                  Identifier
+                  (ClassBody
+                    "{"
+                    (ClassBodyDeclaration*
+                      (ClassBodyDeclaration
+                        (MethodDeclaration
+                          (MethodModifier*
+                            (MethodModifier "public"))
+                          (Result
+                            (UnannType
+                              (UnannPrimitiveType "int")))
+                          (MethodDeclarator
+                            Identifier
+                            "("
+                            (FormalParameterList
+                              ((FormalParameter ",")*
+                                (FormalParameter
+                                  (UnannType
+                                    (UnannPrimitiveType "int"))
+                                  (VariableDeclaratorId Identifier))
+                                ",")
+                              (LastFormalParameter
+                                (FormalParameter
+                                  (UnannType
+                                    (UnannPrimitiveType "int"))
+                                  (VariableDeclaratorId Identifier))))
+                            ")")
+                          (MethodBody
+                            (Block
+                              "{"
+                              (BlockStatement*
+                                (BlockStatement
+                                  (Statement
+                                    "return"
+                                    (Expression
+                                      (Expression
+                                        (Primary Identifier))
+                                      "*"
+                                      (Expression
+                                        (Primary Identifier)))
+                                    ";")))
+                              "}")))))
+                    "}")))
+              (EnumBodyDeclarations
+                ";"
+                (ClassBodyDeclaration*
+                  (ClassBodyDeclaration
+                    (MethodDeclaration
+                      (MethodModifier*
+                        (MethodModifier "public")
+                        (MethodModifier "abstract"))
+                      (Result
+                        (UnannType
+                          (UnannPrimitiveType "int")))
+                      (MethodDeclarator
+                        Identifier
+                        "("
+                        (FormalParameterList
+                          ((FormalParameter ",")*
+                            (FormalParameter
+                              (UnannType
+                                (UnannPrimitiveType "int"))
+                              (VariableDeclaratorId Identifier))
+                            ",")
+                          (LastFormalParameter
+                            (FormalParameter
+                              (UnannType
+                                (UnannPrimitiveType "int"))
+                              (VariableDeclaratorId Identifier))))
+                        ")")
+                      (MethodBody ";")))))
+              "}"))))
+      (TypeDeclaration
+        (InterfaceDeclaration
+          (NormalInterfaceDeclaration
+            "interface"
+            Identifier
+            (InterfaceBody
+              "{"
+              (InterfaceMemberDeclaration*
+                (InterfaceMemberDeclaration
+                  (InterfaceMethodDeclaration
+                    (Result
+                      (UnannType
+                        (UnannPrimitiveType "int")))
+                    (MethodDeclarator Identifier "(" ")")
+                    ";")))
+              "}"))))
+      (TypeDeclaration
+        (ClassDeclaration
+          (EnumDeclaration
+            "enum"
+            Identifier
+            "implements"
+            (ClassTypeList
+              ({ClassType ","}+
+                (ClassType Identifier)))
+            (EnumBody
+              "{"
+              ({EnumConstant ","}*
+                (EnumConstant Identifier)
+                ","
+                (EnumConstant Identifier)
+                ","
+                (EnumConstant Identifier))
+              (EnumBodyDeclarations
+                ";"
+                (ClassBodyDeclaration*
+                  (ClassBodyDeclaration
+                    (MethodDeclaration
+                      (MethodModifier*
+                        (MethodModifier "public"))
+                      (Result
+                        (UnannType
+                          (UnannPrimitiveType "int")))
+                      (MethodDeclarator Identifier "(" ")")
+                      (MethodBody
+                        (Block
+                          "{"
+                          (BlockStatement*
+                            (BlockStatement
+                              (Statement
+                                "return"
+                                (Expression
+                                  (Expression
+                                    (MethodInvocation
+                                      Identifier
+                                      (Arguments "(" ")")))
+                                  "*"
+                                  (Expression
+                                    (Primary
+                                      (Literal IntegerLiteral))))
+                                ";")))
+                          "}"))))))
+              "}"))))
+      (TypeDeclaration
+        (ClassDeclaration
+          (EnumDeclaration
+            "enum"
+            Identifier
+            (EnumBody
+              "{"
+              ({EnumConstant ","}*
+                (EnumConstant
+                  (Annotation*
+                    (Annotation
+                      "@"
+                      (QualifiedIdentifier
+                        ({Identifier "."}+ Identifier))))
+                  Identifier)
+                ","
+                (EnumConstant Identifier))
+              (EnumBodyDeclarations ";")
+              "}")))))))

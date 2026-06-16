@@ -1,0 +1,448 @@
+(CompilationUnit
+  (OrdinaryCompilationUnit
+    (TypeDeclaration*
+      (TypeDeclaration
+        (ClassDeclaration
+          (NormalClassDeclaration
+            "class"
+            Identifier
+            (ClassBody
+              "{"
+              (ClassBodyDeclaration*
+                (ClassBodyDeclaration
+                  (FieldDeclaration
+                    (UnannType
+                      (UnannPrimitiveType "int"))
+                    ({VariableDeclarator ","}+
+                      (VariableDeclarator
+                        (VariableDeclaratorId Identifier)))
+                    ";"))
+                (ClassBodyDeclaration
+                  (ConstructorDeclaration
+                    Identifier
+                    "("
+                    ")"
+                    (ConstructorBody "{" "}")))
+                (ClassBodyDeclaration
+                  (ConstructorDeclaration
+                    Identifier
+                    "("
+                    (FormalParameterList
+                      (LastFormalParameter
+                        (FormalParameter
+                          (UnannType
+                            (UnannPrimitiveType "int"))
+                          (VariableDeclaratorId Identifier))))
+                    ")"
+                    (ConstructorBody
+                      "{"
+                      (BlockStatement*
+                        (BlockStatement
+                          (Statement
+                            (StatementExpression
+                              (Expression
+                                (Expression
+                                  (Expression
+                                    (Primary "this"))
+                                  "."
+                                  (Selector Identifier))
+                                AssignmentOperator
+                                (Expression
+                                  (Primary Identifier))))
+                            ";")))
+                      "}")))
+                (ClassBodyDeclaration
+                  (ConstructorDeclaration
+                    Identifier
+                    "("
+                    (FormalParameterList
+                      ((FormalParameter ",")*
+                        (FormalParameter
+                          (UnannType
+                            (UnannPrimitiveType "int"))
+                          (VariableDeclaratorId Identifier))
+                        ",")
+                      (LastFormalParameter
+                        (FormalParameter
+                          (UnannType
+                            (UnannPrimitiveType "int"))
+                          (VariableDeclaratorId Identifier))))
+                    ")"
+                    (ConstructorBody
+                      "{"
+                      (BlockStatement*
+                        (BlockStatement
+                          (Statement
+                            (StatementExpression
+                              (Expression
+                                (Expression
+                                  (Expression
+                                    (Primary "this"))
+                                  "."
+                                  (Selector Identifier))
+                                AssignmentOperator
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  "+"
+                                  (Expression
+                                    (Primary Identifier)))))
+                            ";")))
+                      "}")))
+                (ClassBodyDeclaration
+                  (ConstructorDeclaration
+                    Identifier
+                    "("
+                    (FormalParameterList
+                      (LastFormalParameter
+                        (FormalParameter
+                          (UnannType
+                            (UnannReferenceType
+                              (UnannClassType Identifier)))
+                          (VariableDeclaratorId Identifier))))
+                    ")"
+                    (ConstructorBody
+                      "{"
+                      (ExplicitConstructorInvocation
+                        "this"
+                        (Arguments
+                          "("
+                          ({Expression ","}*
+                            (Expression
+                              (Expression
+                                (Primary Identifier))
+                              "."
+                              (Selector
+                                (MethodInvocation
+                                  Identifier
+                                  (Arguments "(" ")")))))
+                          ")")
+                        ";")
+                      "}")))
+                (ClassBodyDeclaration
+                  (ConstructorDeclaration
+                    Identifier
+                    "("
+                    (FormalParameterList
+                      (LastFormalParameter
+                        (FormalParameter
+                          (UnannType
+                            (UnannPrimitiveType "double"))
+                          (VariableDeclaratorId Identifier))))
+                    ")"
+                    (ConstructorBody
+                      "{"
+                      (ExplicitConstructorInvocation
+                        "super"
+                        (Arguments "(" ")")
+                        ";")
+                      (BlockStatement*
+                        (BlockStatement
+                          (Statement
+                            (StatementExpression
+                              (Expression
+                                (Expression
+                                  (Expression
+                                    (Primary "this"))
+                                  "."
+                                  (Selector Identifier))
+                                AssignmentOperator
+                                (Expression
+                                  "("
+                                  (PrimitiveType "int")
+                                  ")"
+                                  (Expression
+                                    (Primary Identifier)))))
+                            ";")))
+                      "}")))
+                (ClassBodyDeclaration
+                  (ConstructorDeclaration
+                    (TypeParameters
+                      "<"
+                      ({TypeParameter ","}+
+                        (TypeParameter Identifier))
+                      ">")
+                    Identifier
+                    "("
+                    (FormalParameterList
+                      ((FormalParameter ",")*
+                        (FormalParameter
+                          (UnannType
+                            (UnannReferenceType
+                              (UnannClassType Identifier)))
+                          (VariableDeclaratorId Identifier))
+                        ",")
+                      (LastFormalParameter
+                        (FormalParameter
+                          (UnannType
+                            (UnannPrimitiveType "boolean"))
+                          (VariableDeclaratorId Identifier))))
+                    ")"
+                    (ConstructorBody
+                      "{"
+                      (BlockStatement*
+                        (BlockStatement
+                          (Statement
+                            (StatementExpression
+                              (Expression
+                                (Expression
+                                  (Expression
+                                    (Primary "this"))
+                                  "."
+                                  (Selector Identifier))
+                                AssignmentOperator
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  "."
+                                  (Selector
+                                    (MethodInvocation
+                                      Identifier
+                                      (Arguments "(" ")"))))))
+                            ";")))
+                      "}")))
+                (ClassBodyDeclaration
+                  (ConstructorDeclaration
+                    Identifier
+                    "("
+                    (FormalParameterList
+                      (LastFormalParameter
+                        (FormalParameter
+                          (UnannType
+                            (UnannReferenceType
+                              (UnannClassType
+                                Identifier
+                                (("." Annotation* Identifier TypeArguments?)* "." Identifier "." Identifier))))
+                          (VariableDeclaratorId Identifier))))
+                    ")"
+                    (Throws
+                      "throws"
+                      ({ClassType ","}+
+                        (ClassType
+                          Identifier
+                          (("." Annotation* Identifier TypeArguments?)* "." Identifier "." Identifier))))
+                    (ConstructorBody
+                      "{"
+                      (BlockStatement*
+                        (BlockStatement
+                          (Statement
+                            (StatementExpression
+                              (Expression
+                                (Expression
+                                  (Expression
+                                    (Primary "this"))
+                                  "."
+                                  (Selector Identifier))
+                                AssignmentOperator
+                                (Expression
+                                  (Primary
+                                    (Literal IntegerLiteral)))))
+                            ";")))
+                      "}")))
+                (ClassBodyDeclaration
+                  (ConstructorDeclaration
+                    Identifier
+                    "("
+                    (FormalParameterList
+                      (LastFormalParameter
+                        (UnannType
+                          (UnannPrimitiveType "int"))
+                        "..."
+                        (VariableDeclaratorId Identifier)))
+                    ")"
+                    (ConstructorBody
+                      "{"
+                      (BlockStatement*
+                        (BlockStatement
+                          (Statement
+                            "for"
+                            "("
+                            (ForControl
+                              (FormalParameter
+                                (UnannType
+                                  (UnannPrimitiveType "int"))
+                                (VariableDeclaratorId Identifier))
+                              ":"
+                              (Expression
+                                (Primary Identifier)))
+                            ")"
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Expression
+                                      (Primary "this"))
+                                    "."
+                                    (Selector Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Primary Identifier))))
+                              ";"))))
+                      "}")))
+                (ClassBodyDeclaration
+                  (ConstructorDeclaration
+                    (ConstructorModifier*
+                      (ConstructorModifier "public"))
+                    Identifier
+                    "("
+                    (FormalParameterList
+                      ((FormalParameter ",")*
+                        (FormalParameter
+                          (UnannType
+                            (UnannPrimitiveType "int"))
+                          (VariableDeclaratorId Identifier))
+                        ","
+                        (FormalParameter
+                          (UnannType
+                            (UnannPrimitiveType "int"))
+                          (VariableDeclaratorId Identifier))
+                        ",")
+                      (LastFormalParameter
+                        (FormalParameter
+                          (UnannType
+                            (UnannPrimitiveType "int"))
+                          (VariableDeclaratorId Identifier))))
+                    ")"
+                    (ConstructorBody "{" "}")))
+                (ClassBodyDeclaration
+                  (ConstructorDeclaration
+                    (ConstructorModifier*
+                      (ConstructorModifier "protected"))
+                    Identifier
+                    "("
+                    (FormalParameterList
+                      ((FormalParameter ",")*
+                        (FormalParameter
+                          (UnannType
+                            (UnannPrimitiveType "int"))
+                          (VariableDeclaratorId Identifier))
+                        ","
+                        (FormalParameter
+                          (UnannType
+                            (UnannPrimitiveType "int"))
+                          (VariableDeclaratorId Identifier))
+                        ","
+                        (FormalParameter
+                          (UnannType
+                            (UnannPrimitiveType "int"))
+                          (VariableDeclaratorId Identifier))
+                        ",")
+                      (LastFormalParameter
+                        (FormalParameter
+                          (UnannType
+                            (UnannPrimitiveType "int"))
+                          (VariableDeclaratorId Identifier))))
+                    ")"
+                    (ConstructorBody "{" "}")))
+                (ClassBodyDeclaration
+                  (ConstructorDeclaration
+                    (ConstructorModifier*
+                      (ConstructorModifier "private"))
+                    Identifier
+                    "("
+                    (FormalParameterList
+                      (LastFormalParameter
+                        (FormalParameter
+                          (UnannType
+                            (UnannPrimitiveType "boolean"))
+                          (VariableDeclaratorId Identifier))))
+                    ")"
+                    (ConstructorBody "{" "}")))
+                (ClassBodyDeclaration
+                  (ConstructorDeclaration
+                    (ConstructorModifier*
+                      (ConstructorModifier
+                        (Annotation
+                          "@"
+                          (QualifiedIdentifier
+                            ({Identifier "."}+ Identifier)))))
+                    Identifier
+                    "("
+                    (FormalParameterList
+                      (LastFormalParameter
+                        (FormalParameter
+                          (UnannType
+                            (UnannPrimitiveType "char"))
+                          (VariableDeclaratorId Identifier))))
+                    ")"
+                    (ConstructorBody "{" "}"))))
+              "}"))))
+      (TypeDeclaration
+        (ClassDeclaration
+          (NormalClassDeclaration
+            "class"
+            Identifier
+            "extends"
+            (ClassType Identifier)
+            (ClassBody
+              "{"
+              (ClassBodyDeclaration*
+                (ClassBodyDeclaration
+                  (ConstructorDeclaration
+                    Identifier
+                    "("
+                    ")"
+                    (ConstructorBody
+                      "{"
+                      (ExplicitConstructorInvocation
+                        "super"
+                        (Arguments
+                          "("
+                          ({Expression ","}*
+                            (Expression
+                              (Primary
+                                (Literal IntegerLiteral))))
+                          ")")
+                        ";")
+                      "}")))
+                (ClassBodyDeclaration
+                  (ConstructorDeclaration
+                    Identifier
+                    "("
+                    (FormalParameterList
+                      (LastFormalParameter
+                        (FormalParameter
+                          (UnannType
+                            (UnannPrimitiveType "int"))
+                          (VariableDeclaratorId Identifier))))
+                    ")"
+                    (ConstructorBody
+                      "{"
+                      (ExplicitConstructorInvocation
+                        "super"
+                        (Arguments
+                          "("
+                          ({Expression ","}*
+                            (Expression
+                              (Primary Identifier))
+                            ","
+                            (Expression
+                              (Primary Identifier)))
+                          ")")
+                        ";")
+                      "}")))
+                (ClassBodyDeclaration
+                  (ConstructorDeclaration
+                    Identifier
+                    "("
+                    (FormalParameterList
+                      (LastFormalParameter
+                        (FormalParameter
+                          (UnannType
+                            (UnannReferenceType
+                              (UnannClassType Identifier)))
+                          (VariableDeclaratorId Identifier))))
+                    ")"
+                    (ConstructorBody
+                      "{"
+                      (ExplicitConstructorInvocation
+                        "super"
+                        (Arguments
+                          "("
+                          ({Expression ","}*
+                            (Expression
+                              (Primary Identifier)))
+                          ")")
+                        ";")
+                      "}"))))
+              "}")))))))
