@@ -8399,9 +8399,9 @@ fn match_token (& mut self , terminal_id : TerminalId , input_index : u32) -> Op
  dd_intermediate_nodes_index : [InlineMap < (Span , Option < EnvId >) , SPPFNodeId > ; 282] , terminal_nodes_index : [InlineMap < Span , SPPFNodeId > ; 145] , 
 // Epsilon nodes keyed by input position; SPPFNodeId::NONE marks an empty slot.
  epsilon_nodes : Vec < SPPFNodeId > , 
-// An intermediate node keeps it first child inline. Children of intermediate nodes are
-// pairs: (left_child, right_child). Extra children, when there is ambiguity, are stored in
-// here as tuples of (parent node, (left child, right child)).
+// An intermediate node keeps its first child inline. Children of intermediate nodes are
+// pairs: (left_child, right_child). Extra children, when there is ambiguity, are stored here
+// as (parent node, (left child, right child)).
  intermediate_nodes_children : Vec < (SPPFNodeId , (SPPFNodeId , SPPFNodeId)) > , 
 // intermediate_nodes_children grouped by parent node, built lazily for tree construction.
  intermediate_nodes_children_map : OnceCell < FxHashMap < SPPFNodeId , Vec < (SPPFNodeId , SPPFNodeId) >> > , 
@@ -8464,7 +8464,6 @@ fn create_nonterminal_node_or_attach_children_expression (& mut self , nontermin
 fn create_nonterminal_node_or_attach_children_lambda (& mut self , nonterminal_id : NonterminalId , return_slot : SlotId , left_extent : u32 , right_extent : u32 , child : SPPFNodeId , return_value : i32 , gss_node_id : GssNodeId ,) -> SPPFNodeId { if let Some (existing_node_id) = self . gss_node (gss_node_id) . find_popped_element (right_extent , Some (return_value)) { record ! (self , NonterminalNodeFound , existing_node_id) ; let node = self . sppf_node_mut (existing_node_id) ; let SPPFNode :: Nonterminal (node) = node else { unreachable ! ("Expects a nonterminal node") ; } ; node . ambiguous = true ; self . add_nonterminal_node_child (existing_node_id , child , return_slot) ; return existing_node_id ; } let nonterminal_node = NonterminalNode { nonterminal_id , return_slot , span : Span { left_extent , right_extent , } , child , ambiguous : false , } ; self . add_nonterminal_node (nonterminal_node) }
 fn create_nonterminal_node_or_attach_children_lambda_body (& mut self , nonterminal_id : NonterminalId , return_slot : SlotId , left_extent : u32 , right_extent : u32 , child : SPPFNodeId , return_value : i32 , gss_node_id : GssNodeId ,) -> SPPFNodeId { if let Some (existing_node_id) = self . gss_node (gss_node_id) . find_popped_element (right_extent , Some (return_value)) { record ! (self , NonterminalNodeFound , existing_node_id) ; let node = self . sppf_node_mut (existing_node_id) ; let SPPFNode :: Nonterminal (node) = node else { unreachable ! ("Expects a nonterminal node") ; } ; node . ambiguous = true ; self . add_nonterminal_node_child (existing_node_id , child , return_slot) ; return existing_node_id ; } let nonterminal_node = NonterminalNode { nonterminal_id , return_slot , span : Span { left_extent , right_extent , } , child , ambiguous : false , } ; self . add_nonterminal_node (nonterminal_node) }
 fn get_or_create_epsilon_node (& mut self , i : u32) -> SPPFNodeId { let existing = self . epsilon_nodes [i as usize] ; if existing != SPPFNodeId :: NONE { record ! (self , TerminalNodeFound , existing) ; return existing ; } let span = Span :: new (i , i) ; let terminal_id = TerminalId (143) ; let node_id = SPPFNodeId (self . sppf_nodes . len () as u32) ; record ! (self , TerminalNodeCreated , terminal_id , span) ; self . sppf_nodes . push (SPPFNode :: Terminal (TerminalNode { terminal_id , span })) ; self . epsilon_nodes [i as usize] = node_id ; node_id } 
-// true if an (local) ambiguity node was added during parsing. If true, it does not guarantee
-// that the local ambiguity is reachable from the root, so, the still a tree walk is needed
-// for the ambiguity.
+// True if a local ambiguity node was added during parsing. This does not guarantee the
+// ambiguity is reachable from the root, so a tree walk is still needed to confirm it.
  pub fn ambiguity_node_added (& self) -> bool { ! self . intermediate_nodes_children . is_empty () || ! self . nonterminal_nodes_children . is_empty () } }

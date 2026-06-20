@@ -1,0 +1,10 @@
+# Repos to parse, one per line: name ext start repo ref
+#   name  = baseline file (<name>.txt) + checkout dir (.cache/<name>)
+#   ext   = file extension to parse        start = start nonterminal
+#   repo  = git URL                        ref   = tag or branch (shallow-cloned)
+#
+# myproj java CompilationUnit https://github.com/owner/repo v1.0.0
+
+openjdk9         java CompilationUnit https://github.com/openjdk/jdk9                      jdk-9+181
+spring-framework java CompilationUnit https://github.com/spring-projects/spring-framework v4.3.30.RELEASE
+elasticsearch    java CompilationUnit https://github.com/elastic/elasticsearch            v2.4.6

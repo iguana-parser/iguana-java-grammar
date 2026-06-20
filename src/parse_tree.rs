@@ -7535,6 +7535,6 @@ fn span (& self) -> Span { ParseTree :: span (self) }
 fn kind (& self) -> NodeKind { if self . is_amb () { NodeKind :: Amb } else if matches ! (self , ParseTree :: Token (_)) { NodeKind :: Token } else { NodeKind :: Nonterminal } }
 fn node_id (& self) -> Option < usize > { ParseTree :: node_id (self) }
 fn origin (& self) -> Option < Origin > { ParseTree :: origin (self) } } const LAYOUT_NAME : Option < & str > = Some ("Layout") ; pub fn to_sexpr (node : ParseTree < '_ >) -> String { iguana_runtime :: parse_tree :: to_sexpr (node , LAYOUT_NAME) }
-pub fn to_sexpr_with (node : ParseTree < '_ > , options : SexprOptions) -> String { iguana_runtime :: parse_tree :: to_sexpr_with (node , LAYOUT_NAME , options) } 
+pub fn to_sexpr_with (node : ParseTree < '_ > , options : SexprOptions) -> String { iguana_runtime :: parse_tree :: to_sexpr_with (node , LAYOUT_NAME , options) }
 /// Converts a parse tree to a JSON string of nodes and edges, for visualization.
  pub fn to_json (node : ParseTree < '_ >) -> String { iguana_runtime :: parse_tree :: to_json (node , LAYOUT_NAME) }
