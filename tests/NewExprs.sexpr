@@ -16,7 +16,7 @@
         (ClassDeclaration
           (NormalClassDeclaration
             "class"
-            Identifier
+            TypeIdentifier
             (ClassBody
               "{"
               (ClassBodyDeclaration*
@@ -24,7 +24,7 @@
                   (FieldDeclaration
                     (UnannType
                       (UnannReferenceType
-                        (UnannClassType Identifier)))
+                        (UnannClassType TypeIdentifier)))
                     ({VariableDeclarator ","}+
                       (VariableDeclarator
                         (VariableDeclaratorId Identifier)
@@ -41,7 +41,7 @@
                                     ({TypeArgument ","}+
                                       (TypeArgument
                                         (ReferenceType
-                                          (ClassType Identifier))))
+                                          (ClassType TypeIdentifier))))
                                     ">")))
                               (Arguments "(" ")"))))))
                     ";"))
@@ -49,7 +49,7 @@
                   (FieldDeclaration
                     (UnannType
                       (UnannReferenceType
-                        (UnannClassType Identifier)))
+                        (UnannClassType TypeIdentifier)))
                     ({VariableDeclarator ","}+
                       (VariableDeclarator
                         (VariableDeclaratorId Identifier)
@@ -67,7 +67,7 @@
                   (FieldDeclaration
                     (UnannType
                       (UnannReferenceType
-                        (UnannClassType Identifier)))
+                        (UnannClassType TypeIdentifier)))
                     ({VariableDeclarator ","}+
                       (VariableDeclarator
                         (VariableDeclaratorId Identifier)
@@ -84,11 +84,11 @@
                                     ({TypeArgument ","}+
                                       (TypeArgument
                                         (ReferenceType
-                                          (ClassType Identifier)))
+                                          (ClassType TypeIdentifier)))
                                       ","
                                       (TypeArgument
                                         (ReferenceType
-                                          (ClassType Identifier))))
+                                          (ClassType TypeIdentifier))))
                                     ">")))
                               (Arguments "(" ")"))))))
                     ";"))
@@ -96,7 +96,7 @@
                   (FieldDeclaration
                     (UnannType
                       (UnannReferenceType
-                        (UnannClassType Identifier)))
+                        (UnannClassType TypeIdentifier)))
                     ({VariableDeclarator ","}+
                       (VariableDeclarator
                         (VariableDeclaratorId Identifier)
@@ -114,7 +114,7 @@
                   (FieldDeclaration
                     (UnannType
                       (UnannReferenceType
-                        (UnannClassType Identifier)))
+                        (UnannClassType TypeIdentifier)))
                     ({VariableDeclarator ","}+
                       (VariableDeclarator
                         (VariableDeclaratorId Identifier)
@@ -130,7 +130,7 @@
                   (FieldDeclaration
                     (UnannType
                       (UnannReferenceType
-                        (UnannClassType Identifier)))
+                        (UnannClassType TypeIdentifier)))
                     ({VariableDeclarator ","}+
                       (VariableDeclarator
                         (VariableDeclaratorId Identifier)
@@ -148,7 +148,7 @@
                                     ({TypeArgument ","}+
                                       (TypeArgument
                                         (ReferenceType
-                                          (ClassType Identifier))))
+                                          (ClassType TypeIdentifier))))
                                     ">")))
                               (Arguments "(" ")"))))))
                     ";"))
@@ -159,12 +159,12 @@
                     (TypeParameters
                       "<"
                       ({TypeParameter ","}+
-                        (TypeParameter Identifier))
+                        (TypeParameter TypeIdentifier))
                       ">")
                     (Result
                       (UnannType
                         (UnannReferenceType
-                          (UnannClassType Identifier))))
+                          (UnannClassType TypeIdentifier))))
                     (MethodDeclarator Identifier "(" ")")
                     (MethodBody
                       (Block
@@ -181,7 +181,7 @@
                                     ({TypeArgument ","}+
                                       (TypeArgument
                                         (ReferenceType
-                                          (ClassType Identifier))))
+                                          (ClassType TypeIdentifier))))
                                     ">")
                                   (ClassTypeToInstantiate Identifier)
                                   (Arguments "(" ")")))
@@ -191,13 +191,13 @@
                   (ClassDeclaration
                     (NormalClassDeclaration
                       "class"
-                      Identifier
+                      TypeIdentifier
                       (ClassBody "{" "}"))))
                 (ClassBodyDeclaration
                   (FieldDeclaration
                     (UnannType
                       (UnannReferenceType
-                        (UnannClassType Identifier)))
+                        (UnannClassType TypeIdentifier)))
                     ({VariableDeclarator ","}+
                       (VariableDeclarator
                         (VariableDeclaratorId Identifier)
@@ -219,7 +219,7 @@
                   (FieldDeclaration
                     (UnannType
                       (UnannReferenceType
-                        (UnannClassType Identifier)))
+                        (UnannClassType TypeIdentifier)))
                     ({VariableDeclarator ","}+
                       (VariableDeclarator
                         (VariableDeclaratorId Identifier)
@@ -245,7 +245,7 @@
                                       (Result
                                         (UnannType
                                           (UnannReferenceType
-                                            (UnannClassType Identifier))))
+                                            (UnannClassType TypeIdentifier))))
                                       (MethodDeclarator Identifier "(" ")")
                                       (MethodBody
                                         (Block
@@ -265,7 +265,7 @@
                   (FieldDeclaration
                     (UnannType
                       (UnannReferenceType
-                        (UnannClassType Identifier)))
+                        (UnannClassType TypeIdentifier)))
                     ({VariableDeclarator ","}+
                       (VariableDeclarator
                         (VariableDeclaratorId Identifier)
@@ -282,7 +282,7 @@
                                     ({TypeArgument ","}+
                                       (TypeArgument
                                         (ReferenceType
-                                          (ClassType Identifier))))
+                                          (ClassType TypeIdentifier))))
                                     ">")))
                               (Arguments "(" ")")
                               (ClassBody

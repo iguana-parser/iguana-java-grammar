@@ -1,5 +1,5 @@
 # corpus: spring-framework
-# files=6424 ok=6424 error=0 ioerror=0 parse_ms=6648
+# files=6424 ok=6424 error=0 ioerror=0 parse_ms=6996
 gradle/jdiff/Null.java	ok
 spring-aop/src/main/java/org/aopalliance/aop/Advice.java	ok
 spring-aop/src/main/java/org/aopalliance/aop/AspectException.java	ok
@@ -106,7 +106,7 @@ spring-aop/src/main/java/org/springframework/aop/framework/AopInfrastructureBean
 spring-aop/src/main/java/org/springframework/aop/framework/AopProxy.java	ok
 spring-aop/src/main/java/org/springframework/aop/framework/AopProxyFactory.java	ok
 spring-aop/src/main/java/org/springframework/aop/framework/AopProxyUtils.java	ok
-spring-aop/src/main/java/org/springframework/aop/framework/CglibAopProxy.java	ok	7
+spring-aop/src/main/java/org/springframework/aop/framework/CglibAopProxy.java	ok	8
 spring-aop/src/main/java/org/springframework/aop/framework/DefaultAdvisorChainFactory.java	ok
 spring-aop/src/main/java/org/springframework/aop/framework/DefaultAopProxyFactory.java	ok
 spring-aop/src/main/java/org/springframework/aop/framework/InterceptorAndDynamicMethodMatcher.java	ok
@@ -227,7 +227,7 @@ spring-aop/src/test/java/org/springframework/aop/aspectj/TigerAspectJAdviceParam
 spring-aop/src/test/java/org/springframework/aop/aspectj/TigerAspectJExpressionPointcutTests.java	ok
 spring-aop/src/test/java/org/springframework/aop/aspectj/TrickyAspectJPointcutExpressionTests.java	ok
 spring-aop/src/test/java/org/springframework/aop/aspectj/TypePatternClassFilterTests.java	ok
-spring-aop/src/test/java/org/springframework/aop/aspectj/annotation/AbstractAspectJAdvisorFactoryTests.java	ok	8
+spring-aop/src/test/java/org/springframework/aop/aspectj/annotation/AbstractAspectJAdvisorFactoryTests.java	ok	10
 spring-aop/src/test/java/org/springframework/aop/aspectj/annotation/ArgumentBindingTests.java	ok
 spring-aop/src/test/java/org/springframework/aop/aspectj/annotation/AspectJPointcutAdvisorTests.java	ok
 spring-aop/src/test/java/org/springframework/aop/aspectj/annotation/AspectMetadataTests.java	ok
@@ -244,7 +244,7 @@ spring-aop/src/test/java/org/springframework/aop/framework/IntroductionBenchmark
 spring-aop/src/test/java/org/springframework/aop/framework/MethodInvocationTests.java	ok
 spring-aop/src/test/java/org/springframework/aop/framework/NullPrimitiveTests.java	ok
 spring-aop/src/test/java/org/springframework/aop/framework/PrototypeTargetTests.java	ok
-spring-aop/src/test/java/org/springframework/aop/framework/ProxyFactoryTests.java	ok
+spring-aop/src/test/java/org/springframework/aop/framework/ProxyFactoryTests.java	ok	5
 spring-aop/src/test/java/org/springframework/aop/framework/adapter/ThrowsAdviceInterceptorTests.java	ok
 spring-aop/src/test/java/org/springframework/aop/interceptor/ConcurrencyThrottleInterceptorTests.java	ok
 spring-aop/src/test/java/org/springframework/aop/interceptor/CustomizableTraceInterceptorTests.java	ok
@@ -336,7 +336,7 @@ spring-aspects/src/test/java/org/springframework/transaction/aspectj/Transaction
 spring-beans-groovy/src/main/java/org/springframework/beans/factory/groovy/GroovyBeanDefinitionReader.java	ok	6
 spring-beans-groovy/src/main/java/org/springframework/beans/factory/groovy/GroovyBeanDefinitionWrapper.java	ok
 spring-beans-groovy/src/main/java/org/springframework/beans/factory/groovy/package-info.java	ok
-spring-beans/src/main/java/org/springframework/beans/AbstractNestablePropertyAccessor.java	ok	10
+spring-beans/src/main/java/org/springframework/beans/AbstractNestablePropertyAccessor.java	ok	11
 spring-beans/src/main/java/org/springframework/beans/AbstractPropertyAccessor.java	ok
 spring-beans/src/main/java/org/springframework/beans/BeanInfoFactory.java	ok
 spring-beans/src/main/java/org/springframework/beans/BeanInstantiationException.java	ok
@@ -370,14 +370,14 @@ spring-beans/src/main/java/org/springframework/beans/PropertyBatchUpdateExceptio
 spring-beans/src/main/java/org/springframework/beans/PropertyDescriptorUtils.java	ok
 spring-beans/src/main/java/org/springframework/beans/PropertyEditorRegistrar.java	ok
 spring-beans/src/main/java/org/springframework/beans/PropertyEditorRegistry.java	ok
-spring-beans/src/main/java/org/springframework/beans/PropertyEditorRegistrySupport.java	ok
+spring-beans/src/main/java/org/springframework/beans/PropertyEditorRegistrySupport.java	ok	5
 spring-beans/src/main/java/org/springframework/beans/PropertyMatches.java	ok
 spring-beans/src/main/java/org/springframework/beans/PropertyValue.java	ok
 spring-beans/src/main/java/org/springframework/beans/PropertyValues.java	ok
 spring-beans/src/main/java/org/springframework/beans/PropertyValuesEditor.java	ok
 spring-beans/src/main/java/org/springframework/beans/SimpleTypeConverter.java	ok
 spring-beans/src/main/java/org/springframework/beans/TypeConverter.java	ok
-spring-beans/src/main/java/org/springframework/beans/TypeConverterDelegate.java	ok	6
+spring-beans/src/main/java/org/springframework/beans/TypeConverterDelegate.java	ok	7
 spring-beans/src/main/java/org/springframework/beans/TypeConverterSupport.java	ok
 spring-beans/src/main/java/org/springframework/beans/TypeMismatchException.java	ok
 spring-beans/src/main/java/org/springframework/beans/annotation/AnnotationBeanUtils.java	ok
@@ -426,7 +426,7 @@ spring-beans/src/main/java/org/springframework/beans/factory/annotation/Annotate
 spring-beans/src/main/java/org/springframework/beans/factory/annotation/AnnotationBeanWiringInfoResolver.java	ok
 spring-beans/src/main/java/org/springframework/beans/factory/annotation/Autowire.java	ok
 spring-beans/src/main/java/org/springframework/beans/factory/annotation/Autowired.java	ok
-spring-beans/src/main/java/org/springframework/beans/factory/annotation/AutowiredAnnotationBeanPostProcessor.java	ok	5
+spring-beans/src/main/java/org/springframework/beans/factory/annotation/AutowiredAnnotationBeanPostProcessor.java	ok	7
 spring-beans/src/main/java/org/springframework/beans/factory/annotation/BeanFactoryAnnotationUtils.java	ok
 spring-beans/src/main/java/org/springframework/beans/factory/annotation/Configurable.java	ok
 spring-beans/src/main/java/org/springframework/beans/factory/annotation/CustomAutowireConfigurer.java	ok
@@ -517,10 +517,10 @@ spring-beans/src/main/java/org/springframework/beans/factory/serviceloader/Servi
 spring-beans/src/main/java/org/springframework/beans/factory/serviceloader/ServiceListFactoryBean.java	ok
 spring-beans/src/main/java/org/springframework/beans/factory/serviceloader/ServiceLoaderFactoryBean.java	ok
 spring-beans/src/main/java/org/springframework/beans/factory/serviceloader/package-info.java	ok
-spring-beans/src/main/java/org/springframework/beans/factory/support/AbstractAutowireCapableBeanFactory.java	ok	13
-spring-beans/src/main/java/org/springframework/beans/factory/support/AbstractBeanDefinition.java	ok	5
+spring-beans/src/main/java/org/springframework/beans/factory/support/AbstractAutowireCapableBeanFactory.java	ok	16
+spring-beans/src/main/java/org/springframework/beans/factory/support/AbstractBeanDefinition.java	ok	6
 spring-beans/src/main/java/org/springframework/beans/factory/support/AbstractBeanDefinitionReader.java	ok
-spring-beans/src/main/java/org/springframework/beans/factory/support/AbstractBeanFactory.java	ok	12
+spring-beans/src/main/java/org/springframework/beans/factory/support/AbstractBeanFactory.java	ok	14
 spring-beans/src/main/java/org/springframework/beans/factory/support/AutowireCandidateQualifier.java	ok
 spring-beans/src/main/java/org/springframework/beans/factory/support/AutowireCandidateResolver.java	ok
 spring-beans/src/main/java/org/springframework/beans/factory/support/AutowireUtils.java	ok
@@ -536,10 +536,10 @@ spring-beans/src/main/java/org/springframework/beans/factory/support/BeanDefinit
 spring-beans/src/main/java/org/springframework/beans/factory/support/BeanNameGenerator.java	ok
 spring-beans/src/main/java/org/springframework/beans/factory/support/CglibSubclassingInstantiationStrategy.java	ok
 spring-beans/src/main/java/org/springframework/beans/factory/support/ChildBeanDefinition.java	ok
-spring-beans/src/main/java/org/springframework/beans/factory/support/ConstructorResolver.java	ok	9
+spring-beans/src/main/java/org/springframework/beans/factory/support/ConstructorResolver.java	ok	10
 spring-beans/src/main/java/org/springframework/beans/factory/support/DefaultBeanNameGenerator.java	ok
-spring-beans/src/main/java/org/springframework/beans/factory/support/DefaultListableBeanFactory.java	ok	14
-spring-beans/src/main/java/org/springframework/beans/factory/support/DefaultSingletonBeanRegistry.java	ok
+spring-beans/src/main/java/org/springframework/beans/factory/support/DefaultListableBeanFactory.java	ok	17
+spring-beans/src/main/java/org/springframework/beans/factory/support/DefaultSingletonBeanRegistry.java	ok	5
 spring-beans/src/main/java/org/springframework/beans/factory/support/DisposableBeanAdapter.java	ok
 spring-beans/src/main/java/org/springframework/beans/factory/support/FactoryBeanRegistrySupport.java	ok
 spring-beans/src/main/java/org/springframework/beans/factory/support/GenericBeanDefinition.java	ok
@@ -576,7 +576,7 @@ spring-beans/src/main/java/org/springframework/beans/factory/xml/AbstractSingleB
 spring-beans/src/main/java/org/springframework/beans/factory/xml/BeanDefinitionDecorator.java	ok
 spring-beans/src/main/java/org/springframework/beans/factory/xml/BeanDefinitionDocumentReader.java	ok
 spring-beans/src/main/java/org/springframework/beans/factory/xml/BeanDefinitionParser.java	ok
-spring-beans/src/main/java/org/springframework/beans/factory/xml/BeanDefinitionParserDelegate.java	ok	14
+spring-beans/src/main/java/org/springframework/beans/factory/xml/BeanDefinitionParserDelegate.java	ok	17
 spring-beans/src/main/java/org/springframework/beans/factory/xml/BeansDtdResolver.java	ok
 spring-beans/src/main/java/org/springframework/beans/factory/xml/DefaultBeanDefinitionDocumentReader.java	ok
 spring-beans/src/main/java/org/springframework/beans/factory/xml/DefaultDocumentLoader.java	ok
@@ -635,33 +635,33 @@ spring-beans/src/main/java/org/springframework/beans/support/PropertyComparator.
 spring-beans/src/main/java/org/springframework/beans/support/ResourceEditorRegistrar.java	ok
 spring-beans/src/main/java/org/springframework/beans/support/SortDefinition.java	ok
 spring-beans/src/main/java/org/springframework/beans/support/package-info.java	ok
-spring-beans/src/test/java/org/springframework/beans/AbstractPropertyAccessorTests.java	ok	30
+spring-beans/src/test/java/org/springframework/beans/AbstractPropertyAccessorTests.java	ok	31
 spring-beans/src/test/java/org/springframework/beans/AbstractPropertyValuesTests.java	ok
 spring-beans/src/test/java/org/springframework/beans/BeanUtilsTests.java	ok
 spring-beans/src/test/java/org/springframework/beans/BeanWrapperAutoGrowingTests.java	ok
 spring-beans/src/test/java/org/springframework/beans/BeanWrapperEnumTests.java	ok
-spring-beans/src/test/java/org/springframework/beans/BeanWrapperGenericsTests.java	ok	8
+spring-beans/src/test/java/org/springframework/beans/BeanWrapperGenericsTests.java	ok	9
 spring-beans/src/test/java/org/springframework/beans/BeanWrapperTests.java	ok
 spring-beans/src/test/java/org/springframework/beans/CachedIntrospectionResultsTests.java	ok
 spring-beans/src/test/java/org/springframework/beans/ConcurrentBeanWrapperTests.java	ok
 spring-beans/src/test/java/org/springframework/beans/DirectFieldAccessorTests.java	ok
 spring-beans/src/test/java/org/springframework/beans/ExtendedBeanInfoFactoryTests.java	ok
-spring-beans/src/test/java/org/springframework/beans/ExtendedBeanInfoTests.java	ok	11
+spring-beans/src/test/java/org/springframework/beans/ExtendedBeanInfoTests.java	ok	13
 spring-beans/src/test/java/org/springframework/beans/MutablePropertyValuesTests.java	ok
 spring-beans/src/test/java/org/springframework/beans/PropertyAccessorUtilsTests.java	ok
 spring-beans/src/test/java/org/springframework/beans/PropertyMatchesTests.java	ok
 spring-beans/src/test/java/org/springframework/beans/SimplePropertyDescriptorTests.java	ok
 spring-beans/src/test/java/org/springframework/beans/factory/BeanFactoryUtilsTests.java	ok	5
 spring-beans/src/test/java/org/springframework/beans/factory/ConcurrentBeanFactoryTests.java	ok
-spring-beans/src/test/java/org/springframework/beans/factory/DefaultListableBeanFactoryTests.java	ok	46
+spring-beans/src/test/java/org/springframework/beans/factory/DefaultListableBeanFactoryTests.java	ok	48
 spring-beans/src/test/java/org/springframework/beans/factory/FactoryBeanLookupTests.java	ok
 spring-beans/src/test/java/org/springframework/beans/factory/FactoryBeanTests.java	ok
 spring-beans/src/test/java/org/springframework/beans/factory/Spr5475Tests.java	ok
 spring-beans/src/test/java/org/springframework/beans/factory/access/SingletonBeanFactoryLocatorTests.java	ok
 spring-beans/src/test/java/org/springframework/beans/factory/annotation/AnnotationBeanWiringInfoResolverTests.java	ok
-spring-beans/src/test/java/org/springframework/beans/factory/annotation/AutowiredAnnotationBeanPostProcessorTests.java	ok	51
+spring-beans/src/test/java/org/springframework/beans/factory/annotation/AutowiredAnnotationBeanPostProcessorTests.java	ok	53
 spring-beans/src/test/java/org/springframework/beans/factory/annotation/CustomAutowireConfigurerTests.java	ok
-spring-beans/src/test/java/org/springframework/beans/factory/annotation/InjectAnnotationBeanPostProcessorTests.java	ok	13
+spring-beans/src/test/java/org/springframework/beans/factory/annotation/InjectAnnotationBeanPostProcessorTests.java	ok	15
 spring-beans/src/test/java/org/springframework/beans/factory/annotation/LookupAnnotationTests.java	ok
 spring-beans/src/test/java/org/springframework/beans/factory/annotation/RequiredAnnotationBeanPostProcessorTests.java	ok
 spring-beans/src/test/java/org/springframework/beans/factory/config/CustomEditorConfigurerTests.java	ok
@@ -674,7 +674,7 @@ spring-beans/src/test/java/org/springframework/beans/factory/config/ObjectFactor
 spring-beans/src/test/java/org/springframework/beans/factory/config/PropertiesFactoryBeanTests.java	ok
 spring-beans/src/test/java/org/springframework/beans/factory/config/PropertyPathFactoryBeanTests.java	ok
 spring-beans/src/test/java/org/springframework/beans/factory/config/PropertyPlaceholderConfigurerTests.java	ok
-spring-beans/src/test/java/org/springframework/beans/factory/config/PropertyResourceConfigurerTests.java	ok	10
+spring-beans/src/test/java/org/springframework/beans/factory/config/PropertyResourceConfigurerTests.java	ok	11
 spring-beans/src/test/java/org/springframework/beans/factory/config/ServiceLocatorFactoryBeanTests.java	ok
 spring-beans/src/test/java/org/springframework/beans/factory/config/SimpleScopeTests.java	ok
 spring-beans/src/test/java/org/springframework/beans/factory/config/TestTypes.java	ok
@@ -692,7 +692,7 @@ spring-beans/src/test/java/org/springframework/beans/factory/serviceloader/Servi
 spring-beans/src/test/java/org/springframework/beans/factory/support/AutowireUtilsTests.java	ok
 spring-beans/src/test/java/org/springframework/beans/factory/support/BeanDefinitionBuilderTests.java	ok
 spring-beans/src/test/java/org/springframework/beans/factory/support/BeanDefinitionTests.java	ok
-spring-beans/src/test/java/org/springframework/beans/factory/support/BeanFactoryGenericsTests.java	ok	13
+spring-beans/src/test/java/org/springframework/beans/factory/support/BeanFactoryGenericsTests.java	ok	14
 spring-beans/src/test/java/org/springframework/beans/factory/support/DefaultSingletonBeanRegistryTests.java	ok
 spring-beans/src/test/java/org/springframework/beans/factory/support/DefinitionMetadataEqualsHashCodeTests.java	ok
 spring-beans/src/test/java/org/springframework/beans/factory/support/LookupMethodTests.java	ok
@@ -750,7 +750,7 @@ spring-beans/src/test/java/org/springframework/beans/propertyeditors/BeanInfoTes
 spring-beans/src/test/java/org/springframework/beans/propertyeditors/ByteArrayPropertyEditorTests.java	ok
 spring-beans/src/test/java/org/springframework/beans/propertyeditors/CharArrayPropertyEditorTests.java	ok
 spring-beans/src/test/java/org/springframework/beans/propertyeditors/CustomCollectionEditorTests.java	ok
-spring-beans/src/test/java/org/springframework/beans/propertyeditors/CustomEditorTests.java	ok	23
+spring-beans/src/test/java/org/springframework/beans/propertyeditors/CustomEditorTests.java	ok	24
 spring-beans/src/test/java/org/springframework/beans/propertyeditors/FileEditorTests.java	ok
 spring-beans/src/test/java/org/springframework/beans/propertyeditors/InputStreamEditorTests.java	ok
 spring-beans/src/test/java/org/springframework/beans/propertyeditors/PathEditorTests.java	ok
@@ -858,7 +858,7 @@ spring-context-support/src/main/java/org/springframework/mail/javamail/InternetA
 spring-context-support/src/main/java/org/springframework/mail/javamail/JavaMailSender.java	ok
 spring-context-support/src/main/java/org/springframework/mail/javamail/JavaMailSenderImpl.java	ok
 spring-context-support/src/main/java/org/springframework/mail/javamail/MimeMailMessage.java	ok
-spring-context-support/src/main/java/org/springframework/mail/javamail/MimeMessageHelper.java	ok	5
+spring-context-support/src/main/java/org/springframework/mail/javamail/MimeMessageHelper.java	ok	6
 spring-context-support/src/main/java/org/springframework/mail/javamail/MimeMessagePreparator.java	ok
 spring-context-support/src/main/java/org/springframework/mail/javamail/SmartMimeMessage.java	ok
 spring-context-support/src/main/java/org/springframework/mail/javamail/package-info.java	ok
@@ -914,7 +914,7 @@ spring-context-support/src/test/java/org/springframework/cache/jcache/JCacheEhCa
 spring-context-support/src/test/java/org/springframework/cache/jcache/JCacheEhCache3ApiTests.java	ok
 spring-context-support/src/test/java/org/springframework/cache/jcache/JCacheEhCacheAnnotationTests.java	ok
 spring-context-support/src/test/java/org/springframework/cache/jcache/JCacheEhCacheApiTests.java	ok
-spring-context-support/src/test/java/org/springframework/cache/jcache/config/AbstractJCacheAnnotationTests.java	ok
+spring-context-support/src/test/java/org/springframework/cache/jcache/config/AbstractJCacheAnnotationTests.java	ok	5
 spring-context-support/src/test/java/org/springframework/cache/jcache/config/JCacheCustomInterceptorTests.java	ok
 spring-context-support/src/test/java/org/springframework/cache/jcache/config/JCacheJavaConfigTests.java	ok
 spring-context-support/src/test/java/org/springframework/cache/jcache/config/JCacheNamespaceDrivenTests.java	ok
@@ -1060,7 +1060,7 @@ spring-context/src/main/java/org/springframework/context/annotation/BeanAnnotati
 spring-context/src/main/java/org/springframework/context/annotation/BeanMethod.java	ok
 spring-context/src/main/java/org/springframework/context/annotation/ClassPathBeanDefinitionScanner.java	ok
 spring-context/src/main/java/org/springframework/context/annotation/ClassPathScanningCandidateComponentProvider.java	ok
-spring-context/src/main/java/org/springframework/context/annotation/CommonAnnotationBeanPostProcessor.java	ok	5
+spring-context/src/main/java/org/springframework/context/annotation/CommonAnnotationBeanPostProcessor.java	ok	6
 spring-context/src/main/java/org/springframework/context/annotation/ComponentScan.java	ok
 spring-context/src/main/java/org/springframework/context/annotation/ComponentScanAnnotationParser.java	ok
 spring-context/src/main/java/org/springframework/context/annotation/ComponentScanBeanDefinitionParser.java	ok
@@ -1656,17 +1656,17 @@ spring-context/src/test/java/org/springframework/aop/config/AopNamespaceHandlerT
 spring-context/src/test/java/org/springframework/aop/config/AopNamespaceHandlerThrowingTests.java	ok
 spring-context/src/test/java/org/springframework/aop/config/MethodLocatingFactoryBeanTests.java	ok
 spring-context/src/test/java/org/springframework/aop/config/PrototypeProxyTests.java	ok
-spring-context/src/test/java/org/springframework/aop/framework/AbstractAopProxyTests.java	ok	23
+spring-context/src/test/java/org/springframework/aop/framework/AbstractAopProxyTests.java	ok	25
 spring-context/src/test/java/org/springframework/aop/framework/CglibProxyTests.java	ok	5
 spring-context/src/test/java/org/springframework/aop/framework/ClassWithComplexConstructor.java	ok
 spring-context/src/test/java/org/springframework/aop/framework/Dependency.java	ok
 spring-context/src/test/java/org/springframework/aop/framework/JdkDynamicProxyTests.java	ok
 spring-context/src/test/java/org/springframework/aop/framework/ObjenesisProxyTests.java	ok
-spring-context/src/test/java/org/springframework/aop/framework/ProxyFactoryBeanTests.java	ok	8
+spring-context/src/test/java/org/springframework/aop/framework/ProxyFactoryBeanTests.java	ok	10
 spring-context/src/test/java/org/springframework/aop/framework/_TestTypes.java	ok
 spring-context/src/test/java/org/springframework/aop/framework/adapter/AdvisorAdapterRegistrationTests.java	ok
 spring-context/src/test/java/org/springframework/aop/framework/autoproxy/AdvisorAutoProxyCreatorTests.java	ok
-spring-context/src/test/java/org/springframework/aop/framework/autoproxy/AutoProxyCreatorTests.java	ok	6
+spring-context/src/test/java/org/springframework/aop/framework/autoproxy/AutoProxyCreatorTests.java	ok	7
 spring-context/src/test/java/org/springframework/aop/framework/autoproxy/BeanNameAutoProxyCreatorInitTests.java	ok
 spring-context/src/test/java/org/springframework/aop/framework/autoproxy/BeanNameAutoProxyCreatorTests.java	ok
 spring-context/src/test/java/org/springframework/aop/framework/autoproxy/PackageVisibleMethod.java	ok
@@ -1674,13 +1674,13 @@ spring-context/src/test/java/org/springframework/aop/scope/ScopedProxyTests.java
 spring-context/src/test/java/org/springframework/aop/target/CommonsPool2TargetSourceTests.java	ok
 spring-context/src/test/java/org/springframework/aop/target/CommonsPoolTargetSourceTests.java	ok
 spring-context/src/test/java/org/springframework/beans/factory/annotation/BridgeMethodAutowiringTests.java	ok
-spring-context/src/test/java/org/springframework/beans/factory/support/InjectAnnotationAutowireContextTests.java	ok	8
-spring-context/src/test/java/org/springframework/beans/factory/support/QualifierAnnotationAutowireContextTests.java	ok	9
+spring-context/src/test/java/org/springframework/beans/factory/support/InjectAnnotationAutowireContextTests.java	ok	9
+spring-context/src/test/java/org/springframework/beans/factory/support/QualifierAnnotationAutowireContextTests.java	ok	10
 spring-context/src/test/java/org/springframework/beans/factory/xml/LookupMethodWrappedByCglibProxyTests.java	ok
 spring-context/src/test/java/org/springframework/beans/factory/xml/QualifierAnnotationTests.java	ok
 spring-context/src/test/java/org/springframework/beans/factory/xml/SimplePropertyNamespaceHandlerWithExpressionLanguageTests.java	ok
 spring-context/src/test/java/org/springframework/beans/factory/xml/XmlBeanFactoryTestTypes.java	ok
-spring-context/src/test/java/org/springframework/beans/factory/xml/XmlBeanFactoryTests.java	ok	25
+spring-context/src/test/java/org/springframework/beans/factory/xml/XmlBeanFactoryTests.java	ok	27
 spring-context/src/test/java/org/springframework/beans/factory/xml/support/CustomNamespaceHandlerTests.java	ok
 spring-context/src/test/java/org/springframework/cache/AbstractCacheTests.java	ok
 spring-context/src/test/java/org/springframework/cache/CacheReproTests.java	ok
@@ -1689,7 +1689,7 @@ spring-context/src/test/java/org/springframework/cache/NoOpCacheManagerTests.jav
 spring-context/src/test/java/org/springframework/cache/annotation/AnnotationCacheOperationSourceTests.java	ok	5
 spring-context/src/test/java/org/springframework/cache/concurrent/ConcurrentMapCacheManagerTests.java	ok
 spring-context/src/test/java/org/springframework/cache/concurrent/ConcurrentMapCacheTests.java	ok
-spring-context/src/test/java/org/springframework/cache/config/AbstractCacheAnnotationTests.java	ok	8
+spring-context/src/test/java/org/springframework/cache/config/AbstractCacheAnnotationTests.java	ok	9
 spring-context/src/test/java/org/springframework/cache/config/AnnotatedClassCacheableService.java	ok
 spring-context/src/test/java/org/springframework/cache/config/AnnotationDrivenCacheConfigTests.java	ok
 spring-context/src/test/java/org/springframework/cache/config/AnnotationNamespaceDrivenTests.java	ok
@@ -1732,10 +1732,10 @@ spring-context/src/test/java/org/springframework/context/annotation/AutoProxyLaz
 spring-context/src/test/java/org/springframework/context/annotation/BeanAge.java	ok
 spring-context/src/test/java/org/springframework/context/annotation/BeanMethodMetadataTests.java	ok
 spring-context/src/test/java/org/springframework/context/annotation/BeanMethodPolymorphismTests.java	ok
-spring-context/src/test/java/org/springframework/context/annotation/ClassPathBeanDefinitionScannerTests.java	ok	6
+spring-context/src/test/java/org/springframework/context/annotation/ClassPathBeanDefinitionScannerTests.java	ok	7
 spring-context/src/test/java/org/springframework/context/annotation/ClassPathFactoryBeanDefinitionScannerTests.java	ok
 spring-context/src/test/java/org/springframework/context/annotation/ClassPathScanningCandidateComponentProviderTests.java	ok
-spring-context/src/test/java/org/springframework/context/annotation/CommonAnnotationBeanPostProcessorTests.java	ok	9
+spring-context/src/test/java/org/springframework/context/annotation/CommonAnnotationBeanPostProcessorTests.java	ok	10
 spring-context/src/test/java/org/springframework/context/annotation/ComponentScanAndImportAnnotationInteractionTests.java	ok
 spring-context/src/test/java/org/springframework/context/annotation/ComponentScanAnnotationIntegrationTests.java	ok
 spring-context/src/test/java/org/springframework/context/annotation/ComponentScanAnnotationRecursionTests.java	ok
@@ -1746,7 +1746,7 @@ spring-context/src/test/java/org/springframework/context/annotation/ComponentSca
 spring-context/src/test/java/org/springframework/context/annotation/ComponentScanParserWithUserDefinedStrategiesTests.java	ok
 spring-context/src/test/java/org/springframework/context/annotation/ConfigurationClassAndBFPPTests.java	ok
 spring-context/src/test/java/org/springframework/context/annotation/ConfigurationClassPostConstructAndAutowiringTests.java	ok
-spring-context/src/test/java/org/springframework/context/annotation/ConfigurationClassPostProcessorTests.java	ok	16
+spring-context/src/test/java/org/springframework/context/annotation/ConfigurationClassPostProcessorTests.java	ok	17
 spring-context/src/test/java/org/springframework/context/annotation/ConfigurationClassWithConditionTests.java	ok
 spring-context/src/test/java/org/springframework/context/annotation/ConfigurationWithFactoryBeanAndAutowiringTests.java	ok
 spring-context/src/test/java/org/springframework/context/annotation/ConfigurationWithFactoryBeanAndParametersTests.java	ok
@@ -1850,9 +1850,9 @@ spring-context/src/test/java/org/springframework/context/conversionservice/Conve
 spring-context/src/test/java/org/springframework/context/conversionservice/StringToBarConverter.java	ok
 spring-context/src/test/java/org/springframework/context/conversionservice/TestClient.java	ok
 spring-context/src/test/java/org/springframework/context/event/AbstractApplicationEventListenerTests.java	ok
-spring-context/src/test/java/org/springframework/context/event/AnnotationDrivenEventListenerTests.java	ok	8
+spring-context/src/test/java/org/springframework/context/event/AnnotationDrivenEventListenerTests.java	ok	9
 spring-context/src/test/java/org/springframework/context/event/ApplicationContextEventTests.java	ok	7
-spring-context/src/test/java/org/springframework/context/event/ApplicationListenerMethodAdapterTests.java	ok
+spring-context/src/test/java/org/springframework/context/event/ApplicationListenerMethodAdapterTests.java	ok	5
 spring-context/src/test/java/org/springframework/context/event/EventPublicationInterceptorTests.java	ok
 spring-context/src/test/java/org/springframework/context/event/GenericApplicationListenerAdapterTests.java	ok
 spring-context/src/test/java/org/springframework/context/event/LifecycleEventTests.java	ok
@@ -1879,7 +1879,7 @@ spring-context/src/test/java/org/springframework/context/support/AutowiredServic
 spring-context/src/test/java/org/springframework/context/support/BeanFactoryPostProcessorTests.java	ok
 spring-context/src/test/java/org/springframework/context/support/ClassPathXmlApplicationContextTests.java	ok	5
 spring-context/src/test/java/org/springframework/context/support/ConversionServiceFactoryBeanTests.java	ok
-spring-context/src/test/java/org/springframework/context/support/DefaultLifecycleProcessorTests.java	ok	11
+spring-context/src/test/java/org/springframework/context/support/DefaultLifecycleProcessorTests.java	ok	12
 spring-context/src/test/java/org/springframework/context/support/EnvironmentIntegrationTests.java	ok
 spring-context/src/test/java/org/springframework/context/support/EnvironmentSecurityManagerIntegrationTests.java	ok
 spring-context/src/test/java/org/springframework/context/support/FactoryBeanAndApplicationListener.java	ok
@@ -1941,7 +1941,7 @@ spring-context/src/test/java/org/springframework/jmx/export/ExceptionOnInitBean.
 spring-context/src/test/java/org/springframework/jmx/export/LazyInitMBeanTests.java	ok
 spring-context/src/test/java/org/springframework/jmx/export/MBeanExporterOperationsTests.java	ok
 spring-context/src/test/java/org/springframework/jmx/export/MBeanExporterTests.java	ok	8
-spring-context/src/test/java/org/springframework/jmx/export/NotificationListenerTests.java	ok	5
+spring-context/src/test/java/org/springframework/jmx/export/NotificationListenerTests.java	ok	6
 spring-context/src/test/java/org/springframework/jmx/export/NotificationPublisherTests.java	ok
 spring-context/src/test/java/org/springframework/jmx/export/PropertyPlaceholderConfigurerTests.java	ok
 spring-context/src/test/java/org/springframework/jmx/export/TestDynamicMBean.java	ok
@@ -1999,7 +1999,7 @@ spring-context/src/test/java/org/springframework/scheduling/annotation/AsyncExec
 spring-context/src/test/java/org/springframework/scheduling/annotation/AsyncResultTests.java	ok
 spring-context/src/test/java/org/springframework/scheduling/annotation/EnableAsyncTests.java	ok
 spring-context/src/test/java/org/springframework/scheduling/annotation/EnableSchedulingTests.java	ok
-spring-context/src/test/java/org/springframework/scheduling/annotation/ScheduledAnnotationBeanPostProcessorTests.java	ok	10
+spring-context/src/test/java/org/springframework/scheduling/annotation/ScheduledAnnotationBeanPostProcessorTests.java	ok	11
 spring-context/src/test/java/org/springframework/scheduling/annotation/TestableAsyncUncaughtExceptionHandler.java	ok
 spring-context/src/test/java/org/springframework/scheduling/concurrent/ConcurrentTaskExecutorTests.java	ok
 spring-context/src/test/java/org/springframework/scheduling/concurrent/ScheduledExecutorFactoryBeanTests.java	ok
@@ -2066,7 +2066,7 @@ spring-context/src/test/java/org/springframework/tests/sample/beans/ResourceTest
 spring-context/src/test/java/org/springframework/ui/ModelMapTests.java	ok
 spring-context/src/test/java/org/springframework/util/MBeanTestUtils.java	ok
 spring-context/src/test/java/org/springframework/validation/DataBinderFieldAccessTests.java	ok
-spring-context/src/test/java/org/springframework/validation/DataBinderTests.java	ok	34
+spring-context/src/test/java/org/springframework/validation/DataBinderTests.java	ok	35
 spring-context/src/test/java/org/springframework/validation/DefaultMessageCodesResolverTests.java	ok
 spring-context/src/test/java/org/springframework/validation/ValidationUtilsTests.java	ok
 spring-context/src/test/java/org/springframework/validation/beanvalidation/BeanValidationPostProcessorTests.java	ok
@@ -2085,9 +2085,9 @@ spring-core/src/main/java/org/springframework/asm/AnnotationVisitor.java	ok
 spring-core/src/main/java/org/springframework/asm/AnnotationWriter.java	ok
 spring-core/src/main/java/org/springframework/asm/Attribute.java	ok
 spring-core/src/main/java/org/springframework/asm/ByteVector.java	ok
-spring-core/src/main/java/org/springframework/asm/ClassReader.java	ok	31
+spring-core/src/main/java/org/springframework/asm/ClassReader.java	ok	32
 spring-core/src/main/java/org/springframework/asm/ClassVisitor.java	ok
-spring-core/src/main/java/org/springframework/asm/ClassWriter.java	ok	11
+spring-core/src/main/java/org/springframework/asm/ClassWriter.java	ok	12
 spring-core/src/main/java/org/springframework/asm/Context.java	ok
 spring-core/src/main/java/org/springframework/asm/CurrentFrame.java	ok
 spring-core/src/main/java/org/springframework/asm/Edge.java	ok
@@ -2148,7 +2148,7 @@ spring-core/src/main/java/org/springframework/core/ParameterNameDiscoverer.java	
 spring-core/src/main/java/org/springframework/core/ParameterizedTypeReference.java	ok
 spring-core/src/main/java/org/springframework/core/PrioritizedParameterNameDiscoverer.java	ok
 spring-core/src/main/java/org/springframework/core/PriorityOrdered.java	ok
-spring-core/src/main/java/org/springframework/core/ResolvableType.java	ok	10
+spring-core/src/main/java/org/springframework/core/ResolvableType.java	ok	11
 spring-core/src/main/java/org/springframework/core/ResolvableTypeProvider.java	ok
 spring-core/src/main/java/org/springframework/core/SerializableTypeWrapper.java	ok
 spring-core/src/main/java/org/springframework/core/SimpleAliasRegistry.java	ok
@@ -2158,7 +2158,7 @@ spring-core/src/main/java/org/springframework/core/SpringVersion.java	ok
 spring-core/src/main/java/org/springframework/core/StandardReflectionParameterNameDiscoverer.java	ok
 spring-core/src/main/java/org/springframework/core/annotation/AbstractAliasAwareAnnotationAttributeExtractor.java	ok
 spring-core/src/main/java/org/springframework/core/annotation/AliasFor.java	ok
-spring-core/src/main/java/org/springframework/core/annotation/AnnotatedElementUtils.java	ok	8
+spring-core/src/main/java/org/springframework/core/annotation/AnnotatedElementUtils.java	ok	9
 spring-core/src/main/java/org/springframework/core/annotation/AnnotationAttributeExtractor.java	ok
 spring-core/src/main/java/org/springframework/core/annotation/AnnotationAttributes.java	ok
 spring-core/src/main/java/org/springframework/core/annotation/AnnotationAwareOrderComparator.java	ok
@@ -2206,7 +2206,7 @@ spring-core/src/main/java/org/springframework/core/convert/support/DefaultConver
 spring-core/src/main/java/org/springframework/core/convert/support/EnumToIntegerConverter.java	ok
 spring-core/src/main/java/org/springframework/core/convert/support/EnumToStringConverter.java	ok
 spring-core/src/main/java/org/springframework/core/convert/support/FallbackObjectToStringConverter.java	ok
-spring-core/src/main/java/org/springframework/core/convert/support/GenericConversionService.java	ok	5
+spring-core/src/main/java/org/springframework/core/convert/support/GenericConversionService.java	ok	6
 spring-core/src/main/java/org/springframework/core/convert/support/IdToEntityConverter.java	ok
 spring-core/src/main/java/org/springframework/core/convert/support/IntegerToEnumConverterFactory.java	ok
 spring-core/src/main/java/org/springframework/core/convert/support/MapToMapConverter.java	ok
@@ -2284,7 +2284,7 @@ spring-core/src/main/java/org/springframework/core/io/package-info.java	ok
 spring-core/src/main/java/org/springframework/core/io/support/DefaultPropertySourceFactory.java	ok
 spring-core/src/main/java/org/springframework/core/io/support/EncodedResource.java	ok
 spring-core/src/main/java/org/springframework/core/io/support/LocalizedResourceHelper.java	ok
-spring-core/src/main/java/org/springframework/core/io/support/PathMatchingResourcePatternResolver.java	ok	5
+spring-core/src/main/java/org/springframework/core/io/support/PathMatchingResourcePatternResolver.java	ok	6
 spring-core/src/main/java/org/springframework/core/io/support/PropertiesLoaderSupport.java	ok
 spring-core/src/main/java/org/springframework/core/io/support/PropertiesLoaderUtils.java	ok
 spring-core/src/main/java/org/springframework/core/io/support/PropertySourceFactory.java	ok
@@ -2369,7 +2369,7 @@ spring-core/src/main/java/org/springframework/util/AntPathMatcher.java	ok	6
 spring-core/src/main/java/org/springframework/util/Assert.java	ok
 spring-core/src/main/java/org/springframework/util/AutoPopulatingList.java	ok
 spring-core/src/main/java/org/springframework/util/Base64Utils.java	ok
-spring-core/src/main/java/org/springframework/util/ClassUtils.java	ok	7
+spring-core/src/main/java/org/springframework/util/ClassUtils.java	ok	8
 spring-core/src/main/java/org/springframework/util/CollectionUtils.java	ok
 spring-core/src/main/java/org/springframework/util/CommonsLogWriter.java	ok
 spring-core/src/main/java/org/springframework/util/CompositeIterator.java	ok
@@ -2474,7 +2474,7 @@ spring-core/src/test/java/org/springframework/core/NestedExceptionTests.java	ok
 spring-core/src/test/java/org/springframework/core/OrderComparatorTests.java	ok
 spring-core/src/test/java/org/springframework/core/ParameterizedTypeReferenceTests.java	ok
 spring-core/src/test/java/org/springframework/core/PrioritizedParameterNameDiscovererTests.java	ok
-spring-core/src/test/java/org/springframework/core/ResolvableTypeTests.java	ok	23
+spring-core/src/test/java/org/springframework/core/ResolvableTypeTests.java	ok	24
 spring-core/src/test/java/org/springframework/core/SerializableTypeWrapperTests.java	ok
 spring-core/src/test/java/org/springframework/core/SimpleAliasRegistryTests.java	ok
 spring-core/src/test/java/org/springframework/core/StandardReflectionParameterNameDiscoverTests.java	ok
@@ -2482,7 +2482,7 @@ spring-core/src/test/java/org/springframework/core/annotation/AbstractAliasAware
 spring-core/src/test/java/org/springframework/core/annotation/AnnotatedElementUtilsTests.java	ok	11
 spring-core/src/test/java/org/springframework/core/annotation/AnnotationAttributesTests.java	ok
 spring-core/src/test/java/org/springframework/core/annotation/AnnotationAwareOrderComparatorTests.java	ok
-spring-core/src/test/java/org/springframework/core/annotation/AnnotationUtilsTests.java	ok	25
+spring-core/src/test/java/org/springframework/core/annotation/AnnotationUtilsTests.java	ok	26
 spring-core/src/test/java/org/springframework/core/annotation/ComposedRepeatableAnnotationsTests.java	ok
 spring-core/src/test/java/org/springframework/core/annotation/DefaultAnnotationAttributeExtractorTests.java	ok
 spring-core/src/test/java/org/springframework/core/annotation/MapAnnotationAttributeExtractorTests.java	ok
@@ -2493,12 +2493,12 @@ spring-core/src/test/java/org/springframework/core/annotation/subpackage/NonPubl
 spring-core/src/test/java/org/springframework/core/annotation/subpackage/NonPublicAliasedAnnotation.java	ok
 spring-core/src/test/java/org/springframework/core/annotation/subpackage/NonPublicAnnotatedClass.java	ok
 spring-core/src/test/java/org/springframework/core/annotation/subpackage/NonPublicAnnotation.java	ok
-spring-core/src/test/java/org/springframework/core/convert/TypeDescriptorTests.java	ok	12
+spring-core/src/test/java/org/springframework/core/convert/TypeDescriptorTests.java	ok	13
 spring-core/src/test/java/org/springframework/core/convert/converter/ConvertingComparatorTests.java	ok
-spring-core/src/test/java/org/springframework/core/convert/converter/DefaultConversionServiceTests.java	ok	13
+spring-core/src/test/java/org/springframework/core/convert/converter/DefaultConversionServiceTests.java	ok	14
 spring-core/src/test/java/org/springframework/core/convert/support/ByteBufferConverterTests.java	ok
 spring-core/src/test/java/org/springframework/core/convert/support/CollectionToCollectionConverterTests.java	ok
-spring-core/src/test/java/org/springframework/core/convert/support/GenericConversionServiceTests.java	ok	10
+spring-core/src/test/java/org/springframework/core/convert/support/GenericConversionServiceTests.java	ok	11
 spring-core/src/test/java/org/springframework/core/convert/support/MapToMapConverterTests.java	ok
 spring-core/src/test/java/org/springframework/core/convert/support/StreamConverterTests.java	ok
 spring-core/src/test/java/org/springframework/core/env/CompositePropertySourceTests.java	ok
@@ -2530,7 +2530,7 @@ spring-core/src/test/java/org/springframework/core/serializer/SerializationConve
 spring-core/src/test/java/org/springframework/core/style/ToStringCreatorTests.java	ok
 spring-core/src/test/java/org/springframework/core/task/SimpleAsyncTaskExecutorTests.java	ok
 spring-core/src/test/java/org/springframework/core/type/AbstractClassMetadataMemberClassTests.java	ok
-spring-core/src/test/java/org/springframework/core/type/AnnotationMetadataTests.java	ok	7
+spring-core/src/test/java/org/springframework/core/type/AnnotationMetadataTests.java	ok	8
 spring-core/src/test/java/org/springframework/core/type/AnnotationTypeFilterTests.java	ok
 spring-core/src/test/java/org/springframework/core/type/AspectJTypeFilterTests.java	ok
 spring-core/src/test/java/org/springframework/core/type/AssignableTypeFilterTests.java	ok
@@ -2557,7 +2557,7 @@ spring-core/src/test/java/org/springframework/tests/sample/objects/ITestInterfac
 spring-core/src/test/java/org/springframework/tests/sample/objects/ITestObject.java	ok
 spring-core/src/test/java/org/springframework/tests/sample/objects/TestObject.java	ok
 spring-core/src/test/java/org/springframework/tests/sample/objects/package-info.java	ok
-spring-core/src/test/java/org/springframework/util/AntPathMatcherTests.java	ok	9
+spring-core/src/test/java/org/springframework/util/AntPathMatcherTests.java	ok	10
 spring-core/src/test/java/org/springframework/util/AssertTests.java	ok
 spring-core/src/test/java/org/springframework/util/AutoPopulatingListTests.java	ok
 spring-core/src/test/java/org/springframework/util/Base64UtilsTests.java	ok
@@ -2647,7 +2647,7 @@ spring-expression/src/main/java/org/springframework/expression/common/TemplateAw
 spring-expression/src/main/java/org/springframework/expression/common/TemplateParserContext.java	ok
 spring-expression/src/main/java/org/springframework/expression/common/package-info.java	ok
 spring-expression/src/main/java/org/springframework/expression/package-info.java	ok
-spring-expression/src/main/java/org/springframework/expression/spel/CodeFlow.java	ok	6
+spring-expression/src/main/java/org/springframework/expression/spel/CodeFlow.java	ok	7
 spring-expression/src/main/java/org/springframework/expression/spel/CompilablePropertyAccessor.java	ok
 spring-expression/src/main/java/org/springframework/expression/spel/CompiledExpression.java	ok
 spring-expression/src/main/java/org/springframework/expression/spel/ExpressionState.java	ok
@@ -2669,7 +2669,7 @@ spring-expression/src/main/java/org/springframework/expression/spel/ast/FloatLit
 spring-expression/src/main/java/org/springframework/expression/spel/ast/FormatHelper.java	ok
 spring-expression/src/main/java/org/springframework/expression/spel/ast/FunctionReference.java	ok
 spring-expression/src/main/java/org/springframework/expression/spel/ast/Identifier.java	ok
-spring-expression/src/main/java/org/springframework/expression/spel/ast/Indexer.java	ok	7
+spring-expression/src/main/java/org/springframework/expression/spel/ast/Indexer.java	ok	8
 spring-expression/src/main/java/org/springframework/expression/spel/ast/InlineList.java	ok
 spring-expression/src/main/java/org/springframework/expression/spel/ast/InlineMap.java	ok
 spring-expression/src/main/java/org/springframework/expression/spel/ast/IntLiteral.java	ok
@@ -2718,7 +2718,7 @@ spring-expression/src/main/java/org/springframework/expression/spel/standard/Spe
 spring-expression/src/main/java/org/springframework/expression/spel/standard/SpelExpressionParser.java	ok
 spring-expression/src/main/java/org/springframework/expression/spel/standard/Token.java	ok
 spring-expression/src/main/java/org/springframework/expression/spel/standard/TokenKind.java	ok
-spring-expression/src/main/java/org/springframework/expression/spel/standard/Tokenizer.java	ok
+spring-expression/src/main/java/org/springframework/expression/spel/standard/Tokenizer.java	ok	5
 spring-expression/src/main/java/org/springframework/expression/spel/standard/package-info.java	ok
 spring-expression/src/main/java/org/springframework/expression/spel/support/BooleanTypedValue.java	ok
 spring-expression/src/main/java/org/springframework/expression/spel/support/DataBindingMethodResolver.java	ok
@@ -2742,12 +2742,12 @@ spring-expression/src/test/java/org/springframework/expression/spel/BooleanExpre
 spring-expression/src/test/java/org/springframework/expression/spel/CachedMethodExecutorTests.java	ok
 spring-expression/src/test/java/org/springframework/expression/spel/ConstructorInvocationTests.java	ok
 spring-expression/src/test/java/org/springframework/expression/spel/DefaultComparatorUnitTests.java	ok
-spring-expression/src/test/java/org/springframework/expression/spel/EvaluationTests.java	ok	17
+spring-expression/src/test/java/org/springframework/expression/spel/EvaluationTests.java	ok	18
 spring-expression/src/test/java/org/springframework/expression/spel/ExpressionLanguageScenarioTests.java	ok
 spring-expression/src/test/java/org/springframework/expression/spel/ExpressionStateTests.java	ok
 spring-expression/src/test/java/org/springframework/expression/spel/ExpressionWithConversionTests.java	ok
 spring-expression/src/test/java/org/springframework/expression/spel/InProgressTests.java	ok
-spring-expression/src/test/java/org/springframework/expression/spel/IndexingTests.java	ok
+spring-expression/src/test/java/org/springframework/expression/spel/IndexingTests.java	ok	5
 spring-expression/src/test/java/org/springframework/expression/spel/ListTests.java	ok
 spring-expression/src/test/java/org/springframework/expression/spel/LiteralExpressionTests.java	ok
 spring-expression/src/test/java/org/springframework/expression/spel/LiteralTests.java	ok
@@ -2763,10 +2763,10 @@ spring-expression/src/test/java/org/springframework/expression/spel/PropertyAcce
 spring-expression/src/test/java/org/springframework/expression/spel/ScenariosForSpringSecurity.java	ok
 spring-expression/src/test/java/org/springframework/expression/spel/SelectionAndProjectionTests.java	ok	5
 spring-expression/src/test/java/org/springframework/expression/spel/SetValueTests.java	ok
-spring-expression/src/test/java/org/springframework/expression/spel/SpelCompilationCoverageTests.java	ok	98
+spring-expression/src/test/java/org/springframework/expression/spel/SpelCompilationCoverageTests.java	ok	101
 spring-expression/src/test/java/org/springframework/expression/spel/SpelCompilationPerformanceTests.java	ok	10
-spring-expression/src/test/java/org/springframework/expression/spel/SpelDocumentationTests.java	ok
-spring-expression/src/test/java/org/springframework/expression/spel/SpelReproTests.java	ok	26
+spring-expression/src/test/java/org/springframework/expression/spel/SpelDocumentationTests.java	ok	5
+spring-expression/src/test/java/org/springframework/expression/spel/SpelReproTests.java	ok	28
 spring-expression/src/test/java/org/springframework/expression/spel/SpelUtilities.java	ok
 spring-expression/src/test/java/org/springframework/expression/spel/StandardTypeLocatorTests.java	ok
 spring-expression/src/test/java/org/springframework/expression/spel/TemplateExpressionParsingTests.java	ok
@@ -3019,7 +3019,7 @@ spring-jdbc/src/main/java/org/springframework/jdbc/support/lob/JtaLobCreatorSync
 spring-jdbc/src/main/java/org/springframework/jdbc/support/lob/LobCreator.java	ok
 spring-jdbc/src/main/java/org/springframework/jdbc/support/lob/LobCreatorUtils.java	ok
 spring-jdbc/src/main/java/org/springframework/jdbc/support/lob/LobHandler.java	ok
-spring-jdbc/src/main/java/org/springframework/jdbc/support/lob/OracleLobHandler.java	ok
+spring-jdbc/src/main/java/org/springframework/jdbc/support/lob/OracleLobHandler.java	ok	5
 spring-jdbc/src/main/java/org/springframework/jdbc/support/lob/PassThroughBlob.java	ok
 spring-jdbc/src/main/java/org/springframework/jdbc/support/lob/PassThroughClob.java	ok
 spring-jdbc/src/main/java/org/springframework/jdbc/support/lob/SpringLobCreatorSynchronization.java	ok
@@ -3057,7 +3057,7 @@ spring-jdbc/src/test/java/org/springframework/jdbc/config/JdbcNamespaceIntegrati
 spring-jdbc/src/test/java/org/springframework/jdbc/core/AbstractRowMapperTests.java	ok
 spring-jdbc/src/test/java/org/springframework/jdbc/core/BeanPropertyRowMapperTests.java	ok
 spring-jdbc/src/test/java/org/springframework/jdbc/core/JdbcTemplateQueryTests.java	ok	5
-spring-jdbc/src/test/java/org/springframework/jdbc/core/JdbcTemplateTests.java	ok	13
+spring-jdbc/src/test/java/org/springframework/jdbc/core/JdbcTemplateTests.java	ok	15
 spring-jdbc/src/test/java/org/springframework/jdbc/core/RowMapperTests.java	ok
 spring-jdbc/src/test/java/org/springframework/jdbc/core/SimpleRowCountCallbackHandler.java	ok
 spring-jdbc/src/test/java/org/springframework/jdbc/core/StatementCreatorUtilsTests.java	ok
@@ -3080,8 +3080,8 @@ spring-jdbc/src/test/java/org/springframework/jdbc/core/test/DatePerson.java	ok
 spring-jdbc/src/test/java/org/springframework/jdbc/core/test/ExtendedPerson.java	ok
 spring-jdbc/src/test/java/org/springframework/jdbc/core/test/Person.java	ok
 spring-jdbc/src/test/java/org/springframework/jdbc/core/test/SpacePerson.java	ok
-spring-jdbc/src/test/java/org/springframework/jdbc/datasource/DataSourceJtaTransactionTests.java	ok	7
-spring-jdbc/src/test/java/org/springframework/jdbc/datasource/DataSourceTransactionManagerTests.java	ok	17
+spring-jdbc/src/test/java/org/springframework/jdbc/datasource/DataSourceJtaTransactionTests.java	ok	8
+spring-jdbc/src/test/java/org/springframework/jdbc/datasource/DataSourceTransactionManagerTests.java	ok	19
 spring-jdbc/src/test/java/org/springframework/jdbc/datasource/DelegatingDataSourceTests.java	ok
 spring-jdbc/src/test/java/org/springframework/jdbc/datasource/DriverManagerDataSourceTests.java	ok
 spring-jdbc/src/test/java/org/springframework/jdbc/datasource/TestDataSourceWrapper.java	ok
@@ -3106,9 +3106,9 @@ spring-jdbc/src/test/java/org/springframework/jdbc/object/CustomerMapper.java	ok
 spring-jdbc/src/test/java/org/springframework/jdbc/object/GenericSqlQueryTests.java	ok
 spring-jdbc/src/test/java/org/springframework/jdbc/object/GenericStoredProcedureTests.java	ok
 spring-jdbc/src/test/java/org/springframework/jdbc/object/RdbmsOperationTests.java	ok
-spring-jdbc/src/test/java/org/springframework/jdbc/object/SqlQueryTests.java	ok	9
+spring-jdbc/src/test/java/org/springframework/jdbc/object/SqlQueryTests.java	ok	10
 spring-jdbc/src/test/java/org/springframework/jdbc/object/SqlUpdateTests.java	ok
-spring-jdbc/src/test/java/org/springframework/jdbc/object/StoredProcedureTests.java	ok	8
+spring-jdbc/src/test/java/org/springframework/jdbc/object/StoredProcedureTests.java	ok	9
 spring-jdbc/src/test/java/org/springframework/jdbc/support/CustomErrorCodeException.java	ok
 spring-jdbc/src/test/java/org/springframework/jdbc/support/CustomSQLExceptionTranslatorRegistrarTests.java	ok
 spring-jdbc/src/test/java/org/springframework/jdbc/support/CustomSqlExceptionTranslator.java	ok
@@ -3266,20 +3266,20 @@ spring-jms/src/test/java/org/springframework/jms/config/MessageListenerTestConta
 spring-jms/src/test/java/org/springframework/jms/config/MethodJmsListenerEndpointTests.java	ok	6
 spring-jms/src/test/java/org/springframework/jms/config/SimpleJmsListenerEndpointTests.java	ok
 spring-jms/src/test/java/org/springframework/jms/connection/JmsTransactionManagerTests.java	ok
-spring-jms/src/test/java/org/springframework/jms/connection/SingleConnectionFactoryTests.java	ok	6
+spring-jms/src/test/java/org/springframework/jms/connection/SingleConnectionFactoryTests.java	ok	7
 spring-jms/src/test/java/org/springframework/jms/connection/TestConnection.java	ok
 spring-jms/src/test/java/org/springframework/jms/connection/TestExceptionListener.java	ok
-spring-jms/src/test/java/org/springframework/jms/core/JmsMessagingTemplateTests.java	ok	7
+spring-jms/src/test/java/org/springframework/jms/core/JmsMessagingTemplateTests.java	ok	8
 spring-jms/src/test/java/org/springframework/jms/core/JmsTemplateJtaTests.java	ok
 spring-jms/src/test/java/org/springframework/jms/core/JmsTemplateTests.java	ok	7
 spring-jms/src/test/java/org/springframework/jms/core/JmsTemplateTransactedTests.java	ok
 spring-jms/src/test/java/org/springframework/jms/core/support/JmsGatewaySupportTests.java	ok
 spring-jms/src/test/java/org/springframework/jms/listener/DefaultMessageListenerContainerTests.java	ok
-spring-jms/src/test/java/org/springframework/jms/listener/SimpleMessageListenerContainerTests.java	ok
+spring-jms/src/test/java/org/springframework/jms/listener/SimpleMessageListenerContainerTests.java	ok	5
 spring-jms/src/test/java/org/springframework/jms/listener/adapter/JmsResponseTests.java	ok
 spring-jms/src/test/java/org/springframework/jms/listener/adapter/MessageContentsDelegate.java	ok
 spring-jms/src/test/java/org/springframework/jms/listener/adapter/MessageDelegate.java	ok
-spring-jms/src/test/java/org/springframework/jms/listener/adapter/MessageListenerAdapterTests.java	ok
+spring-jms/src/test/java/org/springframework/jms/listener/adapter/MessageListenerAdapterTests.java	ok	5
 spring-jms/src/test/java/org/springframework/jms/listener/adapter/MessagingMessageListenerAdapterTests.java	ok	5
 spring-jms/src/test/java/org/springframework/jms/listener/adapter/ResponsiveJmsTextMessageReturningMessageDelegate.java	ok
 spring-jms/src/test/java/org/springframework/jms/listener/adapter/ResponsiveMessageDelegate.java	ok
@@ -3521,7 +3521,7 @@ spring-messaging/src/test/java/org/springframework/messaging/simp/broker/SimpleB
 spring-messaging/src/test/java/org/springframework/messaging/simp/config/MessageBrokerConfigurationTests.java	ok	7
 spring-messaging/src/test/java/org/springframework/messaging/simp/config/StompBrokerRelayRegistrationTests.java	ok
 spring-messaging/src/test/java/org/springframework/messaging/simp/stomp/BufferingStompDecoderTests.java	ok
-spring-messaging/src/test/java/org/springframework/messaging/simp/stomp/DefaultStompSessionTests.java	ok	7
+spring-messaging/src/test/java/org/springframework/messaging/simp/stomp/DefaultStompSessionTests.java	ok	8
 spring-messaging/src/test/java/org/springframework/messaging/simp/stomp/Reactor2TcpStompClientTests.java	ok
 spring-messaging/src/test/java/org/springframework/messaging/simp/stomp/StompBrokerRelayMessageHandlerIntegrationTests.java	ok	5
 spring-messaging/src/test/java/org/springframework/messaging/simp/stomp/StompBrokerRelayMessageHandlerTests.java	ok
@@ -3551,7 +3551,7 @@ spring-orm-hibernate4/src/main/java/org/springframework/orm/hibernate4/Hibernate
 spring-orm-hibernate4/src/main/java/org/springframework/orm/hibernate4/HibernateQueryException.java	ok
 spring-orm-hibernate4/src/main/java/org/springframework/orm/hibernate4/HibernateSystemException.java	ok
 spring-orm-hibernate4/src/main/java/org/springframework/orm/hibernate4/HibernateTemplate.java	ok	8
-spring-orm-hibernate4/src/main/java/org/springframework/orm/hibernate4/HibernateTransactionManager.java	ok
+spring-orm-hibernate4/src/main/java/org/springframework/orm/hibernate4/HibernateTransactionManager.java	ok	5
 spring-orm-hibernate4/src/main/java/org/springframework/orm/hibernate4/LocalSessionFactoryBean.java	ok
 spring-orm-hibernate4/src/main/java/org/springframework/orm/hibernate4/LocalSessionFactoryBuilder.java	ok
 spring-orm-hibernate4/src/main/java/org/springframework/orm/hibernate4/SessionFactoryUtils.java	ok
@@ -3569,7 +3569,7 @@ spring-orm-hibernate4/src/main/java/org/springframework/orm/hibernate4/support/O
 spring-orm-hibernate4/src/main/java/org/springframework/orm/hibernate4/support/package-info.java	ok
 spring-orm-hibernate4/src/main/java/org/springframework/orm/jpa/vendor/SpringHibernateJpaPersistenceProvider.java	ok
 spring-orm-hibernate4/src/test/java/org/springframework/orm/hibernate4/HibernateTemplateTests.java	ok	14
-spring-orm-hibernate4/src/test/java/org/springframework/orm/hibernate4/HibernateTransactionManagerTests.java	ok	19
+spring-orm-hibernate4/src/test/java/org/springframework/orm/hibernate4/HibernateTransactionManagerTests.java	ok	20
 spring-orm-hibernate4/src/test/java/org/springframework/orm/jpa/jpa21/PersistenceContextTransactionTests.java	ok
 spring-orm-hibernate4/src/test/java/org/springframework/validation/hibernatevalidator5/BeanValidationPostProcessorTests.java	ok
 spring-orm-hibernate4/src/test/java/org/springframework/validation/hibernatevalidator5/MethodValidationTests.java	ok
@@ -3583,7 +3583,7 @@ spring-orm-hibernate5/src/main/java/org/springframework/orm/hibernate5/Hibernate
 spring-orm-hibernate5/src/main/java/org/springframework/orm/hibernate5/HibernateOptimisticLockingFailureException.java	ok
 spring-orm-hibernate5/src/main/java/org/springframework/orm/hibernate5/HibernateQueryException.java	ok
 spring-orm-hibernate5/src/main/java/org/springframework/orm/hibernate5/HibernateSystemException.java	ok
-spring-orm-hibernate5/src/main/java/org/springframework/orm/hibernate5/HibernateTemplate.java	ok	8
+spring-orm-hibernate5/src/main/java/org/springframework/orm/hibernate5/HibernateTemplate.java	ok	9
 spring-orm-hibernate5/src/main/java/org/springframework/orm/hibernate5/HibernateTransactionManager.java	ok	5
 spring-orm-hibernate5/src/main/java/org/springframework/orm/hibernate5/LocalSessionFactoryBean.java	ok
 spring-orm-hibernate5/src/main/java/org/springframework/orm/hibernate5/LocalSessionFactoryBuilder.java	ok
@@ -3614,7 +3614,7 @@ spring-orm/src/main/java/org/springframework/orm/hibernate3/HibernateOperations.
 spring-orm/src/main/java/org/springframework/orm/hibernate3/HibernateOptimisticLockingFailureException.java	ok
 spring-orm/src/main/java/org/springframework/orm/hibernate3/HibernateQueryException.java	ok
 spring-orm/src/main/java/org/springframework/orm/hibernate3/HibernateSystemException.java	ok
-spring-orm/src/main/java/org/springframework/orm/hibernate3/HibernateTemplate.java	ok	8
+spring-orm/src/main/java/org/springframework/orm/hibernate3/HibernateTemplate.java	ok	9
 spring-orm/src/main/java/org/springframework/orm/hibernate3/HibernateTransactionManager.java	ok	5
 spring-orm/src/main/java/org/springframework/orm/hibernate3/LocalDataSourceConnectionProvider.java	ok
 spring-orm/src/main/java/org/springframework/orm/hibernate3/LocalJtaDataSourceConnectionProvider.java	ok
@@ -3708,15 +3708,15 @@ spring-orm/src/main/java/org/springframework/orm/jpa/vendor/SpringHibernateEjbPe
 spring-orm/src/main/java/org/springframework/orm/jpa/vendor/package-info.java	ok
 spring-orm/src/main/java/org/springframework/orm/package-info.java	ok
 spring-orm/src/test/java/org/springframework/orm/hibernate3/HibernateInterceptorTests.java	ok
-spring-orm/src/test/java/org/springframework/orm/hibernate3/HibernateJtaTransactionTests.java	ok	18
-spring-orm/src/test/java/org/springframework/orm/hibernate3/HibernateTemplateTests.java	ok	20
-spring-orm/src/test/java/org/springframework/orm/hibernate3/HibernateTransactionManagerTests.java	ok	19
-spring-orm/src/test/java/org/springframework/orm/hibernate3/LocalSessionFactoryBeanTests.java	ok	5
+spring-orm/src/test/java/org/springframework/orm/hibernate3/HibernateJtaTransactionTests.java	ok	19
+spring-orm/src/test/java/org/springframework/orm/hibernate3/HibernateTemplateTests.java	ok	21
+spring-orm/src/test/java/org/springframework/orm/hibernate3/HibernateTransactionManagerTests.java	ok	20
+spring-orm/src/test/java/org/springframework/orm/hibernate3/LocalSessionFactoryBeanTests.java	ok	6
 spring-orm/src/test/java/org/springframework/orm/hibernate3/support/HibernateDaoSupportTests.java	ok
 spring-orm/src/test/java/org/springframework/orm/hibernate3/support/LobTypeTests.java	ok	7
 spring-orm/src/test/java/org/springframework/orm/hibernate3/support/OpenSessionInViewTests.java	ok	9
 spring-orm/src/test/java/org/springframework/orm/hibernate3/support/ScopedBeanInterceptorTests.java	ok
-spring-orm/src/test/java/org/springframework/orm/jdo/JdoTransactionManagerTests.java	ok	9
+spring-orm/src/test/java/org/springframework/orm/jdo/JdoTransactionManagerTests.java	ok	10
 spring-orm/src/test/java/org/springframework/orm/jdo/LocalPersistenceManagerFactoryTests.java	ok
 spring-orm/src/test/java/org/springframework/orm/jdo/support/OpenPersistenceManagerInViewTests.java	ok
 spring-orm/src/test/java/org/springframework/orm/jpa/AbstractContainerEntityManagerFactoryIntegrationTests.java	ok
@@ -3727,7 +3727,7 @@ spring-orm/src/test/java/org/springframework/orm/jpa/ContainerManagedEntityManag
 spring-orm/src/test/java/org/springframework/orm/jpa/DefaultJpaDialectTests.java	ok
 spring-orm/src/test/java/org/springframework/orm/jpa/EntityManagerFactoryBeanSupportTests.java	ok
 spring-orm/src/test/java/org/springframework/orm/jpa/EntityManagerFactoryUtilsTests.java	ok
-spring-orm/src/test/java/org/springframework/orm/jpa/JpaTransactionManagerTests.java	ok	8
+spring-orm/src/test/java/org/springframework/orm/jpa/JpaTransactionManagerTests.java	ok	9
 spring-orm/src/test/java/org/springframework/orm/jpa/LocalContainerEntityManagerFactoryBeanTests.java	ok
 spring-orm/src/test/java/org/springframework/orm/jpa/LocalEntityManagerFactoryBeanTests.java	ok
 spring-orm/src/test/java/org/springframework/orm/jpa/SharedEntityManagerCreatorTests.java	ok
@@ -3770,7 +3770,7 @@ spring-oxm/src/main/java/org/springframework/oxm/config/OxmNamespaceHandler.java
 spring-oxm/src/main/java/org/springframework/oxm/config/XmlBeansMarshallerBeanDefinitionParser.java	ok
 spring-oxm/src/main/java/org/springframework/oxm/config/package-info.java	ok
 spring-oxm/src/main/java/org/springframework/oxm/jaxb/ClassPathJaxb2TypeScanner.java	ok
-spring-oxm/src/main/java/org/springframework/oxm/jaxb/Jaxb2Marshaller.java	ok	6
+spring-oxm/src/main/java/org/springframework/oxm/jaxb/Jaxb2Marshaller.java	ok	7
 spring-oxm/src/main/java/org/springframework/oxm/jaxb/package-info.java	ok
 spring-oxm/src/main/java/org/springframework/oxm/jibx/JibxMarshaller.java	ok
 spring-oxm/src/main/java/org/springframework/oxm/jibx/package-info.java	ok
@@ -4044,7 +4044,7 @@ spring-test/src/main/java/org/springframework/test/web/servlet/TestDispatcherSer
 spring-test/src/main/java/org/springframework/test/web/servlet/htmlunit/DelegatingWebConnection.java	ok
 spring-test/src/main/java/org/springframework/test/web/servlet/htmlunit/ForwardRequestPostProcessor.java	ok
 spring-test/src/main/java/org/springframework/test/web/servlet/htmlunit/HostRequestMatcher.java	ok
-spring-test/src/main/java/org/springframework/test/web/servlet/htmlunit/HtmlUnitRequestBuilder.java	ok
+spring-test/src/main/java/org/springframework/test/web/servlet/htmlunit/HtmlUnitRequestBuilder.java	ok	5
 spring-test/src/main/java/org/springframework/test/web/servlet/htmlunit/MockMvcWebClientBuilder.java	ok
 spring-test/src/main/java/org/springframework/test/web/servlet/htmlunit/MockMvcWebConnection.java	ok
 spring-test/src/main/java/org/springframework/test/web/servlet/htmlunit/MockMvcWebConnectionBuilderSupport.java	ok
@@ -4088,7 +4088,7 @@ spring-test/src/main/java/org/springframework/test/web/servlet/setup/StandaloneM
 spring-test/src/main/java/org/springframework/test/web/servlet/setup/StubWebApplicationContext.java	ok
 spring-test/src/main/java/org/springframework/test/web/servlet/setup/package-info.java	ok
 spring-test/src/test/java/org/springframework/mock/web/MockFilterChainTests.java	ok
-spring-test/src/test/java/org/springframework/mock/web/MockHttpServletRequestTests.java	ok	5
+spring-test/src/test/java/org/springframework/mock/web/MockHttpServletRequestTests.java	ok	6
 spring-test/src/test/java/org/springframework/mock/web/MockHttpServletResponseTests.java	ok
 spring-test/src/test/java/org/springframework/mock/web/MockHttpSessionTests.java	ok
 spring-test/src/test/java/org/springframework/mock/web/MockMultipartHttpServletRequestTests.java	ok
@@ -4352,7 +4352,7 @@ spring-test/src/test/java/org/springframework/test/context/support/BootstrapTest
 spring-test/src/test/java/org/springframework/test/context/support/BootstrapTestUtilsMergedConfigTests.java	ok
 spring-test/src/test/java/org/springframework/test/context/support/ContextConfigurationInnerClassTestCase.java	ok
 spring-test/src/test/java/org/springframework/test/context/support/ContextLoaderUtilsConfigurationAttributesTests.java	ok
-spring-test/src/test/java/org/springframework/test/context/support/ContextLoaderUtilsContextHierarchyTests.java	ok	6
+spring-test/src/test/java/org/springframework/test/context/support/ContextLoaderUtilsContextHierarchyTests.java	ok	7
 spring-test/src/test/java/org/springframework/test/context/support/CustomizedGenericXmlContextLoaderTests.java	ok
 spring-test/src/test/java/org/springframework/test/context/support/DelegatingSmartContextLoaderTests.java	ok
 spring-test/src/test/java/org/springframework/test/context/support/DirtiesContextTestExecutionListenerTests.java	ok
@@ -4449,7 +4449,7 @@ spring-test/src/test/java/org/springframework/test/web/servlet/htmlunit/Delegati
 spring-test/src/test/java/org/springframework/test/web/servlet/htmlunit/ForwardController.java	ok
 spring-test/src/test/java/org/springframework/test/web/servlet/htmlunit/HelloController.java	ok
 spring-test/src/test/java/org/springframework/test/web/servlet/htmlunit/HostRequestMatcherTests.java	ok
-spring-test/src/test/java/org/springframework/test/web/servlet/htmlunit/HtmlUnitRequestBuilderTests.java	ok	9
+spring-test/src/test/java/org/springframework/test/web/servlet/htmlunit/HtmlUnitRequestBuilderTests.java	ok	10
 spring-test/src/test/java/org/springframework/test/web/servlet/htmlunit/MockMvcConnectionBuilderSupportTests.java	ok
 spring-test/src/test/java/org/springframework/test/web/servlet/htmlunit/MockMvcWebClientBuilderTests.java	ok
 spring-test/src/test/java/org/springframework/test/web/servlet/htmlunit/MockMvcWebConnectionTests.java	ok
@@ -4699,19 +4699,19 @@ spring-tx/src/test/java/org/springframework/dao/annotation/PersistenceExceptionT
 spring-tx/src/test/java/org/springframework/dao/support/ChainedPersistenceExceptionTranslatorTests.java	ok
 spring-tx/src/test/java/org/springframework/dao/support/DataAccessUtilsTests.java	ok
 spring-tx/src/test/java/org/springframework/jca/cci/CciLocalTransactionTests.java	ok
-spring-tx/src/test/java/org/springframework/jca/cci/CciTemplateTests.java	ok	7
+spring-tx/src/test/java/org/springframework/jca/cci/CciTemplateTests.java	ok	8
 spring-tx/src/test/java/org/springframework/jca/cci/EisOperationTests.java	ok
 spring-tx/src/test/java/org/springframework/jca/support/LocalConnectionFactoryBeanTests.java	ok
 spring-tx/src/test/java/org/springframework/tests/transaction/CallCountingTransactionManager.java	ok
 spring-tx/src/test/java/org/springframework/tests/transaction/MockJtaTransaction.java	ok
 spring-tx/src/test/java/org/springframework/transaction/JndiJtaTransactionManagerTests.java	ok
-spring-tx/src/test/java/org/springframework/transaction/JtaTransactionManagerTests.java	ok	13
+spring-tx/src/test/java/org/springframework/transaction/JtaTransactionManagerTests.java	ok	14
 spring-tx/src/test/java/org/springframework/transaction/MockCallbackPreferringTransactionManager.java	ok
 spring-tx/src/test/java/org/springframework/transaction/TestTransactionManager.java	ok
 spring-tx/src/test/java/org/springframework/transaction/TransactionSupportTests.java	ok
 spring-tx/src/test/java/org/springframework/transaction/TxNamespaceHandlerEventTests.java	ok
 spring-tx/src/test/java/org/springframework/transaction/TxNamespaceHandlerTests.java	ok
-spring-tx/src/test/java/org/springframework/transaction/annotation/AnnotationTransactionAttributeSourceTests.java	ok	7
+spring-tx/src/test/java/org/springframework/transaction/annotation/AnnotationTransactionAttributeSourceTests.java	ok	8
 spring-tx/src/test/java/org/springframework/transaction/annotation/AnnotationTransactionInterceptorTests.java	ok
 spring-tx/src/test/java/org/springframework/transaction/annotation/AnnotationTransactionNamespaceHandlerTests.java	ok
 spring-tx/src/test/java/org/springframework/transaction/annotation/EnableTransactionManagementTests.java	ok
@@ -4723,7 +4723,7 @@ spring-tx/src/test/java/org/springframework/transaction/config/TransactionManage
 spring-tx/src/test/java/org/springframework/transaction/config/TransactionalService.java	ok
 spring-tx/src/test/java/org/springframework/transaction/event/ApplicationListenerMethodTransactionalAdapterTests.java	ok
 spring-tx/src/test/java/org/springframework/transaction/event/TransactionalEventListenerTests.java	ok
-spring-tx/src/test/java/org/springframework/transaction/interceptor/AbstractTransactionAspectTests.java	ok
+spring-tx/src/test/java/org/springframework/transaction/interceptor/AbstractTransactionAspectTests.java	ok	5
 spring-tx/src/test/java/org/springframework/transaction/interceptor/BeanFactoryTransactionTests.java	ok
 spring-tx/src/test/java/org/springframework/transaction/interceptor/ImplementsNoInterfaces.java	ok
 spring-tx/src/test/java/org/springframework/transaction/interceptor/MapTransactionAttributeSource.java	ok
@@ -4737,12 +4737,12 @@ spring-tx/src/test/java/org/springframework/transaction/interceptor/TransactionA
 spring-tx/src/test/java/org/springframework/transaction/interceptor/TransactionAttributeSourceTests.java	ok
 spring-tx/src/test/java/org/springframework/transaction/interceptor/TransactionInterceptorTests.java	ok
 spring-tx/src/test/java/org/springframework/transaction/jta/MockUOWManager.java	ok
-spring-tx/src/test/java/org/springframework/transaction/jta/WebSphereUowTransactionManagerTests.java	ok	6
+spring-tx/src/test/java/org/springframework/transaction/jta/WebSphereUowTransactionManagerTests.java	ok	7
 spring-tx/src/test/java/org/springframework/transaction/support/JtaTransactionManagerSerializationTests.java	ok
 spring-tx/src/test/java/org/springframework/transaction/support/SimpleTransactionScopeTests.java	ok
 spring-web/src/main/java/org/springframework/http/CacheControl.java	ok
 spring-web/src/main/java/org/springframework/http/HttpEntity.java	ok
-spring-web/src/main/java/org/springframework/http/HttpHeaders.java	ok	7
+spring-web/src/main/java/org/springframework/http/HttpHeaders.java	ok	8
 spring-web/src/main/java/org/springframework/http/HttpInputMessage.java	ok
 spring-web/src/main/java/org/springframework/http/HttpMessage.java	ok
 spring-web/src/main/java/org/springframework/http/HttpMethod.java	ok
@@ -5162,7 +5162,7 @@ spring-web/src/main/java/org/springframework/web/util/ContentCachingRequestWrapp
 spring-web/src/main/java/org/springframework/web/util/ContentCachingResponseWrapper.java	ok
 spring-web/src/main/java/org/springframework/web/util/CookieGenerator.java	ok
 spring-web/src/main/java/org/springframework/web/util/DefaultUriTemplateHandler.java	ok
-spring-web/src/main/java/org/springframework/web/util/HierarchicalUriComponents.java	ok	7
+spring-web/src/main/java/org/springframework/web/util/HierarchicalUriComponents.java	ok	8
 spring-web/src/main/java/org/springframework/web/util/HtmlCharacterEntityDecoder.java	ok
 spring-web/src/main/java/org/springframework/web/util/HtmlCharacterEntityReferences.java	ok
 spring-web/src/main/java/org/springframework/web/util/HtmlUtils.java	ok
@@ -5288,12 +5288,12 @@ spring-web/src/test/java/org/springframework/web/bind/ServletRequestUtilsTests.j
 spring-web/src/test/java/org/springframework/web/bind/support/WebRequestDataBinderIntegrationTests.java	ok
 spring-web/src/test/java/org/springframework/web/bind/support/WebRequestDataBinderTests.java	ok
 spring-web/src/test/java/org/springframework/web/client/AbstractMockWebServerTestCase.java	ok
-spring-web/src/test/java/org/springframework/web/client/AsyncRestTemplateIntegrationTests.java	ok	8
+spring-web/src/test/java/org/springframework/web/client/AsyncRestTemplateIntegrationTests.java	ok	9
 spring-web/src/test/java/org/springframework/web/client/DefaultResponseErrorHandlerTests.java	ok
 spring-web/src/test/java/org/springframework/web/client/HttpMessageConverterExtractorTests.java	ok
 spring-web/src/test/java/org/springframework/web/client/HttpStatusCodeExceptionTests.java	ok
 spring-web/src/test/java/org/springframework/web/client/RestTemplateIntegrationTests.java	ok
-spring-web/src/test/java/org/springframework/web/client/RestTemplateTests.java	ok	15
+spring-web/src/test/java/org/springframework/web/client/RestTemplateTests.java	ok	16
 spring-web/src/test/java/org/springframework/web/context/ContextLoaderInitializerTests.java	ok
 spring-web/src/test/java/org/springframework/web/context/request/RequestAndSessionScopedBeanTests.java	ok
 spring-web/src/test/java/org/springframework/web/context/request/RequestContextListenerTests.java	ok
@@ -5374,7 +5374,7 @@ spring-web/src/test/java/org/springframework/web/util/UriTemplateTests.java	ok
 spring-web/src/test/java/org/springframework/web/util/UriUtilsTests.java	ok
 spring-web/src/test/java/org/springframework/web/util/UrlPathHelperTests.java	ok
 spring-web/src/test/java/org/springframework/web/util/WebUtilsTests.java	ok
-spring-webmvc-portlet/src/main/java/org/springframework/web/portlet/DispatcherPortlet.java	ok	8
+spring-webmvc-portlet/src/main/java/org/springframework/web/portlet/DispatcherPortlet.java	ok	9
 spring-webmvc-portlet/src/main/java/org/springframework/web/portlet/FrameworkPortlet.java	ok
 spring-webmvc-portlet/src/main/java/org/springframework/web/portlet/GenericPortletBean.java	ok
 spring-webmvc-portlet/src/main/java/org/springframework/web/portlet/HandlerAdapter.java	ok
@@ -5512,9 +5512,9 @@ spring-webmvc-portlet/src/test/java/org/springframework/web/portlet/mvc/Paramete
 spring-webmvc-portlet/src/test/java/org/springframework/web/portlet/mvc/PortletModeNameViewControllerTests.java	ok
 spring-webmvc-portlet/src/test/java/org/springframework/web/portlet/mvc/PortletWrappingControllerTests.java	ok
 spring-webmvc-portlet/src/test/java/org/springframework/web/portlet/mvc/annotation/AnnotationMethodHandlerExceptionResolverTests.java	ok
-spring-webmvc-portlet/src/test/java/org/springframework/web/portlet/mvc/annotation/Portlet20AnnotationControllerTests.java	ok	14
+spring-webmvc-portlet/src/test/java/org/springframework/web/portlet/mvc/annotation/Portlet20AnnotationControllerTests.java	ok	15
 spring-webmvc-portlet/src/test/java/org/springframework/web/portlet/mvc/annotation/PortletAnnotationControllerTests.java	ok	9
-spring-webmvc-portlet/src/test/java/org/springframework/web/portlet/util/PortletUtilsTests.java	ok	5
+spring-webmvc-portlet/src/test/java/org/springframework/web/portlet/util/PortletUtilsTests.java	ok	6
 spring-webmvc-tiles2/src/main/java/org/springframework/web/servlet/view/tiles2/AbstractSpringPreparerFactory.java	ok
 spring-webmvc-tiles2/src/main/java/org/springframework/web/servlet/view/tiles2/SimpleSpringPreparerFactory.java	ok
 spring-webmvc-tiles2/src/main/java/org/springframework/web/servlet/view/tiles2/SpringBeanPreparerFactory.java	ok
@@ -5526,7 +5526,7 @@ spring-webmvc-tiles2/src/main/java/org/springframework/web/servlet/view/tiles2/T
 spring-webmvc-tiles2/src/main/java/org/springframework/web/servlet/view/tiles2/package-info.java	ok
 spring-webmvc-tiles2/src/test/java/org/springframework/web/servlet/view/tiles2/TilesConfigurerTests.java	ok
 spring-webmvc/src/main/java/org/springframework/web/servlet/AsyncHandlerInterceptor.java	ok
-spring-webmvc/src/main/java/org/springframework/web/servlet/DispatcherServlet.java	ok	7
+spring-webmvc/src/main/java/org/springframework/web/servlet/DispatcherServlet.java	ok	8
 spring-webmvc/src/main/java/org/springframework/web/servlet/FlashMap.java	ok
 spring-webmvc/src/main/java/org/springframework/web/servlet/FlashMapManager.java	ok
 spring-webmvc/src/main/java/org/springframework/web/servlet/FrameworkServlet.java	ok	5
@@ -5580,7 +5580,7 @@ spring-webmvc/src/main/java/org/springframework/web/servlet/config/annotation/Ur
 spring-webmvc/src/main/java/org/springframework/web/servlet/config/annotation/ViewControllerRegistration.java	ok
 spring-webmvc/src/main/java/org/springframework/web/servlet/config/annotation/ViewControllerRegistry.java	ok
 spring-webmvc/src/main/java/org/springframework/web/servlet/config/annotation/ViewResolverRegistry.java	ok
-spring-webmvc/src/main/java/org/springframework/web/servlet/config/annotation/WebMvcConfigurationSupport.java	ok
+spring-webmvc/src/main/java/org/springframework/web/servlet/config/annotation/WebMvcConfigurationSupport.java	ok	5
 spring-webmvc/src/main/java/org/springframework/web/servlet/config/annotation/WebMvcConfigurer.java	ok
 spring-webmvc/src/main/java/org/springframework/web/servlet/config/annotation/WebMvcConfigurerAdapter.java	ok
 spring-webmvc/src/main/java/org/springframework/web/servlet/config/annotation/WebMvcConfigurerComposite.java	ok
@@ -5628,7 +5628,7 @@ spring-webmvc/src/main/java/org/springframework/web/servlet/mvc/ServletWrappingC
 spring-webmvc/src/main/java/org/springframework/web/servlet/mvc/SimpleControllerHandlerAdapter.java	ok
 spring-webmvc/src/main/java/org/springframework/web/servlet/mvc/UrlFilenameViewController.java	ok
 spring-webmvc/src/main/java/org/springframework/web/servlet/mvc/WebContentInterceptor.java	ok
-spring-webmvc/src/main/java/org/springframework/web/servlet/mvc/annotation/AnnotationMethodHandlerAdapter.java	ok	10
+spring-webmvc/src/main/java/org/springframework/web/servlet/mvc/annotation/AnnotationMethodHandlerAdapter.java	ok	11
 spring-webmvc/src/main/java/org/springframework/web/servlet/mvc/annotation/AnnotationMethodHandlerExceptionResolver.java	ok
 spring-webmvc/src/main/java/org/springframework/web/servlet/mvc/annotation/DefaultAnnotationHandlerMapping.java	ok
 spring-webmvc/src/main/java/org/springframework/web/servlet/mvc/annotation/ModelAndViewResolver.java	ok
@@ -5681,7 +5681,7 @@ spring-webmvc/src/main/java/org/springframework/web/servlet/mvc/method/annotatio
 spring-webmvc/src/main/java/org/springframework/web/servlet/mvc/method/annotation/RequestAttributeMethodArgumentResolver.java	ok
 spring-webmvc/src/main/java/org/springframework/web/servlet/mvc/method/annotation/RequestBodyAdvice.java	ok
 spring-webmvc/src/main/java/org/springframework/web/servlet/mvc/method/annotation/RequestBodyAdviceAdapter.java	ok
-spring-webmvc/src/main/java/org/springframework/web/servlet/mvc/method/annotation/RequestMappingHandlerAdapter.java	ok	6
+spring-webmvc/src/main/java/org/springframework/web/servlet/mvc/method/annotation/RequestMappingHandlerAdapter.java	ok	7
 spring-webmvc/src/main/java/org/springframework/web/servlet/mvc/method/annotation/RequestMappingHandlerMapping.java	ok
 spring-webmvc/src/main/java/org/springframework/web/servlet/mvc/method/annotation/RequestPartMethodArgumentResolver.java	ok
 spring-webmvc/src/main/java/org/springframework/web/servlet/mvc/method/annotation/RequestResponseBodyAdviceChain.java	ok
@@ -5740,7 +5740,7 @@ spring-webmvc/src/main/java/org/springframework/web/servlet/resource/EncodedReso
 spring-webmvc/src/main/java/org/springframework/web/servlet/resource/FixedVersionStrategy.java	ok
 spring-webmvc/src/main/java/org/springframework/web/servlet/resource/GzipResourceResolver.java	ok
 spring-webmvc/src/main/java/org/springframework/web/servlet/resource/PathResourceResolver.java	ok
-spring-webmvc/src/main/java/org/springframework/web/servlet/resource/ResourceHttpRequestHandler.java	ok
+spring-webmvc/src/main/java/org/springframework/web/servlet/resource/ResourceHttpRequestHandler.java	ok	5
 spring-webmvc/src/main/java/org/springframework/web/servlet/resource/ResourceResolver.java	ok
 spring-webmvc/src/main/java/org/springframework/web/servlet/resource/ResourceResolverChain.java	ok
 spring-webmvc/src/main/java/org/springframework/web/servlet/resource/ResourceTransformer.java	ok
@@ -5910,7 +5910,7 @@ spring-webmvc/src/test/java/org/springframework/context/BeanThatBroadcasts.java	
 spring-webmvc/src/test/java/org/springframework/context/BeanThatListens.java	ok
 spring-webmvc/src/test/java/org/springframework/context/LifecycleContextBean.java	ok
 spring-webmvc/src/test/java/org/springframework/context/TestListener.java	ok
-spring-webmvc/src/test/java/org/springframework/web/context/ContextLoaderTests.java	ok
+spring-webmvc/src/test/java/org/springframework/web/context/ContextLoaderTests.java	ok	5
 spring-webmvc/src/test/java/org/springframework/web/context/ServletConfigAwareBean.java	ok
 spring-webmvc/src/test/java/org/springframework/web/context/ServletContextAwareBean.java	ok
 spring-webmvc/src/test/java/org/springframework/web/context/ServletContextAwareProcessorTests.java	ok
@@ -5925,7 +5925,7 @@ spring-webmvc/src/test/java/org/springframework/web/servlet/HandlerExecutionChai
 spring-webmvc/src/test/java/org/springframework/web/servlet/ResourceServletTests.java	ok
 spring-webmvc/src/test/java/org/springframework/web/servlet/SimpleWebApplicationContext.java	ok
 spring-webmvc/src/test/java/org/springframework/web/servlet/config/AnnotationDrivenBeanDefinitionParserTests.java	ok
-spring-webmvc/src/test/java/org/springframework/web/servlet/config/MvcNamespaceTests.java	ok	14
+spring-webmvc/src/test/java/org/springframework/web/servlet/config/MvcNamespaceTests.java	ok	15
 spring-webmvc/src/test/java/org/springframework/web/servlet/config/annotation/ContentNegotiationConfigurerTests.java	ok
 spring-webmvc/src/test/java/org/springframework/web/servlet/config/annotation/CorsRegistryTests.java	ok
 spring-webmvc/src/test/java/org/springframework/web/servlet/config/annotation/DefaultServletHandlerConfigurerTests.java	ok
@@ -5966,7 +5966,7 @@ spring-webmvc/src/test/java/org/springframework/web/servlet/mvc/annotation/JdkPr
 spring-webmvc/src/test/java/org/springframework/web/servlet/mvc/annotation/MethodNameDispatchingController.java	ok
 spring-webmvc/src/test/java/org/springframework/web/servlet/mvc/annotation/RequestSpecificMappingInfoComparatorTests.java	ok
 spring-webmvc/src/test/java/org/springframework/web/servlet/mvc/annotation/ResponseStatusExceptionResolverTests.java	ok
-spring-webmvc/src/test/java/org/springframework/web/servlet/mvc/annotation/ServletAnnotationControllerTests.java	ok	41
+spring-webmvc/src/test/java/org/springframework/web/servlet/mvc/annotation/ServletAnnotationControllerTests.java	ok	43
 spring-webmvc/src/test/java/org/springframework/web/servlet/mvc/annotation/ServletAnnotationMappingUtilsTests.java	ok
 spring-webmvc/src/test/java/org/springframework/web/servlet/mvc/annotation/Spr7766Controller.java	ok
 spring-webmvc/src/test/java/org/springframework/web/servlet/mvc/annotation/Spr7766Tests.java	ok
@@ -6018,7 +6018,7 @@ spring-webmvc/src/test/java/org/springframework/web/servlet/mvc/method/annotatio
 spring-webmvc/src/test/java/org/springframework/web/servlet/mvc/method/annotation/ResponseBodyEmitterReturnValueHandlerTests.java	ok
 spring-webmvc/src/test/java/org/springframework/web/servlet/mvc/method/annotation/ResponseBodyEmitterTests.java	ok
 spring-webmvc/src/test/java/org/springframework/web/servlet/mvc/method/annotation/ResponseEntityExceptionHandlerTests.java	ok
-spring-webmvc/src/test/java/org/springframework/web/servlet/mvc/method/annotation/ServletAnnotationControllerHandlerMethodTests.java	ok	40
+spring-webmvc/src/test/java/org/springframework/web/servlet/mvc/method/annotation/ServletAnnotationControllerHandlerMethodTests.java	ok	42
 spring-webmvc/src/test/java/org/springframework/web/servlet/mvc/method/annotation/ServletCookieValueMethodArgumentResolverTests.java	ok
 spring-webmvc/src/test/java/org/springframework/web/servlet/mvc/method/annotation/ServletInvocableHandlerMethodTests.java	ok
 spring-webmvc/src/test/java/org/springframework/web/servlet/mvc/method/annotation/ServletModelAttributeMethodProcessorTests.java	ok
@@ -6042,7 +6042,7 @@ spring-webmvc/src/test/java/org/springframework/web/servlet/resource/CssLinkReso
 spring-webmvc/src/test/java/org/springframework/web/servlet/resource/FixedVersionStrategyTests.java	ok
 spring-webmvc/src/test/java/org/springframework/web/servlet/resource/GzipResourceResolverTests.java	ok
 spring-webmvc/src/test/java/org/springframework/web/servlet/resource/PathResourceResolverTests.java	ok
-spring-webmvc/src/test/java/org/springframework/web/servlet/resource/ResourceHttpRequestHandlerTests.java	ok	8
+spring-webmvc/src/test/java/org/springframework/web/servlet/resource/ResourceHttpRequestHandlerTests.java	ok	9
 spring-webmvc/src/test/java/org/springframework/web/servlet/resource/ResourceTransformerSupportTests.java	ok
 spring-webmvc/src/test/java/org/springframework/web/servlet/resource/ResourceUrlEncodingFilterTests.java	ok
 spring-webmvc/src/test/java/org/springframework/web/servlet/resource/ResourceUrlProviderJavaConfigTests.java	ok
@@ -6061,7 +6061,7 @@ spring-webmvc/src/test/java/org/springframework/web/servlet/support/WebContentGe
 spring-webmvc/src/test/java/org/springframework/web/servlet/tags/AbstractTagTests.java	ok
 spring-webmvc/src/test/java/org/springframework/web/servlet/tags/ArgumentTagTests.java	ok
 spring-webmvc/src/test/java/org/springframework/web/servlet/tags/BindTagOutsideDispatcherServletTests.java	ok
-spring-webmvc/src/test/java/org/springframework/web/servlet/tags/BindTagTests.java	ok	17
+spring-webmvc/src/test/java/org/springframework/web/servlet/tags/BindTagTests.java	ok	18
 spring-webmvc/src/test/java/org/springframework/web/servlet/tags/EvalTagTests.java	ok
 spring-webmvc/src/test/java/org/springframework/web/servlet/tags/HtmlEscapeTagOutsideDispatcherServletTests.java	ok
 spring-webmvc/src/test/java/org/springframework/web/servlet/tags/HtmlEscapeTagTests.java	ok
@@ -6074,8 +6074,8 @@ spring-webmvc/src/test/java/org/springframework/web/servlet/tags/UrlTagTests.jav
 spring-webmvc/src/test/java/org/springframework/web/servlet/tags/form/AbstractFormTagTests.java	ok
 spring-webmvc/src/test/java/org/springframework/web/servlet/tags/form/AbstractHtmlElementTagTests.java	ok
 spring-webmvc/src/test/java/org/springframework/web/servlet/tags/form/ButtonTagTests.java	ok
-spring-webmvc/src/test/java/org/springframework/web/servlet/tags/form/CheckboxTagTests.java	ok	9
-spring-webmvc/src/test/java/org/springframework/web/servlet/tags/form/CheckboxesTagTests.java	ok	14
+spring-webmvc/src/test/java/org/springframework/web/servlet/tags/form/CheckboxTagTests.java	ok	10
+spring-webmvc/src/test/java/org/springframework/web/servlet/tags/form/CheckboxesTagTests.java	ok	15
 spring-webmvc/src/test/java/org/springframework/web/servlet/tags/form/Country.java	ok
 spring-webmvc/src/test/java/org/springframework/web/servlet/tags/form/ErrorsTagTests.java	ok	5
 spring-webmvc/src/test/java/org/springframework/web/servlet/tags/form/FormTagTests.java	ok
@@ -6106,7 +6106,7 @@ spring-webmvc/src/test/java/org/springframework/web/servlet/view/RedirectViewTes
 spring-webmvc/src/test/java/org/springframework/web/servlet/view/RedirectViewUriTemplateTests.java	ok
 spring-webmvc/src/test/java/org/springframework/web/servlet/view/ResourceBundleViewResolverNoCacheTests.java	ok
 spring-webmvc/src/test/java/org/springframework/web/servlet/view/ResourceBundleViewResolverTests.java	ok
-spring-webmvc/src/test/java/org/springframework/web/servlet/view/ViewResolverTests.java	ok	7
+spring-webmvc/src/test/java/org/springframework/web/servlet/view/ViewResolverTests.java	ok	8
 spring-webmvc/src/test/java/org/springframework/web/servlet/view/document/ExcelViewTests.java	ok
 spring-webmvc/src/test/java/org/springframework/web/servlet/view/document/XlsViewTests.java	ok
 spring-webmvc/src/test/java/org/springframework/web/servlet/view/feed/AtomFeedViewTests.java	ok
@@ -6190,7 +6190,7 @@ spring-websocket/src/main/java/org/springframework/web/socket/client/standard/St
 spring-websocket/src/main/java/org/springframework/web/socket/client/standard/WebSocketContainerFactoryBean.java	ok
 spring-websocket/src/main/java/org/springframework/web/socket/client/standard/package-info.java	ok
 spring-websocket/src/main/java/org/springframework/web/socket/config/HandlersBeanDefinitionParser.java	ok
-spring-websocket/src/main/java/org/springframework/web/socket/config/MessageBrokerBeanDefinitionParser.java	ok	8
+spring-websocket/src/main/java/org/springframework/web/socket/config/MessageBrokerBeanDefinitionParser.java	ok	9
 spring-websocket/src/main/java/org/springframework/web/socket/config/WebSocketMessageBrokerStats.java	ok
 spring-websocket/src/main/java/org/springframework/web/socket/config/WebSocketNamespaceHandler.java	ok
 spring-websocket/src/main/java/org/springframework/web/socket/config/WebSocketNamespaceUtils.java	ok
@@ -6237,7 +6237,7 @@ spring-websocket/src/main/java/org/springframework/web/socket/messaging/SessionD
 spring-websocket/src/main/java/org/springframework/web/socket/messaging/SessionSubscribeEvent.java	ok
 spring-websocket/src/main/java/org/springframework/web/socket/messaging/SessionUnsubscribeEvent.java	ok
 spring-websocket/src/main/java/org/springframework/web/socket/messaging/StompSubProtocolErrorHandler.java	ok
-spring-websocket/src/main/java/org/springframework/web/socket/messaging/StompSubProtocolHandler.java	ok	5
+spring-websocket/src/main/java/org/springframework/web/socket/messaging/StompSubProtocolHandler.java	ok	6
 spring-websocket/src/main/java/org/springframework/web/socket/messaging/SubProtocolErrorHandler.java	ok
 spring-websocket/src/main/java/org/springframework/web/socket/messaging/SubProtocolHandler.java	ok
 spring-websocket/src/main/java/org/springframework/web/socket/messaging/SubProtocolWebSocketHandler.java	ok
@@ -6350,7 +6350,7 @@ spring-websocket/src/test/java/org/springframework/web/socket/client/WebSocketCo
 spring-websocket/src/test/java/org/springframework/web/socket/client/jetty/JettyWebSocketClientTests.java	ok
 spring-websocket/src/test/java/org/springframework/web/socket/client/standard/StandardWebSocketClientTests.java	ok
 spring-websocket/src/test/java/org/springframework/web/socket/config/HandlersBeanDefinitionParserTests.java	ok
-spring-websocket/src/test/java/org/springframework/web/socket/config/MessageBrokerBeanDefinitionParserTests.java	ok	6
+spring-websocket/src/test/java/org/springframework/web/socket/config/MessageBrokerBeanDefinitionParserTests.java	ok	7
 spring-websocket/src/test/java/org/springframework/web/socket/config/annotation/WebMvcStompEndpointRegistryTests.java	ok
 spring-websocket/src/test/java/org/springframework/web/socket/config/annotation/WebMvcStompWebSocketEndpointRegistrationTests.java	ok
 spring-websocket/src/test/java/org/springframework/web/socket/config/annotation/WebSocketConfigurationTests.java	ok

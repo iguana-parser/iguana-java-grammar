@@ -5,10 +5,23 @@
         (ClassDeclaration
           (NormalClassDeclaration
             "class"
-            Identifier
+            TypeIdentifier
             (ClassBody
               "{"
               (ClassBodyDeclaration*
+                (ClassBodyDeclaration
+                  (FieldDeclaration
+                    (UnannType
+                      (UnannPrimitiveType "int"))
+                    ({VariableDeclarator ","}+
+                      (VariableDeclarator
+                        (VariableDeclaratorId Identifier)
+                        "="
+                        (VariableInitializer
+                          (Expression
+                            (Primary
+                              (Literal IntegerLiteral))))))
+                    ";"))
                 (ClassBodyDeclaration
                   (FieldDeclaration
                     (UnannType
@@ -149,8 +162,9 @@
                         (BlockStatement*
                           (BlockStatement
                             (LocalVariableDeclarationStatement
-                              (UnannType
-                                (UnannPrimitiveType "int"))
+                              (LocalVariableType
+                                (UnannType
+                                  (UnannPrimitiveType "int")))
                               ({VariableDeclarator ","}+
                                 (VariableDeclarator
                                   (VariableDeclaratorId Identifier)
@@ -166,7 +180,11 @@
                                                   (Expression
                                                     (Expression
                                                       (Expression
-                                                        (Primary Identifier))
+                                                        (Expression
+                                                          (Primary Identifier))
+                                                        "+"
+                                                        (Expression
+                                                          (Primary Identifier)))
                                                       "+"
                                                       (Expression
                                                         (Primary Identifier)))
@@ -216,6 +234,12 @@
                                         ")")))))
                               ";")))
                         "}"))))
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result "void")
+                    (MethodDeclarator Identifier "(" ")")
+                    (MethodBody
+                      (Block "{" "}"))))
                 (ClassBodyDeclaration
                   (MethodDeclaration
                     (Result "void")

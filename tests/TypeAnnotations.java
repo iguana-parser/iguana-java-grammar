@@ -54,6 +54,10 @@ class TypeAnnotations {
     // Method parameter: leading on VariableModifier path (UnannType)
     void params(@NonNull String s, @Tainted int i) {}
 
+    // Varargs: annotation on the varargs array type (JLS 8.4.1 VariableArityParameter)
+    void varargsPrim(int @NonNull ... xs) {}
+    void varargsRef(String @Readonly ... xs) {}
+
     // Local variable: leading on VariableModifier
     void locals() {
         @NonNull String s = "x";

@@ -5,7 +5,7 @@
         (ClassDeclaration
           (NormalClassDeclaration
             "class"
-            Identifier
+            TypeIdentifier
             (ClassBody
               "{"
               (ClassBodyDeclaration*
@@ -23,7 +23,7 @@
                       (ClassModifier*
                         (ClassModifier "static"))
                       "class"
-                      Identifier
+                      TypeIdentifier
                       (ClassBody
                         "{"
                         (ClassBodyDeclaration*
@@ -50,7 +50,7 @@
                   (ClassDeclaration
                     (NormalClassDeclaration
                       "class"
-                      Identifier
+                      TypeIdentifier
                       (ClassBody
                         "{"
                         (ClassBodyDeclaration*
@@ -95,11 +95,11 @@
                   (ClassDeclaration
                     (NormalClassDeclaration
                       "class"
-                      Identifier
+                      TypeIdentifier
                       (TypeParameters
                         "<"
                         ({TypeParameter ","}+
-                          (TypeParameter Identifier))
+                          (TypeParameter TypeIdentifier))
                         ">")
                       (ClassBody
                         "{"
@@ -108,7 +108,7 @@
                             (FieldDeclaration
                               (UnannType
                                 (UnannReferenceType
-                                  (UnannClassType Identifier)))
+                                  (UnannClassType TypeIdentifier)))
                               ({VariableDeclarator ","}+
                                 (VariableDeclarator
                                   (VariableDeclaratorId Identifier)))
@@ -118,7 +118,7 @@
                   (ClassDeclaration
                     (EnumDeclaration
                       "enum"
-                      Identifier
+                      TypeIdentifier
                       (EnumBody
                         "{"
                         ({EnumConstant ","}*
@@ -130,7 +130,7 @@
                   (InterfaceDeclaration
                     (NormalInterfaceDeclaration
                       "interface"
-                      Identifier
+                      TypeIdentifier
                       (InterfaceBody
                         "{"
                         (InterfaceMemberDeclaration*
@@ -145,7 +145,7 @@
                     (AnnotationTypeDeclaration
                       "@"
                       "interface"
-                      Identifier
+                      TypeIdentifier
                       (AnnotationTypeBody "{" "}"))))
                 (ClassBodyDeclaration
                   (ClassDeclaration
@@ -153,7 +153,7 @@
                       (ClassModifier*
                         (ClassModifier "static"))
                       "class"
-                      Identifier
+                      TypeIdentifier
                       (ClassBody
                         "{"
                         (ClassBodyDeclaration*
@@ -163,7 +163,7 @@
                                 (ClassModifier*
                                   (ClassModifier "static"))
                                 "class"
-                                Identifier
+                                TypeIdentifier
                                 (ClassBody
                                   "{"
                                   (ClassBodyDeclaration*
@@ -173,7 +173,7 @@
                                           (ClassModifier*
                                             (ClassModifier "static"))
                                           "class"
-                                          Identifier
+                                          TypeIdentifier
                                           (ClassBody
                                             "{"
                                             (ClassBodyDeclaration*
@@ -200,7 +200,7 @@
                             (ClassDeclaration
                               (NormalClassDeclaration
                                 "class"
-                                Identifier
+                                TypeIdentifier
                                 (ClassBody
                                   "{"
                                   (ClassBodyDeclaration*
@@ -236,9 +236,10 @@
                                   "}"))))
                           (BlockStatement
                             (LocalVariableDeclarationStatement
-                              (UnannType
-                                (UnannReferenceType
-                                  (UnannClassType Identifier)))
+                              (LocalVariableType
+                                (UnannType
+                                  (UnannReferenceType
+                                    (UnannClassType TypeIdentifier))))
                               ({VariableDeclarator ","}+
                                 (VariableDeclarator
                                   (VariableDeclaratorId Identifier)
@@ -252,9 +253,10 @@
                               ";"))
                           (BlockStatement
                             (LocalVariableDeclarationStatement
-                              (UnannType
-                                (UnannReferenceType
-                                  (UnannClassType Identifier)))
+                              (LocalVariableType
+                                (UnannType
+                                  (UnannReferenceType
+                                    (UnannClassType TypeIdentifier))))
                               ({VariableDeclarator ","}+
                                 (VariableDeclarator
                                   (VariableDeclaratorId Identifier)
@@ -291,9 +293,10 @@
                               ";"))
                           (BlockStatement
                             (LocalVariableDeclarationStatement
-                              (UnannType
-                                (UnannReferenceType
-                                  (UnannClassType Identifier)))
+                              (LocalVariableType
+                                (UnannType
+                                  (UnannReferenceType
+                                    (UnannClassType TypeIdentifier))))
                               ({VariableDeclarator ","}+
                                 (VariableDeclarator
                                   (VariableDeclaratorId Identifier)
@@ -319,7 +322,7 @@
                                                 (Result
                                                   (UnannType
                                                     (UnannReferenceType
-                                                      (UnannClassType Identifier))))
+                                                      (UnannClassType TypeIdentifier))))
                                                 (MethodDeclarator Identifier "(" ")")
                                                 (MethodBody
                                                   (Block
@@ -337,9 +340,10 @@
                               ";"))
                           (BlockStatement
                             (LocalVariableDeclarationStatement
-                              (UnannType
-                                (UnannReferenceType
-                                  (UnannClassType Identifier)))
+                              (LocalVariableType
+                                (UnannType
+                                  (UnannReferenceType
+                                    (UnannClassType TypeIdentifier))))
                               ({VariableDeclarator ","}+
                                 (VariableDeclarator
                                   (VariableDeclaratorId Identifier)
@@ -357,7 +361,7 @@
                                               ({TypeArgument ","}+
                                                 (TypeArgument
                                                   (ReferenceType
-                                                    (ClassType Identifier))))
+                                                    (ClassType TypeIdentifier))))
                                               ">")))
                                         (Arguments
                                           "("
@@ -389,7 +393,7 @@
                                                       (FormalParameter
                                                         (UnannType
                                                           (UnannReferenceType
-                                                            (UnannClassType Identifier)))
+                                                            (UnannClassType TypeIdentifier)))
                                                         (VariableDeclaratorId Identifier))))
                                                   ")")
                                                 (MethodBody
@@ -423,9 +427,10 @@
                               ";"))
                           (BlockStatement
                             (LocalVariableDeclarationStatement
-                              (UnannType
-                                (UnannReferenceType
-                                  (UnannClassType Identifier)))
+                              (LocalVariableType
+                                (UnannType
+                                  (UnannReferenceType
+                                    (UnannClassType TypeIdentifier))))
                               ({VariableDeclarator ","}+
                                 (VariableDeclarator
                                   (VariableDeclaratorId Identifier)
@@ -462,7 +467,7 @@
                                                       (FormalParameter
                                                         (UnannType
                                                           (UnannReferenceType
-                                                            (UnannClassType Identifier)))
+                                                            (UnannClassType TypeIdentifier)))
                                                         (VariableDeclaratorId Identifier))))
                                                   ")")
                                                 (MethodBody
@@ -496,9 +501,10 @@
                               ";"))
                           (BlockStatement
                             (LocalVariableDeclarationStatement
-                              (UnannType
-                                (UnannReferenceType
-                                  (UnannClassType Identifier)))
+                              (LocalVariableType
+                                (UnannType
+                                  (UnannReferenceType
+                                    (UnannClassType TypeIdentifier))))
                               ({VariableDeclarator ","}+
                                 (VariableDeclarator
                                   (VariableDeclaratorId Identifier)
@@ -515,9 +521,10 @@
                               ";"))
                           (BlockStatement
                             (LocalVariableDeclarationStatement
-                              (UnannType
-                                (UnannReferenceType
-                                  (UnannClassType Identifier)))
+                              (LocalVariableType
+                                (UnannType
+                                  (UnannReferenceType
+                                    (UnannClassType TypeIdentifier))))
                               ({VariableDeclarator ","}+
                                 (VariableDeclarator
                                   (VariableDeclaratorId Identifier)
@@ -531,9 +538,10 @@
                               ";"))
                           (BlockStatement
                             (LocalVariableDeclarationStatement
-                              (UnannType
-                                (UnannReferenceType
-                                  (UnannClassType Identifier)))
+                              (LocalVariableType
+                                (UnannType
+                                  (UnannReferenceType
+                                    (UnannClassType TypeIdentifier))))
                               ({VariableDeclarator ","}+
                                 (VariableDeclarator
                                   (VariableDeclaratorId Identifier)
@@ -559,8 +567,9 @@
                                                     (BlockStatement*
                                                       (BlockStatement
                                                         (LocalVariableDeclarationStatement
-                                                          (UnannType
-                                                            (UnannPrimitiveType "int"))
+                                                          (LocalVariableType
+                                                            (UnannType
+                                                              (UnannPrimitiveType "int")))
                                                           ({VariableDeclarator ","}+
                                                             (VariableDeclarator
                                                               (VariableDeclaratorId Identifier)

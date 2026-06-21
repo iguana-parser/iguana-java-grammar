@@ -12,6 +12,10 @@ class Statements {
         int c, d, e;
         int f = 1, g = 2;
 
+        // Java 10: local variable type inference (var)
+        var inferred = 1;
+        var built = new java.util.ArrayList<String>();
+
         // Expression statement
         x = 1;
         x++;
@@ -33,10 +37,12 @@ class Statements {
         for (int i = 0; i < 10; i++) x += i;
         for (;;) break;
         for (int i = 0, j = 9; i < j; i++, j--) x = i + j;
+        for (var i = 0; i < 10; i++) x += i; // Java 10: var
 
         // enhanced for
         for (int v : xs) x += v;
         for (Integer v : ints) x += v;
+        for (var v : xs) x += v; // Java 10: var
 
         // switch (Java 1-7 form)
         switch (x) {
@@ -94,6 +100,9 @@ class Statements {
 
         // try-with-resources, variable-access form (Java 9)
         try (in) { x = 1; }
+
+        // try-with-resources with var (Java 10)
+        try (var res = open()) { x = 1; }
     }
 
     void assertions() {

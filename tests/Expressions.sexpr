@@ -5,7 +5,7 @@
         (ClassDeclaration
           (NormalClassDeclaration
             "class"
-            Identifier
+            TypeIdentifier
             (ClassBody
               "{"
               (ClassBodyDeclaration*
@@ -511,7 +511,7 @@
                                     "instanceof"
                                     (Type
                                       (ReferenceType
-                                        (ClassType Identifier))))))
+                                        (ClassType TypeIdentifier))))))
                               ";"))
                           (BlockStatement
                             (Statement
@@ -539,7 +539,7 @@
                                     "("
                                     ({ReferenceType "&"}+
                                       (ReferenceType
-                                        (ClassType Identifier)))
+                                        (ClassType TypeIdentifier)))
                                     ")"
                                     (Expression
                                       (Primary Identifier)))))
@@ -556,19 +556,19 @@
                                     ({ReferenceType "&"}+
                                       (ReferenceType
                                         (ClassType
-                                          Identifier
+                                          TypeIdentifier
                                           (TypeArguments
                                             "<"
                                             ({TypeArgument ","}+
                                               (TypeArgument
                                                 (ReferenceType
-                                                  (ClassType Identifier))))
+                                                  (ClassType TypeIdentifier))))
                                             ">")))
                                       "&"
                                       (ReferenceType
                                         (ClassType
-                                          Identifier
-                                          (("." Annotation* Identifier TypeArguments?)* "." Identifier "." Identifier))))
+                                          TypeIdentifier
+                                          (("." Annotation* TypeIdentifier TypeArguments?)* "." TypeIdentifier "." TypeIdentifier))))
                                     ")"
                                     (Expression
                                       (Primary Identifier)))))
@@ -866,7 +866,7 @@
                                             ({TypeArgument ","}+
                                               (TypeArgument
                                                 (ReferenceType
-                                                  (ClassType Identifier))))
+                                                  (ClassType TypeIdentifier))))
                                             ">")))
                                       (Arguments "(" ")")))))
                               ";"))
@@ -982,7 +982,7 @@
                                     (Primary
                                       (Type
                                         (ReferenceType
-                                          (ClassType Identifier)))
+                                          (ClassType TypeIdentifier)))
                                       "."
                                       "class"))))
                               ";"))
@@ -1110,7 +1110,7 @@
                                     (Primary Identifier))
                                   AssignmentOperator
                                   (Expression
-                                    (ClassType Identifier)
+                                    (ClassType TypeIdentifier)
                                     "::"
                                     "new")))
                               ";")))

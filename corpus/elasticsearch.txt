@@ -1,5 +1,5 @@
 # corpus: elasticsearch
-# files=4438 ok=4437 error=1 ioerror=0 parse_ms=7027
+# files=4438 ok=4437 error=1 ioerror=0 parse_ms=7256
 core/src/main/java/org/apache/lucene/analysis/PrefixAnalyzer.java	ok
 core/src/main/java/org/apache/lucene/analysis/miscellaneous/UniqueTokenFilter.java	ok
 core/src/main/java/org/apache/lucene/index/OneMergeHelper.java	ok
@@ -25,7 +25,7 @@ core/src/main/java/org/apache/lucene/store/StoreRateLimiting.java	ok
 core/src/main/java/org/apache/lucene/store/StoreUtils.java	ok
 core/src/main/java/org/elasticsearch/Build.java	ok
 core/src/main/java/org/elasticsearch/ElasticsearchCorruptionException.java	ok
-core/src/main/java/org/elasticsearch/ElasticsearchException.java	ok	11
+core/src/main/java/org/elasticsearch/ElasticsearchException.java	ok	10
 core/src/main/java/org/elasticsearch/ElasticsearchGenerationException.java	ok
 core/src/main/java/org/elasticsearch/ElasticsearchParseException.java	ok
 core/src/main/java/org/elasticsearch/ElasticsearchSecurityException.java	ok
@@ -648,7 +648,7 @@ core/src/main/java/org/elasticsearch/action/termvectors/package-info.java	ok
 core/src/main/java/org/elasticsearch/action/update/TransportUpdateAction.java	ok
 core/src/main/java/org/elasticsearch/action/update/UpdateAction.java	ok
 core/src/main/java/org/elasticsearch/action/update/UpdateHelper.java	ok
-core/src/main/java/org/elasticsearch/action/update/UpdateRequest.java	ok	5
+core/src/main/java/org/elasticsearch/action/update/UpdateRequest.java	ok	6
 core/src/main/java/org/elasticsearch/action/update/UpdateRequestBuilder.java	ok
 core/src/main/java/org/elasticsearch/action/update/UpdateResponse.java	ok
 core/src/main/java/org/elasticsearch/bootstrap/Bootstrap.java	ok
@@ -678,7 +678,7 @@ core/src/main/java/org/elasticsearch/client/Requests.java	ok
 core/src/main/java/org/elasticsearch/client/node/NodeClient.java	ok
 core/src/main/java/org/elasticsearch/client/node/NodeClientModule.java	ok
 core/src/main/java/org/elasticsearch/client/package-info.java	ok
-core/src/main/java/org/elasticsearch/client/support/AbstractClient.java	ok	13
+core/src/main/java/org/elasticsearch/client/support/AbstractClient.java	ok	14
 core/src/main/java/org/elasticsearch/client/support/Headers.java	ok
 core/src/main/java/org/elasticsearch/client/transport/ClientTransportModule.java	ok
 core/src/main/java/org/elasticsearch/client/transport/NoNodeAvailableException.java	ok
@@ -694,7 +694,7 @@ core/src/main/java/org/elasticsearch/cluster/BasicClusterStateTaskConfig.java	ok
 core/src/main/java/org/elasticsearch/cluster/ClusterChangedEvent.java	ok
 core/src/main/java/org/elasticsearch/cluster/ClusterInfo.java	ok
 core/src/main/java/org/elasticsearch/cluster/ClusterInfoService.java	ok
-core/src/main/java/org/elasticsearch/cluster/ClusterModule.java	ok
+core/src/main/java/org/elasticsearch/cluster/ClusterModule.java	ok	5
 core/src/main/java/org/elasticsearch/cluster/ClusterName.java	ok
 core/src/main/java/org/elasticsearch/cluster/ClusterNameModule.java	ok
 core/src/main/java/org/elasticsearch/cluster/ClusterService.java	ok
@@ -716,7 +716,7 @@ core/src/main/java/org/elasticsearch/cluster/InternalClusterInfoService.java	ok
 core/src/main/java/org/elasticsearch/cluster/LocalNodeMasterListener.java	ok
 core/src/main/java/org/elasticsearch/cluster/NotMasterException.java	ok
 core/src/main/java/org/elasticsearch/cluster/RestoreInProgress.java	ok
-core/src/main/java/org/elasticsearch/cluster/SnapshotsInProgress.java	ok
+core/src/main/java/org/elasticsearch/cluster/SnapshotsInProgress.java	ok	5
 core/src/main/java/org/elasticsearch/cluster/TimeoutClusterStateListener.java	ok
 core/src/main/java/org/elasticsearch/cluster/ack/AckedRequest.java	ok
 core/src/main/java/org/elasticsearch/cluster/ack/ClusterStateUpdateRequest.java	ok
@@ -743,7 +743,7 @@ core/src/main/java/org/elasticsearch/cluster/metadata/IndexNameExpressionResolve
 core/src/main/java/org/elasticsearch/cluster/metadata/IndexTemplateFilter.java	ok
 core/src/main/java/org/elasticsearch/cluster/metadata/IndexTemplateMetaData.java	ok	5
 core/src/main/java/org/elasticsearch/cluster/metadata/MappingMetaData.java	ok	7
-core/src/main/java/org/elasticsearch/cluster/metadata/MetaData.java	ok	12
+core/src/main/java/org/elasticsearch/cluster/metadata/MetaData.java	ok	13
 core/src/main/java/org/elasticsearch/cluster/metadata/MetaDataCreateIndexService.java	ok	5
 core/src/main/java/org/elasticsearch/cluster/metadata/MetaDataDeleteIndexService.java	ok
 core/src/main/java/org/elasticsearch/cluster/metadata/MetaDataIndexAliasesService.java	ok
@@ -795,7 +795,7 @@ core/src/main/java/org/elasticsearch/cluster/routing/allocation/RerouteExplanati
 core/src/main/java/org/elasticsearch/cluster/routing/allocation/RoutingAllocation.java	ok
 core/src/main/java/org/elasticsearch/cluster/routing/allocation/RoutingExplanations.java	ok
 core/src/main/java/org/elasticsearch/cluster/routing/allocation/StartedRerouteAllocation.java	ok
-core/src/main/java/org/elasticsearch/cluster/routing/allocation/allocator/BalancedShardsAllocator.java	ok	9
+core/src/main/java/org/elasticsearch/cluster/routing/allocation/allocator/BalancedShardsAllocator.java	ok	10
 core/src/main/java/org/elasticsearch/cluster/routing/allocation/allocator/ShardsAllocator.java	ok
 core/src/main/java/org/elasticsearch/cluster/routing/allocation/allocator/ShardsAllocators.java	ok
 core/src/main/java/org/elasticsearch/cluster/routing/allocation/command/AllocateAllocationCommand.java	ok
@@ -825,7 +825,7 @@ core/src/main/java/org/elasticsearch/cluster/service/PendingClusterTask.java	ok
 core/src/main/java/org/elasticsearch/cluster/settings/ClusterDynamicSettings.java	ok
 core/src/main/java/org/elasticsearch/cluster/settings/DynamicSettings.java	ok
 core/src/main/java/org/elasticsearch/cluster/settings/Validator.java	ok
-core/src/main/java/org/elasticsearch/common/Base64.java	ok	12
+core/src/main/java/org/elasticsearch/common/Base64.java	ok	13
 core/src/main/java/org/elasticsearch/common/Booleans.java	ok
 core/src/main/java/org/elasticsearch/common/Classes.java	ok
 core/src/main/java/org/elasticsearch/common/ContextAndHeaderHolder.java	ok
@@ -1123,7 +1123,7 @@ core/src/main/java/org/elasticsearch/common/io/stream/NamedWriteableRegistry.jav
 core/src/main/java/org/elasticsearch/common/io/stream/NotSerializableExceptionWrapper.java	ok
 core/src/main/java/org/elasticsearch/common/io/stream/OutputStreamStreamOutput.java	ok
 core/src/main/java/org/elasticsearch/common/io/stream/ReleasableBytesStreamOutput.java	ok
-core/src/main/java/org/elasticsearch/common/io/stream/StreamInput.java	ok	5
+core/src/main/java/org/elasticsearch/common/io/stream/StreamInput.java	ok	6
 core/src/main/java/org/elasticsearch/common/io/stream/StreamInputReader.java	ok
 core/src/main/java/org/elasticsearch/common/io/stream/StreamOutput.java	ok	6
 core/src/main/java/org/elasticsearch/common/io/stream/Streamable.java	ok
@@ -1313,7 +1313,7 @@ core/src/main/java/org/elasticsearch/common/xcontent/FromXContentBuilder.java	ok
 core/src/main/java/org/elasticsearch/common/xcontent/StatusToXContent.java	ok
 core/src/main/java/org/elasticsearch/common/xcontent/ToXContent.java	ok
 core/src/main/java/org/elasticsearch/common/xcontent/XContent.java	ok
-core/src/main/java/org/elasticsearch/common/xcontent/XContentBuilder.java	ok	12
+core/src/main/java/org/elasticsearch/common/xcontent/XContentBuilder.java	ok	13
 core/src/main/java/org/elasticsearch/common/xcontent/XContentBuilderString.java	ok
 core/src/main/java/org/elasticsearch/common/xcontent/XContentFactory.java	ok
 core/src/main/java/org/elasticsearch/common/xcontent/XContentGenerator.java	ok
@@ -1729,10 +1729,10 @@ core/src/main/java/org/elasticsearch/index/mapper/DocumentMapperForType.java	ok
 core/src/main/java/org/elasticsearch/index/mapper/DocumentMapperParser.java	ok
 core/src/main/java/org/elasticsearch/index/mapper/DocumentParser.java	ok	10
 core/src/main/java/org/elasticsearch/index/mapper/DocumentTypeListener.java	ok
-core/src/main/java/org/elasticsearch/index/mapper/FieldMapper.java	ok	8
+core/src/main/java/org/elasticsearch/index/mapper/FieldMapper.java	ok	7
 core/src/main/java/org/elasticsearch/index/mapper/FieldMappers.java	ok
 core/src/main/java/org/elasticsearch/index/mapper/FieldTypeLookup.java	ok
-core/src/main/java/org/elasticsearch/index/mapper/MappedFieldType.java	ok	5
+core/src/main/java/org/elasticsearch/index/mapper/MappedFieldType.java	ok
 core/src/main/java/org/elasticsearch/index/mapper/Mapper.java	ok
 core/src/main/java/org/elasticsearch/index/mapper/MapperBuilders.java	ok
 core/src/main/java/org/elasticsearch/index/mapper/MapperException.java	ok
@@ -1752,7 +1752,7 @@ core/src/main/java/org/elasticsearch/index/mapper/Uid.java	ok
 core/src/main/java/org/elasticsearch/index/mapper/core/BinaryFieldMapper.java	ok
 core/src/main/java/org/elasticsearch/index/mapper/core/BooleanFieldMapper.java	ok
 core/src/main/java/org/elasticsearch/index/mapper/core/ByteFieldMapper.java	ok
-core/src/main/java/org/elasticsearch/index/mapper/core/CompletionFieldMapper.java	ok	6
+core/src/main/java/org/elasticsearch/index/mapper/core/CompletionFieldMapper.java	ok	7
 core/src/main/java/org/elasticsearch/index/mapper/core/DateFieldMapper.java	ok	6
 core/src/main/java/org/elasticsearch/index/mapper/core/DoubleFieldMapper.java	ok
 core/src/main/java/org/elasticsearch/index/mapper/core/FloatFieldMapper.java	ok
@@ -1763,7 +1763,7 @@ core/src/main/java/org/elasticsearch/index/mapper/core/NumberFieldMapper.java	ok
 core/src/main/java/org/elasticsearch/index/mapper/core/ShortFieldMapper.java	ok
 core/src/main/java/org/elasticsearch/index/mapper/core/StringFieldMapper.java	ok
 core/src/main/java/org/elasticsearch/index/mapper/core/TokenCountFieldMapper.java	ok
-core/src/main/java/org/elasticsearch/index/mapper/core/TypeParsers.java	ok	6
+core/src/main/java/org/elasticsearch/index/mapper/core/TypeParsers.java	ok	7
 core/src/main/java/org/elasticsearch/index/mapper/geo/BaseGeoPointFieldMapper.java	ok	6
 core/src/main/java/org/elasticsearch/index/mapper/geo/GeoPointFieldMapper.java	ok
 core/src/main/java/org/elasticsearch/index/mapper/geo/GeoPointFieldMapperLegacy.java	ok
@@ -1775,7 +1775,7 @@ core/src/main/java/org/elasticsearch/index/mapper/internal/IdFieldMapper.java	ok
 core/src/main/java/org/elasticsearch/index/mapper/internal/IndexFieldMapper.java	ok
 core/src/main/java/org/elasticsearch/index/mapper/internal/ParentFieldMapper.java	ok
 core/src/main/java/org/elasticsearch/index/mapper/internal/RoutingFieldMapper.java	ok
-core/src/main/java/org/elasticsearch/index/mapper/internal/SourceFieldMapper.java	ok
+core/src/main/java/org/elasticsearch/index/mapper/internal/SourceFieldMapper.java	ok	5
 core/src/main/java/org/elasticsearch/index/mapper/internal/TTLFieldMapper.java	ok
 core/src/main/java/org/elasticsearch/index/mapper/internal/TimestampFieldMapper.java	ok
 core/src/main/java/org/elasticsearch/index/mapper/internal/TypeFieldMapper.java	ok
@@ -1943,7 +1943,7 @@ core/src/main/java/org/elasticsearch/index/refresh/RefreshStats.java	ok
 core/src/main/java/org/elasticsearch/index/search/MatchQuery.java	ok
 core/src/main/java/org/elasticsearch/index/search/MultiMatchQuery.java	ok
 core/src/main/java/org/elasticsearch/index/search/child/ChildrenConstantScoreQuery.java	ok
-core/src/main/java/org/elasticsearch/index/search/child/ChildrenQuery.java	ok	6
+core/src/main/java/org/elasticsearch/index/search/child/ChildrenQuery.java	ok	7
 core/src/main/java/org/elasticsearch/index/search/child/ConstantScorer.java	ok
 core/src/main/java/org/elasticsearch/index/search/child/ParentConstantScoreQuery.java	ok
 core/src/main/java/org/elasticsearch/index/search/child/ParentIdsFilter.java	ok
@@ -1972,7 +1972,7 @@ core/src/main/java/org/elasticsearch/index/shard/ElasticsearchMergePolicy.java	o
 core/src/main/java/org/elasticsearch/index/shard/ElasticsearchQueryCachingPolicy.java	ok
 core/src/main/java/org/elasticsearch/index/shard/FilterDocValuesProducer.java	ok
 core/src/main/java/org/elasticsearch/index/shard/IllegalIndexShardStateException.java	ok
-core/src/main/java/org/elasticsearch/index/shard/IndexShard.java	ok	15
+core/src/main/java/org/elasticsearch/index/shard/IndexShard.java	ok	16
 core/src/main/java/org/elasticsearch/index/shard/IndexShardClosedException.java	ok
 core/src/main/java/org/elasticsearch/index/shard/IndexShardComponent.java	ok
 core/src/main/java/org/elasticsearch/index/shard/IndexShardModule.java	ok
@@ -2015,7 +2015,7 @@ core/src/main/java/org/elasticsearch/index/snapshots/IndexShardRestoreFailedExce
 core/src/main/java/org/elasticsearch/index/snapshots/IndexShardSnapshotException.java	ok
 core/src/main/java/org/elasticsearch/index/snapshots/IndexShardSnapshotFailedException.java	ok
 core/src/main/java/org/elasticsearch/index/snapshots/IndexShardSnapshotStatus.java	ok
-core/src/main/java/org/elasticsearch/index/snapshots/blobstore/BlobStoreIndexShardRepository.java	ok	8
+core/src/main/java/org/elasticsearch/index/snapshots/blobstore/BlobStoreIndexShardRepository.java	ok	9
 core/src/main/java/org/elasticsearch/index/snapshots/blobstore/BlobStoreIndexShardSnapshot.java	ok
 core/src/main/java/org/elasticsearch/index/snapshots/blobstore/BlobStoreIndexShardSnapshots.java	ok
 core/src/main/java/org/elasticsearch/index/snapshots/blobstore/RateLimitingInputStream.java	ok
@@ -2064,7 +2064,7 @@ core/src/main/java/org/elasticsearch/indices/IndexTemplateAlreadyExistsException
 core/src/main/java/org/elasticsearch/indices/IndexTemplateMissingException.java	ok
 core/src/main/java/org/elasticsearch/indices/IndicesLifecycle.java	ok
 core/src/main/java/org/elasticsearch/indices/IndicesModule.java	ok
-core/src/main/java/org/elasticsearch/indices/IndicesService.java	ok	7
+core/src/main/java/org/elasticsearch/indices/IndicesService.java	ok	8
 core/src/main/java/org/elasticsearch/indices/IndicesWarmer.java	ok
 core/src/main/java/org/elasticsearch/indices/InternalIndicesLifecycle.java	ok
 core/src/main/java/org/elasticsearch/indices/InvalidAliasNameException.java	ok
@@ -2129,7 +2129,7 @@ core/src/main/java/org/elasticsearch/monitor/fs/FsService.java	ok
 core/src/main/java/org/elasticsearch/monitor/jvm/DeadlockAnalyzer.java	ok
 core/src/main/java/org/elasticsearch/monitor/jvm/GcNames.java	ok
 core/src/main/java/org/elasticsearch/monitor/jvm/HotThreads.java	ok
-core/src/main/java/org/elasticsearch/monitor/jvm/JvmInfo.java	ok
+core/src/main/java/org/elasticsearch/monitor/jvm/JvmInfo.java	ok	5
 core/src/main/java/org/elasticsearch/monitor/jvm/JvmMonitorService.java	ok
 core/src/main/java/org/elasticsearch/monitor/jvm/JvmService.java	ok
 core/src/main/java/org/elasticsearch/monitor/jvm/JvmStats.java	ok	7
@@ -2155,7 +2155,7 @@ core/src/main/java/org/elasticsearch/percolator/PercolateContext.java	ok
 core/src/main/java/org/elasticsearch/percolator/PercolateException.java	ok
 core/src/main/java/org/elasticsearch/percolator/PercolatorIndex.java	ok
 core/src/main/java/org/elasticsearch/percolator/PercolatorModule.java	ok
-core/src/main/java/org/elasticsearch/percolator/PercolatorService.java	ok	10
+core/src/main/java/org/elasticsearch/percolator/PercolatorService.java	ok	11
 core/src/main/java/org/elasticsearch/percolator/QueryCollector.java	ok
 core/src/main/java/org/elasticsearch/percolator/SingleDocumentPercolatorIndex.java	ok
 core/src/main/java/org/elasticsearch/plugins/DummyPluginInfo.java	ok
@@ -2168,7 +2168,7 @@ core/src/main/java/org/elasticsearch/plugins/PluginsModule.java	ok
 core/src/main/java/org/elasticsearch/plugins/PluginsService.java	ok	5
 core/src/main/java/org/elasticsearch/plugins/SitePlugin.java	ok
 core/src/main/java/org/elasticsearch/repositories/RepositoriesModule.java	ok
-core/src/main/java/org/elasticsearch/repositories/RepositoriesService.java	ok
+core/src/main/java/org/elasticsearch/repositories/RepositoriesService.java	ok	5
 core/src/main/java/org/elasticsearch/repositories/Repository.java	ok
 core/src/main/java/org/elasticsearch/repositories/RepositoryException.java	ok
 core/src/main/java/org/elasticsearch/repositories/RepositoryMissingException.java	ok
@@ -2341,7 +2341,7 @@ core/src/main/java/org/elasticsearch/script/ScriptMode.java	ok
 core/src/main/java/org/elasticsearch/script/ScriptModes.java	ok
 core/src/main/java/org/elasticsearch/script/ScriptModule.java	ok
 core/src/main/java/org/elasticsearch/script/ScriptParameterParser.java	ok
-core/src/main/java/org/elasticsearch/script/ScriptService.java	ok	6
+core/src/main/java/org/elasticsearch/script/ScriptService.java	ok	7
 core/src/main/java/org/elasticsearch/script/ScriptStats.java	ok
 core/src/main/java/org/elasticsearch/script/SearchScript.java	ok
 core/src/main/java/org/elasticsearch/script/Template.java	ok
@@ -2365,7 +2365,7 @@ core/src/main/java/org/elasticsearch/search/SearchParseElement.java	ok
 core/src/main/java/org/elasticsearch/search/SearchParseException.java	ok
 core/src/main/java/org/elasticsearch/search/SearchPhase.java	ok
 core/src/main/java/org/elasticsearch/search/SearchPhaseResult.java	ok
-core/src/main/java/org/elasticsearch/search/SearchService.java	ok	13
+core/src/main/java/org/elasticsearch/search/SearchService.java	ok	14
 core/src/main/java/org/elasticsearch/search/SearchShardTarget.java	ok
 core/src/main/java/org/elasticsearch/search/action/SearchServiceTransportAction.java	ok
 core/src/main/java/org/elasticsearch/search/aggregations/AbstractAggregationBuilder.java	ok
@@ -2441,7 +2441,7 @@ core/src/main/java/org/elasticsearch/search/aggregations/bucket/histogram/Histog
 core/src/main/java/org/elasticsearch/search/aggregations/bucket/histogram/HistogramBuilder.java	ok
 core/src/main/java/org/elasticsearch/search/aggregations/bucket/histogram/HistogramParser.java	ok
 core/src/main/java/org/elasticsearch/search/aggregations/bucket/histogram/InternalDateHistogram.java	ok
-core/src/main/java/org/elasticsearch/search/aggregations/bucket/histogram/InternalHistogram.java	ok	5
+core/src/main/java/org/elasticsearch/search/aggregations/bucket/histogram/InternalHistogram.java	ok	6
 core/src/main/java/org/elasticsearch/search/aggregations/bucket/histogram/InternalOrder.java	ok
 core/src/main/java/org/elasticsearch/search/aggregations/bucket/missing/InternalMissing.java	ok
 core/src/main/java/org/elasticsearch/search/aggregations/bucket/missing/Missing.java	ok
@@ -2546,7 +2546,7 @@ core/src/main/java/org/elasticsearch/search/aggregations/metrics/cardinality/Car
 core/src/main/java/org/elasticsearch/search/aggregations/metrics/cardinality/CardinalityAggregatorFactory.java	ok
 core/src/main/java/org/elasticsearch/search/aggregations/metrics/cardinality/CardinalityBuilder.java	ok
 core/src/main/java/org/elasticsearch/search/aggregations/metrics/cardinality/CardinalityParser.java	ok
-core/src/main/java/org/elasticsearch/search/aggregations/metrics/cardinality/HyperLogLogPlusPlus.java	ok	22
+core/src/main/java/org/elasticsearch/search/aggregations/metrics/cardinality/HyperLogLogPlusPlus.java	ok	23
 core/src/main/java/org/elasticsearch/search/aggregations/metrics/cardinality/InternalCardinality.java	ok
 core/src/main/java/org/elasticsearch/search/aggregations/metrics/geobounds/GeoBounds.java	ok
 core/src/main/java/org/elasticsearch/search/aggregations/metrics/geobounds/GeoBoundsAggregator.java	ok
@@ -2866,7 +2866,7 @@ core/src/main/java/org/elasticsearch/search/suggest/completion/PayloadProcessor.
 core/src/main/java/org/elasticsearch/search/suggest/context/CategoryContextMapping.java	ok
 core/src/main/java/org/elasticsearch/search/suggest/context/ContextBuilder.java	ok
 core/src/main/java/org/elasticsearch/search/suggest/context/ContextMapping.java	ok
-core/src/main/java/org/elasticsearch/search/suggest/context/GeolocationContextMapping.java	ok	6
+core/src/main/java/org/elasticsearch/search/suggest/context/GeolocationContextMapping.java	ok	7
 core/src/main/java/org/elasticsearch/search/suggest/phrase/CandidateGenerator.java	ok
 core/src/main/java/org/elasticsearch/search/suggest/phrase/CandidateScorer.java	ok
 core/src/main/java/org/elasticsearch/search/suggest/phrase/Correction.java	ok
@@ -2892,7 +2892,7 @@ core/src/main/java/org/elasticsearch/search/warmer/IndexWarmersMetaData.java	ok
 core/src/main/java/org/elasticsearch/snapshots/ConcurrentSnapshotExecutionException.java	ok
 core/src/main/java/org/elasticsearch/snapshots/InvalidSnapshotNameException.java	ok
 core/src/main/java/org/elasticsearch/snapshots/RestoreInfo.java	ok
-core/src/main/java/org/elasticsearch/snapshots/RestoreService.java	ok	9
+core/src/main/java/org/elasticsearch/snapshots/RestoreService.java	ok	10
 core/src/main/java/org/elasticsearch/snapshots/Snapshot.java	ok
 core/src/main/java/org/elasticsearch/snapshots/SnapshotCreationException.java	ok
 core/src/main/java/org/elasticsearch/snapshots/SnapshotException.java	ok
@@ -2900,10 +2900,10 @@ core/src/main/java/org/elasticsearch/snapshots/SnapshotInfo.java	ok
 core/src/main/java/org/elasticsearch/snapshots/SnapshotMissingException.java	ok
 core/src/main/java/org/elasticsearch/snapshots/SnapshotRestoreException.java	ok
 core/src/main/java/org/elasticsearch/snapshots/SnapshotShardFailure.java	ok
-core/src/main/java/org/elasticsearch/snapshots/SnapshotShardsService.java	ok	5
+core/src/main/java/org/elasticsearch/snapshots/SnapshotShardsService.java	ok	6
 core/src/main/java/org/elasticsearch/snapshots/SnapshotState.java	ok
 core/src/main/java/org/elasticsearch/snapshots/SnapshotUtils.java	ok
-core/src/main/java/org/elasticsearch/snapshots/SnapshotsService.java	ok	12
+core/src/main/java/org/elasticsearch/snapshots/SnapshotsService.java	ok	13
 core/src/main/java/org/elasticsearch/tasks/CancellableTask.java	ok
 core/src/main/java/org/elasticsearch/tasks/LoggingTaskListener.java	ok
 core/src/main/java/org/elasticsearch/tasks/Task.java	ok
@@ -2949,7 +2949,7 @@ core/src/main/java/org/elasticsearch/transport/TransportResponse.java	ok
 core/src/main/java/org/elasticsearch/transport/TransportResponseHandler.java	ok
 core/src/main/java/org/elasticsearch/transport/TransportResponseOptions.java	ok
 core/src/main/java/org/elasticsearch/transport/TransportSerializationException.java	ok
-core/src/main/java/org/elasticsearch/transport/TransportService.java	ok	7
+core/src/main/java/org/elasticsearch/transport/TransportService.java	ok	8
 core/src/main/java/org/elasticsearch/transport/TransportServiceAdapter.java	ok
 core/src/main/java/org/elasticsearch/transport/TransportStats.java	ok
 core/src/main/java/org/elasticsearch/transport/Transports.java	ok
@@ -2961,13 +2961,13 @@ core/src/main/java/org/elasticsearch/transport/netty/MessageChannelHandler.java	
 core/src/main/java/org/elasticsearch/transport/netty/NettyHeader.java	ok
 core/src/main/java/org/elasticsearch/transport/netty/NettyInternalESLogger.java	ok
 core/src/main/java/org/elasticsearch/transport/netty/NettyInternalESLoggerFactory.java	ok
-core/src/main/java/org/elasticsearch/transport/netty/NettyTransport.java	ok	16
+core/src/main/java/org/elasticsearch/transport/netty/NettyTransport.java	ok	17
 core/src/main/java/org/elasticsearch/transport/netty/NettyTransportChannel.java	ok
 core/src/main/java/org/elasticsearch/transport/netty/SizeHeaderFrameDecoder.java	ok
 core/src/main/java/org/elasticsearch/transport/support/TransportStatus.java	ok
 core/src/main/java/org/elasticsearch/tribe/TribeClientNode.java	ok
 core/src/main/java/org/elasticsearch/tribe/TribeModule.java	ok
-core/src/main/java/org/elasticsearch/tribe/TribeService.java	ok
+core/src/main/java/org/elasticsearch/tribe/TribeService.java	ok	5
 core/src/main/java/org/elasticsearch/watcher/AbstractResourceWatcher.java	ok
 core/src/main/java/org/elasticsearch/watcher/FileChangesListener.java	ok
 core/src/main/java/org/elasticsearch/watcher/FileWatcher.java	ok
@@ -2985,8 +2985,8 @@ core/src/test/java/org/apache/lucene/search/postingshighlight/CustomPassageForma
 core/src/test/java/org/apache/lucene/search/postingshighlight/CustomPostingsHighlighterTests.java	ok
 core/src/test/java/org/apache/lucene/search/postingshighlight/CustomSeparatorBreakIteratorTests.java	ok
 core/src/test/java/org/apache/lucene/util/SloppyMathTests.java	ok
-core/src/test/java/org/elasticsearch/ESExceptionTests.java	ok
-core/src/test/java/org/elasticsearch/ExceptionSerializationTests.java	ok	13
+core/src/test/java/org/elasticsearch/ESExceptionTests.java	ok	5
+core/src/test/java/org/elasticsearch/ExceptionSerializationTests.java	ok	15
 core/src/test/java/org/elasticsearch/NamingConventionTests.java	ok
 core/src/test/java/org/elasticsearch/SpecialPermissionTests.java	ok
 core/src/test/java/org/elasticsearch/VersionTests.java	ok
@@ -3030,7 +3030,7 @@ core/src/test/java/org/elasticsearch/action/admin/indices/upgrade/UpgradeReallyO
 core/src/test/java/org/elasticsearch/action/admin/indices/warmer/put/PutWarmerRequestTests.java	ok
 core/src/test/java/org/elasticsearch/action/bulk/BulkIntegrationIT.java	ok
 core/src/test/java/org/elasticsearch/action/bulk/BulkProcessorClusterSettingsIT.java	ok
-core/src/test/java/org/elasticsearch/action/bulk/BulkProcessorIT.java	ok
+core/src/test/java/org/elasticsearch/action/bulk/BulkProcessorIT.java	ok	5
 core/src/test/java/org/elasticsearch/action/bulk/BulkProcessorRetryIT.java	ok
 core/src/test/java/org/elasticsearch/action/bulk/BulkRequestTests.java	ok
 core/src/test/java/org/elasticsearch/action/bulk/BulkShardRequestTests.java	ok
@@ -3056,15 +3056,15 @@ core/src/test/java/org/elasticsearch/action/support/master/TransportMasterNodeAc
 core/src/test/java/org/elasticsearch/action/support/nodes/TransportNodesActionTests.java	ok
 core/src/test/java/org/elasticsearch/action/support/replication/BroadcastReplicationTests.java	ok
 core/src/test/java/org/elasticsearch/action/support/replication/ClusterStateCreationUtils.java	ok
-core/src/test/java/org/elasticsearch/action/support/replication/TransportReplicationActionTests.java	ok	13
+core/src/test/java/org/elasticsearch/action/support/replication/TransportReplicationActionTests.java	ok	14
 core/src/test/java/org/elasticsearch/action/support/single/instance/TransportInstanceSingleOperationActionTests.java	ok
 core/src/test/java/org/elasticsearch/action/termvectors/AbstractTermVectorsTestCase.java	ok	5
-core/src/test/java/org/elasticsearch/action/termvectors/GetTermVectorsCheckDocFreqIT.java	ok
-core/src/test/java/org/elasticsearch/action/termvectors/GetTermVectorsIT.java	ok	19
+core/src/test/java/org/elasticsearch/action/termvectors/GetTermVectorsCheckDocFreqIT.java	ok	5
+core/src/test/java/org/elasticsearch/action/termvectors/GetTermVectorsIT.java	ok	20
 core/src/test/java/org/elasticsearch/action/termvectors/MultiTermVectorsIT.java	ok
-core/src/test/java/org/elasticsearch/action/termvectors/TermVectorsUnitTests.java	ok
+core/src/test/java/org/elasticsearch/action/termvectors/TermVectorsUnitTests.java	ok	5
 core/src/test/java/org/elasticsearch/action/update/UpdateRequestTests.java	ok
-core/src/test/java/org/elasticsearch/aliases/IndexAliasesIT.java	ok	20
+core/src/test/java/org/elasticsearch/aliases/IndexAliasesIT.java	ok	21
 core/src/test/java/org/elasticsearch/blocks/SimpleBlocksIT.java	ok
 core/src/test/java/org/elasticsearch/bootstrap/BootstrapCliParserTests.java	ok
 core/src/test/java/org/elasticsearch/bootstrap/BootstrapForTesting.java	ok
@@ -3117,8 +3117,8 @@ core/src/test/java/org/elasticsearch/cluster/health/ClusterStateHealthTests.java
 core/src/test/java/org/elasticsearch/cluster/health/RoutingTableGenerator.java	ok
 core/src/test/java/org/elasticsearch/cluster/metadata/DateMathExpressionResolverTests.java	ok
 core/src/test/java/org/elasticsearch/cluster/metadata/HumanReadableIndexSettingsTests.java	ok
-core/src/test/java/org/elasticsearch/cluster/metadata/IndexNameExpressionResolverTests.java	ok	14
-core/src/test/java/org/elasticsearch/cluster/metadata/MappingMetaDataParserTests.java	ok	5
+core/src/test/java/org/elasticsearch/cluster/metadata/IndexNameExpressionResolverTests.java	ok	16
+core/src/test/java/org/elasticsearch/cluster/metadata/MappingMetaDataParserTests.java	ok	6
 core/src/test/java/org/elasticsearch/cluster/metadata/MetaDataCreateIndexServiceTests.java	ok
 core/src/test/java/org/elasticsearch/cluster/metadata/MetaDataIndexUpgradeServiceTests.java	ok
 core/src/test/java/org/elasticsearch/cluster/metadata/MetaDataMappingServiceTests.java	ok
@@ -3137,7 +3137,7 @@ core/src/test/java/org/elasticsearch/cluster/routing/RoutingTableTests.java	ok
 core/src/test/java/org/elasticsearch/cluster/routing/ShardRoutingHelper.java	ok
 core/src/test/java/org/elasticsearch/cluster/routing/ShardRoutingTests.java	ok
 core/src/test/java/org/elasticsearch/cluster/routing/TestShardRouting.java	ok
-core/src/test/java/org/elasticsearch/cluster/routing/UnassignedInfoTests.java	ok	6
+core/src/test/java/org/elasticsearch/cluster/routing/UnassignedInfoTests.java	ok	7
 core/src/test/java/org/elasticsearch/cluster/routing/allocation/AddIncrementallyTests.java	ok	8
 core/src/test/java/org/elasticsearch/cluster/routing/allocation/AllocationCommandsTests.java	ok	8
 core/src/test/java/org/elasticsearch/cluster/routing/allocation/AllocationPriorityTests.java	ok
@@ -3152,7 +3152,7 @@ core/src/test/java/org/elasticsearch/cluster/routing/allocation/DisableAllocatio
 core/src/test/java/org/elasticsearch/cluster/routing/allocation/ElectReplicaAsPrimaryDuringRelocationTests.java	ok
 core/src/test/java/org/elasticsearch/cluster/routing/allocation/ExpectedShardSizeAllocationTests.java	ok
 core/src/test/java/org/elasticsearch/cluster/routing/allocation/FailedNodeRoutingTests.java	ok
-core/src/test/java/org/elasticsearch/cluster/routing/allocation/FailedShardsRoutingTests.java	ok	11
+core/src/test/java/org/elasticsearch/cluster/routing/allocation/FailedShardsRoutingTests.java	ok	12
 core/src/test/java/org/elasticsearch/cluster/routing/allocation/FilterRoutingTests.java	ok
 core/src/test/java/org/elasticsearch/cluster/routing/allocation/IndexBalanceTests.java	ok	12
 core/src/test/java/org/elasticsearch/cluster/routing/allocation/NodeVersionAllocationDeciderTests.java	ok	8
@@ -3174,7 +3174,7 @@ core/src/test/java/org/elasticsearch/cluster/routing/allocation/StartedShardsRou
 core/src/test/java/org/elasticsearch/cluster/routing/allocation/TenShardsOneReplicaRoutingTests.java	ok
 core/src/test/java/org/elasticsearch/cluster/routing/allocation/ThrottlingAllocationTests.java	ok
 core/src/test/java/org/elasticsearch/cluster/routing/allocation/UpdateNumberOfReplicasTests.java	ok
-core/src/test/java/org/elasticsearch/cluster/routing/allocation/decider/DiskThresholdDeciderTests.java	ok	16
+core/src/test/java/org/elasticsearch/cluster/routing/allocation/decider/DiskThresholdDeciderTests.java	ok	17
 core/src/test/java/org/elasticsearch/cluster/routing/allocation/decider/DiskThresholdDeciderUnitTests.java	ok
 core/src/test/java/org/elasticsearch/cluster/routing/allocation/decider/EnableAllocationDeciderIT.java	ok
 core/src/test/java/org/elasticsearch/cluster/routing/allocation/decider/EnableAllocationTests.java	ok	5
@@ -3187,7 +3187,7 @@ core/src/test/java/org/elasticsearch/cluster/settings/ClusterSettingsIT.java	ok
 core/src/test/java/org/elasticsearch/cluster/settings/SettingsFilteringIT.java	ok
 core/src/test/java/org/elasticsearch/cluster/settings/SettingsValidatorTests.java	ok
 core/src/test/java/org/elasticsearch/cluster/shards/ClusterSearchShardsIT.java	ok
-core/src/test/java/org/elasticsearch/cluster/structure/RoutingIteratorTests.java	ok	8
+core/src/test/java/org/elasticsearch/cluster/structure/RoutingIteratorTests.java	ok	9
 core/src/test/java/org/elasticsearch/codecs/CodecTests.java	ok
 core/src/test/java/org/elasticsearch/common/Base64Tests.java	ok
 core/src/test/java/org/elasticsearch/common/BooleansTests.java	ok
@@ -3201,7 +3201,7 @@ core/src/test/java/org/elasticsearch/common/blobstore/BlobStoreTests.java	ok
 core/src/test/java/org/elasticsearch/common/breaker/MemoryCircuitBreakerTests.java	ok
 core/src/test/java/org/elasticsearch/common/bytes/ByteBufferBytesReference.java	ok
 core/src/test/java/org/elasticsearch/common/bytes/BytesReferenceTests.java	ok
-core/src/test/java/org/elasticsearch/common/bytes/PagedBytesReferenceTests.java	ok	7
+core/src/test/java/org/elasticsearch/common/bytes/PagedBytesReferenceTests.java	ok	8
 core/src/test/java/org/elasticsearch/common/cli/CheckFileCommandTests.java	ok
 core/src/test/java/org/elasticsearch/common/cli/CliToolTestCase.java	ok
 core/src/test/java/org/elasticsearch/common/cli/CliToolTests.java	ok	5
@@ -3281,7 +3281,7 @@ core/src/test/java/org/elasticsearch/common/unit/RatioValueTests.java	ok
 core/src/test/java/org/elasticsearch/common/unit/SizeValueTests.java	ok
 core/src/test/java/org/elasticsearch/common/unit/TimeValueTests.java	ok
 core/src/test/java/org/elasticsearch/common/util/ArrayUtilsTests.java	ok
-core/src/test/java/org/elasticsearch/common/util/BigArraysTests.java	ok	5
+core/src/test/java/org/elasticsearch/common/util/BigArraysTests.java	ok	6
 core/src/test/java/org/elasticsearch/common/util/ByteUtilsTests.java	ok
 core/src/test/java/org/elasticsearch/common/util/BytesRefHashTests.java	ok
 core/src/test/java/org/elasticsearch/common/util/CancellableThreadsTests.java	ok
@@ -3309,11 +3309,11 @@ core/src/test/java/org/elasticsearch/common/xcontent/json/JsonXContentTests.java
 core/src/test/java/org/elasticsearch/common/xcontent/smile/JsonVsSmileTests.java	ok
 core/src/test/java/org/elasticsearch/common/xcontent/smile/SmileXContentTests.java	ok
 core/src/test/java/org/elasticsearch/common/xcontent/support/XContentHelperTests.java	ok
-core/src/test/java/org/elasticsearch/common/xcontent/support/XContentMapValuesTests.java	ok	9
+core/src/test/java/org/elasticsearch/common/xcontent/support/XContentMapValuesTests.java	ok	10
 core/src/test/java/org/elasticsearch/common/xcontent/support/filtering/AbstractFilteringJsonGeneratorTestCase.java	ok
 core/src/test/java/org/elasticsearch/common/xcontent/support/filtering/CborFilteringGeneratorTests.java	ok
 core/src/test/java/org/elasticsearch/common/xcontent/support/filtering/FilterPathGeneratorFilteringTests.java	ok
-core/src/test/java/org/elasticsearch/common/xcontent/support/filtering/FilterPathTests.java	ok
+core/src/test/java/org/elasticsearch/common/xcontent/support/filtering/FilterPathTests.java	ok	5
 core/src/test/java/org/elasticsearch/common/xcontent/support/filtering/JsonFilteringGeneratorTests.java	ok
 core/src/test/java/org/elasticsearch/common/xcontent/support/filtering/SmileFilteringGeneratorTests.java	ok
 core/src/test/java/org/elasticsearch/common/xcontent/support/filtering/YamlFilteringGeneratorTests.java	ok
@@ -3321,7 +3321,7 @@ core/src/test/java/org/elasticsearch/common/xcontent/yaml/YamlXContentTests.java
 core/src/test/java/org/elasticsearch/consistencylevel/WriteConsistencyLevelIT.java	ok
 core/src/test/java/org/elasticsearch/count/simple/SimpleCountIT.java	ok
 core/src/test/java/org/elasticsearch/deps/jackson/JacksonLocationTests.java	ok
-core/src/test/java/org/elasticsearch/deps/joda/SimpleJodaTests.java	ok	8
+core/src/test/java/org/elasticsearch/deps/joda/SimpleJodaTests.java	ok	9
 core/src/test/java/org/elasticsearch/deps/lucene/SimpleLuceneTests.java	ok
 core/src/test/java/org/elasticsearch/deps/lucene/VectorHighlighterTests.java	ok
 core/src/test/java/org/elasticsearch/discovery/BlockingClusterStatePublishResponseHandlerTests.java	ok
@@ -3330,7 +3330,7 @@ core/src/test/java/org/elasticsearch/discovery/DiscoveryWithServiceDisruptionsIT
 core/src/test/java/org/elasticsearch/discovery/ZenFaultDetectionTests.java	ok
 core/src/test/java/org/elasticsearch/discovery/ZenUnicastDiscoveryIT.java	ok
 core/src/test/java/org/elasticsearch/discovery/zen/ElectMasterServiceTests.java	ok
-core/src/test/java/org/elasticsearch/discovery/zen/NodeJoinControllerTests.java	ok	6
+core/src/test/java/org/elasticsearch/discovery/zen/NodeJoinControllerTests.java	ok	7
 core/src/test/java/org/elasticsearch/discovery/zen/NodeRemovalClusterStateTaskExecutorTests.java	ok
 core/src/test/java/org/elasticsearch/discovery/zen/ZenDiscoveryIT.java	ok
 core/src/test/java/org/elasticsearch/discovery/zen/ZenDiscoveryUnitTests.java	ok
@@ -3348,7 +3348,7 @@ core/src/test/java/org/elasticsearch/fieldstats/FieldStatsIntegrationIT.java	ok	
 core/src/test/java/org/elasticsearch/fieldstats/FieldStatsTests.java	ok	8
 core/src/test/java/org/elasticsearch/gateway/AsyncShardFetchTests.java	ok
 core/src/test/java/org/elasticsearch/gateway/DanglingIndicesStateTests.java	ok
-core/src/test/java/org/elasticsearch/gateway/GatewayIndexStateIT.java	ok
+core/src/test/java/org/elasticsearch/gateway/GatewayIndexStateIT.java	ok	5
 core/src/test/java/org/elasticsearch/gateway/GatewayMetaStateTests.java	ok
 core/src/test/java/org/elasticsearch/gateway/GatewayModuleTests.java	ok
 core/src/test/java/org/elasticsearch/gateway/GatewayServiceTests.java	ok
@@ -3426,9 +3426,9 @@ core/src/test/java/org/elasticsearch/index/engine/EngineSearcherTotalHitsMatcher
 core/src/test/java/org/elasticsearch/index/engine/InternalEngineIT.java	ok
 core/src/test/java/org/elasticsearch/index/engine/InternalEngineMergeIT.java	ok
 core/src/test/java/org/elasticsearch/index/engine/InternalEngineSettingsTests.java	ok
-core/src/test/java/org/elasticsearch/index/engine/InternalEngineTests.java	ok	38
-core/src/test/java/org/elasticsearch/index/engine/ShadowEngineTests.java	ok	16
-core/src/test/java/org/elasticsearch/index/fielddata/AbstractFieldDataImplTestCase.java	ok
+core/src/test/java/org/elasticsearch/index/engine/InternalEngineTests.java	ok	42
+core/src/test/java/org/elasticsearch/index/engine/ShadowEngineTests.java	ok	17
+core/src/test/java/org/elasticsearch/index/fielddata/AbstractFieldDataImplTestCase.java	ok	5
 core/src/test/java/org/elasticsearch/index/fielddata/AbstractFieldDataTestCase.java	ok
 core/src/test/java/org/elasticsearch/index/fielddata/AbstractGeoFieldDataTestCase.java	ok
 core/src/test/java/org/elasticsearch/index/fielddata/AbstractNumericFieldDataTestCase.java	ok	11
@@ -3489,7 +3489,7 @@ core/src/test/java/org/elasticsearch/index/mapper/core/StringFieldTypeTests.java
 core/src/test/java/org/elasticsearch/index/mapper/core/TokenCountFieldMapperIntegrationIT.java	ok
 core/src/test/java/org/elasticsearch/index/mapper/core/TokenCountFieldMapperTests.java	ok
 core/src/test/java/org/elasticsearch/index/mapper/date/DateBackwardsCompatibilityTests.java	ok
-core/src/test/java/org/elasticsearch/index/mapper/date/SimpleDateMappingTests.java	ok	7
+core/src/test/java/org/elasticsearch/index/mapper/date/SimpleDateMappingTests.java	ok	8
 core/src/test/java/org/elasticsearch/index/mapper/dynamictemplate/genericstore/GenericStoreDynamicTemplateTests.java	ok
 core/src/test/java/org/elasticsearch/index/mapper/dynamictemplate/pathmatch/PathMatchDynamicTemplateTests.java	ok
 core/src/test/java/org/elasticsearch/index/mapper/dynamictemplate/simple/SimpleDynamicTemplatesTests.java	ok
@@ -3502,7 +3502,7 @@ core/src/test/java/org/elasticsearch/index/mapper/externalvalues/SimpleExternalM
 core/src/test/java/org/elasticsearch/index/mapper/geo/GeoEncodingTests.java	ok
 core/src/test/java/org/elasticsearch/index/mapper/geo/GeoPointFieldMapperTests.java	ok	14
 core/src/test/java/org/elasticsearch/index/mapper/geo/GeoPointFieldTypeTests.java	ok
-core/src/test/java/org/elasticsearch/index/mapper/geo/GeoShapeFieldMapperTests.java	ok	5
+core/src/test/java/org/elasticsearch/index/mapper/geo/GeoShapeFieldMapperTests.java	ok	6
 core/src/test/java/org/elasticsearch/index/mapper/geo/GeoShapeFieldTypeTests.java	ok
 core/src/test/java/org/elasticsearch/index/mapper/geo/GeohashMappingGeoPointTests.java	ok
 core/src/test/java/org/elasticsearch/index/mapper/id/IdMappingTests.java	ok
@@ -3541,7 +3541,7 @@ core/src/test/java/org/elasticsearch/index/mapper/source/CompressSourceMappingTe
 core/src/test/java/org/elasticsearch/index/mapper/source/DefaultSourceMappingTests.java	ok
 core/src/test/java/org/elasticsearch/index/mapper/string/SimpleStringMappingTests.java	ok	8
 core/src/test/java/org/elasticsearch/index/mapper/string/StringFieldMapperPositionIncrementGapTests.java	ok
-core/src/test/java/org/elasticsearch/index/mapper/timestamp/TimestampMappingTests.java	ok	11
+core/src/test/java/org/elasticsearch/index/mapper/timestamp/TimestampMappingTests.java	ok	12
 core/src/test/java/org/elasticsearch/index/mapper/ttl/TTLMappingTests.java	ok
 core/src/test/java/org/elasticsearch/index/mapper/typelevels/ParseDocumentTypeLevelsTests.java	ok
 core/src/test/java/org/elasticsearch/index/mapper/typelevels/ParseMappingTypeLevelTests.java	ok
@@ -3551,13 +3551,13 @@ core/src/test/java/org/elasticsearch/index/query/CommonTermsQueryParserTests.jav
 core/src/test/java/org/elasticsearch/index/query/GeoShapeQueryBuilderTests.java	ok
 core/src/test/java/org/elasticsearch/index/query/IndexQueryParserFilterDateRangeFormatTests.java	ok
 core/src/test/java/org/elasticsearch/index/query/IndexQueryParserFilterDateRangeTimezoneTests.java	ok
-core/src/test/java/org/elasticsearch/index/query/SimpleIndexQueryParserTests.java	ok	50
+core/src/test/java/org/elasticsearch/index/query/SimpleIndexQueryParserTests.java	ok	51
 core/src/test/java/org/elasticsearch/index/query/TemplateQueryBuilderTests.java	ok
 core/src/test/java/org/elasticsearch/index/query/TemplateQueryIT.java	ok	6
 core/src/test/java/org/elasticsearch/index/query/TemplateQueryParserTests.java	ok
 core/src/test/java/org/elasticsearch/index/query/TestQueryParsingException.java	ok
 core/src/test/java/org/elasticsearch/index/query/functionscore/FunctionScoreEquivalenceTests.java	ok
-core/src/test/java/org/elasticsearch/index/query/functionscore/FunctionScoreTests.java	ok	9
+core/src/test/java/org/elasticsearch/index/query/functionscore/FunctionScoreTests.java	ok	10
 core/src/test/java/org/elasticsearch/index/query/plugin/CustomQueryParserIT.java	ok
 core/src/test/java/org/elasticsearch/index/query/plugin/DummyQueryParserPlugin.java	ok
 core/src/test/java/org/elasticsearch/index/search/child/AbstractChildTestCase.java	ok
@@ -3569,7 +3569,7 @@ core/src/test/java/org/elasticsearch/index/search/child/ParentConstantScoreQuery
 core/src/test/java/org/elasticsearch/index/search/child/ParentQueryTests.java	ok
 core/src/test/java/org/elasticsearch/index/search/child/ScoreTypeTests.java	ok
 core/src/test/java/org/elasticsearch/index/search/geo/GeoDistanceTests.java	ok
-core/src/test/java/org/elasticsearch/index/search/geo/GeoUtilsTests.java	ok	12
+core/src/test/java/org/elasticsearch/index/search/geo/GeoUtilsTests.java	ok	13
 core/src/test/java/org/elasticsearch/index/search/nested/AbstractNumberNestedSortingTestCase.java	ok	9
 core/src/test/java/org/elasticsearch/index/search/nested/DoubleNestedSortingTests.java	ok
 core/src/test/java/org/elasticsearch/index/search/nested/FloatNestedSortingTests.java	ok
@@ -3581,7 +3581,7 @@ core/src/test/java/org/elasticsearch/index/shard/ElasticsearchQueryCachingPolicy
 core/src/test/java/org/elasticsearch/index/shard/IndexSearcherWrapperIT.java	ok
 core/src/test/java/org/elasticsearch/index/shard/IndexSearcherWrapperTests.java	ok
 core/src/test/java/org/elasticsearch/index/shard/IndexShardModuleTests.java	ok
-core/src/test/java/org/elasticsearch/index/shard/IndexShardTests.java	ok	14
+core/src/test/java/org/elasticsearch/index/shard/IndexShardTests.java	ok	15
 core/src/test/java/org/elasticsearch/index/shard/MergePolicySettingsTests.java	ok
 core/src/test/java/org/elasticsearch/index/shard/MockEngineFactoryPlugin.java	ok
 core/src/test/java/org/elasticsearch/index/shard/NewPathForShardTests.java	ok
@@ -3598,11 +3598,11 @@ core/src/test/java/org/elasticsearch/index/store/ExceptionRetryIT.java	ok
 core/src/test/java/org/elasticsearch/index/store/IndexStoreBWCTests.java	ok
 core/src/test/java/org/elasticsearch/index/store/IndexStoreTests.java	ok
 core/src/test/java/org/elasticsearch/index/store/LegacyVerificationTests.java	ok
-core/src/test/java/org/elasticsearch/index/store/StoreTests.java	ok	24
+core/src/test/java/org/elasticsearch/index/store/StoreTests.java	ok	25
 core/src/test/java/org/elasticsearch/index/suggest/stats/SuggestStatsIT.java	ok
 core/src/test/java/org/elasticsearch/index/translog/BufferedTranslogTests.java	ok
 core/src/test/java/org/elasticsearch/index/translog/SnapshotMatchers.java	ok
-core/src/test/java/org/elasticsearch/index/translog/TranslogTests.java	ok	30
+core/src/test/java/org/elasticsearch/index/translog/TranslogTests.java	ok	31
 core/src/test/java/org/elasticsearch/index/translog/TranslogVersionTests.java	ok
 core/src/test/java/org/elasticsearch/indexing/IndexActionIT.java	ok
 core/src/test/java/org/elasticsearch/indexlifecycle/IndexLifecycleActionIT.java	ok
@@ -3610,7 +3610,7 @@ core/src/test/java/org/elasticsearch/indices/DateMathIndexExpressionsIntegration
 core/src/test/java/org/elasticsearch/indices/IndicesLifecycleListenerIT.java	ok
 core/src/test/java/org/elasticsearch/indices/IndicesLifecycleListenerSingleNodeTests.java	ok
 core/src/test/java/org/elasticsearch/indices/IndicesModuleTests.java	ok
-core/src/test/java/org/elasticsearch/indices/IndicesOptionsIntegrationIT.java	ok	16
+core/src/test/java/org/elasticsearch/indices/IndicesOptionsIntegrationIT.java	ok	17
 core/src/test/java/org/elasticsearch/indices/IndicesServiceTests.java	ok
 core/src/test/java/org/elasticsearch/indices/analysis/DummyAnalysisBinderProcessor.java	ok
 core/src/test/java/org/elasticsearch/indices/analysis/DummyAnalysisPlugin.java	ok
@@ -3651,10 +3651,10 @@ core/src/test/java/org/elasticsearch/indices/settings/GetSettingsBlocksIT.java	o
 core/src/test/java/org/elasticsearch/indices/settings/UpdateNumberOfReplicasIT.java	ok	5
 core/src/test/java/org/elasticsearch/indices/settings/UpdateSettingsIT.java	ok
 core/src/test/java/org/elasticsearch/indices/state/CloseIndexDisableCloseAllIT.java	ok
-core/src/test/java/org/elasticsearch/indices/state/OpenCloseIndexIT.java	ok
+core/src/test/java/org/elasticsearch/indices/state/OpenCloseIndexIT.java	ok	5
 core/src/test/java/org/elasticsearch/indices/state/RareClusterStateIT.java	ok
 core/src/test/java/org/elasticsearch/indices/state/SimpleIndexStateIT.java	ok
-core/src/test/java/org/elasticsearch/indices/stats/IndexStatsIT.java	ok	18
+core/src/test/java/org/elasticsearch/indices/stats/IndexStatsIT.java	ok	19
 core/src/test/java/org/elasticsearch/indices/store/IndicesStoreIntegrationIT.java	ok	6
 core/src/test/java/org/elasticsearch/indices/store/IndicesStoreTests.java	ok
 core/src/test/java/org/elasticsearch/indices/template/IndexTemplateBlocksIT.java	ok
@@ -3678,10 +3678,10 @@ core/src/test/java/org/elasticsearch/operateAllIndices/DestructiveOperationsInte
 core/src/test/java/org/elasticsearch/options/detailederrors/DetailedErrorsDisabledIT.java	ok
 core/src/test/java/org/elasticsearch/options/detailederrors/DetailedErrorsEnabledIT.java	ok
 core/src/test/java/org/elasticsearch/percolator/ConcurrentPercolatorIT.java	ok
-core/src/test/java/org/elasticsearch/percolator/MultiPercolatorIT.java	ok	5
+core/src/test/java/org/elasticsearch/percolator/MultiPercolatorIT.java	ok	6
 core/src/test/java/org/elasticsearch/percolator/PercolatorBackwardsCompatibilityIT.java	ok
 core/src/test/java/org/elasticsearch/percolator/PercolatorFacetsAndAggregationsIT.java	ok
-core/src/test/java/org/elasticsearch/percolator/PercolatorIT.java	ok	32
+core/src/test/java/org/elasticsearch/percolator/PercolatorIT.java	ok	34
 core/src/test/java/org/elasticsearch/percolator/PercolatorTestUtil.java	ok
 core/src/test/java/org/elasticsearch/percolator/RecoveryPercolatorIT.java	ok
 core/src/test/java/org/elasticsearch/percolator/TTLPercolatorIT.java	ok
@@ -3703,7 +3703,7 @@ core/src/test/java/org/elasticsearch/recovery/FullRollingRestartIT.java	ok
 core/src/test/java/org/elasticsearch/recovery/RecoveriesCollectionTests.java	ok
 core/src/test/java/org/elasticsearch/recovery/RecoverySettingsTests.java	ok
 core/src/test/java/org/elasticsearch/recovery/RecoveryWhileUnderLoadIT.java	ok
-core/src/test/java/org/elasticsearch/recovery/RelocationIT.java	ok	5
+core/src/test/java/org/elasticsearch/recovery/RelocationIT.java	ok	6
 core/src/test/java/org/elasticsearch/recovery/SimpleRecoveryIT.java	ok
 core/src/test/java/org/elasticsearch/recovery/SmallFileChunkSizeRecoveryIT.java	ok
 core/src/test/java/org/elasticsearch/recovery/SmallTranslogOpsRecoveryIT.java	ok
@@ -3721,7 +3721,7 @@ core/src/test/java/org/elasticsearch/rest/action/support/RestTableTests.java	ok
 core/src/test/java/org/elasticsearch/rest/util/RestUtilsTests.java	ok
 core/src/test/java/org/elasticsearch/routing/AliasResolveRoutingIT.java	ok
 core/src/test/java/org/elasticsearch/routing/AliasRoutingIT.java	ok	6
-core/src/test/java/org/elasticsearch/routing/SimpleRoutingIT.java	ok	8
+core/src/test/java/org/elasticsearch/routing/SimpleRoutingIT.java	ok	9
 core/src/test/java/org/elasticsearch/script/ClassPermissionTests.java	ok
 core/src/test/java/org/elasticsearch/script/FileScriptTests.java	ok
 core/src/test/java/org/elasticsearch/script/MockScriptEngine.java	ok
@@ -3730,7 +3730,7 @@ core/src/test/java/org/elasticsearch/script/ScriptContextRegistryTests.java	ok
 core/src/test/java/org/elasticsearch/script/ScriptContextTests.java	ok
 core/src/test/java/org/elasticsearch/script/ScriptFieldIT.java	ok
 core/src/test/java/org/elasticsearch/script/ScriptModesTests.java	ok
-core/src/test/java/org/elasticsearch/script/ScriptParameterParserTests.java	ok	25
+core/src/test/java/org/elasticsearch/script/ScriptParameterParserTests.java	ok	26
 core/src/test/java/org/elasticsearch/script/ScriptServiceTests.java	ok	7
 core/src/test/java/org/elasticsearch/script/mustache/MustacheScriptEngineTests.java	ok
 core/src/test/java/org/elasticsearch/script/mustache/MustacheTests.java	ok	6
@@ -3752,24 +3752,24 @@ core/src/test/java/org/elasticsearch/search/aggregations/ParsingIT.java	ok
 core/src/test/java/org/elasticsearch/search/aggregations/bucket/AbstractTermsTestCase.java	ok
 core/src/test/java/org/elasticsearch/search/aggregations/bucket/BooleanTermsIT.java	ok
 core/src/test/java/org/elasticsearch/search/aggregations/bucket/ChildrenIT.java	ok	8
-core/src/test/java/org/elasticsearch/search/aggregations/bucket/DateHistogramIT.java	ok	27
+core/src/test/java/org/elasticsearch/search/aggregations/bucket/DateHistogramIT.java	ok	28
 core/src/test/java/org/elasticsearch/search/aggregations/bucket/DateHistogramOffsetIT.java	ok
 core/src/test/java/org/elasticsearch/search/aggregations/bucket/DedicatedAggregationIT.java	ok
 core/src/test/java/org/elasticsearch/search/aggregations/bucket/FilterIT.java	ok
 core/src/test/java/org/elasticsearch/search/aggregations/bucket/FiltersIT.java	ok	7
-core/src/test/java/org/elasticsearch/search/aggregations/bucket/GeoDistanceIT.java	ok	8
+core/src/test/java/org/elasticsearch/search/aggregations/bucket/GeoDistanceIT.java	ok	9
 core/src/test/java/org/elasticsearch/search/aggregations/bucket/GeoHashGridIT.java	ok
 core/src/test/java/org/elasticsearch/search/aggregations/bucket/GlobalIT.java	ok
 core/src/test/java/org/elasticsearch/search/aggregations/bucket/MissingIT.java	ok
 core/src/test/java/org/elasticsearch/search/aggregations/bucket/NaNSortingIT.java	ok
 core/src/test/java/org/elasticsearch/search/aggregations/bucket/NestedIT.java	ok	7
 core/src/test/java/org/elasticsearch/search/aggregations/bucket/ParentIdAggIT.java	ok
-core/src/test/java/org/elasticsearch/search/aggregations/bucket/ReverseNestedIT.java	ok	10
+core/src/test/java/org/elasticsearch/search/aggregations/bucket/ReverseNestedIT.java	ok	11
 core/src/test/java/org/elasticsearch/search/aggregations/bucket/SamplerIT.java	ok
 core/src/test/java/org/elasticsearch/search/aggregations/bucket/ShardReduceIT.java	ok
 core/src/test/java/org/elasticsearch/search/aggregations/bucket/ShardSizeTermsIT.java	ok	5
 core/src/test/java/org/elasticsearch/search/aggregations/bucket/ShardSizeTestCase.java	ok
-core/src/test/java/org/elasticsearch/search/aggregations/bucket/SignificantTermsIT.java	ok
+core/src/test/java/org/elasticsearch/search/aggregations/bucket/SignificantTermsIT.java	ok	5
 core/src/test/java/org/elasticsearch/search/aggregations/bucket/SignificantTermsSignificanceScoreIT.java	ok	6
 core/src/test/java/org/elasticsearch/search/aggregations/bucket/TermsDocCountErrorIT.java	ok	10
 core/src/test/java/org/elasticsearch/search/aggregations/bucket/TermsShardMinDocCountIT.java	ok
@@ -3786,7 +3786,7 @@ core/src/test/java/org/elasticsearch/search/aggregations/metrics/AvgIT.java	ok	6
 core/src/test/java/org/elasticsearch/search/aggregations/metrics/GeoBoundsIT.java	ok
 core/src/test/java/org/elasticsearch/search/aggregations/metrics/GeoCentroidIT.java	ok
 core/src/test/java/org/elasticsearch/search/aggregations/metrics/SumIT.java	ok	6
-core/src/test/java/org/elasticsearch/search/aggregations/metrics/TopHitsIT.java	ok	15
+core/src/test/java/org/elasticsearch/search/aggregations/metrics/TopHitsIT.java	ok	16
 core/src/test/java/org/elasticsearch/search/aggregations/metrics/ValueCountIT.java	ok
 core/src/test/java/org/elasticsearch/search/aggregations/metrics/cardinality/HyperLogLogPlusPlusTests.java	ok
 core/src/test/java/org/elasticsearch/search/aggregations/metrics/package-info.java	ok
@@ -3797,10 +3797,10 @@ core/src/test/java/org/elasticsearch/search/aggregations/pipeline/DateDerivative
 core/src/test/java/org/elasticsearch/search/aggregations/pipeline/DerivativeIT.java	ok	10
 core/src/test/java/org/elasticsearch/search/aggregations/pipeline/ExtendedStatsBucketIT.java	ok	8
 core/src/test/java/org/elasticsearch/search/aggregations/pipeline/MaxBucketIT.java	ok	7
-core/src/test/java/org/elasticsearch/search/aggregations/pipeline/MinBucketIT.java	ok	6
+core/src/test/java/org/elasticsearch/search/aggregations/pipeline/MinBucketIT.java	ok	7
 core/src/test/java/org/elasticsearch/search/aggregations/pipeline/PercentilesBucketIT.java	ok	9
 core/src/test/java/org/elasticsearch/search/aggregations/pipeline/PipelineAggregationHelperTests.java	ok
-core/src/test/java/org/elasticsearch/search/aggregations/pipeline/StatsBucketIT.java	ok	6
+core/src/test/java/org/elasticsearch/search/aggregations/pipeline/StatsBucketIT.java	ok	7
 core/src/test/java/org/elasticsearch/search/aggregations/pipeline/SumBucketIT.java	ok	5
 core/src/test/java/org/elasticsearch/search/aggregations/pipeline/moving/avg/MovAvgIT.java	ok	17
 core/src/test/java/org/elasticsearch/search/aggregations/pipeline/moving/avg/MovAvgUnitTests.java	ok	8
@@ -3817,7 +3817,7 @@ core/src/test/java/org/elasticsearch/search/basic/TransportSearchFailuresIT.java
 core/src/test/java/org/elasticsearch/search/basic/TransportTwoNodesSearchIT.java	ok	6
 core/src/test/java/org/elasticsearch/search/builder/SearchSourceBuilderTests.java	ok
 core/src/test/java/org/elasticsearch/search/child/ChildQuerySearchBwcIT.java	ok
-core/src/test/java/org/elasticsearch/search/child/ChildQuerySearchIT.java	ok	39
+core/src/test/java/org/elasticsearch/search/child/ChildQuerySearchIT.java	ok	40
 core/src/test/java/org/elasticsearch/search/child/ParentFieldLoadingBwcIT.java	ok
 core/src/test/java/org/elasticsearch/search/child/ParentFieldLoadingIT.java	ok
 core/src/test/java/org/elasticsearch/search/compress/SearchSourceCompressTests.java	ok
@@ -3828,7 +3828,7 @@ core/src/test/java/org/elasticsearch/search/functionscore/ExplainableScriptIT.ja
 core/src/test/java/org/elasticsearch/search/functionscore/ExplainableScriptPlugin.java	ok
 core/src/test/java/org/elasticsearch/search/functionscore/FunctionScoreFieldValueIT.java	ok
 core/src/test/java/org/elasticsearch/search/functionscore/FunctionScorePluginIT.java	ok
-core/src/test/java/org/elasticsearch/search/functionscore/QueryRescorerIT.java	ok	12
+core/src/test/java/org/elasticsearch/search/functionscore/QueryRescorerIT.java	ok	13
 core/src/test/java/org/elasticsearch/search/geo/GeoBoundingBoxIT.java	ok	5
 core/src/test/java/org/elasticsearch/search/geo/GeoFilterIT.java	ok	7
 core/src/test/java/org/elasticsearch/search/geo/GeoPolygonIT.java	ok
@@ -3839,9 +3839,9 @@ core/src/test/java/org/elasticsearch/search/highlight/CustomHighlighterSearchIT.
 core/src/test/java/org/elasticsearch/search/highlight/HighlighterSearchIT.java	ok	43
 core/src/test/java/org/elasticsearch/search/highlight/PlainHighlighterTests.java	ok
 core/src/test/java/org/elasticsearch/search/indicesboost/SimpleIndicesBoostSearchIT.java	ok
-core/src/test/java/org/elasticsearch/search/innerhits/InnerHitsIT.java	ok	22
+core/src/test/java/org/elasticsearch/search/innerhits/InnerHitsIT.java	ok	23
 core/src/test/java/org/elasticsearch/search/internal/InternalSearchHitTests.java	ok
-core/src/test/java/org/elasticsearch/search/matchedqueries/MatchedQueriesIT.java	ok
+core/src/test/java/org/elasticsearch/search/matchedqueries/MatchedQueriesIT.java	ok	5
 core/src/test/java/org/elasticsearch/search/morelikethis/ItemSerializationTests.java	ok
 core/src/test/java/org/elasticsearch/search/morelikethis/MoreLikeThisIT.java	ok	9
 core/src/test/java/org/elasticsearch/search/msearch/SimpleMultiSearchIT.java	ok
@@ -3853,7 +3853,7 @@ core/src/test/java/org/elasticsearch/search/profile/RandomQueryGenerator.java	ok
 core/src/test/java/org/elasticsearch/search/query/ExistsMissingIT.java	ok
 core/src/test/java/org/elasticsearch/search/query/MultiMatchQueryIT.java	ok	11
 core/src/test/java/org/elasticsearch/search/query/QueryPhaseTests.java	ok
-core/src/test/java/org/elasticsearch/search/query/SearchQueryIT.java	ok	42
+core/src/test/java/org/elasticsearch/search/query/SearchQueryIT.java	ok	43
 core/src/test/java/org/elasticsearch/search/query/SimpleQueryStringIT.java	ok
 core/src/test/java/org/elasticsearch/search/scan/ScanContextTests.java	ok
 core/src/test/java/org/elasticsearch/search/scan/SearchScanIT.java	ok
@@ -3882,7 +3882,7 @@ core/src/test/java/org/elasticsearch/snapshots/AbstractSnapshotIntegTestCase.jav
 core/src/test/java/org/elasticsearch/snapshots/BlobStoreFormatIT.java	ok
 core/src/test/java/org/elasticsearch/snapshots/DedicatedClusterSnapshotRestoreIT.java	ok	14
 core/src/test/java/org/elasticsearch/snapshots/RepositoriesIT.java	ok
-core/src/test/java/org/elasticsearch/snapshots/SharedClusterSnapshotRestoreIT.java	ok	34
+core/src/test/java/org/elasticsearch/snapshots/SharedClusterSnapshotRestoreIT.java	ok	35
 core/src/test/java/org/elasticsearch/snapshots/SnapshotRequestsTests.java	ok
 core/src/test/java/org/elasticsearch/snapshots/SnapshotSharedTest.java	ok
 core/src/test/java/org/elasticsearch/snapshots/SnapshotUtilsTests.java	ok
@@ -3892,13 +3892,13 @@ core/src/test/java/org/elasticsearch/snapshots/mockstore/MockRepository.java	ok
 core/src/test/java/org/elasticsearch/test/BackgroundIndexer.java	ok
 core/src/test/java/org/elasticsearch/test/DummyShardLock.java	ok
 core/src/test/java/org/elasticsearch/test/ESAllocationTestCase.java	ok
-core/src/test/java/org/elasticsearch/test/ESIntegTestCase.java	ok	19
+core/src/test/java/org/elasticsearch/test/ESIntegTestCase.java	ok	20
 core/src/test/java/org/elasticsearch/test/ESSingleNodeTestCase.java	ok
 core/src/test/java/org/elasticsearch/test/ESTestCase.java	ok	5
 core/src/test/java/org/elasticsearch/test/ESTokenStreamTestCase.java	ok
 core/src/test/java/org/elasticsearch/test/ExternalTestCluster.java	ok
 core/src/test/java/org/elasticsearch/test/FieldMaskingReader.java	ok
-core/src/test/java/org/elasticsearch/test/InternalTestCluster.java	ok	19
+core/src/test/java/org/elasticsearch/test/InternalTestCluster.java	ok	20
 core/src/test/java/org/elasticsearch/test/MockLogAppender.java	ok
 core/src/test/java/org/elasticsearch/test/NodeConfigurationSource.java	ok
 core/src/test/java/org/elasticsearch/test/OldIndexUtils.java	ok
@@ -3937,7 +3937,7 @@ core/src/test/java/org/elasticsearch/test/geo/RandomShapeGenerator.java	ok
 core/src/test/java/org/elasticsearch/test/hamcrest/CollectionAssertions.java	ok
 core/src/test/java/org/elasticsearch/test/hamcrest/CollectionMatchers.java	ok
 core/src/test/java/org/elasticsearch/test/hamcrest/DoubleMatcher.java	ok
-core/src/test/java/org/elasticsearch/test/hamcrest/ElasticsearchAssertions.java	ok	9
+core/src/test/java/org/elasticsearch/test/hamcrest/ElasticsearchAssertions.java	ok	10
 core/src/test/java/org/elasticsearch/test/hamcrest/ElasticsearchGeoAssertions.java	ok
 core/src/test/java/org/elasticsearch/test/hamcrest/ElasticsearchMatchers.java	ok
 core/src/test/java/org/elasticsearch/test/hamcrest/RegexMatcher.java	ok
@@ -4043,7 +4043,7 @@ core/src/test/java/org/elasticsearch/threadpool/ThreadPoolStatsTests.java	ok
 core/src/test/java/org/elasticsearch/threadpool/ThreadPoolTypeSettingsValidatorTests.java	ok
 core/src/test/java/org/elasticsearch/threadpool/UpdateThreadPoolSettingsTests.java	ok	6
 core/src/test/java/org/elasticsearch/timestamp/SimpleTimestampIT.java	ok
-core/src/test/java/org/elasticsearch/transport/AbstractSimpleTransportTestCase.java	ok	13
+core/src/test/java/org/elasticsearch/transport/AbstractSimpleTransportTestCase.java	ok	14
 core/src/test/java/org/elasticsearch/transport/ActionNamesIT.java	ok
 core/src/test/java/org/elasticsearch/transport/NettySizeHeaderFrameDecoderTests.java	ok
 core/src/test/java/org/elasticsearch/transport/TransportMessageTests.java	ok
@@ -4063,7 +4063,7 @@ core/src/test/java/org/elasticsearch/tribe/TribeServiceTests.java	ok
 core/src/test/java/org/elasticsearch/tribe/TribeUnitTests.java	ok
 core/src/test/java/org/elasticsearch/ttl/SimpleTTLIT.java	ok
 core/src/test/java/org/elasticsearch/update/UpdateByNativeScriptIT.java	ok
-core/src/test/java/org/elasticsearch/update/UpdateIT.java	ok	14
+core/src/test/java/org/elasticsearch/update/UpdateIT.java	ok	15
 core/src/test/java/org/elasticsearch/update/UpdateNoopIT.java	ok
 core/src/test/java/org/elasticsearch/validate/RenderSearchTemplateIT.java	ok
 core/src/test/java/org/elasticsearch/validate/SimpleValidateQueryIT.java	ok
@@ -4099,35 +4099,35 @@ modules/lang-groovy/src/test/java/org/elasticsearch/messy/tests/BucketSelectorTe
 modules/lang-groovy/src/test/java/org/elasticsearch/messy/tests/BulkTests.java	ok	13
 modules/lang-groovy/src/test/java/org/elasticsearch/messy/tests/CardinalityTests.java	ok
 modules/lang-groovy/src/test/java/org/elasticsearch/messy/tests/ContextAndHeaderTransportTests.java	ok	6
-modules/lang-groovy/src/test/java/org/elasticsearch/messy/tests/DateRangeTests.java	ok	20
-modules/lang-groovy/src/test/java/org/elasticsearch/messy/tests/DoubleTermsTests.java	ok	18
-modules/lang-groovy/src/test/java/org/elasticsearch/messy/tests/EquivalenceTests.java	ok	6
-modules/lang-groovy/src/test/java/org/elasticsearch/messy/tests/ExtendedStatsTests.java	ok	12
+modules/lang-groovy/src/test/java/org/elasticsearch/messy/tests/DateRangeTests.java	ok	22
+modules/lang-groovy/src/test/java/org/elasticsearch/messy/tests/DoubleTermsTests.java	ok	20
+modules/lang-groovy/src/test/java/org/elasticsearch/messy/tests/EquivalenceTests.java	ok	7
+modules/lang-groovy/src/test/java/org/elasticsearch/messy/tests/ExtendedStatsTests.java	ok	13
 modules/lang-groovy/src/test/java/org/elasticsearch/messy/tests/FunctionScoreTests.java	ok
-modules/lang-groovy/src/test/java/org/elasticsearch/messy/tests/GeoDistanceTests.java	ok	14
+modules/lang-groovy/src/test/java/org/elasticsearch/messy/tests/GeoDistanceTests.java	ok	15
 modules/lang-groovy/src/test/java/org/elasticsearch/messy/tests/GeoShapeIntegrationTests.java	ok
 modules/lang-groovy/src/test/java/org/elasticsearch/messy/tests/HDRPercentileRanksTests.java	ok	6
 modules/lang-groovy/src/test/java/org/elasticsearch/messy/tests/HDRPercentilesTests.java	ok	5
-modules/lang-groovy/src/test/java/org/elasticsearch/messy/tests/HistogramTests.java	ok	18
-modules/lang-groovy/src/test/java/org/elasticsearch/messy/tests/IPv4RangeTests.java	ok	19
+modules/lang-groovy/src/test/java/org/elasticsearch/messy/tests/HistogramTests.java	ok	19
+modules/lang-groovy/src/test/java/org/elasticsearch/messy/tests/IPv4RangeTests.java	ok	20
 modules/lang-groovy/src/test/java/org/elasticsearch/messy/tests/IndexLookupTests.java	ok	8
 modules/lang-groovy/src/test/java/org/elasticsearch/messy/tests/IndexedScriptTests.java	ok
 modules/lang-groovy/src/test/java/org/elasticsearch/messy/tests/IndicesRequestTests.java	ok	11
-modules/lang-groovy/src/test/java/org/elasticsearch/messy/tests/LongTermsTests.java	ok	18
+modules/lang-groovy/src/test/java/org/elasticsearch/messy/tests/LongTermsTests.java	ok	19
 modules/lang-groovy/src/test/java/org/elasticsearch/messy/tests/MaxTests.java	ok
 modules/lang-groovy/src/test/java/org/elasticsearch/messy/tests/MinDocCountTests.java	ok
 modules/lang-groovy/src/test/java/org/elasticsearch/messy/tests/MinTests.java	ok
 modules/lang-groovy/src/test/java/org/elasticsearch/messy/tests/RandomScoreFunctionTests.java	ok
-modules/lang-groovy/src/test/java/org/elasticsearch/messy/tests/RangeTests.java	ok	21
+modules/lang-groovy/src/test/java/org/elasticsearch/messy/tests/RangeTests.java	ok	22
 modules/lang-groovy/src/test/java/org/elasticsearch/messy/tests/ScriptIndexSettingsTests.java	ok
 modules/lang-groovy/src/test/java/org/elasticsearch/messy/tests/ScriptQuerySearchTests.java	ok
-modules/lang-groovy/src/test/java/org/elasticsearch/messy/tests/ScriptedMetricTests.java	ok	11
+modules/lang-groovy/src/test/java/org/elasticsearch/messy/tests/ScriptedMetricTests.java	ok	12
 modules/lang-groovy/src/test/java/org/elasticsearch/messy/tests/SearchFieldsTests.java	ok	14
 modules/lang-groovy/src/test/java/org/elasticsearch/messy/tests/SearchStatsTests.java	ok
-modules/lang-groovy/src/test/java/org/elasticsearch/messy/tests/SimpleSortTests.java	ok	39
+modules/lang-groovy/src/test/java/org/elasticsearch/messy/tests/SimpleSortTests.java	ok	42
 modules/lang-groovy/src/test/java/org/elasticsearch/messy/tests/StatsTests.java	ok	8
-modules/lang-groovy/src/test/java/org/elasticsearch/messy/tests/StringTermsTests.java	ok	24
-modules/lang-groovy/src/test/java/org/elasticsearch/messy/tests/TDigestPercentileRanksTests.java	ok	5
+modules/lang-groovy/src/test/java/org/elasticsearch/messy/tests/StringTermsTests.java	ok	26
+modules/lang-groovy/src/test/java/org/elasticsearch/messy/tests/TDigestPercentileRanksTests.java	ok	6
 modules/lang-groovy/src/test/java/org/elasticsearch/messy/tests/TDigestPercentilesTests.java	ok	5
 modules/lang-groovy/src/test/java/org/elasticsearch/messy/tests/TransformOnIndexMapperTests.java	ok
 modules/lang-groovy/src/test/java/org/elasticsearch/messy/tests/package-info.java	ok
@@ -4165,7 +4165,7 @@ modules/reindex/src/test/java/org/elasticsearch/index/reindex/AbstractAsyncBulkI
 modules/reindex/src/test/java/org/elasticsearch/index/reindex/AbstractAsyncBulkIndexByScrollActionTestCase.java	ok
 modules/reindex/src/test/java/org/elasticsearch/index/reindex/AbstractAsyncBulkIndexbyScrollActionMetadataTestCase.java	ok
 modules/reindex/src/test/java/org/elasticsearch/index/reindex/AbstractBulkIndexByScrollResponseMatcher.java	ok
-modules/reindex/src/test/java/org/elasticsearch/index/reindex/AsyncBulkByScrollActionTests.java	ok	8
+modules/reindex/src/test/java/org/elasticsearch/index/reindex/AsyncBulkByScrollActionTests.java	ok	9
 modules/reindex/src/test/java/org/elasticsearch/index/reindex/BulkByScrollTaskTests.java	ok
 modules/reindex/src/test/java/org/elasticsearch/index/reindex/CancelTestUtils.java	ok
 modules/reindex/src/test/java/org/elasticsearch/index/reindex/ReindexBasicTests.java	ok
@@ -4270,7 +4270,7 @@ plugins/cloud-aws/src/test/java/org/elasticsearch/cloud/aws/TestAwsS3Service.jav
 plugins/cloud-aws/src/test/java/org/elasticsearch/cloud/aws/blobstore/MockDefaultS3OutputStream.java	ok
 plugins/cloud-aws/src/test/java/org/elasticsearch/cloud/aws/blobstore/S3BlobStoreTests.java	ok
 plugins/cloud-aws/src/test/java/org/elasticsearch/cloud/aws/blobstore/S3OutputStreamTests.java	ok
-plugins/cloud-aws/src/test/java/org/elasticsearch/discovery/ec2/AmazonEC2Mock.java	ok	7
+plugins/cloud-aws/src/test/java/org/elasticsearch/discovery/ec2/AmazonEC2Mock.java	ok	8
 plugins/cloud-aws/src/test/java/org/elasticsearch/discovery/ec2/AwsEc2ServiceMock.java	ok
 plugins/cloud-aws/src/test/java/org/elasticsearch/discovery/ec2/Ec2CredentialSettingsTests.java	ok
 plugins/cloud-aws/src/test/java/org/elasticsearch/discovery/ec2/Ec2DiscoverySettingsTests.java	ok
@@ -4352,11 +4352,11 @@ plugins/delete-by-query/src/main/java/org/elasticsearch/plugin/deletebyquery/Del
 plugins/delete-by-query/src/main/java/org/elasticsearch/rest/action/deletebyquery/RestDeleteByQueryAction.java	ok
 plugins/delete-by-query/src/test/java/org/elasticsearch/action/deletebyquery/IndexDeleteByQueryResponseTests.java	ok
 plugins/delete-by-query/src/test/java/org/elasticsearch/action/deletebyquery/TransportDeleteByQueryActionTests.java	ok	6
-plugins/delete-by-query/src/test/java/org/elasticsearch/plugin/deletebyquery/DeleteByQueryTests.java	ok	5
+plugins/delete-by-query/src/test/java/org/elasticsearch/plugin/deletebyquery/DeleteByQueryTests.java	ok	6
 plugins/delete-by-query/src/test/java/org/elasticsearch/plugin/deletebyquery/test/rest/DeleteByQueryRestIT.java	ok
 plugins/discovery-multicast/src/main/java/org/elasticsearch/plugin/discovery/multicast/MulticastChannel.java	ok
 plugins/discovery-multicast/src/main/java/org/elasticsearch/plugin/discovery/multicast/MulticastDiscoveryPlugin.java	ok
-plugins/discovery-multicast/src/main/java/org/elasticsearch/plugin/discovery/multicast/MulticastZenPing.java	ok	5
+plugins/discovery-multicast/src/main/java/org/elasticsearch/plugin/discovery/multicast/MulticastZenPing.java	ok	6
 plugins/discovery-multicast/src/test/java/org/elasticsearch/plugin/discovery/multicast/MulticastDiscoveryRestIT.java	ok
 plugins/discovery-multicast/src/test/java/org/elasticsearch/plugin/discovery/multicast/MulticastZenPingTests.java	ok
 plugins/jvm-example/src/main/java/org/elasticsearch/plugin/example/ExampleCatAction.java	ok

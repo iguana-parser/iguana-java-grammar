@@ -54,7 +54,7 @@
                     ")"))))
             "@"
             "interface"
-            Identifier
+            TypeIdentifier
             (AnnotationTypeBody "{" "}"))))
       (TypeDeclaration
         (InterfaceDeclaration
@@ -83,7 +83,7 @@
                     ")"))))
             "@"
             "interface"
-            Identifier
+            TypeIdentifier
             (AnnotationTypeBody "{" "}"))))
       (TypeDeclaration
         (InterfaceDeclaration
@@ -112,13 +112,13 @@
                     ")"))))
             "@"
             "interface"
-            Identifier
+            TypeIdentifier
             (AnnotationTypeBody "{" "}"))))
       (TypeDeclaration
         (ClassDeclaration
           (NormalClassDeclaration
             "class"
-            Identifier
+            TypeIdentifier
             (ClassBody
               "{"
               (ClassBodyDeclaration*
@@ -132,7 +132,7 @@
                             ({Identifier "."}+ Identifier)))))
                     (UnannType
                       (UnannReferenceType
-                        (UnannClassType Identifier)))
+                        (UnannClassType TypeIdentifier)))
                     ({VariableDeclarator ","}+
                       (VariableDeclarator
                         (VariableDeclaratorId Identifier)
@@ -153,15 +153,15 @@
                     (UnannType
                       (UnannReferenceType
                         (UnannClassType
-                          Identifier
-                          (("." Annotation* Identifier TypeArguments?)*
+                          TypeIdentifier
+                          (("." Annotation* TypeIdentifier TypeArguments?)*
                             "."
                             (Annotation*
                               (Annotation
                                 "@"
                                 (QualifiedIdentifier
                                   ({Identifier "."}+ Identifier))))
-                            Identifier
+                            TypeIdentifier
                             (TypeArguments
                               "<"
                               ({TypeArgument ","}+
@@ -173,7 +173,7 @@
                                           "@"
                                           (QualifiedIdentifier
                                             ({Identifier "."}+ Identifier))))
-                                      Identifier)))
+                                      TypeIdentifier)))
                                 ","
                                 (TypeArgument
                                   (ReferenceType
@@ -183,7 +183,7 @@
                                           "@"
                                           (QualifiedIdentifier
                                             ({Identifier "."}+ Identifier))))
-                                      Identifier))))
+                                      TypeIdentifier))))
                               ">")))))
                     ({VariableDeclarator ","}+
                       (VariableDeclarator
@@ -194,7 +194,7 @@
                     (Result
                       (UnannType
                         (UnannReferenceType
-                          (UnannClassType Identifier))))
+                          (UnannClassType TypeIdentifier))))
                     (MethodDeclarator
                       Identifier
                       "("
@@ -203,7 +203,7 @@
                           (FormalParameter
                             (UnannType
                               (UnannReferenceType
-                                (UnannClassType Identifier)))
+                                (UnannClassType TypeIdentifier)))
                             (VariableDeclaratorId Identifier))))
                       ")")
                     (MethodBody
@@ -227,7 +227,7 @@
                                   "("
                                   ({ReferenceType "&"}+
                                     (ReferenceType
-                                      (ClassType Identifier)))
+                                      (ClassType TypeIdentifier)))
                                   ")"
                                   (Expression
                                     (Primary Identifier))))
@@ -238,7 +238,7 @@
                     (Result
                       (UnannType
                         (UnannReferenceType
-                          (UnannClassType Identifier))))
+                          (UnannClassType TypeIdentifier))))
                     (MethodDeclarator
                       Identifier
                       "("
@@ -247,7 +247,7 @@
                           (FormalParameter
                             (UnannType
                               (UnannReferenceType
-                                (UnannClassType Identifier)))
+                                (UnannClassType TypeIdentifier)))
                             (VariableDeclaratorId Identifier))))
                       ")")
                     (MethodBody
@@ -267,7 +267,7 @@
                                           "@"
                                           (QualifiedIdentifier
                                             ({Identifier "."}+ Identifier))))
-                                      Identifier)))
+                                      TypeIdentifier)))
                                 ")"
                                 (Expression
                                   (Primary Identifier)))
@@ -286,7 +286,7 @@
                           (FormalParameter
                             (UnannType
                               (UnannReferenceType
-                                (UnannClassType Identifier)))
+                                (UnannClassType TypeIdentifier)))
                             (VariableDeclaratorId Identifier))))
                       ")")
                     (MethodBody
@@ -308,7 +308,7 @@
                                           "@"
                                           (QualifiedIdentifier
                                             ({Identifier "."}+ Identifier))))
-                                      Identifier))))
+                                      TypeIdentifier))))
                               ";")))
                         "}"))))
                 (ClassBodyDeclaration
@@ -316,7 +316,7 @@
                     (UnannType
                       (UnannReferenceType
                         (UnannClassType
-                          Identifier
+                          TypeIdentifier
                           (TypeArguments
                             "<"
                             ({TypeArgument ","}+
@@ -330,7 +330,7 @@
                                         "@"
                                         (QualifiedIdentifier
                                           ({Identifier "."}+ Identifier))))
-                                    Identifier))))
+                                    TypeIdentifier))))
                             ">"))))
                     ({VariableDeclarator ","}+
                       (VariableDeclarator
@@ -341,7 +341,7 @@
                     (UnannType
                       (UnannReferenceType
                         (UnannClassType
-                          Identifier
+                          TypeIdentifier
                           (TypeArguments
                             "<"
                             ({TypeArgument ","}+
@@ -355,7 +355,7 @@
                                         "@"
                                         (QualifiedIdentifier
                                           ({Identifier "."}+ Identifier))))
-                                    Identifier))))
+                                    TypeIdentifier))))
                             ">"))))
                     ({VariableDeclarator ","}+
                       (VariableDeclarator
@@ -374,7 +374,7 @@
                               "@"
                               (QualifiedIdentifier
                                 ({Identifier "."}+ Identifier))))
-                          Identifier)
+                          TypeIdentifier)
                         ","
                         (ClassType
                           (Annotation*
@@ -382,7 +382,7 @@
                               "@"
                               (QualifiedIdentifier
                                 ({Identifier "."}+ Identifier))))
-                          Identifier)))
+                          TypeIdentifier)))
                     (MethodBody
                       (Block "{" "}"))))
                 (ClassBodyDeclaration
@@ -390,7 +390,7 @@
                     (Result
                       (UnannType
                         (UnannReferenceType
-                          (UnannClassType Identifier))))
+                          (UnannClassType TypeIdentifier))))
                     (MethodDeclarator Identifier "(" ")")
                     (MethodBody
                       (Block
@@ -423,7 +423,7 @@
                     (Result
                       (UnannType
                         (UnannReferenceType
-                          (UnannClassType Identifier))))
+                          (UnannClassType TypeIdentifier))))
                     (MethodDeclarator Identifier "(" ")")
                     (MethodBody
                       (Block
@@ -453,11 +453,11 @@
                                         ({TypeArgument ","}+
                                           (TypeArgument
                                             (ReferenceType
-                                              (ClassType Identifier)))
+                                              (ClassType TypeIdentifier)))
                                           ","
                                           (TypeArgument
                                             (ReferenceType
-                                              (ClassType Identifier))))
+                                              (ClassType TypeIdentifier))))
                                         ">")))
                                   (Arguments "(" ")")))
                               ";")))
@@ -479,7 +479,7 @@
                                     ({Identifier "."}+ Identifier)))))
                             (UnannType
                               (UnannReferenceType
-                                (UnannClassType Identifier)))
+                                (UnannClassType TypeIdentifier)))
                             (VariableDeclaratorId Identifier))
                           ",")
                         (LastFormalParameter
@@ -499,6 +499,47 @@
                 (ClassBodyDeclaration
                   (MethodDeclaration
                     (Result "void")
+                    (MethodDeclarator
+                      Identifier
+                      "("
+                      (FormalParameterList
+                        (LastFormalParameter
+                          (UnannType
+                            (UnannPrimitiveType "int"))
+                          (Annotation*
+                            (Annotation
+                              "@"
+                              (QualifiedIdentifier
+                                ({Identifier "."}+ Identifier))))
+                          "..."
+                          (VariableDeclaratorId Identifier)))
+                      ")")
+                    (MethodBody
+                      (Block "{" "}"))))
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result "void")
+                    (MethodDeclarator
+                      Identifier
+                      "("
+                      (FormalParameterList
+                        (LastFormalParameter
+                          (UnannType
+                            (UnannReferenceType
+                              (UnannClassType TypeIdentifier)))
+                          (Annotation*
+                            (Annotation
+                              "@"
+                              (QualifiedIdentifier
+                                ({Identifier "."}+ Identifier))))
+                          "..."
+                          (VariableDeclaratorId Identifier)))
+                      ")")
+                    (MethodBody
+                      (Block "{" "}"))))
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result "void")
                     (MethodDeclarator Identifier "(" ")")
                     (MethodBody
                       (Block
@@ -512,9 +553,10 @@
                                     "@"
                                     (QualifiedIdentifier
                                       ({Identifier "."}+ Identifier)))))
-                              (UnannType
-                                (UnannReferenceType
-                                  (UnannClassType Identifier)))
+                              (LocalVariableType
+                                (UnannType
+                                  (UnannReferenceType
+                                    (UnannClassType TypeIdentifier))))
                               ({VariableDeclarator ","}+
                                 (VariableDeclarator
                                   (VariableDeclaratorId Identifier)
@@ -532,8 +574,9 @@
                                     "@"
                                     (QualifiedIdentifier
                                       ({Identifier "."}+ Identifier)))))
-                              (UnannType
-                                (UnannPrimitiveType "int"))
+                              (LocalVariableType
+                                (UnannType
+                                  (UnannPrimitiveType "int")))
                               ({VariableDeclarator ","}+
                                 (VariableDeclarator
                                   (VariableDeclaratorId Identifier)
@@ -598,7 +641,7 @@
                     (UnannType
                       (UnannReferenceType
                         (UnannArrayType
-                          (UnannClassType Identifier)
+                          (UnannClassType TypeIdentifier)
                           ((Annotation* "[" "]")+
                             (Annotation*
                               (Annotation
@@ -616,7 +659,7 @@
                     (Result
                       (UnannType
                         (UnannReferenceType
-                          (UnannClassType Identifier))))
+                          (UnannClassType TypeIdentifier))))
                     (MethodDeclarator
                       Identifier
                       "("
@@ -625,7 +668,7 @@
                           (FormalParameter
                             (UnannType
                               (UnannReferenceType
-                                (UnannClassType Identifier)))
+                                (UnannClassType TypeIdentifier)))
                             (VariableDeclaratorId Identifier))))
                       ")")
                     (MethodBody
@@ -659,7 +702,7 @@
                     (Result
                       (UnannType
                         (UnannReferenceType
-                          (UnannClassType Identifier))))
+                          (UnannClassType TypeIdentifier))))
                     (MethodDeclarator
                       Identifier
                       "("
@@ -668,7 +711,7 @@
                           (FormalParameter
                             (UnannType
                               (UnannReferenceType
-                                (UnannClassType Identifier)))
+                                (UnannClassType TypeIdentifier)))
                             (VariableDeclaratorId Identifier))))
                       ")")
                     (MethodBody
@@ -717,7 +760,7 @@
                           (FormalParameter
                             (UnannType
                               (UnannReferenceType
-                                (UnannClassType Identifier)))
+                                (UnannClassType TypeIdentifier)))
                             (VariableDeclaratorId Identifier))))
                       ")")
                     (MethodBody
@@ -824,7 +867,7 @@
                     (UnannType
                       (UnannReferenceType
                         (UnannClassType
-                          Identifier
+                          TypeIdentifier
                           (TypeArguments
                             "<"
                             ({TypeArgument ","}+
@@ -845,7 +888,7 @@
                     (UnannType
                       (UnannReferenceType
                         (UnannClassType
-                          Identifier
+                          TypeIdentifier
                           (TypeArguments
                             "<"
                             ({TypeArgument ","}+
@@ -880,12 +923,12 @@
                               "@"
                               (QualifiedIdentifier
                                 ({Identifier "."}+ Identifier))))
-                          Identifier))
+                          TypeIdentifier))
                       ">")
                     (Result
                       (UnannType
                         (UnannReferenceType
-                          (UnannClassType Identifier))))
+                          (UnannClassType TypeIdentifier))))
                     (MethodDeclarator
                       Identifier
                       "("
@@ -894,7 +937,7 @@
                           (FormalParameter
                             (UnannType
                               (UnannReferenceType
-                                (UnannClassType Identifier)))
+                                (UnannClassType TypeIdentifier)))
                             (VariableDeclaratorId Identifier))))
                       ")")
                     (MethodBody
@@ -914,28 +957,22 @@
                       "<"
                       ({TypeParameter ","}+
                         (TypeParameter
-                          Identifier
-                          (Amb
-                            (TypeBound
-                              "extends"
-                              (ReferenceType
-                                (ClassType
-                                  #1=(Annotation*
-                                    (Annotation
-                                      "@"
-                                      (QualifiedIdentifier
-                                        ({Identifier "."}+ Identifier))))
-                                  Identifier)))
-                            (TypeBound
-                              "extends"
-                              #1#
-                              (ReferenceType
-                                (ClassType Identifier))))))
+                          TypeIdentifier
+                          (TypeBound
+                            "extends"
+                            (ReferenceType
+                              (ClassType
+                                (Annotation*
+                                  (Annotation
+                                    "@"
+                                    (QualifiedIdentifier
+                                      ({Identifier "."}+ Identifier))))
+                                TypeIdentifier)))))
                       ">")
                     (Result
                       (UnannType
                         (UnannReferenceType
-                          (UnannClassType Identifier))))
+                          (UnannClassType TypeIdentifier))))
                     (MethodDeclarator
                       Identifier
                       "("
@@ -944,7 +981,7 @@
                           (FormalParameter
                             (UnannType
                               (UnannReferenceType
-                                (UnannClassType Identifier)))
+                                (UnannClassType TypeIdentifier)))
                             (VariableDeclaratorId Identifier))))
                       ")")
                     (MethodBody
@@ -964,59 +1001,45 @@
                       "<"
                       ({TypeParameter ","}+
                         (TypeParameter
-                          Identifier
-                          (Amb
-                            (TypeBound
-                              "extends"
+                          TypeIdentifier
+                          (TypeBound
+                            "extends"
+                            (ReferenceType
+                              (ClassType
+                                (Annotation*
+                                  (Annotation
+                                    "@"
+                                    (QualifiedIdentifier
+                                      ({Identifier "."}+ Identifier))))
+                                TypeIdentifier
+                                (TypeArguments
+                                  "<"
+                                  ({TypeArgument ","}+
+                                    (TypeArgument
+                                      (ReferenceType
+                                        (ClassType
+                                          (Annotation*
+                                            (Annotation
+                                              "@"
+                                              (QualifiedIdentifier
+                                                ({Identifier "."}+ Identifier))))
+                                          TypeIdentifier))))
+                                  ">")))
+                            (("&" ReferenceType)*
+                              "&"
                               (ReferenceType
                                 (ClassType
-                                  #2=(Annotation*
+                                  (Annotation*
                                     (Annotation
                                       "@"
                                       (QualifiedIdentifier
                                         ({Identifier "."}+ Identifier))))
-                                  Identifier
-                                  #3=(TypeArguments
-                                    "<"
-                                    ({TypeArgument ","}+
-                                      (TypeArgument
-                                        (ReferenceType
-                                          (ClassType
-                                            (Annotation*
-                                              (Annotation
-                                                "@"
-                                                (QualifiedIdentifier
-                                                  ({Identifier "."}+ Identifier))))
-                                            Identifier))))
-                                    ">")))
-                              #4=(("&" Annotation* ReferenceType)*
-                                (Amb
-                                  "&"
-                                  (ReferenceType
-                                    (ClassType
-                                      #5=(Annotation*
-                                        (Annotation
-                                          "@"
-                                          (QualifiedIdentifier
-                                            ({Identifier "."}+ Identifier))))
-                                      Identifier))
-                                  "&"
-                                  #5#
-                                  (ReferenceType
-                                    (ClassType Identifier)))))
-                            (TypeBound
-                              "extends"
-                              #2#
-                              (ReferenceType
-                                (ClassType
-                                  Identifier
-                                  #3#))
-                              #4#))))
+                                  TypeIdentifier))))))
                       ">")
                     (Result
                       (UnannType
                         (UnannReferenceType
-                          (UnannClassType Identifier))))
+                          (UnannClassType TypeIdentifier))))
                     (MethodDeclarator
                       Identifier
                       "("
@@ -1025,7 +1048,7 @@
                           (FormalParameter
                             (UnannType
                               (UnannReferenceType
-                                (UnannClassType Identifier)))
+                                (UnannClassType TypeIdentifier)))
                             (VariableDeclaratorId Identifier))))
                       ")")
                     (MethodBody
@@ -1046,7 +1069,7 @@
                     (TypeParameters
                       "<"
                       ({TypeParameter ","}+
-                        (TypeParameter Identifier))
+                        (TypeParameter TypeIdentifier))
                       ">")
                     (Annotation*
                       (Annotation
@@ -1056,7 +1079,7 @@
                     (Result
                       (UnannType
                         (UnannReferenceType
-                          (UnannClassType Identifier))))
+                          (UnannClassType TypeIdentifier))))
                     (MethodDeclarator Identifier "(" ")")
                     (MethodBody
                       (Block
@@ -1078,11 +1101,11 @@
                       "<"
                       ({TypeParameter ","}+
                         (TypeParameter
-                          Identifier
+                          TypeIdentifier
                           (TypeBound
                             "extends"
                             (ReferenceType
-                              (ClassType Identifier)))))
+                              (ClassType TypeIdentifier)))))
                       ">")
                     (Annotation*
                       (Annotation
@@ -1092,7 +1115,7 @@
                     (Result
                       (UnannType
                         (UnannReferenceType
-                          (UnannClassType Identifier))))
+                          (UnannClassType TypeIdentifier))))
                     (MethodDeclarator
                       Identifier
                       "("
@@ -1101,7 +1124,7 @@
                           (FormalParameter
                             (UnannType
                               (UnannReferenceType
-                                (UnannClassType Identifier)))
+                                (UnannClassType TypeIdentifier)))
                             (VariableDeclaratorId Identifier))))
                       ")")
                     (MethodBody
@@ -1120,7 +1143,7 @@
                     (TypeParameters
                       "<"
                       ({TypeParameter ","}+
-                        (TypeParameter Identifier))
+                        (TypeParameter TypeIdentifier))
                       ">")
                     (Annotation*
                       (Annotation
@@ -1131,7 +1154,7 @@
                       (UnannType
                         (UnannReferenceType
                           (UnannClassType
-                            Identifier
+                            TypeIdentifier
                             (TypeArguments
                               "<"
                               ({TypeArgument ","}+
@@ -1143,7 +1166,7 @@
                                           "@"
                                           (QualifiedIdentifier
                                             ({Identifier "."}+ Identifier))))
-                                      Identifier))))
+                                      TypeIdentifier))))
                               ">")))))
                     (MethodDeclarator
                       Identifier
@@ -1159,7 +1182,7 @@
                                     ({Identifier "."}+ Identifier)))))
                             (UnannType
                               (UnannReferenceType
-                                (UnannClassType Identifier)))
+                                (UnannClassType TypeIdentifier)))
                             (VariableDeclaratorId Identifier))))
                       ")")
                     (MethodBody

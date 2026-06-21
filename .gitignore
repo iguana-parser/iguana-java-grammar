@@ -1,3 +1,5 @@
 /target
+/webview
+.claude/skills/
 flamegraph.svg
 dhat-heap.json

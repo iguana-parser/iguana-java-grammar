@@ -31,7 +31,7 @@
         (ClassDeclaration
           (NormalClassDeclaration
             "class"
-            Identifier
+            TypeIdentifier
             (ClassBody
               "{"
               (ClassBodyDeclaration*
@@ -40,17 +40,17 @@
                     (UnannType
                       (UnannReferenceType
                         (UnannClassType
-                          Identifier
+                          TypeIdentifier
                           (TypeArguments
                             "<"
                             ({TypeArgument ","}+
                               (TypeArgument
                                 (ReferenceType
-                                  (ClassType Identifier)))
+                                  (ClassType TypeIdentifier)))
                               ","
                               (TypeArgument
                                 (ReferenceType
-                                  (ClassType Identifier))))
+                                  (ClassType TypeIdentifier))))
                             ">"))))
                     ({VariableDeclarator ","}+
                       (VariableDeclarator
@@ -68,17 +68,17 @@
                     (UnannType
                       (UnannReferenceType
                         (UnannClassType
-                          Identifier
+                          TypeIdentifier
                           (TypeArguments
                             "<"
                             ({TypeArgument ","}+
                               (TypeArgument
                                 (ReferenceType
-                                  (ClassType Identifier)))
+                                  (ClassType TypeIdentifier)))
                               ","
                               (TypeArgument
                                 (ReferenceType
-                                  (ClassType Identifier))))
+                                  (ClassType TypeIdentifier))))
                             ">"))))
                     ({VariableDeclarator ","}+
                       (VariableDeclarator
@@ -96,17 +96,17 @@
                     (UnannType
                       (UnannReferenceType
                         (UnannClassType
-                          Identifier
+                          TypeIdentifier
                           (TypeArguments
                             "<"
                             ({TypeArgument ","}+
                               (TypeArgument
                                 (ReferenceType
-                                  (ClassType Identifier)))
+                                  (ClassType TypeIdentifier)))
                               ","
                               (TypeArgument
                                 (ReferenceType
-                                  (ClassType Identifier))))
+                                  (ClassType TypeIdentifier))))
                             ">"))))
                     ({VariableDeclarator ","}+
                       (VariableDeclarator
@@ -124,17 +124,17 @@
                     (UnannType
                       (UnannReferenceType
                         (UnannClassType
-                          Identifier
+                          TypeIdentifier
                           (TypeArguments
                             "<"
                             ({TypeArgument ","}+
                               (TypeArgument
                                 (ReferenceType
-                                  (ClassType Identifier)))
+                                  (ClassType TypeIdentifier)))
                               ","
                               (TypeArgument
                                 (ReferenceType
-                                  (ClassType Identifier))))
+                                  (ClassType TypeIdentifier))))
                             ">"))))
                     ({VariableDeclarator ","}+
                       (VariableDeclarator
@@ -159,32 +159,32 @@
                     (UnannType
                       (UnannReferenceType
                         (UnannClassType
-                          Identifier
+                          TypeIdentifier
                           (TypeArguments
                             "<"
                             ({TypeArgument ","}+
                               (TypeArgument
                                 (ReferenceType
                                   (ClassType
-                                    Identifier
-                                    (("." Annotation* Identifier TypeArguments?)*
+                                    TypeIdentifier
+                                    (("." Annotation* TypeIdentifier TypeArguments?)*
                                       "."
-                                      Identifier
+                                      TypeIdentifier
                                       (TypeArguments
                                         "<"
                                         ({TypeArgument ","}+
                                           (TypeArgument
                                             (ReferenceType
-                                              (ClassType Identifier)))
+                                              (ClassType TypeIdentifier)))
                                           ","
                                           (TypeArgument
                                             (ReferenceType
-                                              (ClassType Identifier))))
+                                              (ClassType TypeIdentifier))))
                                         ">")))))
                               ","
                               (TypeArgument
                                 (ReferenceType
-                                  (ClassType Identifier))))
+                                  (ClassType TypeIdentifier))))
                             ">"))))
                     ({VariableDeclarator ","}+
                       (VariableDeclarator
@@ -205,25 +205,25 @@
                     (UnannType
                       (UnannReferenceType
                         (UnannClassType
-                          Identifier
+                          TypeIdentifier
                           (TypeArguments
                             "<"
                             ({TypeArgument ","}+
                               (TypeArgument
                                 (ReferenceType
                                   (ClassType
-                                    Identifier
+                                    TypeIdentifier
                                     (TypeArguments
                                       "<"
                                       ({TypeArgument ","}+
                                         (TypeArgument
                                           (ReferenceType
-                                            (ClassType Identifier))))
+                                            (ClassType TypeIdentifier))))
                                       ">"))))
                               ","
                               (TypeArgument
                                 (ReferenceType
-                                  (ClassType Identifier))))
+                                  (ClassType TypeIdentifier))))
                             ">"))))
                     ({VariableDeclarator ","}+
                       (VariableDeclarator
@@ -238,7 +238,7 @@
                               ({TypeArgument ","}+
                                 (TypeArgument
                                   (ReferenceType
-                                    (ClassType Identifier))))
+                                    (ClassType TypeIdentifier))))
                               ">")
                             "::"
                             Identifier))))
@@ -248,13 +248,13 @@
                     (UnannType
                       (UnannReferenceType
                         (UnannClassType
-                          Identifier
+                          TypeIdentifier
                           (TypeArguments
                             "<"
                             ({TypeArgument ","}+
                               (TypeArgument
                                 (ReferenceType
-                                  (ClassType Identifier))))
+                                  (ClassType TypeIdentifier))))
                             ">"))))
                     ({VariableDeclarator ","}+
                       (VariableDeclarator
@@ -262,7 +262,7 @@
                         "="
                         (VariableInitializer
                           (Expression
-                            (ClassType Identifier)
+                            (ClassType TypeIdentifier)
                             "::"
                             "new"))))
                     ";"))
@@ -271,25 +271,25 @@
                     (UnannType
                       (UnannReferenceType
                         (UnannClassType
-                          Identifier
+                          TypeIdentifier
                           (TypeArguments
                             "<"
                             ({TypeArgument ","}+
                               (TypeArgument
                                 (ReferenceType
                                   (ClassType
-                                    Identifier
-                                    (("." Annotation* Identifier TypeArguments?)*
+                                    TypeIdentifier
+                                    (("." Annotation* TypeIdentifier TypeArguments?)*
                                       "."
-                                      Identifier
+                                      TypeIdentifier
                                       "."
-                                      Identifier
+                                      TypeIdentifier
                                       (TypeArguments
                                         "<"
                                         ({TypeArgument ","}+
                                           (TypeArgument
                                             (ReferenceType
-                                              (ClassType Identifier))))
+                                              (ClassType TypeIdentifier))))
                                         ">"))))))
                             ">"))))
                     ({VariableDeclarator ","}+
@@ -299,15 +299,15 @@
                         (VariableInitializer
                           (Expression
                             (ClassType
-                              Identifier
-                              (("." Annotation* Identifier TypeArguments?)* "." Identifier "." Identifier))
+                              TypeIdentifier
+                              (("." Annotation* TypeIdentifier TypeArguments?)* "." TypeIdentifier "." TypeIdentifier))
                             "::"
                             (TypeArguments
                               "<"
                               ({TypeArgument ","}+
                                 (TypeArgument
                                   (ReferenceType
-                                    (ClassType Identifier))))
+                                    (ClassType TypeIdentifier))))
                               ">")
                             "new"))))
                     ";"))
@@ -316,14 +316,14 @@
                     (UnannType
                       (UnannReferenceType
                         (UnannClassType
-                          Identifier
+                          TypeIdentifier
                           (TypeArguments
                             "<"
                             ({TypeArgument ","}+
                               (TypeArgument
                                 (ReferenceType
                                   (ArrayType
-                                    (ClassType Identifier)
+                                    (ClassType TypeIdentifier)
                                     ((Annotation* "[" "]")+ "[" "]")))))
                             ">"))))
                     ({VariableDeclarator ","}+
@@ -333,7 +333,7 @@
                         (VariableInitializer
                           (Expression
                             (ArrayType
-                              (ClassType Identifier)
+                              (ClassType TypeIdentifier)
                               ((Annotation* "[" "]")+ "[" "]"))
                             "::"
                             "new"))))
@@ -343,7 +343,7 @@
                     (UnannType
                       (UnannReferenceType
                         (UnannClassType
-                          Identifier
+                          TypeIdentifier
                           (TypeArguments
                             "<"
                             ({TypeArgument ","}+
@@ -406,9 +406,10 @@
                         (BlockStatement*
                           (BlockStatement
                             (LocalVariableDeclarationStatement
-                              (UnannType
-                                (UnannReferenceType
-                                  (UnannClassType Identifier)))
+                              (LocalVariableType
+                                (UnannType
+                                  (UnannReferenceType
+                                    (UnannClassType TypeIdentifier))))
                               ({VariableDeclarator ","}+
                                 (VariableDeclarator
                                   (VariableDeclaratorId Identifier)
@@ -421,7 +422,7 @@
                   (ClassDeclaration
                     (NormalClassDeclaration
                       "class"
-                      Identifier
+                      TypeIdentifier
                       (ClassBody
                         "{"
                         (ClassBodyDeclaration*
@@ -429,7 +430,7 @@
                             (FieldDeclaration
                               (UnannType
                                 (UnannReferenceType
-                                  (UnannClassType Identifier)))
+                                  (UnannClassType TypeIdentifier)))
                               ({VariableDeclarator ","}+
                                 (VariableDeclarator
                                   (VariableDeclaratorId Identifier)

@@ -16,7 +16,7 @@
         (ClassDeclaration
           (NormalClassDeclaration
             "class"
-            Identifier
+            TypeIdentifier
             (ClassBody
               "{"
               (ClassBodyDeclaration*
@@ -25,7 +25,7 @@
                     (Result
                       (UnannType
                         (UnannReferenceType
-                          (UnannClassType Identifier))))
+                          (UnannClassType TypeIdentifier))))
                     (MethodDeclarator
                       Identifier
                       "("
@@ -34,7 +34,7 @@
                           (FormalParameter
                             (UnannType
                               (UnannReferenceType
-                                (UnannClassType Identifier)))
+                                (UnannClassType TypeIdentifier)))
                             (VariableDeclaratorId Identifier))))
                       ")")
                     (MethodBody
@@ -49,17 +49,17 @@
                                 ({ReferenceType "&"}+
                                   (ReferenceType
                                     (ClassType
-                                      Identifier
+                                      TypeIdentifier
                                       (TypeArguments
                                         "<"
                                         ({TypeArgument ","}+
                                           (TypeArgument
                                             (ReferenceType
-                                              (ClassType Identifier))))
+                                              (ClassType TypeIdentifier))))
                                         ">")))
                                   "&"
                                   (ReferenceType
-                                    (ClassType Identifier)))
+                                    (ClassType TypeIdentifier)))
                                 ")"
                                 (Expression
                                   (Primary Identifier)))
@@ -70,7 +70,7 @@
                     (Result
                       (UnannType
                         (UnannReferenceType
-                          (UnannClassType Identifier))))
+                          (UnannClassType TypeIdentifier))))
                     (MethodDeclarator
                       Identifier
                       "("
@@ -79,7 +79,7 @@
                           (FormalParameter
                             (UnannType
                               (UnannReferenceType
-                                (UnannClassType Identifier)))
+                                (UnannClassType TypeIdentifier)))
                             (VariableDeclaratorId Identifier))))
                       ")")
                     (MethodBody
@@ -94,20 +94,20 @@
                                 ({ReferenceType "&"}+
                                   (ReferenceType
                                     (ClassType
-                                      Identifier
+                                      TypeIdentifier
                                       (TypeArguments
                                         "<"
                                         ({TypeArgument ","}+
                                           (TypeArgument
                                             (ReferenceType
-                                              (ClassType Identifier))))
+                                              (ClassType TypeIdentifier))))
                                         ">")))
                                   "&"
                                   (ReferenceType
-                                    (ClassType Identifier))
+                                    (ClassType TypeIdentifier))
                                   "&"
                                   (ReferenceType
-                                    (ClassType Identifier)))
+                                    (ClassType TypeIdentifier)))
                                 ")"
                                 (Expression
                                   (Primary Identifier)))
@@ -126,7 +126,7 @@
                           (FormalParameter
                             (UnannType
                               (UnannReferenceType
-                                (UnannClassType Identifier)))
+                                (UnannClassType TypeIdentifier)))
                             (VariableDeclaratorId Identifier))))
                       ")")
                     (MethodBody
@@ -145,17 +145,17 @@
                                       ({ReferenceType "&"}+
                                         (ReferenceType
                                           (ClassType
-                                            Identifier
+                                            TypeIdentifier
                                             (TypeArguments
                                               "<"
                                               ({TypeArgument ","}+
                                                 (TypeArgument
                                                   (ReferenceType
-                                                    (ClassType Identifier))))
+                                                    (ClassType TypeIdentifier))))
                                               ">")))
                                         "&"
                                         (ReferenceType
-                                          (ClassType Identifier)))
+                                          (ClassType TypeIdentifier)))
                                       ")"
                                       (Expression
                                         (Primary Identifier)))
@@ -178,7 +178,7 @@
                     (Result
                       (UnannType
                         (UnannReferenceType
-                          (UnannClassType Identifier))))
+                          (UnannClassType TypeIdentifier))))
                     (MethodDeclarator
                       Identifier
                       "("
@@ -187,7 +187,7 @@
                           (FormalParameter
                             (UnannType
                               (UnannReferenceType
-                                (UnannClassType Identifier)))
+                                (UnannClassType TypeIdentifier)))
                             (VariableDeclaratorId Identifier))))
                       ")")
                     (MethodBody
@@ -201,7 +201,7 @@
                                 "("
                                 ({ReferenceType "&"}+
                                   (ReferenceType
-                                    (ClassType Identifier)))
+                                    (ClassType TypeIdentifier)))
                                 ")"
                                 (Expression
                                   (Primary Identifier)))
@@ -220,7 +220,7 @@
                           (FormalParameter
                             (UnannType
                               (UnannReferenceType
-                                (UnannClassType Identifier)))
+                                (UnannClassType TypeIdentifier)))
                             (VariableDeclaratorId Identifier))))
                       ")")
                     (MethodBody
@@ -238,7 +238,7 @@
                                   "("
                                   ({ReferenceType "&"}+
                                     (ReferenceType
-                                      (ClassType Identifier)))
+                                      (ClassType TypeIdentifier)))
                                   ")"
                                   (Expression
                                     (Primary Identifier))))

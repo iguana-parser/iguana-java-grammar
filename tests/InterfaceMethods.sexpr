@@ -5,7 +5,7 @@
         (InterfaceDeclaration
           (NormalInterfaceDeclaration
             "interface"
-            Identifier
+            TypeIdentifier
             (InterfaceBody
               "{"
               (InterfaceMemberDeclaration*
@@ -83,12 +83,12 @@
                     (TypeParameters
                       "<"
                       ({TypeParameter ","}+
-                        (TypeParameter Identifier))
+                        (TypeParameter TypeIdentifier))
                       ">")
                     (Result
                       (UnannType
                         (UnannReferenceType
-                          (UnannClassType Identifier))))
+                          (UnannClassType TypeIdentifier))))
                     (MethodDeclarator
                       Identifier
                       "("
@@ -97,7 +97,7 @@
                           (FormalParameter
                             (UnannType
                               (UnannReferenceType
-                                (UnannClassType Identifier)))
+                                (UnannClassType TypeIdentifier)))
                             (VariableDeclaratorId Identifier))))
                       ")")
                     (Block
@@ -118,7 +118,7 @@
                     (Result
                       (UnannType
                         (UnannReferenceType
-                          (UnannClassType Identifier))))
+                          (UnannClassType TypeIdentifier))))
                     (MethodDeclarator Identifier "(" ")")
                     ";"))
                 (InterfaceMemberDeclaration

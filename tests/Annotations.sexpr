@@ -6,14 +6,14 @@
           (AnnotationTypeDeclaration
             "@"
             "interface"
-            Identifier
+            TypeIdentifier
             (AnnotationTypeBody "{" "}"))))
       (TypeDeclaration
         (InterfaceDeclaration
           (AnnotationTypeDeclaration
             "@"
             "interface"
-            Identifier
+            TypeIdentifier
             (AnnotationTypeBody
               "{"
               (AnnotationTypeElementDeclaration*
@@ -21,7 +21,7 @@
                   (AnnotationMethodDeclaration
                     (UnannType
                       (UnannReferenceType
-                        (UnannClassType Identifier)))
+                        (UnannClassType TypeIdentifier)))
                     Identifier
                     "("
                     ")"
@@ -32,7 +32,7 @@
           (AnnotationTypeDeclaration
             "@"
             "interface"
-            Identifier
+            TypeIdentifier
             (AnnotationTypeBody
               "{"
               (AnnotationTypeElementDeclaration*
@@ -40,7 +40,7 @@
                   (AnnotationMethodDeclaration
                     (UnannType
                       (UnannReferenceType
-                        (UnannClassType Identifier)))
+                        (UnannClassType TypeIdentifier)))
                     Identifier
                     "("
                     ")"
@@ -64,7 +64,7 @@
                     (UnannType
                       (UnannReferenceType
                         (UnannClassType
-                          Identifier
+                          TypeIdentifier
                           (TypeArguments
                             "<"
                             ({TypeArgument ","}+
@@ -80,7 +80,7 @@
                           (Primary
                             (Type
                               (ReferenceType
-                                (ClassType Identifier)))
+                                (ClassType TypeIdentifier)))
                             "."
                             "class"))))
                     ";")))
@@ -90,7 +90,7 @@
           (AnnotationTypeDeclaration
             "@"
             "interface"
-            Identifier
+            TypeIdentifier
             (AnnotationTypeBody
               "{"
               (AnnotationTypeElementDeclaration*
@@ -99,7 +99,7 @@
                     (UnannType
                       (UnannReferenceType
                         (UnannArrayType
-                          (UnannClassType Identifier)
+                          (UnannClassType TypeIdentifier)
                           ((Annotation* "[" "]")+ "[" "]"))))
                     Identifier
                     "("
@@ -115,7 +115,7 @@
                       (UnannReferenceType
                         (UnannArrayType
                           (UnannClassType
-                            Identifier
+                            TypeIdentifier
                             (TypeArguments
                               "<"
                               ({TypeArgument ","}+
@@ -136,7 +136,7 @@
           (AnnotationTypeDeclaration
             "@"
             "interface"
-            Identifier
+            TypeIdentifier
             (AnnotationTypeBody
               "{"
               (AnnotationTypeElementDeclaration*
@@ -144,7 +144,7 @@
                   (AnnotationMethodDeclaration
                     (UnannType
                       (UnannReferenceType
-                        (UnannClassType Identifier)))
+                        (UnannClassType TypeIdentifier)))
                     Identifier
                     "("
                     ")"
@@ -161,7 +161,7 @@
                     (UnannType
                       (UnannReferenceType
                         (UnannArrayType
-                          (UnannClassType Identifier)
+                          (UnannClassType TypeIdentifier)
                           ((Annotation* "[" "]")+ "[" "]"))))
                     Identifier
                     "("
@@ -176,7 +176,7 @@
         (ClassDeclaration
           (EnumDeclaration
             "enum"
-            Identifier
+            TypeIdentifier
             (EnumBody
               "{"
               ({EnumConstant ","}*
@@ -191,7 +191,7 @@
           (AnnotationTypeDeclaration
             "@"
             "interface"
-            Identifier
+            TypeIdentifier
             (AnnotationTypeBody
               "{"
               (AnnotationTypeElementDeclaration*
@@ -199,7 +199,7 @@
                   (AnnotationMethodDeclaration
                     (UnannType
                       (UnannReferenceType
-                        (UnannClassType Identifier)))
+                        (UnannClassType TypeIdentifier)))
                     Identifier
                     "("
                     ")"
@@ -290,7 +290,7 @@
                     ")"))))
             "@"
             "interface"
-            Identifier
+            TypeIdentifier
             (AnnotationTypeBody "{" "}"))))
       (TypeDeclaration
         (ClassDeclaration
@@ -302,7 +302,7 @@
                   (QualifiedIdentifier
                     ({Identifier "."}+ Identifier)))))
             "class"
-            Identifier
+            TypeIdentifier
             (ClassBody "{" "}"))))
       (TypeDeclaration
         (ClassDeclaration
@@ -323,7 +323,7 @@
                               (Literal StringLiteral))))))
                     ")"))))
             "class"
-            Identifier
+            TypeIdentifier
             (ClassBody "{" "}"))))
       (TypeDeclaration
         (ClassDeclaration
@@ -355,7 +355,7 @@
                                 (Literal IntegerLiteral)))))))
                     ")"))))
             "class"
-            Identifier
+            TypeIdentifier
             (ClassBody "{" "}"))))
       (TypeDeclaration
         (ClassDeclaration
@@ -405,7 +405,7 @@
                                     (Primary
                                       (Type
                                         (ReferenceType
-                                          (ClassType Identifier)))
+                                          (ClassType TypeIdentifier)))
                                       "."
                                       "class")))
                                 ","
@@ -414,13 +414,13 @@
                                     (Primary
                                       (Type
                                         (ReferenceType
-                                          (ClassType Identifier)))
+                                          (ClassType TypeIdentifier)))
                                       "."
                                       "class"))))
                               "}")))))
                     ")"))))
             "class"
-            Identifier
+            TypeIdentifier
             (ClassBody "{" "}"))))
       (TypeDeclaration
         (ClassDeclaration
@@ -497,7 +497,7 @@
                               "}")))))
                     ")"))))
             "class"
-            Identifier
+            TypeIdentifier
             (ClassBody "{" "}"))))
       (TypeDeclaration
         (ClassDeclaration
@@ -532,13 +532,13 @@
                               (Literal StringLiteral))))))
                     ")"))))
             "class"
-            Identifier
+            TypeIdentifier
             (ClassBody "{" "}"))))
       (TypeDeclaration
         (ClassDeclaration
           (NormalClassDeclaration
             "class"
-            Identifier
+            TypeIdentifier
             (ClassBody
               "{"
               (ClassBodyDeclaration*
@@ -568,7 +568,7 @@
                     (Result
                       (UnannType
                         (UnannReferenceType
-                          (UnannClassType Identifier))))
+                          (UnannClassType TypeIdentifier))))
                     (MethodDeclarator Identifier "(" ")")
                     (MethodBody
                       (Block
@@ -637,11 +637,12 @@
                                               (Primary
                                                 (Literal StringLiteral))))))
                                       ")"))))
-                              (UnannType
-                                (UnannReferenceType
-                                  (UnannClassType
-                                    Identifier
-                                    (("." Annotation* Identifier TypeArguments?)* "." Identifier "." Identifier))))
+                              (LocalVariableType
+                                (UnannType
+                                  (UnannReferenceType
+                                    (UnannClassType
+                                      TypeIdentifier
+                                      (("." Annotation* TypeIdentifier TypeArguments?)* "." TypeIdentifier "." TypeIdentifier)))))
                               ({VariableDeclarator ","}+
                                 (VariableDeclarator
                                   (VariableDeclaratorId Identifier)

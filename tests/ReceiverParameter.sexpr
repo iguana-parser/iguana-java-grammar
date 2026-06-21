@@ -39,7 +39,7 @@
                     ")"))))
             "@"
             "interface"
-            Identifier
+            TypeIdentifier
             (AnnotationTypeBody "{" "}"))))
       (TypeDeclaration
         (InterfaceDeclaration
@@ -68,13 +68,13 @@
                     ")"))))
             "@"
             "interface"
-            Identifier
+            TypeIdentifier
             (AnnotationTypeBody "{" "}"))))
       (TypeDeclaration
         (ClassDeclaration
           (NormalClassDeclaration
             "class"
-            Identifier
+            TypeIdentifier
             (ClassBody
               "{"
               (ClassBodyDeclaration*
@@ -88,7 +88,7 @@
                         (ReceiverParameter
                           (UnannType
                             (UnannReferenceType
-                              (UnannClassType Identifier)))
+                              (UnannClassType TypeIdentifier)))
                           "this"))
                       ")")
                     (MethodBody
@@ -108,7 +108,7 @@
                                 ({Identifier "."}+ Identifier))))
                           (UnannType
                             (UnannReferenceType
-                              (UnannClassType Identifier)))
+                              (UnannClassType TypeIdentifier)))
                           "this"))
                       ")")
                     (MethodBody
@@ -128,7 +128,7 @@
                                 ({Identifier "."}+ Identifier))))
                           (UnannType
                             (UnannReferenceType
-                              (UnannClassType Identifier)))
+                              (UnannClassType TypeIdentifier)))
                           "this")
                         ","
                         ((FormalParameter ",")*
@@ -141,7 +141,7 @@
                           (FormalParameter
                             (UnannType
                               (UnannReferenceType
-                                (UnannClassType Identifier)))
+                                (UnannClassType TypeIdentifier)))
                             (VariableDeclaratorId Identifier))))
                       ")")
                     (MethodBody
@@ -161,7 +161,7 @@
                                 ({Identifier "."}+ Identifier))))
                           (UnannType
                             (UnannReferenceType
-                              (UnannClassType Identifier)))
+                              (UnannClassType TypeIdentifier)))
                           "this")
                         ","
                         (LastFormalParameter
@@ -191,7 +191,7 @@
                                 ({Identifier "."}+ Identifier))))
                           (UnannType
                             (UnannReferenceType
-                              (UnannClassType Identifier)))
+                              (UnannClassType TypeIdentifier)))
                           "this"))
                       ")")
                     (MethodBody
@@ -200,7 +200,7 @@
                   (ClassDeclaration
                     (NormalClassDeclaration
                       "class"
-                      Identifier
+                      TypeIdentifier
                       (ClassBody
                         "{"
                         (ClassBodyDeclaration*
@@ -219,7 +219,7 @@
                                           ({Identifier "."}+ Identifier))))
                                     (UnannType
                                       (UnannReferenceType
-                                        (UnannClassType Identifier)))
+                                        (UnannClassType TypeIdentifier)))
                                     Identifier
                                     "."
                                     "this"))
@@ -241,7 +241,7 @@
                                           ({Identifier "."}+ Identifier))))
                                     (UnannType
                                       (UnannReferenceType
-                                        (UnannClassType Identifier)))
+                                        (UnannClassType TypeIdentifier)))
                                     Identifier
                                     "."
                                     "this")

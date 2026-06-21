@@ -5,7 +5,7 @@
         (ClassDeclaration
           (NormalClassDeclaration
             "class"
-            Identifier
+            TypeIdentifier
             (ClassBody
               "{"
               (ClassBodyDeclaration*
@@ -559,7 +559,7 @@
                   (FieldDeclaration
                     (UnannType
                       (UnannReferenceType
-                        (UnannClassType Identifier)))
+                        (UnannClassType TypeIdentifier)))
                     ({VariableDeclarator ","}+
                       (VariableDeclarator
                         (VariableDeclaratorId Identifier)
@@ -573,7 +573,7 @@
                   (FieldDeclaration
                     (UnannType
                       (UnannReferenceType
-                        (UnannClassType Identifier)))
+                        (UnannClassType TypeIdentifier)))
                     ({VariableDeclarator ","}+
                       (VariableDeclarator
                         (VariableDeclaratorId Identifier)
@@ -587,7 +587,7 @@
                   (FieldDeclaration
                     (UnannType
                       (UnannReferenceType
-                        (UnannClassType Identifier)))
+                        (UnannClassType TypeIdentifier)))
                     ({VariableDeclarator ","}+
                       (VariableDeclarator
                         (VariableDeclaratorId Identifier)
@@ -601,7 +601,7 @@
                   (FieldDeclaration
                     (UnannType
                       (UnannReferenceType
-                        (UnannClassType Identifier)))
+                        (UnannClassType TypeIdentifier)))
                     ({VariableDeclarator ","}+
                       (VariableDeclarator
                         (VariableDeclaratorId Identifier)
@@ -615,7 +615,7 @@
                   (FieldDeclaration
                     (UnannType
                       (UnannReferenceType
-                        (UnannClassType Identifier)))
+                        (UnannClassType TypeIdentifier)))
                     ({VariableDeclarator ","}+
                       (VariableDeclarator
                         (VariableDeclaratorId Identifier)
@@ -629,7 +629,7 @@
                   (FieldDeclaration
                     (UnannType
                       (UnannReferenceType
-                        (UnannClassType Identifier)))
+                        (UnannClassType TypeIdentifier)))
                     ({VariableDeclarator ","}+
                       (VariableDeclarator
                         (VariableDeclaratorId Identifier)
@@ -643,7 +643,7 @@
                   (FieldDeclaration
                     (UnannType
                       (UnannReferenceType
-                        (UnannClassType Identifier)))
+                        (UnannClassType TypeIdentifier)))
                     ({VariableDeclarator ","}+
                       (VariableDeclarator
                         (VariableDeclaratorId Identifier)
@@ -657,7 +657,7 @@
                   (FieldDeclaration
                     (UnannType
                       (UnannReferenceType
-                        (UnannClassType Identifier)))
+                        (UnannClassType TypeIdentifier)))
                     ({VariableDeclarator ","}+
                       (VariableDeclarator
                         (VariableDeclaratorId Identifier)

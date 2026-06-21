@@ -16,7 +16,7 @@
         (ClassDeclaration
           (NormalClassDeclaration
             "class"
-            Identifier
+            TypeIdentifier
             (ClassBody
               "{"
               (ClassBodyDeclaration*
@@ -27,7 +27,7 @@
                     (Throws
                       "throws"
                       ({ClassType ","}+
-                        (ClassType Identifier)))
+                        (ClassType TypeIdentifier)))
                     (MethodBody
                       (Block "{" "}"))))
                 (ClassBodyDeclaration
@@ -37,11 +37,11 @@
                     (Throws
                       "throws"
                       ({ClassType ","}+
-                        (ClassType Identifier)
+                        (ClassType TypeIdentifier)
                         ","
-                        (ClassType Identifier)
+                        (ClassType TypeIdentifier)
                         ","
-                        (ClassType Identifier)))
+                        (ClassType TypeIdentifier)))
                     (MethodBody
                       (Block "{" "}"))))
                 (ClassBodyDeclaration
@@ -52,12 +52,12 @@
                       "throws"
                       ({ClassType ","}+
                         (ClassType
-                          Identifier
-                          (("." Annotation* Identifier TypeArguments?)* "." Identifier "." Identifier))
+                          TypeIdentifier
+                          (("." Annotation* TypeIdentifier TypeArguments?)* "." TypeIdentifier "." TypeIdentifier))
                         ","
                         (ClassType
-                          Identifier
-                          (("." Annotation* Identifier TypeArguments?)* "." Identifier "." Identifier))))
+                          TypeIdentifier
+                          (("." Annotation* TypeIdentifier TypeArguments?)* "." TypeIdentifier "." TypeIdentifier))))
                     (MethodBody
                       (Block "{" "}"))))
                 (ClassBodyDeclaration
@@ -89,7 +89,7 @@
                                   "("
                                   (CatchType
                                     ({ClassType "|"}+
-                                      (ClassType Identifier)))
+                                      (ClassType TypeIdentifier)))
                                   Identifier
                                   ")"
                                   (Block
@@ -138,9 +138,9 @@
                                   "("
                                   (CatchType
                                     ({ClassType "|"}+
-                                      (ClassType Identifier)
+                                      (ClassType TypeIdentifier)
                                       "|"
-                                      (ClassType Identifier)))
+                                      (ClassType TypeIdentifier)))
                                   Identifier
                                   ")"
                                   (Block
@@ -190,8 +190,8 @@
                                   (CatchType
                                     ({ClassType "|"}+
                                       (ClassType
-                                        Identifier
-                                        (("." Annotation* Identifier TypeArguments?)* "." Identifier "." Identifier))))
+                                        TypeIdentifier
+                                        (("." Annotation* TypeIdentifier TypeArguments?)* "." TypeIdentifier "." TypeIdentifier))))
                                   Identifier
                                   ")"
                                   (Block
@@ -218,7 +218,7 @@
                     (Throws
                       "throws"
                       ({ClassType ","}+
-                        (ClassType Identifier)))
+                        (ClassType TypeIdentifier)))
                     (MethodBody
                       (Block
                         "{"
@@ -232,8 +232,8 @@
                                   (Resource
                                     (UnannReferenceType
                                       (UnannClassType
-                                        Identifier
-                                        (("." Annotation* Identifier TypeArguments?)* "." Identifier "." Identifier)))
+                                        TypeIdentifier
+                                        (("." Annotation* TypeIdentifier TypeArguments?)* "." TypeIdentifier "." TypeIdentifier)))
                                     (VariableDeclaratorId Identifier)
                                     "="
                                     (Expression
@@ -262,7 +262,7 @@
                                   "("
                                   (CatchType
                                     ({ClassType "|"}+
-                                      (ClassType Identifier)))
+                                      (ClassType TypeIdentifier)))
                                   Identifier
                                   ")"
                                   (Block
@@ -310,18 +310,19 @@
                     (Throws
                       "throws"
                       ({ClassType ","}+
-                        (ClassType Identifier)))
+                        (ClassType TypeIdentifier)))
                     (MethodBody
                       (Block
                         "{"
                         (BlockStatement*
                           (BlockStatement
                             (LocalVariableDeclarationStatement
-                              (UnannType
-                                (UnannReferenceType
-                                  (UnannClassType
-                                    Identifier
-                                    (("." Annotation* Identifier TypeArguments?)* "." Identifier "." Identifier))))
+                              (LocalVariableType
+                                (UnannType
+                                  (UnannReferenceType
+                                    (UnannClassType
+                                      TypeIdentifier
+                                      (("." Annotation* TypeIdentifier TypeArguments?)* "." TypeIdentifier "." TypeIdentifier)))))
                               ({VariableDeclarator ","}+
                                 (VariableDeclarator
                                   (VariableDeclaratorId Identifier)
@@ -366,8 +367,8 @@
                     (UnannType
                       (UnannReferenceType
                         (UnannClassType
-                          Identifier
-                          (("." Annotation* Identifier TypeArguments?)* "." Identifier "." Identifier))))
+                          TypeIdentifier
+                          (("." Annotation* TypeIdentifier TypeArguments?)* "." TypeIdentifier "." TypeIdentifier))))
                     ({VariableDeclarator ","}+
                       (VariableDeclarator
                         (VariableDeclaratorId Identifier)
@@ -384,7 +385,7 @@
                     (Throws
                       "throws"
                       ({ClassType ","}+
-                        (ClassType Identifier)))
+                        (ClassType TypeIdentifier)))
                     (MethodBody
                       (Block
                         "{"
@@ -421,8 +422,8 @@
                     (UnannType
                       (UnannReferenceType
                         (UnannClassType
-                          Identifier
-                          (("." Annotation* Identifier TypeArguments?)* "." Identifier "." Identifier))))
+                          TypeIdentifier
+                          (("." Annotation* TypeIdentifier TypeArguments?)* "." TypeIdentifier "." TypeIdentifier))))
                     ({VariableDeclarator ","}+
                       (VariableDeclarator
                         (VariableDeclaratorId Identifier)))
@@ -434,7 +435,7 @@
                     (Throws
                       "throws"
                       ({ClassType ","}+
-                        (ClassType Identifier)))
+                        (ClassType TypeIdentifier)))
                     (MethodBody
                       (Block
                         "{"
@@ -474,18 +475,19 @@
                     (Throws
                       "throws"
                       ({ClassType ","}+
-                        (ClassType Identifier)))
+                        (ClassType TypeIdentifier)))
                     (MethodBody
                       (Block
                         "{"
                         (BlockStatement*
                           (BlockStatement
                             (LocalVariableDeclarationStatement
-                              (UnannType
-                                (UnannReferenceType
-                                  (UnannClassType
-                                    Identifier
-                                    (("." Annotation* Identifier TypeArguments?)* "." Identifier "." Identifier))))
+                              (LocalVariableType
+                                (UnannType
+                                  (UnannReferenceType
+                                    (UnannClassType
+                                      TypeIdentifier
+                                      (("." Annotation* TypeIdentifier TypeArguments?)* "." TypeIdentifier "." TypeIdentifier)))))
                               ({VariableDeclarator ","}+
                                 (VariableDeclarator
                                   (VariableDeclaratorId Identifier)
@@ -508,8 +510,8 @@
                                   (Resource
                                     (UnannReferenceType
                                       (UnannClassType
-                                        Identifier
-                                        (("." Annotation* Identifier TypeArguments?)* "." Identifier "." Identifier)))
+                                        TypeIdentifier
+                                        (("." Annotation* TypeIdentifier TypeArguments?)* "." TypeIdentifier "." TypeIdentifier)))
                                     (VariableDeclaratorId Identifier)
                                     "="
                                     (Expression

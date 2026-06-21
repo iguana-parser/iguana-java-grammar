@@ -5,7 +5,7 @@
         (ClassDeclaration
           (NormalClassDeclaration
             "class"
-            Identifier
+            TypeIdentifier
             (ClassBody
               "{"
               (ClassBodyDeclaration*
@@ -19,13 +19,13 @@
                     ";"))
                 (ClassBodyDeclaration
                   (ConstructorDeclaration
-                    Identifier
+                    TypeIdentifier
                     "("
                     ")"
                     (ConstructorBody "{" "}")))
                 (ClassBodyDeclaration
                   (ConstructorDeclaration
-                    Identifier
+                    TypeIdentifier
                     "("
                     (FormalParameterList
                       (LastFormalParameter
@@ -53,7 +53,7 @@
                       "}")))
                 (ClassBodyDeclaration
                   (ConstructorDeclaration
-                    Identifier
+                    TypeIdentifier
                     "("
                     (FormalParameterList
                       ((FormalParameter ",")*
@@ -91,14 +91,14 @@
                       "}")))
                 (ClassBodyDeclaration
                   (ConstructorDeclaration
-                    Identifier
+                    TypeIdentifier
                     "("
                     (FormalParameterList
                       (LastFormalParameter
                         (FormalParameter
                           (UnannType
                             (UnannReferenceType
-                              (UnannClassType Identifier)))
+                              (UnannClassType TypeIdentifier)))
                           (VariableDeclaratorId Identifier))))
                     ")"
                     (ConstructorBody
@@ -121,7 +121,7 @@
                       "}")))
                 (ClassBodyDeclaration
                   (ConstructorDeclaration
-                    Identifier
+                    TypeIdentifier
                     "("
                     (FormalParameterList
                       (LastFormalParameter
@@ -160,16 +160,16 @@
                     (TypeParameters
                       "<"
                       ({TypeParameter ","}+
-                        (TypeParameter Identifier))
+                        (TypeParameter TypeIdentifier))
                       ">")
-                    Identifier
+                    TypeIdentifier
                     "("
                     (FormalParameterList
                       ((FormalParameter ",")*
                         (FormalParameter
                           (UnannType
                             (UnannReferenceType
-                              (UnannClassType Identifier)))
+                              (UnannClassType TypeIdentifier)))
                           (VariableDeclaratorId Identifier))
                         ",")
                       (LastFormalParameter
@@ -203,7 +203,7 @@
                       "}")))
                 (ClassBodyDeclaration
                   (ConstructorDeclaration
-                    Identifier
+                    TypeIdentifier
                     "("
                     (FormalParameterList
                       (LastFormalParameter
@@ -211,16 +211,16 @@
                           (UnannType
                             (UnannReferenceType
                               (UnannClassType
-                                Identifier
-                                (("." Annotation* Identifier TypeArguments?)* "." Identifier "." Identifier))))
+                                TypeIdentifier
+                                (("." Annotation* TypeIdentifier TypeArguments?)* "." TypeIdentifier "." TypeIdentifier))))
                           (VariableDeclaratorId Identifier))))
                     ")"
                     (Throws
                       "throws"
                       ({ClassType ","}+
                         (ClassType
-                          Identifier
-                          (("." Annotation* Identifier TypeArguments?)* "." Identifier "." Identifier))))
+                          TypeIdentifier
+                          (("." Annotation* TypeIdentifier TypeArguments?)* "." TypeIdentifier "." TypeIdentifier))))
                     (ConstructorBody
                       "{"
                       (BlockStatement*
@@ -241,7 +241,7 @@
                       "}")))
                 (ClassBodyDeclaration
                   (ConstructorDeclaration
-                    Identifier
+                    TypeIdentifier
                     "("
                     (FormalParameterList
                       (LastFormalParameter
@@ -258,10 +258,10 @@
                             "for"
                             "("
                             (ForControl
-                              (FormalParameter
+                              (LocalVariableType
                                 (UnannType
-                                  (UnannPrimitiveType "int"))
-                                (VariableDeclaratorId Identifier))
+                                  (UnannPrimitiveType "int")))
+                              (VariableDeclaratorId Identifier)
                               ":"
                               (Expression
                                 (Primary Identifier)))
@@ -283,7 +283,7 @@
                   (ConstructorDeclaration
                     (ConstructorModifier*
                       (ConstructorModifier "public"))
-                    Identifier
+                    TypeIdentifier
                     "("
                     (FormalParameterList
                       ((FormalParameter ",")*
@@ -308,7 +308,7 @@
                   (ConstructorDeclaration
                     (ConstructorModifier*
                       (ConstructorModifier "protected"))
-                    Identifier
+                    TypeIdentifier
                     "("
                     (FormalParameterList
                       ((FormalParameter ",")*
@@ -338,7 +338,7 @@
                   (ConstructorDeclaration
                     (ConstructorModifier*
                       (ConstructorModifier "private"))
-                    Identifier
+                    TypeIdentifier
                     "("
                     (FormalParameterList
                       (LastFormalParameter
@@ -356,7 +356,7 @@
                           "@"
                           (QualifiedIdentifier
                             ({Identifier "."}+ Identifier)))))
-                    Identifier
+                    TypeIdentifier
                     "("
                     (FormalParameterList
                       (LastFormalParameter
@@ -371,15 +371,15 @@
         (ClassDeclaration
           (NormalClassDeclaration
             "class"
-            Identifier
+            TypeIdentifier
             "extends"
-            (ClassType Identifier)
+            (ClassType TypeIdentifier)
             (ClassBody
               "{"
               (ClassBodyDeclaration*
                 (ClassBodyDeclaration
                   (ConstructorDeclaration
-                    Identifier
+                    TypeIdentifier
                     "("
                     ")"
                     (ConstructorBody
@@ -397,7 +397,7 @@
                       "}")))
                 (ClassBodyDeclaration
                   (ConstructorDeclaration
-                    Identifier
+                    TypeIdentifier
                     "("
                     (FormalParameterList
                       (LastFormalParameter
@@ -423,14 +423,14 @@
                       "}")))
                 (ClassBodyDeclaration
                   (ConstructorDeclaration
-                    Identifier
+                    TypeIdentifier
                     "("
                     (FormalParameterList
                       (LastFormalParameter
                         (FormalParameter
                           (UnannType
                             (UnannReferenceType
-                              (UnannClassType Identifier)))
+                              (UnannClassType TypeIdentifier)))
                           (VariableDeclaratorId Identifier))))
                     ")"
                     (ConstructorBody

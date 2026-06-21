@@ -5,7 +5,7 @@
         (ClassDeclaration
           (EnumDeclaration
             "enum"
-            Identifier
+            TypeIdentifier
             (EnumBody
               "{"
               ({EnumConstant ","}*
@@ -19,7 +19,7 @@
         (ClassDeclaration
           (EnumDeclaration
             "enum"
-            Identifier
+            TypeIdentifier
             (EnumBody
               "{"
               ({EnumConstant ","}*
@@ -34,7 +34,7 @@
         (ClassDeclaration
           (EnumDeclaration
             "enum"
-            Identifier
+            TypeIdentifier
             (EnumBody
               "{"
               ({EnumConstant ","}*
@@ -49,7 +49,7 @@
         (ClassDeclaration
           (EnumDeclaration
             "enum"
-            Identifier
+            TypeIdentifier
             (EnumBody
               "{"
               ({EnumConstant ","}*
@@ -68,7 +68,7 @@
                       (Result
                         (UnannType
                           (UnannReferenceType
-                            (UnannClassType Identifier))))
+                            (UnannClassType TypeIdentifier))))
                       (MethodDeclarator Identifier "(" ")")
                       (MethodBody
                         (Block
@@ -86,7 +86,7 @@
         (ClassDeclaration
           (EnumDeclaration
             "enum"
-            Identifier
+            TypeIdentifier
             (EnumBody
               "{"
               ({EnumConstant ","}*
@@ -156,7 +156,7 @@
                       ";"))
                   (ClassBodyDeclaration
                     (ConstructorDeclaration
-                      Identifier
+                      TypeIdentifier
                       "("
                       (FormalParameterList
                         ((FormalParameter ",")*
@@ -235,7 +235,7 @@
         (ClassDeclaration
           (EnumDeclaration
             "enum"
-            Identifier
+            TypeIdentifier
             (EnumBody
               "{"
               ({EnumConstant ","}*
@@ -406,7 +406,7 @@
         (InterfaceDeclaration
           (NormalInterfaceDeclaration
             "interface"
-            Identifier
+            TypeIdentifier
             (InterfaceBody
               "{"
               (InterfaceMemberDeclaration*
@@ -422,11 +422,11 @@
         (ClassDeclaration
           (EnumDeclaration
             "enum"
-            Identifier
+            TypeIdentifier
             "implements"
             (ClassTypeList
               ({ClassType ","}+
-                (ClassType Identifier)))
+                (ClassType TypeIdentifier)))
             (EnumBody
               "{"
               ({EnumConstant ","}*
@@ -469,7 +469,7 @@
         (ClassDeclaration
           (EnumDeclaration
             "enum"
-            Identifier
+            TypeIdentifier
             (EnumBody
               "{"
               ({EnumConstant ","}*

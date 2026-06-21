@@ -5,7 +5,7 @@
         (ClassDeclaration
           (NormalClassDeclaration
             "class"
-            Identifier
+            TypeIdentifier
             (ClassBody
               "{"
               (ClassBodyDeclaration*
@@ -36,7 +36,7 @@
                     (UnannType
                       (UnannReferenceType
                         (UnannArrayType
-                          (UnannClassType Identifier)
+                          (UnannClassType TypeIdentifier)
                           ((Annotation* "[" "]")+ "[" "]"))))
                     ({VariableDeclarator ","}+
                       (VariableDeclarator
@@ -208,33 +208,36 @@
                         (BlockStatement*
                           (BlockStatement
                             (LocalVariableDeclarationStatement
-                              (UnannType
-                                (UnannReferenceType
-                                  (UnannArrayType
-                                    (UnannPrimitiveType "int")
-                                    ((Annotation* "[" "]")+ "[" "]"))))
+                              (LocalVariableType
+                                (UnannType
+                                  (UnannReferenceType
+                                    (UnannArrayType
+                                      (UnannPrimitiveType "int")
+                                      ((Annotation* "[" "]")+ "[" "]")))))
                               ({VariableDeclarator ","}+
                                 (VariableDeclarator
                                   (VariableDeclaratorId Identifier)))
                               ";"))
                           (BlockStatement
                             (LocalVariableDeclarationStatement
-                              (UnannType
-                                (UnannReferenceType
-                                  (UnannArrayType
-                                    (UnannPrimitiveType "int")
-                                    ((Annotation* "[" "]")+ "[" "]" "[" "]"))))
+                              (LocalVariableType
+                                (UnannType
+                                  (UnannReferenceType
+                                    (UnannArrayType
+                                      (UnannPrimitiveType "int")
+                                      ((Annotation* "[" "]")+ "[" "]" "[" "]")))))
                               ({VariableDeclarator ","}+
                                 (VariableDeclarator
                                   (VariableDeclaratorId Identifier)))
                               ";"))
                           (BlockStatement
                             (LocalVariableDeclarationStatement
-                              (UnannType
-                                (UnannReferenceType
-                                  (UnannArrayType
-                                    (UnannPrimitiveType "int")
-                                    ((Annotation* "[" "]")+ "[" "]"))))
+                              (LocalVariableType
+                                (UnannType
+                                  (UnannReferenceType
+                                    (UnannArrayType
+                                      (UnannPrimitiveType "int")
+                                      ((Annotation* "[" "]")+ "[" "]")))))
                               ({VariableDeclarator ","}+
                                 (VariableDeclarator
                                   (VariableDeclaratorId Identifier)
@@ -253,11 +256,12 @@
                               ";"))
                           (BlockStatement
                             (LocalVariableDeclarationStatement
-                              (UnannType
-                                (UnannReferenceType
-                                  (UnannArrayType
-                                    (UnannPrimitiveType "int")
-                                    ((Annotation* "[" "]")+ "[" "]" "[" "]"))))
+                              (LocalVariableType
+                                (UnannType
+                                  (UnannReferenceType
+                                    (UnannArrayType
+                                      (UnannPrimitiveType "int")
+                                      ((Annotation* "[" "]")+ "[" "]" "[" "]")))))
                               ({VariableDeclarator ","}+
                                 (VariableDeclarator
                                   (VariableDeclaratorId Identifier)
@@ -281,11 +285,12 @@
                               ";"))
                           (BlockStatement
                             (LocalVariableDeclarationStatement
-                              (UnannType
-                                (UnannReferenceType
-                                  (UnannArrayType
-                                    (UnannPrimitiveType "int")
-                                    ((Annotation* "[" "]")+ "[" "]" "[" "]"))))
+                              (LocalVariableType
+                                (UnannType
+                                  (UnannReferenceType
+                                    (UnannArrayType
+                                      (UnannPrimitiveType "int")
+                                      ((Annotation* "[" "]")+ "[" "]" "[" "]")))))
                               ({VariableDeclarator ","}+
                                 (VariableDeclarator
                                   (VariableDeclaratorId Identifier)
@@ -305,11 +310,12 @@
                               ";"))
                           (BlockStatement
                             (LocalVariableDeclarationStatement
-                              (UnannType
-                                (UnannReferenceType
-                                  (UnannArrayType
-                                    (UnannPrimitiveType "int")
-                                    ((Annotation* "[" "]")+ "[" "]"))))
+                              (LocalVariableType
+                                (UnannType
+                                  (UnannReferenceType
+                                    (UnannArrayType
+                                      (UnannPrimitiveType "int")
+                                      ((Annotation* "[" "]")+ "[" "]")))))
                               ({VariableDeclarator ","}+
                                 (VariableDeclarator
                                   (VariableDeclaratorId Identifier)
@@ -341,11 +347,12 @@
                               ";"))
                           (BlockStatement
                             (LocalVariableDeclarationStatement
-                              (UnannType
-                                (UnannReferenceType
-                                  (UnannArrayType
-                                    (UnannPrimitiveType "int")
-                                    ((Annotation* "[" "]")+ "[" "]" "[" "]"))))
+                              (LocalVariableType
+                                (UnannType
+                                  (UnannReferenceType
+                                    (UnannArrayType
+                                      (UnannPrimitiveType "int")
+                                      ((Annotation* "[" "]")+ "[" "]" "[" "]")))))
                               ({VariableDeclarator ","}+
                                 (VariableDeclarator
                                   (VariableDeclaratorId Identifier)
@@ -387,11 +394,12 @@
                               ";"))
                           (BlockStatement
                             (LocalVariableDeclarationStatement
-                              (UnannType
-                                (UnannReferenceType
-                                  (UnannArrayType
-                                    (UnannClassType Identifier)
-                                    ((Annotation* "[" "]")+ "[" "]"))))
+                              (LocalVariableType
+                                (UnannType
+                                  (UnannReferenceType
+                                    (UnannArrayType
+                                      (UnannClassType TypeIdentifier)
+                                      ((Annotation* "[" "]")+ "[" "]")))))
                               ({VariableDeclarator ","}+
                                 (VariableDeclarator
                                   (VariableDeclaratorId Identifier)
@@ -401,7 +409,7 @@
                                       "new"
                                       (ArrayCreationExpression
                                         (ReferenceType
-                                          (ClassType Identifier))
+                                          (ClassType TypeIdentifier))
                                         ((Annotation* "[" Expression "]")+
                                           "["
                                           (Expression
@@ -411,11 +419,12 @@
                               ";"))
                           (BlockStatement
                             (LocalVariableDeclarationStatement
-                              (UnannType
-                                (UnannReferenceType
-                                  (UnannArrayType
-                                    (UnannClassType Identifier)
-                                    ((Annotation* "[" "]")+ "[" "]"))))
+                              (LocalVariableType
+                                (UnannType
+                                  (UnannReferenceType
+                                    (UnannArrayType
+                                      (UnannClassType TypeIdentifier)
+                                      ((Annotation* "[" "]")+ "[" "]")))))
                               ({VariableDeclarator ","}+
                                 (VariableDeclarator
                                   (VariableDeclaratorId Identifier)
@@ -424,7 +433,7 @@
                                     (Expression
                                       "new"
                                       (ArrayCreationExpression
-                                        (ClassType Identifier)
+                                        (ClassType TypeIdentifier)
                                         ((Annotation* "[" "]")+ "[" "]")
                                         (ArrayInitializer
                                           "{"
@@ -447,8 +456,9 @@
                               ";"))
                           (BlockStatement
                             (LocalVariableDeclarationStatement
-                              (UnannType
-                                (UnannPrimitiveType "int"))
+                              (LocalVariableType
+                                (UnannType
+                                  (UnannPrimitiveType "int")))
                               ({VariableDeclarator ","}+
                                 (VariableDeclarator
                                   (VariableDeclaratorId Identifier)
@@ -465,8 +475,9 @@
                               ";"))
                           (BlockStatement
                             (LocalVariableDeclarationStatement
-                              (UnannType
-                                (UnannPrimitiveType "int"))
+                              (LocalVariableType
+                                (UnannType
+                                  (UnannPrimitiveType "int")))
                               ({VariableDeclarator ","}+
                                 (VariableDeclarator
                                   (VariableDeclaratorId Identifier)
@@ -489,8 +500,9 @@
                               ";"))
                           (BlockStatement
                             (LocalVariableDeclarationStatement
-                              (UnannType
-                                (UnannPrimitiveType "int"))
+                              (LocalVariableType
+                                (UnannType
+                                  (UnannPrimitiveType "int")))
                               ({VariableDeclarator ","}+
                                 (VariableDeclarator
                                   (VariableDeclaratorId Identifier)
@@ -504,9 +516,10 @@
                               ";"))
                           (BlockStatement
                             (LocalVariableDeclarationStatement
-                              (UnannType
-                                (UnannReferenceType
-                                  (UnannClassType Identifier)))
+                              (LocalVariableType
+                                (UnannType
+                                  (UnannReferenceType
+                                    (UnannClassType TypeIdentifier))))
                               ({VariableDeclarator ","}+
                                 (VariableDeclarator
                                   (VariableDeclaratorId Identifier)
@@ -517,11 +530,12 @@
                               ";"))
                           (BlockStatement
                             (LocalVariableDeclarationStatement
-                              (UnannType
-                                (UnannReferenceType
-                                  (UnannArrayType
-                                    (UnannPrimitiveType "int")
-                                    ((Annotation* "[" "]")+ "[" "]"))))
+                              (LocalVariableType
+                                (UnannType
+                                  (UnannReferenceType
+                                    (UnannArrayType
+                                      (UnannPrimitiveType "int")
+                                      ((Annotation* "[" "]")+ "[" "]")))))
                               ({VariableDeclarator ","}+
                                 (VariableDeclarator
                                   (VariableDeclaratorId Identifier)
@@ -661,7 +675,7 @@
                           (FormalParameter
                             (UnannType
                               (UnannReferenceType
-                                (UnannClassType Identifier)))
+                                (UnannClassType TypeIdentifier)))
                             (VariableDeclaratorId Identifier))
                           ",")
                         (LastFormalParameter

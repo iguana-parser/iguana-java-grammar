@@ -5,7 +5,7 @@
         (ClassDeclaration
           (NormalClassDeclaration
             "class"
-            Identifier
+            TypeIdentifier
             (ClassBody
               "{"
               (ClassBodyDeclaration*
@@ -26,8 +26,9 @@
                                 (BlockStatement*
                                   (BlockStatement
                                     (LocalVariableDeclarationStatement
-                                      (UnannType
-                                        (UnannPrimitiveType "int"))
+                                      (LocalVariableType
+                                        (UnannType
+                                          (UnannPrimitiveType "int")))
                                       ({VariableDeclarator ","}+
                                         (VariableDeclarator
                                           (VariableDeclaratorId Identifier)
@@ -40,8 +41,9 @@
                                 "}")))
                           (BlockStatement
                             (LocalVariableDeclarationStatement
-                              (UnannType
-                                (UnannPrimitiveType "int"))
+                              (LocalVariableType
+                                (UnannType
+                                  (UnannPrimitiveType "int")))
                               ({VariableDeclarator ","}+
                                 (VariableDeclarator
                                   (VariableDeclaratorId Identifier)
@@ -55,8 +57,9 @@
                             (LocalVariableDeclarationStatement
                               (VariableModifier*
                                 (VariableModifier "final"))
-                              (UnannType
-                                (UnannPrimitiveType "int"))
+                              (LocalVariableType
+                                (UnannType
+                                  (UnannPrimitiveType "int")))
                               ({VariableDeclarator ","}+
                                 (VariableDeclarator
                                   (VariableDeclaratorId Identifier)
@@ -68,8 +71,9 @@
                               ";"))
                           (BlockStatement
                             (LocalVariableDeclarationStatement
-                              (UnannType
-                                (UnannPrimitiveType "int"))
+                              (LocalVariableType
+                                (UnannType
+                                  (UnannPrimitiveType "int")))
                               ({VariableDeclarator ","}+
                                 (VariableDeclarator
                                   (VariableDeclaratorId Identifier))
@@ -82,8 +86,9 @@
                               ";"))
                           (BlockStatement
                             (LocalVariableDeclarationStatement
-                              (UnannType
-                                (UnannPrimitiveType "int"))
+                              (LocalVariableType
+                                (UnannType
+                                  (UnannPrimitiveType "int")))
                               ({VariableDeclarator ","}+
                                 (VariableDeclarator
                                   (VariableDeclaratorId Identifier)
@@ -100,6 +105,42 @@
                                     (Expression
                                       (Primary
                                         (Literal IntegerLiteral))))))
+                              ";"))
+                          (BlockStatement
+                            (LocalVariableDeclarationStatement
+                              (LocalVariableType "var")
+                              ({VariableDeclarator ","}+
+                                (VariableDeclarator
+                                  (VariableDeclaratorId Identifier)
+                                  "="
+                                  (VariableInitializer
+                                    (Expression
+                                      (Primary
+                                        (Literal IntegerLiteral))))))
+                              ";"))
+                          (BlockStatement
+                            (LocalVariableDeclarationStatement
+                              (LocalVariableType "var")
+                              ({VariableDeclarator ","}+
+                                (VariableDeclarator
+                                  (VariableDeclaratorId Identifier)
+                                  "="
+                                  (VariableInitializer
+                                    (Expression
+                                      "new"
+                                      (ClassInstanceCreationExpression
+                                        (ClassTypeToInstantiate
+                                          Identifier
+                                          (("." Annotation* Identifier)* "." Identifier "." Identifier)
+                                          (TypeArgumentsOrDiamond
+                                            (TypeArguments
+                                              "<"
+                                              ({TypeArgument ","}+
+                                                (TypeArgument
+                                                  (ReferenceType
+                                                    (ClassType TypeIdentifier))))
+                                              ">")))
+                                        (Arguments "(" ")"))))))
                               ";"))
                           (BlockStatement
                             (Statement
@@ -350,8 +391,9 @@
                               "("
                               (ForControl
                                 (ForInit
-                                  (Type
-                                    (PrimitiveType "int"))
+                                  (LocalVariableType
+                                    (UnannType
+                                      (UnannPrimitiveType "int")))
                                   ({VariableDeclarator ","}+
                                     (VariableDeclarator
                                       (VariableDeclaratorId Identifier)
@@ -398,8 +440,9 @@
                               "("
                               (ForControl
                                 (ForInit
-                                  (Type
-                                    (PrimitiveType "int"))
+                                  (LocalVariableType
+                                    (UnannType
+                                      (UnannPrimitiveType "int")))
                                   ({VariableDeclarator ","}+
                                     (VariableDeclarator
                                       (VariableDeclaratorId Identifier)
@@ -454,10 +497,50 @@
                               "for"
                               "("
                               (ForControl
-                                (FormalParameter
+                                (ForInit
+                                  (LocalVariableType "var")
+                                  ({VariableDeclarator ","}+
+                                    (VariableDeclarator
+                                      (VariableDeclaratorId Identifier)
+                                      "="
+                                      (VariableInitializer
+                                        (Expression
+                                          (Primary
+                                            (Literal IntegerLiteral)))))))
+                                ";"
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  "<"
+                                  (Expression
+                                    (Primary
+                                      (Literal IntegerLiteral))))
+                                ";"
+                                (ForUpdate
+                                  ({Expression ","}+
+                                    (Expression
+                                      (Expression
+                                        (Primary Identifier))
+                                      "++"))))
+                              ")"
+                              (Statement
+                                (StatementExpression
+                                  (Expression
+                                    (Expression
+                                      (Primary Identifier))
+                                    AssignmentOperator
+                                    (Expression
+                                      (Primary Identifier))))
+                                ";")))
+                          (BlockStatement
+                            (Statement
+                              "for"
+                              "("
+                              (ForControl
+                                (LocalVariableType
                                   (UnannType
-                                    (UnannPrimitiveType "int"))
-                                  (VariableDeclaratorId Identifier))
+                                    (UnannPrimitiveType "int")))
+                                (VariableDeclaratorId Identifier)
                                 ":"
                                 (Expression
                                   (Primary Identifier)))
@@ -476,11 +559,31 @@
                               "for"
                               "("
                               (ForControl
-                                (FormalParameter
+                                (LocalVariableType
                                   (UnannType
                                     (UnannReferenceType
-                                      (UnannClassType Identifier)))
-                                  (VariableDeclaratorId Identifier))
+                                      (UnannClassType TypeIdentifier))))
+                                (VariableDeclaratorId Identifier)
+                                ":"
+                                (Expression
+                                  (Primary Identifier)))
+                              ")"
+                              (Statement
+                                (StatementExpression
+                                  (Expression
+                                    (Expression
+                                      (Primary Identifier))
+                                    AssignmentOperator
+                                    (Expression
+                                      (Primary Identifier))))
+                                ";")))
+                          (BlockStatement
+                            (Statement
+                              "for"
+                              "("
+                              (ForControl
+                                (LocalVariableType "var")
+                                (VariableDeclaratorId Identifier)
                                 ":"
                                 (Expression
                                   (Primary Identifier)))
@@ -580,8 +683,9 @@
                                 "("
                                 (ForControl
                                   (ForInit
-                                    (Type
-                                      (PrimitiveType "int"))
+                                    (LocalVariableType
+                                      (UnannType
+                                        (UnannPrimitiveType "int")))
                                     ({VariableDeclarator ","}+
                                       (VariableDeclarator
                                         (VariableDeclaratorId Identifier)
@@ -616,8 +720,9 @@
                                           "("
                                           (ForControl
                                             (ForInit
-                                              (Type
-                                                (PrimitiveType "int"))
+                                              (LocalVariableType
+                                                (UnannType
+                                                  (UnannPrimitiveType "int")))
                                               ({VariableDeclarator ","}+
                                                 (VariableDeclarator
                                                   (VariableDeclaratorId Identifier)
@@ -683,8 +788,9 @@
                               "("
                               (ForControl
                                 (ForInit
-                                  (Type
-                                    (PrimitiveType "int"))
+                                  (LocalVariableType
+                                    (UnannType
+                                      (UnannPrimitiveType "int")))
                                   ({VariableDeclarator ","}+
                                     (VariableDeclarator
                                       (VariableDeclaratorId Identifier)
@@ -812,7 +918,7 @@
                                   "("
                                   (CatchType
                                     ({ClassType "|"}+
-                                      (ClassType Identifier)))
+                                      (ClassType TypeIdentifier)))
                                   Identifier
                                   ")"
                                   (Block
@@ -891,7 +997,7 @@
                                   "("
                                   (CatchType
                                     ({ClassType "|"}+
-                                      (ClassType Identifier)))
+                                      (ClassType TypeIdentifier)))
                                   Identifier
                                   ")"
                                   (Block
@@ -916,7 +1022,7 @@
                                   "("
                                   (CatchType
                                     ({ClassType "|"}+
-                                      (ClassType Identifier)))
+                                      (ClassType TypeIdentifier)))
                                   Identifier
                                   ")"
                                   (Block
@@ -977,9 +1083,9 @@
                                   "("
                                   (CatchType
                                     ({ClassType "|"}+
-                                      (ClassType Identifier)
+                                      (ClassType TypeIdentifier)
                                       "|"
-                                      (ClassType Identifier)))
+                                      (ClassType TypeIdentifier)))
                                   Identifier
                                   ")"
                                   (Block
@@ -1008,8 +1114,8 @@
                                   (Resource
                                     (UnannReferenceType
                                       (UnannClassType
-                                        Identifier
-                                        (("." Annotation* Identifier TypeArguments?)* "." Identifier "." Identifier)))
+                                        TypeIdentifier
+                                        (("." Annotation* TypeIdentifier TypeArguments?)* "." TypeIdentifier "." TypeIdentifier)))
                                     (VariableDeclaratorId Identifier)
                                     "="
                                     (Expression
@@ -1041,6 +1147,36 @@
                                   (Resource
                                     (QualifiedIdentifier
                                       ({Identifier "."}+ Identifier))))
+                                ")")
+                              (Block
+                                "{"
+                                (BlockStatement*
+                                  (BlockStatement
+                                    (Statement
+                                      (StatementExpression
+                                        (Expression
+                                          (Expression
+                                            (Primary Identifier))
+                                          AssignmentOperator
+                                          (Expression
+                                            (Primary
+                                              (Literal IntegerLiteral)))))
+                                      ";")))
+                                "}")))
+                          (BlockStatement
+                            (Statement
+                              "try"
+                              (ResourceSpecification
+                                "("
+                                ({Resource ";"}+
+                                  (Resource
+                                    "var"
+                                    (VariableDeclaratorId Identifier)
+                                    "="
+                                    (Expression
+                                      (MethodInvocation
+                                        Identifier
+                                        (Arguments "(" ")")))))
                                 ")")
                               (Block
                                 "{"

@@ -11,9 +11,12 @@ class ContextualKeywords {
     int with = 9;
     int transitive = 10;
 
+    // Java 10: 'var' is contextual too — valid as an identifier outside type position
+    int var = 11;
+
     void use() {
         int sum = module + open + requires + exports + opens
-                + uses + provides + to + with + transitive;
+                + uses + provides + to + with + transitive + var;
         System.out.println(sum);
     }
 
@@ -21,4 +24,5 @@ class ContextualKeywords {
     void module() {}
     void exports() {}
     void provides() {}
+    void var() {}
 }
