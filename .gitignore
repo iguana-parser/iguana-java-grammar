@@ -1,5 +1,6 @@
 /target
 /webview
 .claude/skills/
+CLAUDE.local.md
 flamegraph.svg
 dhat-heap.json
