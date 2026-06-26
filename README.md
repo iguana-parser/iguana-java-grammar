@@ -1,6 +1,6 @@
 # iguana-java-grammar
 
-A Java grammar (Java 10) and the parser generated from it with
+A Java grammar (Java 11) and the parser generated from it with
 [Iguana](https://github.com/iguana-parser/iguana-rs).
 
 The grammar is defined in [`java.iggy`](java.iggy).

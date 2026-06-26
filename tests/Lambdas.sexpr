@@ -104,7 +104,7 @@
                             (Lambda
                               (LambdaParameters
                                 "("
-                                (InferredFormalParameterList
+                                (LambdaParameterList
                                   ({Identifier ","}+ Identifier))
                                 ")")
                               "->"
@@ -131,7 +131,7 @@
                             (Lambda
                               (LambdaParameters
                                 "("
-                                (InferredFormalParameterList
+                                (LambdaParameterList
                                   ({Identifier ","}+ Identifier "," Identifier))
                                 ")")
                               "->"
@@ -157,11 +157,12 @@
                             (Lambda
                               (LambdaParameters
                                 "("
-                                (FormalParameterList
-                                  (LastFormalParameter
-                                    (FormalParameter
-                                      (UnannType
-                                        (UnannPrimitiveType "int"))
+                                (LambdaParameterList
+                                  ({LambdaParameter ","}+
+                                    (LambdaParameter
+                                      (LambdaParameterType
+                                        (UnannType
+                                          (UnannPrimitiveType "int")))
                                       (VariableDeclaratorId Identifier))))
                                 ")")
                               "->"
@@ -183,17 +184,18 @@
                             (Lambda
                               (LambdaParameters
                                 "("
-                                (FormalParameterList
-                                  ((FormalParameter ",")*
-                                    (FormalParameter
-                                      (UnannType
-                                        (UnannPrimitiveType "int"))
+                                (LambdaParameterList
+                                  ({LambdaParameter ","}+
+                                    (LambdaParameter
+                                      (LambdaParameterType
+                                        (UnannType
+                                          (UnannPrimitiveType "int")))
                                       (VariableDeclaratorId Identifier))
-                                    ",")
-                                  (LastFormalParameter
-                                    (FormalParameter
-                                      (UnannType
-                                        (UnannPrimitiveType "int"))
+                                    ","
+                                    (LambdaParameter
+                                      (LambdaParameterType
+                                        (UnannType
+                                          (UnannPrimitiveType "int")))
                                       (VariableDeclaratorId Identifier))))
                                 ")")
                               "->"
@@ -219,13 +221,14 @@
                             (Lambda
                               (LambdaParameters
                                 "("
-                                (FormalParameterList
-                                  (LastFormalParameter
-                                    (FormalParameter
+                                (LambdaParameterList
+                                  ({LambdaParameter ","}+
+                                    (LambdaParameter
                                       (VariableModifier*
                                         (VariableModifier "final"))
-                                      (UnannType
-                                        (UnannPrimitiveType "int"))
+                                      (LambdaParameterType
+                                        (UnannType
+                                          (UnannPrimitiveType "int")))
                                       (VariableDeclaratorId Identifier))))
                                 ")")
                               "->"
@@ -247,11 +250,133 @@
                             (Lambda
                               (LambdaParameters
                                 "("
-                                (FormalParameterList
-                                  (LastFormalParameter
-                                    (FormalParameter
-                                      (UnannType
-                                        (UnannPrimitiveType "int"))
+                                (LambdaParameterList
+                                  ({LambdaParameter ","}+
+                                    (LambdaParameter
+                                      (LambdaParameterType "var")
+                                      (VariableDeclaratorId Identifier))))
+                                ")")
+                              "->"
+                              (LambdaBody
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  "+"
+                                  (Expression
+                                    (Primary
+                                      (Literal IntegerLiteral))))))))))
+                    ";"))
+                (ClassBodyDeclaration
+                  (FieldDeclaration
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannClassType TypeIdentifier)))
+                    ({VariableDeclarator ","}+
+                      (VariableDeclarator
+                        (VariableDeclaratorId Identifier)
+                        "="
+                        (VariableInitializer
+                          (Expression
+                            (Lambda
+                              (LambdaParameters
+                                "("
+                                (LambdaParameterList
+                                  ({LambdaParameter ","}+
+                                    (LambdaParameter
+                                      (LambdaParameterType "var")
+                                      (VariableDeclaratorId Identifier))
+                                    ","
+                                    (LambdaParameter
+                                      (LambdaParameterType "var")
+                                      (VariableDeclaratorId Identifier))))
+                                ")")
+                              "->"
+                              (LambdaBody
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  "+"
+                                  (Expression
+                                    (Primary Identifier)))))))))
+                    ";"))
+                (ClassBodyDeclaration
+                  (FieldDeclaration
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannClassType TypeIdentifier)))
+                    ({VariableDeclarator ","}+
+                      (VariableDeclarator
+                        (VariableDeclaratorId Identifier)
+                        "="
+                        (VariableInitializer
+                          (Expression
+                            (Lambda
+                              (LambdaParameters
+                                "("
+                                (LambdaParameterList
+                                  ({LambdaParameter ","}+
+                                    (LambdaParameter
+                                      (VariableModifier*
+                                        (VariableModifier "final"))
+                                      (LambdaParameterType "var")
+                                      (VariableDeclaratorId Identifier))))
+                                ")")
+                              "->"
+                              (LambdaBody
+                                (Expression
+                                  (Primary Identifier))))))))
+                    ";"))
+                (ClassBodyDeclaration
+                  (FieldDeclaration
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannClassType TypeIdentifier)))
+                    ({VariableDeclarator ","}+
+                      (VariableDeclarator
+                        (VariableDeclaratorId Identifier)
+                        "="
+                        (VariableInitializer
+                          (Expression
+                            (Lambda
+                              (LambdaParameters
+                                "("
+                                (LambdaParameterList
+                                  ({LambdaParameter ","}+
+                                    (LambdaParameter
+                                      (VariableModifier*
+                                        (VariableModifier
+                                          (Annotation
+                                            "@"
+                                            (QualifiedIdentifier
+                                              ({Identifier "."}+ Identifier)))))
+                                      (LambdaParameterType "var")
+                                      (VariableDeclaratorId Identifier))))
+                                ")")
+                              "->"
+                              (LambdaBody
+                                (Expression
+                                  (Primary Identifier))))))))
+                    ";"))
+                (ClassBodyDeclaration
+                  (FieldDeclaration
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannClassType TypeIdentifier)))
+                    ({VariableDeclarator ","}+
+                      (VariableDeclarator
+                        (VariableDeclaratorId Identifier)
+                        "="
+                        (VariableInitializer
+                          (Expression
+                            (Lambda
+                              (LambdaParameters
+                                "("
+                                (LambdaParameterList
+                                  ({LambdaParameter ","}+
+                                    (LambdaParameter
+                                      (LambdaParameterType
+                                        (UnannType
+                                          (UnannPrimitiveType "int")))
                                       (VariableDeclaratorId Identifier))))
                                 ")")
                               "->"
@@ -413,7 +538,7 @@
                             (Lambda
                               (LambdaParameters
                                 "("
-                                (InferredFormalParameterList
+                                (LambdaParameterList
                                   ({Identifier ","}+ Identifier "," Identifier))
                                 ")")
                               "->"
@@ -583,7 +708,7 @@
                                             (Lambda
                                               (LambdaParameters
                                                 "("
-                                                (InferredFormalParameterList
+                                                (LambdaParameterList
                                                   ({Identifier ","}+ Identifier "," Identifier))
                                                 ")")
                                               "->"

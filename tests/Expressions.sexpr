@@ -1077,7 +1077,7 @@
                                     (Lambda
                                       (LambdaParameters
                                         "("
-                                        (InferredFormalParameterList
+                                        (LambdaParameterList
                                           ({Identifier ","}+ Identifier "," Identifier))
                                         ")")
                                       "->"

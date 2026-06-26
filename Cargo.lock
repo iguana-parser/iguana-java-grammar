@@ -252,11 +252,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "dot"
-version = "0.1.4-dev"
-source = "git+https://github.com/przygienda/dot-rust.git?rev=fed06f613a9d72bfde711a12791f96a777b2371e#fed06f613a9d72bfde711a12791f96a777b2371e"
-
-[[package]]
 name = "env_filter"
 version = "1.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -414,7 +409,6 @@ name = "iguana-runtime"
 version = "0.1.0"
 dependencies = [
  "bumpalo",
- "dot",
  "env_logger",
  "log",
  "proc-macro2",
@@ -485,7 +479,6 @@ version = "0.1.0"
 dependencies = [
  "clap",
  "dhat",
- "dot",
  "iguana-runtime",
  "log",
  "pprof",

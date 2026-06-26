@@ -27,6 +27,18 @@ class Lambdas {
     // Typed with modifier
     IntUnaryOperator finalTyped = (final int x) -> x;
 
+    // Single var
+    IntUnaryOperator singleVar = (var x) -> x + 1;
+
+    // Multiple var
+    IntBinaryOperator multiVar = (var x, var y) -> x + y;
+
+    // var with modifier
+    IntUnaryOperator finalVar = (final var x) -> x;
+
+    // var with annotation
+    IntUnaryOperator annotatedVar = (@Deprecated var x) -> x;
+
     // Block body
     IntUnaryOperator block = (int x) -> { return x * x; };
 

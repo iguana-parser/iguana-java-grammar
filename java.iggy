@@ -103,8 +103,8 @@ MethodBody
   | ";"
 
 ConstructorDeclaration
-  = ConstructorModifier* TypeParameters? TypeIdentifier "(" FormalParameterList? ")"
-      Throws? ConstructorBody
+  = ConstructorModifier* TypeParameters? TypeIdentifier "(" FormalParameterList?
+      ")" Throws? ConstructorBody
 
 ConstructorBody
   = "{" ExplicitConstructorInvocation? BlockStatement* "}"
@@ -454,7 +454,8 @@ UnannReferenceType
   | UnannArrayType
 
 UnannClassType
-  = TypeIdentifier TypeArguments? ("." Annotation* TypeIdentifier TypeArguments?)*
+  = TypeIdentifier TypeArguments?
+      ("." Annotation* TypeIdentifier TypeArguments?)*
 
 UnannArrayType
   = (UnannClassType | UnannPrimitiveType) (Annotation* "[" "]")+
@@ -492,12 +493,20 @@ Lambda
   = LambdaParameters "->" LambdaBody
 
 LambdaParameters
-  = Identifier                           #LambdaSingle
-  | "(" InferredFormalParameterList? ")" #LambdaInferred
-  | "(" FormalParameterList ")"          #LambdaTyped
+  = "(" LambdaParameterList? ")"
+  | Identifier
 
-InferredFormalParameterList
-  = { Identifier "," }+
+LambdaParameterList
+  = { LambdaParameter "," }+
+  | { Identifier "," }+
+
+LambdaParameter
+  = VariableModifier* LambdaParameterType VariableDeclaratorId
+  | VariableModifier* UnannType Annotation* "..." VariableDeclaratorId
+
+LambdaParameterType
+  = UnannType
+  | "var"
 
 LambdaBody
   = Expression
