@@ -1,6 +1,5 @@
 grammar Java
 
-@Start
 CompilationUnit
   = OrdinaryCompilationUnit
   | ModularCompilationUnit
@@ -221,7 +220,6 @@ AnnotationTypeElementDeclaration
   | ConstantDeclaration
   | ClassDeclaration
   | InterfaceDeclaration
-  | AnnotationTypeDeclaration
   | ";"
 
 AnnotationMethodDeclaration
@@ -336,7 +334,7 @@ CatchClause
   = "catch" "(" VariableModifier* CatchType Identifier ")" Block
 
 CatchType
-  = { ClassType "|" }+
+  = UnannClassType ("|" ClassType)*
 
 Finally
   = "finally" Block

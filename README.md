@@ -28,7 +28,7 @@ Two regression suites guard the grammar. Run both after a change:
 
 ```sh
 # Per-feature golden files (tests/X.java vs committed tests/X.sexpr)
-iguana-grammar --dir tests --ext java -n CompilationUnit --check-sexpr
+iguana-grammar --dir tests --ext java --start CompilationUnit --check-sexpr
 
 # Real-world corpora (OpenJDK 9, Spring, Elasticsearch) vs corpus/ baselines
 iguana-grammar --corpus-test

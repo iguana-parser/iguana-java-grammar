@@ -29,6 +29,17 @@ class ThrowsAndCatch {
         }
     }
 
+    // Annotated multi-catch: because the first catch type is UnannClassType, the leading
+    // annotation can only bind as a VariableModifier, not to the type. Regression guard for
+    // the CatchType annotation-attachment ambiguity.
+    void catchAnnotated() {
+        try {
+            multi();
+        } catch (@Deprecated IOException | SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     // Qualified catch type
     void catchQualified() {
         try {

@@ -88,8 +88,7 @@
                                   "catch"
                                   "("
                                   (CatchType
-                                    ({ClassType "|"}+
-                                      (ClassType TypeIdentifier)))
+                                    (UnannClassType TypeIdentifier))
                                   Identifier
                                   ")"
                                   (Block
@@ -137,8 +136,65 @@
                                   "catch"
                                   "("
                                   (CatchType
-                                    ({ClassType "|"}+
-                                      (ClassType TypeIdentifier)
+                                    (UnannClassType TypeIdentifier)
+                                    (("|" ClassType)*
+                                      "|"
+                                      (ClassType TypeIdentifier)))
+                                  Identifier
+                                  ")"
+                                  (Block
+                                    "{"
+                                    (BlockStatement*
+                                      (BlockStatement
+                                        (Statement
+                                          (StatementExpression
+                                            (Expression
+                                              (Expression
+                                                (Primary Identifier))
+                                              "."
+                                              (Selector
+                                                (MethodInvocation
+                                                  Identifier
+                                                  (Arguments "(" ")")))))
+                                          ";")))
+                                    "}"))))))
+                        "}"))))
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result "void")
+                    (MethodDeclarator Identifier "(" ")")
+                    (MethodBody
+                      (Block
+                        "{"
+                        (BlockStatement*
+                          (BlockStatement
+                            (Statement
+                              "try"
+                              (Block
+                                "{"
+                                (BlockStatement*
+                                  (BlockStatement
+                                    (Statement
+                                      (StatementExpression
+                                        (Expression
+                                          (MethodInvocation
+                                            Identifier
+                                            (Arguments "(" ")"))))
+                                      ";")))
+                                "}")
+                              (CatchClause+
+                                (CatchClause
+                                  "catch"
+                                  "("
+                                  (VariableModifier*
+                                    (VariableModifier
+                                      (Annotation
+                                        "@"
+                                        (QualifiedIdentifier
+                                          ({Identifier "."}+ Identifier)))))
+                                  (CatchType
+                                    (UnannClassType TypeIdentifier)
+                                    (("|" ClassType)*
                                       "|"
                                       (ClassType TypeIdentifier)))
                                   Identifier
@@ -188,10 +244,9 @@
                                   "catch"
                                   "("
                                   (CatchType
-                                    ({ClassType "|"}+
-                                      (ClassType
-                                        TypeIdentifier
-                                        (("." Annotation* TypeIdentifier TypeArguments?)* "." TypeIdentifier "." TypeIdentifier))))
+                                    (UnannClassType
+                                      TypeIdentifier
+                                      (("." Annotation* TypeIdentifier TypeArguments?)* "." TypeIdentifier "." TypeIdentifier)))
                                   Identifier
                                   ")"
                                   (Block
@@ -261,8 +316,7 @@
                                   "catch"
                                   "("
                                   (CatchType
-                                    ({ClassType "|"}+
-                                      (ClassType TypeIdentifier)))
+                                    (UnannClassType TypeIdentifier))
                                   Identifier
                                   ")"
                                   (Block

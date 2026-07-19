@@ -42,6 +42,16 @@ enum Level { LOW, MID, HIGH }
 @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.RUNTIME)
 @interface Targeted {}
 
+// Type members nested inside an annotation type. The nested @interface must parse
+// unambiguously: a regression guard for the AnnotationTypeElementDeclaration redundancy that
+// let it derive through both InterfaceDeclaration and a standalone AnnotationTypeDeclaration.
+@interface Enclosing {
+    @interface NestedAnnotation {}
+    interface NestedInterface {}
+    class NestedClass {}
+    int value() default 0;
+}
+
 // Applied annotations covering shapes
 @Marker
 class Plain {}

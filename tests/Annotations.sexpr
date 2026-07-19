@@ -293,6 +293,49 @@
             TypeIdentifier
             (AnnotationTypeBody "{" "}"))))
       (TypeDeclaration
+        (InterfaceDeclaration
+          (AnnotationTypeDeclaration
+            "@"
+            "interface"
+            TypeIdentifier
+            (AnnotationTypeBody
+              "{"
+              (AnnotationTypeElementDeclaration*
+                (AnnotationTypeElementDeclaration
+                  (InterfaceDeclaration
+                    (AnnotationTypeDeclaration
+                      "@"
+                      "interface"
+                      TypeIdentifier
+                      (AnnotationTypeBody "{" "}"))))
+                (AnnotationTypeElementDeclaration
+                  (InterfaceDeclaration
+                    (NormalInterfaceDeclaration
+                      "interface"
+                      TypeIdentifier
+                      (InterfaceBody "{" "}"))))
+                (AnnotationTypeElementDeclaration
+                  (ClassDeclaration
+                    (NormalClassDeclaration
+                      "class"
+                      TypeIdentifier
+                      (ClassBody "{" "}"))))
+                (AnnotationTypeElementDeclaration
+                  (AnnotationMethodDeclaration
+                    (UnannType
+                      (UnannPrimitiveType "int"))
+                    Identifier
+                    "("
+                    ")"
+                    (DefaultValue
+                      "default"
+                      (ElementValue
+                        (Expression
+                          (Primary
+                            (Literal IntegerLiteral)))))
+                    ";")))
+              "}"))))
+      (TypeDeclaration
         (ClassDeclaration
           (NormalClassDeclaration
             (ClassModifier*

@@ -917,8 +917,7 @@
                                   "catch"
                                   "("
                                   (CatchType
-                                    ({ClassType "|"}+
-                                      (ClassType TypeIdentifier)))
+                                    (UnannClassType TypeIdentifier))
                                   Identifier
                                   ")"
                                   (Block
@@ -996,8 +995,7 @@
                                   "catch"
                                   "("
                                   (CatchType
-                                    ({ClassType "|"}+
-                                      (ClassType TypeIdentifier)))
+                                    (UnannClassType TypeIdentifier))
                                   Identifier
                                   ")"
                                   (Block
@@ -1021,8 +1019,7 @@
                                   "catch"
                                   "("
                                   (CatchType
-                                    ({ClassType "|"}+
-                                      (ClassType TypeIdentifier)))
+                                    (UnannClassType TypeIdentifier))
                                   Identifier
                                   ")"
                                   (Block
@@ -1082,8 +1079,8 @@
                                   "catch"
                                   "("
                                   (CatchType
-                                    ({ClassType "|"}+
-                                      (ClassType TypeIdentifier)
+                                    (UnannClassType TypeIdentifier)
+                                    (("|" ClassType)*
                                       "|"
                                       (ClassType TypeIdentifier)))
                                   Identifier
