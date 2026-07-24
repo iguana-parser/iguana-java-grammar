@@ -1,5 +1,5 @@
 # corpus: spring-framework
-# files=6424 ok=6424 amb=0 error=0 ioerror=0 parse_ms=6761
+# files=6424 ok=6424 amb=0 error=0 ioerror=0
 gradle/jdiff/Null.java	ok
 spring-aop/src/main/java/org/aopalliance/aop/Advice.java	ok
 spring-aop/src/main/java/org/aopalliance/aop/AspectException.java	ok

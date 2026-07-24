@@ -1,1 +1,3 @@
 Parse error at line 2, col 5: Expected one of Comment, "float", "@", "long", "<", TypeIdentifier, "short", "transient", "interface", "private", "enum", "byte", "public", ";", "native", "volatile", "class", WhiteSpace, "final", "int", "static", "void", "boolean", "char", "double", "abstract", "{", "synchronized", "strictfp", "protected", Comment, "}", WhiteSpace, EOF
+    var f = 1;
+    ^^^

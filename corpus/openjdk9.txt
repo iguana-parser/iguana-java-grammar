@@ -1,5 +1,5 @@
 # corpus: openjdk9
-# files=41496 ok=41266 amb=31 error=196 ioerror=3 parse_ms=57712
+# files=41496 ok=41266 amb=31 error=196 ioerror=3
 corba/make/src/classes/build/tools/logutil/IndentingPrintWriter.java	ok
 corba/make/src/classes/build/tools/logutil/Input.java	ok
 corba/make/src/classes/build/tools/logutil/InputCode.java	ok
@@ -38057,7 +38057,7 @@ langtools/test/tools/javac/failover/FailOver11.java	ok
 langtools/test/tools/javac/failover/FailOver12.java	ok
 langtools/test/tools/javac/failover/FailOver13.java	ok
 langtools/test/tools/javac/failover/FailOver14.java	ok
-langtools/test/tools/javac/failover/FailOver15.java	error	Parse error at line 18, col 5: Expected "instanceof"
+langtools/test/tools/javac/failover/FailOver15.java	error	Parse error at line 18, col 5: Expected one of "%", "/", "*"
 langtools/test/tools/javac/falseCycle/FalseCycle.java	ok
 langtools/test/tools/javac/falseCycle/FalseCycleBase.java	ok
 langtools/test/tools/javac/fatalErrors/NoJavaLangTest.java	ok

@@ -368,7 +368,7 @@ Expression
   | ArrayType "::" "new"                                                    #ArrayConstructorRef
   | "super" "::" TypeArguments? Identifier                                  #SuperMethodRef
   | QualifiedIdentifier "." "super" "::" TypeArguments? Identifier          #QualifiedSuperMethodRef
-  > ("+" | "-" | "++" | "--" | "!" | "~") Expression                        #Prefix
+  > ("+" !>> Plus | "-" !>> Minus | "++" | "--" | "!" | "~") Expression     #Prefix
   | "new" (ClassInstanceCreationExpression | ArrayCreationExpression)       #New
   | "(" PrimitiveType ")" Expression                                        #PrimitiveCast
   | "(" { ReferenceType "&" }+ ")" Expression!Prefix                        #RefCast

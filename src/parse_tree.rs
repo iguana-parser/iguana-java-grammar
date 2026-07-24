@@ -590,7 +590,7 @@ impl TokenKind { pub fn name (& self) -> & 'static str { match self { TokenKind 
  Opt62 (& 'a Opt62 < 'a >) , 
 // ("." Identifier TypeArguments?)*
  Star28 (& 'a Star28 < 'a >) , 
-// ("+" | "-" | "++" | "--" | "!" | "~")
+// ("+" !>> Plus | "-" !>> Minus | "++" | "--" | "!" | "~")
  Alt3 (& 'a Alt3 < 'a >) , 
 // (ClassInstanceCreationExpression | ArrayCreationExpression)
  Alt4 (& 'a Alt4 < 'a >) , 
@@ -1753,8 +1753,9 @@ fn unwrap_token (self) -> Token { match self { ParseTree :: Token (t) => t , _ =
 // Expression(p, e) = [1024 & e == 0] QualifiedIdentifier Layout "." Layout "super" Layout
 // "::" Layout TypeArguments? Layout Identifier return 10 #QualifiedSuperMethodRef
  QualifiedSuperMethodRef { qualified_identifier : & 'a QualifiedIdentifier < 'a > , layout_1 : & 'a Layout < 'a > , lit_2 : Token , layout_3 : & 'a Layout < 'a > , lit_4 : Token , layout_5 : & 'a Layout < 'a > , lit_6 : Token , layout_7 : & 'a Layout < 'a > , type_arguments : & 'a Opt61 < 'a > , layout_9 : & 'a Layout < 'a > , identifier : Token , span : Span } , 
-// Expression(p, e) = [2048 & e == 0] ("+" | "-" | "++" | "--" | "!" | "~") Layout
-// r=Expression(15, 0) return (((r >> 16 == 0) ? 15 : min(r >> 16, 15)) << 16) | 11 #Prefix
+// Expression(p, e) = [2048 & e == 0] ("+" !>> Plus | "-" !>> Minus | "++" | "--" | "!" |
+// "~") Layout r=Expression(15, 0) return (((r >> 16 == 0) ? 15 : min(r >> 16, 15)) << 16) |
+// 11 #Prefix
  Prefix { alt_3 : & 'a Alt3 < 'a > , layout : & 'a Layout < 'a > , expression : & 'a Expression < 'a > , span : Span } , 
 // Expression(p, e) = [4096 & e == 0] "new" Layout (ClassInstanceCreationExpression |
 // ArrayCreationExpression) return 12 #New
@@ -2663,11 +2664,11 @@ fn unwrap_token (self) -> Token { match self { ParseTree :: Token (t) => t , _ =
  Alt1 { span : Span } , Amb (& 'a [& 'a Opt62 < 'a >]) } 
 // ("." Identifier TypeArguments?)*
  # [derive (Debug)] pub enum Star28 < 'a > { Alt0 { opt_62 : & 'a Opt62 < 'a > , span : Span } , Amb (& 'a [& 'a Star28 < 'a >]) , } 
-// ("+" | "-" | "++" | "--" | "!" | "~")
+// ("+" !>> Plus | "-" !>> Minus | "++" | "--" | "!" | "~")
  # [derive (Debug)] pub enum Alt3 < 'a > { 
-// Alt_3 = "+"
+// Alt_3 = "+" !>> Plus
  Alt0 { lit_0 : Token , span : Span } , 
-// Alt_3 = "-"
+// Alt_3 = "-" !>> Minus
  Alt1 { lit_0 : Token , span : Span } , 
 // Alt_3 = "++"
  Alt2 { lit_0 : Token , span : Span } , 
@@ -5019,7 +5020,7 @@ impl < 'a > Alt3 < 'a > { pub fn as_parse_tree (& 'a self) -> ParseTree < 'a > {
 pub fn child (& self , index : usize) -> Option < ParseTree < 'a >> { match self { Alt3 :: Alt0 { lit_0 , .. } => match index { 0 => Some (ParseTree :: Token (* lit_0)) , _ => None , } , Alt3 :: Alt1 { lit_0 , .. } => match index { 0 => Some (ParseTree :: Token (* lit_0)) , _ => None , } , Alt3 :: Alt2 { lit_0 , .. } => match index { 0 => Some (ParseTree :: Token (* lit_0)) , _ => None , } , Alt3 :: Alt3 { lit_0 , .. } => match index { 0 => Some (ParseTree :: Token (* lit_0)) , _ => None , } , Alt3 :: Alt4 { lit_0 , .. } => match index { 0 => Some (ParseTree :: Token (* lit_0)) , _ => None , } , Alt3 :: Alt5 { lit_0 , .. } => match index { 0 => Some (ParseTree :: Token (* lit_0)) , _ => None , } , Alt3 :: Amb (alts) => alts . get (index) . copied () . map (ParseTree :: Alt3) , } }
 pub fn child_count (& self) -> usize { match self { Alt3 :: Alt0 { .. } => 1usize , Alt3 :: Alt1 { .. } => 1usize , Alt3 :: Alt2 { .. } => 1usize , Alt3 :: Alt3 { .. } => 1usize , Alt3 :: Alt4 { .. } => 1usize , Alt3 :: Alt5 { .. } => 1usize , Alt3 :: Amb (alts) => alts . len () , } }
 pub fn span (& self) -> Span { match self { Alt3 :: Alt0 { span , .. } => * span , Alt3 :: Alt1 { span , .. } => * span , Alt3 :: Alt2 { span , .. } => * span , Alt3 :: Alt3 { span , .. } => * span , Alt3 :: Alt4 { span , .. } => * span , Alt3 :: Alt5 { span , .. } => * span , Alt3 :: Amb (alts) => alts [0] . span () , } }
-pub fn display_name (& self) -> & 'static str { match self { Alt3 :: Amb (_) => "Amb" , _ => "(\"+\" | \"-\" | \"++\" | \"--\" | \"!\" | \"~\")" , } }
+pub fn display_name (& self) -> & 'static str { match self { Alt3 :: Amb (_) => "Amb" , _ => "(\"+\" !>> Plus | \"-\" !>> Minus | \"++\" | \"--\" | \"!\" | \"~\")" , } }
 pub fn origin (& self) -> Option < Origin > { match self { Alt3 :: Amb (_) => None , _ => Some (Origin :: Alt) , } } }
 impl < 'a > Alt4 < 'a > { pub fn as_parse_tree (& 'a self) -> ParseTree < 'a > { ParseTree :: Alt4 (self) }
 pub fn child (& self , index : usize) -> Option < ParseTree < 'a >> { match self { Alt4 :: Alt0 { class_instance_creation_expression , .. } => match index { 0 => Some (ParseTree :: ClassInstanceCreationExpression (class_instance_creation_expression)) , _ => None , } , Alt4 :: Alt1 { array_creation_expression , .. } => match index { 0 => Some (ParseTree :: ArrayCreationExpression (array_creation_expression)) , _ => None , } , Alt4 :: Amb (alts) => alts . get (index) . copied () . map (ParseTree :: Alt4) , } }
@@ -8050,17 +8051,17 @@ impl < 'a > ParseTreeBuilder < ParseTree < 'a >> for JavaParseTreeBuilder < 'a >
  SlotId (1634) => { let [opt_62] = children . into_array :: < 1usize > () ; ParseTree :: Star28 (self . arena . alloc (Star28 :: Alt0 { opt_62 : opt_62 . unwrap_opt_62 () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // Alt_3
  NonterminalId (258) => match nonterminal_node . return_slot { 
-// ("+" | "-" | "++" | "--" | "!" | "~") : "+".
+// ("+" !>> Plus | "-" !>> Minus | "++" | "--" | "!" | "~") : "+" !>> Plus.
  SlotId (1636) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: Alt3 (self . arena . alloc (Alt3 :: Alt0 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// ("+" | "-" | "++" | "--" | "!" | "~") : "-".
+// ("+" !>> Plus | "-" !>> Minus | "++" | "--" | "!" | "~") : "-" !>> Minus.
  SlotId (1638) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: Alt3 (self . arena . alloc (Alt3 :: Alt1 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// ("+" | "-" | "++" | "--" | "!" | "~") : "++".
+// ("+" !>> Plus | "-" !>> Minus | "++" | "--" | "!" | "~") : "++".
  SlotId (1640) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: Alt3 (self . arena . alloc (Alt3 :: Alt2 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// ("+" | "-" | "++" | "--" | "!" | "~") : "--".
+// ("+" !>> Plus | "-" !>> Minus | "++" | "--" | "!" | "~") : "--".
  SlotId (1642) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: Alt3 (self . arena . alloc (Alt3 :: Alt3 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// ("+" | "-" | "++" | "--" | "!" | "~") : "!".
+// ("+" !>> Plus | "-" !>> Minus | "++" | "--" | "!" | "~") : "!".
  SlotId (1644) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: Alt3 (self . arena . alloc (Alt3 :: Alt4 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// ("+" | "-" | "++" | "--" | "!" | "~") : "~".
+// ("+" !>> Plus | "-" !>> Minus | "++" | "--" | "!" | "~") : "~".
  SlotId (1646) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: Alt3 (self . arena . alloc (Alt3 :: Alt5 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // Alt_4
  NonterminalId (259) => match nonterminal_node . return_slot { 
@@ -8784,8 +8785,8 @@ impl < 'a > ParseTreeBuilder < ParseTree < 'a >> for JavaParseTreeBuilder < 'a >
 // Expression : [1024 & e == 0] QualifiedIdentifier Layout "." Layout "super" Layout "::"
 // Layout TypeArguments? Layout Identifier return 10.
  SlotId (2397) => { let [qualified_identifier , layout_1 , lit_2 , layout_3 , lit_4 , layout_5 , lit_6 , layout_7 , type_arguments , layout_9 , identifier] = children . into_array :: < 11usize > () ; ParseTree :: Expression (self . arena . alloc (Expression :: QualifiedSuperMethodRef { qualified_identifier : qualified_identifier . unwrap_qualified_identifier () , layout_1 : layout_1 . unwrap_layout () , lit_2 : lit_2 . unwrap_token () , layout_3 : layout_3 . unwrap_layout () , lit_4 : lit_4 . unwrap_token () , layout_5 : layout_5 . unwrap_layout () , lit_6 : lit_6 . unwrap_token () , layout_7 : layout_7 . unwrap_layout () , type_arguments : type_arguments . unwrap_opt_61 () , layout_9 : layout_9 . unwrap_layout () , identifier : identifier . unwrap_token () , span : nonterminal_node . span , })) } , 
-// Expression : [2048 & e == 0] ("+" | "-" | "++" | "--" | "!" | "~") Layout r=Expression(15,
-// 0) return (((r >> 16 == 0) ? 15 : min(r >> 16, 15)) << 16) | 11.
+// Expression : [2048 & e == 0] ("+" !>> Plus | "-" !>> Minus | "++" | "--" | "!" | "~")
+// Layout r=Expression(15, 0) return (((r >> 16 == 0) ? 15 : min(r >> 16, 15)) << 16) | 11.
  SlotId (2403) => { let [alt_3 , layout , expression] = children . into_array :: < 3usize > () ; ParseTree :: Expression (self . arena . alloc (Expression :: Prefix { alt_3 : alt_3 . unwrap_alt_3 () , layout : layout . unwrap_layout () , expression : expression . unwrap_expression () , span : nonterminal_node . span , })) } , 
 // Expression : [4096 & e == 0] "new" Layout (ClassInstanceCreationExpression |
 // ArrayCreationExpression) return 12.

@@ -1,5 +1,5 @@
 # corpus: elasticsearch
-# files=4438 ok=4437 amb=0 error=1 ioerror=0 parse_ms=7228
+# files=4438 ok=4437 amb=0 error=1 ioerror=0
 core/src/main/java/org/apache/lucene/analysis/PrefixAnalyzer.java	ok
 core/src/main/java/org/apache/lucene/analysis/miscellaneous/UniqueTokenFilter.java	ok
 core/src/main/java/org/apache/lucene/index/OneMergeHelper.java	ok
