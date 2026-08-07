@@ -1,5 +1,5 @@
 # corpus: openjdk9
-# files=41496 ok=41266 amb=31 error=196 ioerror=3
+# files=41496 ok=41297 amb=0 error=196 ioerror=3
 corba/make/src/classes/build/tools/logutil/IndentingPrintWriter.java	ok
 corba/make/src/classes/build/tools/logutil/Input.java	ok
 corba/make/src/classes/build/tools/logutil/InputCode.java	ok
@@ -10,11 +10,11 @@ corba/src/java.corba/share/classes/com/sun/corba/se/impl/activation/CommandHandl
 corba/src/java.corba/share/classes/com/sun/corba/se/impl/activation/NameServiceStartThread.java	ok
 corba/src/java.corba/share/classes/com/sun/corba/se/impl/activation/ORBD.java	ok
 corba/src/java.corba/share/classes/com/sun/corba/se/impl/activation/ProcessMonitorThread.java	ok
-corba/src/java.corba/share/classes/com/sun/corba/se/impl/activation/RepositoryImpl.java	amb
+corba/src/java.corba/share/classes/com/sun/corba/se/impl/activation/RepositoryImpl.java	ok
 corba/src/java.corba/share/classes/com/sun/corba/se/impl/activation/ServerMain.java	ok
-corba/src/java.corba/share/classes/com/sun/corba/se/impl/activation/ServerManagerImpl.java	amb
+corba/src/java.corba/share/classes/com/sun/corba/se/impl/activation/ServerManagerImpl.java	ok
 corba/src/java.corba/share/classes/com/sun/corba/se/impl/activation/ServerTableEntry.java	ok
-corba/src/java.corba/share/classes/com/sun/corba/se/impl/activation/ServerTool.java	amb
+corba/src/java.corba/share/classes/com/sun/corba/se/impl/activation/ServerTool.java	ok
 corba/src/java.corba/share/classes/com/sun/corba/se/impl/copyobject/CopierManagerImpl.java	ok
 corba/src/java.corba/share/classes/com/sun/corba/se/impl/copyobject/FallbackObjectCopierImpl.java	ok
 corba/src/java.corba/share/classes/com/sun/corba/se/impl/copyobject/JavaStreamObjectCopierImpl.java	ok
@@ -102,7 +102,7 @@ corba/src/java.corba/share/classes/com/sun/corba/se/impl/interceptors/ORBInitInf
 corba/src/java.corba/share/classes/com/sun/corba/se/impl/interceptors/PICurrent.java	ok
 corba/src/java.corba/share/classes/com/sun/corba/se/impl/interceptors/PIHandlerImpl.java	ok
 corba/src/java.corba/share/classes/com/sun/corba/se/impl/interceptors/PINoOpHandlerImpl.java	ok
-corba/src/java.corba/share/classes/com/sun/corba/se/impl/interceptors/RequestInfoImpl.java	amb
+corba/src/java.corba/share/classes/com/sun/corba/se/impl/interceptors/RequestInfoImpl.java	ok
 corba/src/java.corba/share/classes/com/sun/corba/se/impl/interceptors/ServerRequestInfoImpl.java	ok
 corba/src/java.corba/share/classes/com/sun/corba/se/impl/interceptors/SlotTable.java	ok
 corba/src/java.corba/share/classes/com/sun/corba/se/impl/interceptors/SlotTableStack.java	ok
@@ -684,7 +684,7 @@ corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/Arguments.java	ok
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/AttributeEntry.java	ok
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/AttributeGen.java	ok
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/Comment.java	ok
-corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/Compile.java	amb
+corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/Compile.java	ok
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/ConstEntry.java	ok
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/ConstGen.java	ok
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/DefaultSymtabFactory.java	ok
@@ -700,7 +700,7 @@ corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/ForwardValueGen.ja
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/GenFactory.java	ok
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/GenFileStream.java	ok
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/Generator.java	ok
-corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/IDLID.java	amb
+corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/IDLID.java	ok
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/IncludeEntry.java	ok
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/IncludeGen.java	ok
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/InterfaceEntry.java	ok
@@ -720,17 +720,17 @@ corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/Noop.java	ok
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/ParameterEntry.java	ok
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/ParameterGen.java	ok
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/ParseException.java	ok
-corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/Parser.java	amb
+corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/Parser.java	ok
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/PragmaEntry.java	ok
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/PragmaGen.java	ok
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/PragmaHandler.java	ok
-corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/Preprocessor.java	amb
+corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/Preprocessor.java	ok
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/PrimitiveEntry.java	ok
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/PrimitiveGen.java	ok
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/RepositoryID.java	ok
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/ResourceBundleUtil.java	ok
-corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/Scanner.java	amb
-corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/SequenceEntry.java	amb
+corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/Scanner.java	ok
+corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/SequenceEntry.java	ok
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/SequenceGen.java	ok
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/StringEntry.java	ok
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/StringGen.java	ok
@@ -738,14 +738,14 @@ corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/StructEntry.java	o
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/StructGen.java	ok
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/SymtabEntry.java	ok
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/SymtabFactory.java	ok
-corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/Token.java	amb
+corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/Token.java	ok
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/TokenBuffer.java	ok
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/TypedefEntry.java	ok
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/TypedefGen.java	ok
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/UnionBranch.java	ok
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/UnionEntry.java	ok
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/UnionGen.java	ok
-corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/Util.java	amb
+corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/Util.java	ok
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/ValueBoxEntry.java	ok
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/ValueBoxGen.java	ok
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/ValueEntry.java	ok
@@ -761,7 +761,7 @@ corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/constExpr/Divide.j
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/constExpr/Equal.java	ok
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/constExpr/EvaluationException.java	ok
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/constExpr/ExprFactory.java	ok
-corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/constExpr/Expression.java	amb
+corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/constExpr/Expression.java	ok
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/constExpr/GreaterEqual.java	ok
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/constExpr/GreaterThan.java	ok
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/constExpr/LessEqual.java	ok
@@ -775,7 +775,7 @@ corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/constExpr/Or.java	
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/constExpr/Plus.java	ok
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/constExpr/Positive.java	ok
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/constExpr/ShiftLeft.java	ok
-corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/constExpr/ShiftRight.java	amb
+corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/constExpr/ShiftRight.java	ok
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/constExpr/Terminal.java	ok
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/constExpr/Times.java	ok
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/constExpr/UnaryExpr.java	ok
@@ -792,7 +792,7 @@ corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/toJavaPortable/Con
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/toJavaPortable/DefaultFactory.java	ok
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/toJavaPortable/EnumGen.java	ok
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/toJavaPortable/ExceptionGen.java	ok
-corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/toJavaPortable/Factories.java	amb
+corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/toJavaPortable/Factories.java	ok
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/toJavaPortable/ForwardValueGen.java	ok
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/toJavaPortable/GenFactory.java	ok
 corba/src/java.corba/share/classes/com/sun/tools/corba/se/idl/toJavaPortable/Helper.java	ok
@@ -1083,7 +1083,7 @@ corba/src/jdk.rmic/share/classes/sun/rmi/rmic/iiop/ContextElement.java	ok
 corba/src/jdk.rmic/share/classes/sun/rmi/rmic/iiop/ContextStack.java	ok
 corba/src/jdk.rmic/share/classes/sun/rmi/rmic/iiop/DirectoryLoader.java	ok
 corba/src/jdk.rmic/share/classes/sun/rmi/rmic/iiop/Generator.java	ok
-corba/src/jdk.rmic/share/classes/sun/rmi/rmic/iiop/IDLGenerator.java	amb
+corba/src/jdk.rmic/share/classes/sun/rmi/rmic/iiop/IDLGenerator.java	ok
 corba/src/jdk.rmic/share/classes/sun/rmi/rmic/iiop/IDLNames.java	ok
 corba/src/jdk.rmic/share/classes/sun/rmi/rmic/iiop/ImplementationType.java	ok
 corba/src/jdk.rmic/share/classes/sun/rmi/rmic/iiop/InterfaceType.java	ok
@@ -9636,7 +9636,7 @@ jaxp/test/javax/xml/jaxp/unittest/xpath/XPathExpAnyTypeTest.java	ok
 jaxp/test/javax/xml/jaxp/unittest/xpath/XPathTest.java	ok
 jaxp/test/javax/xml/jaxp/unittest/xpath/XPathTestBase.java	ok
 jaxws/src/java.activation/share/classes/com/sun/activation/registries/LogSupport.java	ok
-jaxws/src/java.activation/share/classes/com/sun/activation/registries/MailcapFile.java	amb
+jaxws/src/java.activation/share/classes/com/sun/activation/registries/MailcapFile.java	ok
 jaxws/src/java.activation/share/classes/com/sun/activation/registries/MailcapParseException.java	ok
 jaxws/src/java.activation/share/classes/com/sun/activation/registries/MailcapTokenizer.java	ok
 jaxws/src/java.activation/share/classes/com/sun/activation/registries/MimeTypeEntry.java	ok
@@ -10551,7 +10551,7 @@ jaxws/src/java.xml.ws/share/classes/com/sun/xml/internal/messaging/saaj/packagin
 jaxws/src/java.xml.ws/share/classes/com/sun/xml/internal/messaging/saaj/packaging/mime/internet/MimeMultipart.java	ok
 jaxws/src/java.xml.ws/share/classes/com/sun/xml/internal/messaging/saaj/packaging/mime/internet/MimePartDataSource.java	ok
 jaxws/src/java.xml.ws/share/classes/com/sun/xml/internal/messaging/saaj/packaging/mime/internet/MimePullMultipart.java	ok
-jaxws/src/java.xml.ws/share/classes/com/sun/xml/internal/messaging/saaj/packaging/mime/internet/MimeUtility.java	amb
+jaxws/src/java.xml.ws/share/classes/com/sun/xml/internal/messaging/saaj/packaging/mime/internet/MimeUtility.java	ok
 jaxws/src/java.xml.ws/share/classes/com/sun/xml/internal/messaging/saaj/packaging/mime/internet/ParameterList.java	ok
 jaxws/src/java.xml.ws/share/classes/com/sun/xml/internal/messaging/saaj/packaging/mime/internet/ParseException.java	ok
 jaxws/src/java.xml.ws/share/classes/com/sun/xml/internal/messaging/saaj/packaging/mime/internet/SharedInputStream.java	ok
@@ -11576,7 +11576,7 @@ jaxws/src/java.xml.ws/share/classes/javax/xml/soap/DetailEntry.java	ok
 jaxws/src/java.xml.ws/share/classes/javax/xml/soap/FactoryFinder.java	ok
 jaxws/src/java.xml.ws/share/classes/javax/xml/soap/MessageFactory.java	ok
 jaxws/src/java.xml.ws/share/classes/javax/xml/soap/MimeHeader.java	ok
-jaxws/src/java.xml.ws/share/classes/javax/xml/soap/MimeHeaders.java	amb
+jaxws/src/java.xml.ws/share/classes/javax/xml/soap/MimeHeaders.java	ok
 jaxws/src/java.xml.ws/share/classes/javax/xml/soap/Name.java	ok
 jaxws/src/java.xml.ws/share/classes/javax/xml/soap/Node.java	ok
 jaxws/src/java.xml.ws/share/classes/javax/xml/soap/SAAJMetaFactory.java	ok
@@ -11695,7 +11695,7 @@ jaxws/src/jdk.xml.bind/share/classes/com/sun/codemodel/internal/JCommentPart.jav
 jaxws/src/jdk.xml.bind/share/classes/com/sun/codemodel/internal/JConditional.java	ok
 jaxws/src/jdk.xml.bind/share/classes/com/sun/codemodel/internal/JContinue.java	ok
 jaxws/src/jdk.xml.bind/share/classes/com/sun/codemodel/internal/JDeclaration.java	ok
-jaxws/src/jdk.xml.bind/share/classes/com/sun/codemodel/internal/JDefinedClass.java	amb
+jaxws/src/jdk.xml.bind/share/classes/com/sun/codemodel/internal/JDefinedClass.java	ok
 jaxws/src/jdk.xml.bind/share/classes/com/sun/codemodel/internal/JDirectClass.java	ok
 jaxws/src/jdk.xml.bind/share/classes/com/sun/codemodel/internal/JDoLoop.java	ok
 jaxws/src/jdk.xml.bind/share/classes/com/sun/codemodel/internal/JDocComment.java	ok
@@ -13163,7 +13163,7 @@ jdk/src/java.base/share/classes/com/sun/security/ntlm/NTLMException.java	ok
 jdk/src/java.base/share/classes/com/sun/security/ntlm/Server.java	ok
 jdk/src/java.base/share/classes/com/sun/security/ntlm/Version.java	ok
 jdk/src/java.base/share/classes/java/io/Bits.java	ok
-jdk/src/java.base/share/classes/java/io/BufferedInputStream.java	amb
+jdk/src/java.base/share/classes/java/io/BufferedInputStream.java	ok
 jdk/src/java.base/share/classes/java/io/BufferedOutputStream.java	ok
 jdk/src/java.base/share/classes/java/io/BufferedReader.java	ok
 jdk/src/java.base/share/classes/java/io/BufferedWriter.java	ok
@@ -13909,7 +13909,7 @@ jdk/src/java.base/share/classes/java/text/Normalizer.java	ok
 jdk/src/java.base/share/classes/java/text/NumberFormat.java	ok
 jdk/src/java.base/share/classes/java/text/ParseException.java	ok
 jdk/src/java.base/share/classes/java/text/ParsePosition.java	ok
-jdk/src/java.base/share/classes/java/text/PatternEntry.java	amb
+jdk/src/java.base/share/classes/java/text/PatternEntry.java	ok
 jdk/src/java.base/share/classes/java/text/RBCollationTables.java	ok
 jdk/src/java.base/share/classes/java/text/RBTableBuilder.java	ok
 jdk/src/java.base/share/classes/java/text/RuleBasedCollationKey.java	ok
@@ -14889,20 +14889,20 @@ jdk/src/java.base/share/classes/sun/net/idn/StringPrepDataReader.java	ok
 jdk/src/java.base/share/classes/sun/net/idn/UCharacterDirection.java	ok
 jdk/src/java.base/share/classes/sun/net/idn/UCharacterEnums.java	ok
 jdk/src/java.base/share/classes/sun/net/sdp/SdpSupport.java	ok
-jdk/src/java.base/share/classes/sun/net/smtp/SmtpClient.java	amb
+jdk/src/java.base/share/classes/sun/net/smtp/SmtpClient.java	ok
 jdk/src/java.base/share/classes/sun/net/smtp/SmtpProtocolException.java	ok
 jdk/src/java.base/share/classes/sun/net/spi/DefaultProxySelector.java	ok
 jdk/src/java.base/share/classes/sun/net/util/IPAddressUtil.java	ok
 jdk/src/java.base/share/classes/sun/net/util/URLUtil.java	ok
 jdk/src/java.base/share/classes/sun/net/www/ApplicationLaunchException.java	ok
 jdk/src/java.base/share/classes/sun/net/www/HeaderParser.java	ok
-jdk/src/java.base/share/classes/sun/net/www/MessageHeader.java	amb
+jdk/src/java.base/share/classes/sun/net/www/MessageHeader.java	ok
 jdk/src/java.base/share/classes/sun/net/www/MeteredStream.java	ok
 jdk/src/java.base/share/classes/sun/net/www/MimeEntry.java	ok
 jdk/src/java.base/share/classes/sun/net/www/MimeLauncher.java	ok
 jdk/src/java.base/share/classes/sun/net/www/MimeTable.java	ok
 jdk/src/java.base/share/classes/sun/net/www/ParseUtil.java	ok
-jdk/src/java.base/share/classes/sun/net/www/URLConnection.java	amb
+jdk/src/java.base/share/classes/sun/net/www/URLConnection.java	ok
 jdk/src/java.base/share/classes/sun/net/www/content/text/Generic.java	ok
 jdk/src/java.base/share/classes/sun/net/www/content/text/PlainTextInputStream.java	ok
 jdk/src/java.base/share/classes/sun/net/www/content/text/plain.java	ok
@@ -18071,7 +18071,7 @@ jdk/src/java.desktop/share/classes/sun/awt/image/MultiResolutionToolkitImage.jav
 jdk/src/java.desktop/share/classes/sun/awt/image/NativeLibLoader.java	ok
 jdk/src/java.desktop/share/classes/sun/awt/image/OffScreenImage.java	ok
 jdk/src/java.desktop/share/classes/sun/awt/image/OffScreenImageSource.java	ok
-jdk/src/java.desktop/share/classes/sun/awt/image/PNGImageDecoder.java	amb
+jdk/src/java.desktop/share/classes/sun/awt/image/PNGImageDecoder.java	ok
 jdk/src/java.desktop/share/classes/sun/awt/image/PixelConverter.java	ok
 jdk/src/java.desktop/share/classes/sun/awt/image/ShortBandedRaster.java	ok
 jdk/src/java.desktop/share/classes/sun/awt/image/ShortComponentRaster.java	ok
@@ -18958,7 +18958,7 @@ jdk/src/java.management/share/classes/javax/management/monitor/CounterMonitor.ja
 jdk/src/java.management/share/classes/javax/management/monitor/CounterMonitorMBean.java	ok
 jdk/src/java.management/share/classes/javax/management/monitor/GaugeMonitor.java	ok
 jdk/src/java.management/share/classes/javax/management/monitor/GaugeMonitorMBean.java	ok
-jdk/src/java.management/share/classes/javax/management/monitor/Monitor.java	amb
+jdk/src/java.management/share/classes/javax/management/monitor/Monitor.java	ok
 jdk/src/java.management/share/classes/javax/management/monitor/MonitorMBean.java	ok
 jdk/src/java.management/share/classes/javax/management/monitor/MonitorNotification.java	ok
 jdk/src/java.management/share/classes/javax/management/monitor/MonitorSettingException.java	ok
@@ -19724,7 +19724,7 @@ jdk/src/java.smartcardio/share/classes/sun/security/smartcardio/SunPCSC.java	ok
 jdk/src/java.smartcardio/share/classes/sun/security/smartcardio/TerminalImpl.java	ok
 jdk/src/java.smartcardio/unix/classes/sun/security/smartcardio/PlatformPCSC.java	ok
 jdk/src/java.smartcardio/windows/classes/sun/security/smartcardio/PlatformPCSC.java	ok
-jdk/src/java.sql.rowset/share/classes/com/sun/rowset/CachedRowSetImpl.java	amb
+jdk/src/java.sql.rowset/share/classes/com/sun/rowset/CachedRowSetImpl.java	ok
 jdk/src/java.sql.rowset/share/classes/com/sun/rowset/FilteredRowSetImpl.java	ok
 jdk/src/java.sql.rowset/share/classes/com/sun/rowset/JdbcRowSetImpl.java	ok
 jdk/src/java.sql.rowset/share/classes/com/sun/rowset/JdbcRowSetResourceBundle.java	ok
@@ -23332,8 +23332,8 @@ jdk/test/java/awt/datatransfer/Headless/HeadlessClipboard.java	ok
 jdk/test/java/awt/datatransfer/Headless/HeadlessDataFlavor.java	ok
 jdk/test/java/awt/datatransfer/Headless/HeadlessSystemFlavorMap.java	ok
 jdk/test/java/awt/datatransfer/ImageTransfer/ImageTransferTest.java	ok
-jdk/test/java/awt/datatransfer/Independence/IndependenceAWTTest.java	amb
-jdk/test/java/awt/datatransfer/Independence/IndependenceSwingTest.java	amb
+jdk/test/java/awt/datatransfer/Independence/IndependenceAWTTest.java	ok
+jdk/test/java/awt/datatransfer/Independence/IndependenceSwingTest.java	ok
 jdk/test/java/awt/datatransfer/MissedHtmlAndRtfBug/AbsoluteComponentCenterCalculator.java	ok
 jdk/test/java/awt/datatransfer/MissedHtmlAndRtfBug/DataFlavorSearcher.java	ok
 jdk/test/java/awt/datatransfer/MissedHtmlAndRtfBug/InterprocessMessages.java	ok
@@ -27673,7 +27673,7 @@ jdk/test/java/util/EnumSet/OneUniverse.java	ok
 jdk/test/java/util/EnumSet/Range.java	ok
 jdk/test/java/util/EnumSet/RetainAll.java	ok
 jdk/test/java/util/EnumSet/SmallEnumIteratorRemoveResilience.java	ok
-jdk/test/java/util/Formattable/StockName.java	amb
+jdk/test/java/util/Formattable/StockName.java	ok
 jdk/test/java/util/Formatter/Basic.java	ok
 jdk/test/java/util/Formatter/BasicBigDecimal.java	ok
 jdk/test/java/util/Formatter/BasicBigInteger.java	ok
@@ -35791,7 +35791,7 @@ langtools/test/tools/javac/ArrayCast.java	ok
 langtools/test/tools/javac/BadAnnotation.java	error	Parse error at line 11, col 22: Expected ")"
 langtools/test/tools/javac/BadBreak.java	ok
 langtools/test/tools/javac/BadCovar.java	ok
-langtools/test/tools/javac/BadHexConstant.java	error	Parse error at line 12, col 15: Expected one of "[", Comment, ":", "::", "!=", "<", "?", ">=", ".", "<=", "&&", "|", ";", "-", ",", "}", "++", "]", "*", AssignmentOperator, WhiteSpace, EOF, "%", "==", ")", "^", "--", ">>>", "&", ">>", "+", "||", "instanceof", "<<", "/", ">"
+langtools/test/tools/javac/BadHexConstant.java	error	Parse error at line 12, col 15: Expected one of "[", Comment, ":", "::", "!=", "<", "?", ">", ".", "<=", "&&", "|", ";", "-", ",", "}", "++", "]", "*", AssignmentOperator, WhiteSpace, EOF, "%", "==", ")", "^", "--", ">>>", "&", ">>", "+", "||", "instanceof", "<<", "/", ">="
 langtools/test/tools/javac/BadOptimization/DeadCode1.java	ok
 langtools/test/tools/javac/BadOptimization/DeadCode2.java	ok
 langtools/test/tools/javac/BadOptimization/DeadCode3.java	ok
@@ -35942,12 +35942,12 @@ langtools/test/tools/javac/Diagnostics/compressed/T8012003a.java	ok
 langtools/test/tools/javac/Diagnostics/compressed/T8012003b.java	ok
 langtools/test/tools/javac/Diagnostics/compressed/T8012003c.java	ok
 langtools/test/tools/javac/Diagnostics/compressed/T8020286.java	ok
-langtools/test/tools/javac/Digits.java	error	Parse error at line 11, col 43: Expected one of "[", Comment, ":", "::", "!=", "<", "?", ">=", ".", "<=", "&&", "|", ";", "-", ",", "}", "++", "]", "*", AssignmentOperator, WhiteSpace, EOF, "%", "==", ")", "^", "--", ">>>", "&", ">>", "+", "||", "instanceof", "<<", "/", ">"
+langtools/test/tools/javac/Digits.java	error	Parse error at line 11, col 43: Expected one of "[", Comment, ":", "::", "!=", "<", "?", ">", ".", "<=", "&&", "|", ";", "-", ",", "}", "++", "]", "*", AssignmentOperator, WhiteSpace, EOF, "%", "==", ")", "^", "--", ">>>", "&", ">>", "+", "||", "instanceof", "<<", "/", ">="
 langtools/test/tools/javac/DivByZero.java	ok
 langtools/test/tools/javac/DuplicateClass.java	ok
 langtools/test/tools/javac/DuplicateClass2.java	ok
 langtools/test/tools/javac/DuplicateImport.java	ok
-langtools/test/tools/javac/EOI.java	error	Parse error at line 10, col 13: Expected one of "<", "extends", Comment, TypeIdentifier, "{", WhiteSpace, EOF, "implements"
+langtools/test/tools/javac/EOI.java	error	Parse error at line 10, col 13: Expected one of "<", "extends", Comment, "{", TypeIdentifier, "implements", WhiteSpace, EOF
 langtools/test/tools/javac/EarlyAssert.java	ok
 langtools/test/tools/javac/EarlyAssertWrapper.java	ok
 langtools/test/tools/javac/EmptyArray.java	ok
@@ -37409,14 +37409,14 @@ langtools/test/tools/javac/diags/examples/IllegalEscapeChar.java	error	Parse err
 langtools/test/tools/javac/diags/examples/IllegalForwardRef.java	ok
 langtools/test/tools/javac/diags/examples/IllegalInitializer.java	ok
 langtools/test/tools/javac/diags/examples/IllegalLineEndInCharLit.java	error	Parse error at line 27, col 14: Expected one of Comment, "float", "@", "long", TypeIdentifier, "short", Identifier, "!", FloatingPointLiteral, "byte", NullLiteral, "-", "this", "++", CharacterLiteral, WhiteSpace, "super", "(", BooleanLiteral, "int", "void", "boolean", IntegerLiteral, "char", "--", "double", "{", "new", "+", "~", StringLiteral
-langtools/test/tools/javac/diags/examples/IllegalNonAsciiDigit.java	error	Parse error at line 27, col 14: Expected one of "[", Comment, ":", "::", "!=", "<", "?", ">=", ".", "<=", "&&", "|", ";", "-", ",", "}", "++", "]", "*", AssignmentOperator, WhiteSpace, EOF, "%", "==", ")", "^", "--", ">>>", "&", ">>", "+", "||", "instanceof", "<<", "/", ">"
+langtools/test/tools/javac/diags/examples/IllegalNonAsciiDigit.java	error	Parse error at line 27, col 14: Expected one of "[", Comment, ":", "::", "!=", "<", "?", ">", ".", "<=", "&&", "|", ";", "-", ",", "}", "++", "]", "*", AssignmentOperator, WhiteSpace, EOF, "%", "==", ")", "^", "--", ">>>", "&", ">>", "+", "||", "instanceof", "<<", "/", ">="
 langtools/test/tools/javac/diags/examples/IllegalQualNotIcls.java	ok
 langtools/test/tools/javac/diags/examples/IllegalSelfRef.java	ok
 langtools/test/tools/javac/diags/examples/IllegalStartOfExpr.java	error	Parse error at line 27, col 13: Expected one of Comment, "float", "@", "long", TypeIdentifier, "short", Identifier, "!", FloatingPointLiteral, "byte", NullLiteral, "-", "this", "++", CharacterLiteral, WhiteSpace, "super", "(", BooleanLiteral, "int", "void", "boolean", IntegerLiteral, "char", "--", "double", "{", "new", "+", "~", StringLiteral
 langtools/test/tools/javac/diags/examples/IllegalStartOfStmt.java	error	Parse error at line 29, col 19: Expected one of "do", Comment, "float", "@", "long", "switch", TypeIdentifier, "assert", "short", Identifier, "!", FloatingPointLiteral, "continue", "return", "try", "byte", NullLiteral, ";", "-", "this", "++", "throw", CharacterLiteral, WhiteSpace, "super", "(", BooleanLiteral, "int", "void", "boolean", "break", IntegerLiteral, "for", "char", "if", "--", "double", "{", "new", "+", "synchronized", "while", "~", StringLiteral
-langtools/test/tools/javac/diags/examples/IllegalStartOfType.java	error	Parse error at line 27, col 28: Expected one of Comment, "float", "@", "long", WhiteSpace, EOF, TypeIdentifier, "short", "final", "int", "boolean", "byte", "char", "double"
+langtools/test/tools/javac/diags/examples/IllegalStartOfType.java	error	Parse error at line 27, col 28: Expected one of Comment, "float", "@", "long", "byte", WhiteSpace, EOF, TypeIdentifier, "short", "final", "int", "char", "double", "boolean"
 langtools/test/tools/javac/diags/examples/IllegalStaticIntfMethCall.java	ok
-langtools/test/tools/javac/diags/examples/IllegalUnderscore.java	error	Parse error at line 27, col 14: Expected one of "[", Comment, ":", "::", "!=", "<", "?", ">=", ".", "<=", "&&", "|", ";", "-", ",", "}", "++", "]", "*", AssignmentOperator, WhiteSpace, EOF, "%", "==", ")", "^", "--", ">>>", "&", ">>", "+", "||", "instanceof", "<<", "/", ">"
+langtools/test/tools/javac/diags/examples/IllegalUnderscore.java	error	Parse error at line 27, col 14: Expected one of "[", Comment, ":", "::", "!=", "<", "?", ">", ".", "<=", "&&", "|", ";", "-", ",", "}", "++", "]", "*", AssignmentOperator, WhiteSpace, EOF, "%", "==", ")", "^", "--", ">>>", "&", ">>", "+", "||", "instanceof", "<<", "/", ">="
 langtools/test/tools/javac/diags/examples/IllegalUnicodeEscape.java	error	Parse error at line 27, col 13: Expected one of Comment, "float", "@", "long", TypeIdentifier, "short", Identifier, "!", FloatingPointLiteral, "byte", NullLiteral, "-", "this", "++", CharacterLiteral, WhiteSpace, "super", "(", BooleanLiteral, "int", "void", "boolean", IntegerLiteral, "char", "--", "double", "{", "new", "+", "~", StringLiteral
 langtools/test/tools/javac/diags/examples/ImportRequiresCanonical/ImportRequiresCanonical.java	ok
 langtools/test/tools/javac/diags/examples/ImportRequiresCanonical/p/Base.java	ok
@@ -37465,12 +37465,12 @@ langtools/test/tools/javac/diags/examples/IntfAnnotationsCantHaveParams.java	err
 langtools/test/tools/javac/diags/examples/IntfAnnotationsCantHaveTypeParams.java	error	Parse error at line 27, col 5: Expected one of Comment, "float", "@", "long", TypeIdentifier, WhiteSpace, "short", "final", "int", "interface", "boolean", "private", "enum", "static", "byte", "public", "default", "char", "double", ";", "abstract", "strictfp", "class", "protected", Comment, "}", WhiteSpace, EOF
 langtools/test/tools/javac/diags/examples/IntfMethodCantHaveBody.java	ok
 langtools/test/tools/javac/diags/examples/InvalidAnnoMemberType.java	ok
-langtools/test/tools/javac/diags/examples/InvalidBinaryNumber.java	error	Parse error at line 27, col 14: Expected one of "[", Comment, ":", "::", "!=", "<", "?", ">=", ".", "<=", "&&", "|", ";", "-", ",", "}", "++", "]", "*", AssignmentOperator, WhiteSpace, EOF, "%", "==", ")", "^", "--", ">>>", "&", ">>", "+", "||", "instanceof", "<<", "/", ">"
+langtools/test/tools/javac/diags/examples/InvalidBinaryNumber.java	error	Parse error at line 27, col 14: Expected one of "[", Comment, ":", "::", "!=", "<", "?", ">", ".", "<=", "&&", "|", ";", "-", ",", "}", "++", "]", "*", AssignmentOperator, WhiteSpace, EOF, "%", "==", ")", "^", "--", ">>>", "&", ">>", "+", "||", "instanceof", "<<", "/", ">="
 langtools/test/tools/javac/diags/examples/InvalidDefaultInterface/InvalidDefaultInterface.java	ok
 langtools/test/tools/javac/diags/examples/InvalidDefaultInterface/processors/CreateBadClassFile.java	ok
 langtools/test/tools/javac/diags/examples/InvalidDuplicateAnnotation.java	ok
 langtools/test/tools/javac/diags/examples/InvalidGenericLambdaTarget.java	ok
-langtools/test/tools/javac/diags/examples/InvalidHexNumber.java	error	Parse error at line 28, col 14: Expected one of "[", Comment, ":", "::", "!=", "<", "?", ">=", ".", "<=", "&&", "|", ";", "-", ",", "}", "++", "]", "*", AssignmentOperator, WhiteSpace, EOF, "%", "==", ")", "^", "--", ">>>", "&", ">>", "+", "||", "instanceof", "<<", "/", ">"
+langtools/test/tools/javac/diags/examples/InvalidHexNumber.java	error	Parse error at line 28, col 14: Expected one of "[", Comment, ":", "::", "!=", "<", "?", ">", ".", "<=", "&&", "|", ";", "-", ",", "}", "++", "]", "*", AssignmentOperator, WhiteSpace, EOF, "%", "==", ")", "^", "--", ">>>", "&", ">>", "+", "||", "instanceof", "<<", "/", ">="
 langtools/test/tools/javac/diags/examples/InvalidInstanceof.java	ok
 langtools/test/tools/javac/diags/examples/InvalidMethodDecl.java	ok
 langtools/test/tools/javac/diags/examples/InvalidModuleDirective/module-info.java	error	Parse error at line 28, col 3: Expected "}"
@@ -37509,7 +37509,7 @@ langtools/test/tools/javac/diags/examples/LocalVarNeedsFinal.java	ok
 langtools/test/tools/javac/diags/examples/Location.java	ok
 langtools/test/tools/javac/diags/examples/Location1.java	ok
 langtools/test/tools/javac/diags/examples/LongSVUID.java	ok
-langtools/test/tools/javac/diags/examples/MalformedFpLit.java	error	Parse error at line 28, col 16: Expected one of "[", Comment, ":", "::", "!=", "<", "?", ">=", ".", "<=", "&&", "|", ";", "-", ",", "}", "++", "]", "*", AssignmentOperator, WhiteSpace, EOF, "%", "==", ")", "^", "--", ">>>", "&", ">>", "+", "||", "instanceof", "<<", "/", ">"
+langtools/test/tools/javac/diags/examples/MalformedFpLit.java	error	Parse error at line 28, col 16: Expected one of "[", Comment, ":", "::", "!=", "<", "?", ">", ".", "<=", "&&", "|", ";", "-", ",", "}", "++", "]", "*", AssignmentOperator, WhiteSpace, EOF, "%", "==", ")", "^", "--", ">>>", "&", ">>", "+", "||", "instanceof", "<<", "/", ">="
 langtools/test/tools/javac/diags/examples/MalformedHTML.java	ok
 langtools/test/tools/javac/diags/examples/MalformedSupported/MalformedSupported.java	ok
 langtools/test/tools/javac/diags/examples/MalformedSupported/processors/AnnoProc.java	ok
@@ -39362,10 +39362,10 @@ langtools/test/tools/javac/lint/Deprecation.java	ok
 langtools/test/tools/javac/lint/FallThrough.java	ok
 langtools/test/tools/javac/lint/NoWarn.java	ok
 langtools/test/tools/javac/lint/Unchecked.java	ok
-langtools/test/tools/javac/literals/BadBinaryLiterals.java	error	Parse error at line 11, col 24: Expected one of "[", Comment, ":", "::", "!=", "<", "?", ">=", ".", "<=", "&&", "|", ";", "-", ",", "}", "++", "]", "*", AssignmentOperator, WhiteSpace, EOF, "%", "==", ")", "^", "--", ">>>", "&", ">>", "+", "||", "instanceof", "<<", "/", ">"
-langtools/test/tools/javac/literals/BadUnderscoreLiterals.java	error	Parse error at line 15, col 15: Expected one of "[", Comment, ":", "::", "!=", "<", "?", ">=", ".", "<=", "&&", "|", ";", "-", ",", "}", "++", "]", "*", AssignmentOperator, WhiteSpace, EOF, "%", "==", ")", "^", "--", ">>>", "&", ">>", "+", "||", "instanceof", "<<", "/", ">"
+langtools/test/tools/javac/literals/BadBinaryLiterals.java	error	Parse error at line 11, col 24: Expected one of "[", Comment, ":", "::", "!=", "<", "?", ">", ".", "<=", "&&", "|", ";", "-", ",", "}", "++", "]", "*", AssignmentOperator, WhiteSpace, EOF, "%", "==", ")", "^", "--", ">>>", "&", ">>", "+", "||", "instanceof", "<<", "/", ">="
+langtools/test/tools/javac/literals/BadUnderscoreLiterals.java	error	Parse error at line 15, col 15: Expected one of "[", Comment, ":", "::", "!=", "<", "?", ">", ".", "<=", "&&", "|", ";", "-", ",", "}", "++", "]", "*", AssignmentOperator, WhiteSpace, EOF, "%", "==", ")", "^", "--", ">>>", "&", ">>", "+", "||", "instanceof", "<<", "/", ">="
 langtools/test/tools/javac/literals/BinaryLiterals.java	ok
-langtools/test/tools/javac/literals/T6891079.java	error	Parse error at line 8, col 15: Expected one of "[", Comment, ":", "::", "!=", "<", "?", ">=", ".", "<=", "&&", "|", ";", "-", ",", "}", "++", "]", "*", AssignmentOperator, WhiteSpace, EOF, "%", "==", ")", "^", "--", ">>>", "&", ">>", "+", "||", "instanceof", "<<", "/", ">"
+langtools/test/tools/javac/literals/T6891079.java	error	Parse error at line 8, col 15: Expected one of "[", Comment, ":", "::", "!=", "<", "?", ">", ".", "<=", "&&", "|", ";", "-", ",", "}", "++", "]", "*", AssignmentOperator, WhiteSpace, EOF, "%", "==", ")", "^", "--", ">>>", "&", ">>", "+", "||", "instanceof", "<<", "/", ">="
 langtools/test/tools/javac/literals/UnderscoreLiterals.java	ok
 langtools/test/tools/javac/main/AtFileTest.java	ok
 langtools/test/tools/javac/main/EnvVariableTest.java	ok

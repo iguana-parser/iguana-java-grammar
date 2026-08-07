@@ -205,7 +205,7 @@
                                       (Primary
                                         (Literal IntegerLiteral)))))
                                 ";")
-                              "else"
+                              Else
                               (Statement
                                 (StatementExpression
                                   (Expression
@@ -246,7 +246,7 @@
                                                 (Literal IntegerLiteral)))))
                                         ";")))
                                   "}"))
-                              "else"
+                              Else
                               (Statement
                                 "if"
                                 "("
@@ -276,7 +276,7 @@
                                                     (Literal IntegerLiteral))))))
                                           ";")))
                                     "}"))
-                                "else"
+                                Else
                                 (Statement
                                   (Block
                                     "{"

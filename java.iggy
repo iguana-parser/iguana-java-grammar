@@ -311,8 +311,8 @@ Statement
   | "try" Block CatchClause* Finally                                            #TryFinally
   | "try" ResourceSpecification Block CatchClause* Finally?                     #TryWithResourcesStmt
   | Identifier ":" Statement                                                    #Label
-  | "if" "(" Expression ")" Statement !>> Else                                  #If
-  | "if" "(" Expression ")" Statement "else" Statement                          #IfElse
+  | "if" "(" Expression ")" Statement !>>> Else                                 #If
+  | "if" "(" Expression ")" Statement Else Statement                            #IfElse
   | "while" "(" Expression ")" Statement                                        #While
   | "for" "(" ForControl ")" Statement                                          #For
 
@@ -661,7 +661,7 @@ JavaLetter = [A-Za-z$_]
 JavaLetterOrDigit = [A-Za-z$_0-9]
 
 @Regex
-Else = "else"
+Else = "else" !>> JavaLetterOrDigit
 
 @Regex
 OpenBracket = "["

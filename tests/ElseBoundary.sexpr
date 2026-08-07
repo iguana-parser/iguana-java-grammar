@@ -1,0 +1,117 @@
+(CompilationUnit
+  (OrdinaryCompilationUnit
+    (TypeDeclaration*
+      (TypeDeclaration
+        (ClassDeclaration
+          (NormalClassDeclaration
+            "class"
+            TypeIdentifier
+            (ClassBody
+              "{"
+              (ClassBodyDeclaration*
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result "void")
+                    (MethodDeclarator Identifier "(" ")")
+                    (MethodBody
+                      (Block
+                        "{"
+                        (BlockStatement*
+                          (BlockStatement
+                            (Statement
+                              "if"
+                              "("
+                              (Expression
+                                (Primary Identifier))
+                              ")"
+                              (Statement
+                                (Block "{" "}"))))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (MethodInvocation
+                                    Identifier
+                                    (Arguments "(" ")"))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              "if"
+                              "("
+                              (Expression
+                                (Primary Identifier))
+                              ")"
+                              (Statement
+                                (Block "{" "}"))))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (MethodInvocation
+                                    Identifier
+                                    (Arguments "(" ")"))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              "if"
+                              "("
+                              (Expression
+                                (Primary Identifier))
+                              ")"
+                              (Statement
+                                (Block "{" "}"))))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (MethodInvocation
+                                    Identifier
+                                    (Arguments
+                                      "("
+                                      ({Expression ","}*
+                                        (Expression
+                                          (Primary Identifier)))
+                                      ")"))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              "if"
+                              "("
+                              (Expression
+                                (Primary Identifier))
+                              ")"
+                              (Statement
+                                (Block "{" "}"))
+                              Else
+                              (Statement
+                                (Block "{" "}"))))
+                          (BlockStatement
+                            (Statement
+                              "if"
+                              "("
+                              (Expression
+                                (Primary Identifier))
+                              ")"
+                              (Statement
+                                "if"
+                                "("
+                                (Expression
+                                  (Primary Identifier))
+                                ")"
+                                (Statement
+                                  (StatementExpression
+                                    (Expression
+                                      (MethodInvocation
+                                        Identifier
+                                        (Arguments "(" ")"))))
+                                  ";")
+                                Else
+                                (Statement
+                                  (StatementExpression
+                                    (Expression
+                                      (MethodInvocation
+                                        Identifier
+                                        (Arguments "(" ")"))))
+                                  ";")))))
+                        "}")))))
+              "}")))))))
