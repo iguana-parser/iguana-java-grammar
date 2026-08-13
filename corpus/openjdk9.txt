@@ -37383,7 +37383,7 @@ langtools/test/tools/javac/diags/examples/FileShouldBeOnSourcePathOrPatchPath/Fi
 langtools/test/tools/javac/diags/examples/FileShouldBeOnSourcePathOrPatchPath/sourcepath/module-info.java	ok
 langtools/test/tools/javac/diags/examples/FinalParamCantBeAssigned.java	ok
 langtools/test/tools/javac/diags/examples/FinallyCannotComplete.java	ok
-langtools/test/tools/javac/diags/examples/FinallyWithoutTry.java	error	Parse error at line 28, col 14: Expected one of "class", Comment, "public", "@", "enum", WhiteSpace, "abstract", EOF, "final", "private", "static", "strictfp", "protected"
+langtools/test/tools/javac/diags/examples/FinallyWithoutTry.java	error	Parse error at line 28, col 14: Forbidden follow: [$ 0-9 A-Z _ a-z]
 langtools/test/tools/javac/diags/examples/FloatNumberTooLarge.java	ok
 langtools/test/tools/javac/diags/examples/FloatNumberTooSmall.java	ok
 langtools/test/tools/javac/diags/examples/ForeachBadInitialization.java	error	Parse error at line 29, col 16: Expected one of "[", Comment, "@", "|", WhiteSpace, EOF, Identifier, "this", "..."
@@ -37457,7 +37457,7 @@ langtools/test/tools/javac/diags/examples/InitializerNotAllowed.java	error	Parse
 langtools/test/tools/javac/diags/examples/InnerClassCantHaveStatic.java	ok
 langtools/test/tools/javac/diags/examples/IntNumberTooLarge.java	ok
 langtools/test/tools/javac/diags/examples/InterfaceExpected.java	ok
-langtools/test/tools/javac/diags/examples/InterfaceNotAllowed.java	error	Parse error at line 28, col 12: Expected one of "[", Comment, ":", "::", "@", "<", "!=", "?", ">", ".", "<=", "&&", "|", ";", "-", ",", "}", "++", "]", "*", AssignmentOperator, WhiteSpace, EOF, "%", "==", ")", "^", "--", ">>>", "&", ">>", "+", "||", "instanceof", "<<", "/", ">="
+langtools/test/tools/javac/diags/examples/InterfaceNotAllowed.java	error	Parse error at line 28, col 12: Forbidden follow: [$ 0-9 A-Z _ a-z]
 langtools/test/tools/javac/diags/examples/IntersectionTypesInCastNotSupported.java	ok
 langtools/test/tools/javac/diags/examples/IntfAnnotationCantHaveTypeParams.java	error	Parse error at line 26, col 13: Expected "{"
 langtools/test/tools/javac/diags/examples/IntfAnnotationMemberClash.java	ok

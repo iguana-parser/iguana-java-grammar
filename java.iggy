@@ -641,9 +641,9 @@ AssignmentOperator
   | ">>="
   | ">>>="
 
-@Regex
+@Identifier @Regex
 Identifier
-  = JavaLetter !<< IdentifierChars \ Keyword \ BooleanLiteral \ NullLiteral
+  = IdentifierChars \ Keyword \ BooleanLiteral \ NullLiteral
 
 @Regex
 TypeKeyword = "var"

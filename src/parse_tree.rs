@@ -294,8 +294,10 @@ use std :: vec :: IntoIter ; use iguana_runtime :: { arena :: Arena , ids :: { N
 // "boolean"
  T143 , 
 // "->"
- T144 }
-impl TokenKind { pub fn name (& self) -> & 'static str { match self { TokenKind :: T0 => "HexDigit" , TokenKind :: T1 => "IntegerLiteral" , TokenKind :: T2 => "FloatingPointLiteral" , TokenKind :: T3 => "BooleanLiteral" , TokenKind :: T4 => "CharacterLiteral" , TokenKind :: T5 => "DecimalIntegerLiteral" , TokenKind :: T6 => "StringLiteral" , TokenKind :: T7 => "NullLiteral" , TokenKind :: T8 => "Dot" , TokenKind :: T9 => "HexIntegerLiteral" , TokenKind :: T10 => "OctalIntegerLiteral" , TokenKind :: T11 => "BinaryIntegerLiteral" , TokenKind :: T12 => "HexadecimalFloatingPointLiteral" , TokenKind :: T13 => "HexDigits" , TokenKind :: T14 => "HexDigitOrUnderscore" , TokenKind :: T15 => "DecimalFloatingPointLiteral" , TokenKind :: T16 => "ExponentPart" , TokenKind :: T17 => "ExponentIndicator" , TokenKind :: T18 => "SignedInteger" , TokenKind :: T19 => "Sign" , TokenKind :: T20 => "Digits" , TokenKind :: T21 => "FloatTypeSuffix" , TokenKind :: T22 => "OctalNumeral" , TokenKind :: T23 => "OctalDigits" , TokenKind :: T24 => "OctalDigit" , TokenKind :: T25 => "OctalDigitOrUnderscore" , TokenKind :: T26 => "SingleCharacter" , TokenKind :: T27 => "StringCharacter" , TokenKind :: T28 => "EscapeSequence" , TokenKind :: T29 => "UnicodeEscape" , TokenKind :: T30 => "ZeroToThree" , TokenKind :: T31 => "AssignmentOperator" , TokenKind :: T32 => "Identifier" , TokenKind :: T33 => "TypeKeyword" , TokenKind :: T34 => "TypeIdentifier" , TokenKind :: T35 => "IdentifierChars" , TokenKind :: T36 => "JavaLetter" , TokenKind :: T37 => "JavaLetterOrDigit" , TokenKind :: T38 => "Else" , TokenKind :: T39 => "OpenBracket" , TokenKind :: T40 => "Plus" , TokenKind :: T41 => "Minus" , TokenKind :: T42 => "Keyword" , TokenKind :: T43 => "WhiteSpace" , TokenKind :: T44 => "Comment" , TokenKind :: T45 => "CommentChar" , TokenKind :: T46 => "TraditionalComment" , TokenKind :: T47 => "EndOfLineComment" , TokenKind :: T48 => "\"open\"" , TokenKind :: T49 => "\"module\"" , TokenKind :: T50 => "\"{\"" , TokenKind :: T51 => "\"}\"" , TokenKind :: T52 => "\"requires\"" , TokenKind :: T53 => "\";\"" , TokenKind :: T54 => "\"exports\"" , TokenKind :: T55 => "\"to\"" , TokenKind :: T56 => "\",\"" , TokenKind :: T57 => "\"opens\"" , TokenKind :: T58 => "\"uses\"" , TokenKind :: T59 => "\"provides\"" , TokenKind :: T60 => "\"with\"" , TokenKind :: T61 => "\"transitive\"" , TokenKind :: T62 => "\"static\"" , TokenKind :: T63 => "\"package\"" , TokenKind :: T64 => "\"import\"" , TokenKind :: T65 => "\".\"" , TokenKind :: T66 => "\"*\"" , TokenKind :: T67 => "\"class\"" , TokenKind :: T68 => "\"extends\"" , TokenKind :: T69 => "\"implements\"" , TokenKind :: T70 => "\"enum\"" , TokenKind :: T71 => "\"interface\"" , TokenKind :: T72 => "\"@\"" , TokenKind :: T73 => "\"(\"" , TokenKind :: T74 => "\")\"" , TokenKind :: T75 => "\"[\"" , TokenKind :: T76 => "\"]\"" , TokenKind :: T77 => "\"...\"" , TokenKind :: T78 => "\"this\"" , TokenKind :: T79 => "\"void\"" , TokenKind :: T80 => "\"throws\"" , TokenKind :: T81 => "\"super\"" , TokenKind :: T82 => "\"<\"" , TokenKind :: T83 => "\">\"" , TokenKind :: T84 => "\"&\"" , TokenKind :: T85 => "\"var\"" , TokenKind :: T86 => "\"=\"" , TokenKind :: T87 => "\"default\"" , TokenKind :: T88 => "\"public\"" , TokenKind :: T89 => "\"protected\"" , TokenKind :: T90 => "\"private\"" , TokenKind :: T91 => "\"abstract\"" , TokenKind :: T92 => "\"final\"" , TokenKind :: T93 => "\"strictfp\"" , TokenKind :: T94 => "\"transient\"" , TokenKind :: T95 => "\"volatile\"" , TokenKind :: T96 => "\"synchronized\"" , TokenKind :: T97 => "\"native\"" , TokenKind :: T98 => "\"assert\"" , TokenKind :: T99 => "\":\"" , TokenKind :: T100 => "\"switch\"" , TokenKind :: T101 => "\"do\"" , TokenKind :: T102 => "\"while\"" , TokenKind :: T103 => "\"break\"" , TokenKind :: T104 => "\"continue\"" , TokenKind :: T105 => "\"return\"" , TokenKind :: T106 => "\"throw\"" , TokenKind :: T107 => "\"try\"" , TokenKind :: T108 => "\"if\"" , TokenKind :: T109 => "\"for\"" , TokenKind :: T110 => "\"case\"" , TokenKind :: T111 => "\"catch\"" , TokenKind :: T112 => "\"|\"" , TokenKind :: T113 => "\"finally\"" , TokenKind :: T114 => "\"++\"" , TokenKind :: T115 => "\"--\"" , TokenKind :: T116 => "\"::\"" , TokenKind :: T117 => "\"new\"" , TokenKind :: T118 => "\"+\"" , TokenKind :: T119 => "\"-\"" , TokenKind :: T120 => "\"!\"" , TokenKind :: T121 => "\"~\"" , TokenKind :: T122 => "\"/\"" , TokenKind :: T123 => "\"%\"" , TokenKind :: T124 => "\"<<\"" , TokenKind :: T125 => "\">>\"" , TokenKind :: T126 => "\">>>\"" , TokenKind :: T127 => "\"<=\"" , TokenKind :: T128 => "\">=\"" , TokenKind :: T129 => "\"instanceof\"" , TokenKind :: T130 => "\"==\"" , TokenKind :: T131 => "\"!=\"" , TokenKind :: T132 => "\"^\"" , TokenKind :: T133 => "\"&&\"" , TokenKind :: T134 => "\"||\"" , TokenKind :: T135 => "\"?\"" , TokenKind :: T136 => "\"byte\"" , TokenKind :: T137 => "\"short\"" , TokenKind :: T138 => "\"char\"" , TokenKind :: T139 => "\"int\"" , TokenKind :: T140 => "\"long\"" , TokenKind :: T141 => "\"float\"" , TokenKind :: T142 => "\"double\"" , TokenKind :: T143 => "\"boolean\"" , TokenKind :: T144 => "\"->\"" , } } } # [derive (Debug)] pub struct Start < T , L > { pub before : L , pub node : T , pub after : L , pub span : Span , } # [derive (Debug , Clone , Copy)] pub enum ParseTree < 'a > { CompilationUnit (& 'a CompilationUnit < 'a >) , OrdinaryCompilationUnit (& 'a OrdinaryCompilationUnit < 'a >) , ModularCompilationUnit (& 'a ModularCompilationUnit < 'a >) , ModuleDeclaration (& 'a ModuleDeclaration < 'a >) , ModuleDirective (& 'a ModuleDirective < 'a >) , RequiresModifier (& 'a RequiresModifier < 'a >) , PackageDeclaration (& 'a PackageDeclaration < 'a >) , ImportDeclaration (& 'a ImportDeclaration < 'a >) , TypeDeclaration (& 'a TypeDeclaration < 'a >) , ClassDeclaration (& 'a ClassDeclaration < 'a >) , NormalClassDeclaration (& 'a NormalClassDeclaration < 'a >) , EnumDeclaration (& 'a EnumDeclaration < 'a >) , InterfaceDeclaration (& 'a InterfaceDeclaration < 'a >) , NormalInterfaceDeclaration (& 'a NormalInterfaceDeclaration < 'a >) , AnnotationTypeDeclaration (& 'a AnnotationTypeDeclaration < 'a >) , ClassBody (& 'a ClassBody < 'a >) , ClassBodyDeclaration (& 'a ClassBodyDeclaration < 'a >) , MethodDeclaration (& 'a MethodDeclaration < 'a >) , MethodDeclarator (& 'a MethodDeclarator < 'a >) , FormalParameterList (& 'a FormalParameterList < 'a >) , FormalParameter (& 'a FormalParameter < 'a >) , LastFormalParameter (& 'a LastFormalParameter < 'a >) , ReceiverParameter (& 'a ReceiverParameter < 'a >) , Result (& 'a Result < 'a >) , Throws (& 'a Throws < 'a >) , MethodBody (& 'a MethodBody < 'a >) , ConstructorDeclaration (& 'a ConstructorDeclaration < 'a >) , ConstructorBody (& 'a ConstructorBody < 'a >) , ExplicitConstructorInvocation (& 'a ExplicitConstructorInvocation < 'a >) , TypeList (& 'a TypeList < 'a >) , ClassTypeList (& 'a ClassTypeList < 'a >) , TypeParameters (& 'a TypeParameters < 'a >) , TypeParameter (& 'a TypeParameter < 'a >) , TypeBound (& 'a TypeBound < 'a >) , Initializer (& 'a Initializer < 'a >) , EnumBody (& 'a EnumBody < 'a >) , EnumConstant (& 'a EnumConstant < 'a >) , Arguments (& 'a Arguments < 'a >) , EnumBodyDeclarations (& 'a EnumBodyDeclarations < 'a >) , Block (& 'a Block < 'a >) , BlockStatement (& 'a BlockStatement < 'a >) , LocalVariableDeclarationStatement (& 'a LocalVariableDeclarationStatement < 'a >) , LocalVariableType (& 'a LocalVariableType < 'a >) , FieldDeclaration (& 'a FieldDeclaration < 'a >) , VariableDeclarator (& 'a VariableDeclarator < 'a >) , VariableDeclaratorId (& 'a VariableDeclaratorId < 'a >) , VariableInitializer (& 'a VariableInitializer < 'a >) , ArrayInitializer (& 'a ArrayInitializer < 'a >) , Annotation (& 'a Annotation < 'a >) , Values (& 'a Values < 'a >) , AnnotationElement (& 'a AnnotationElement < 'a >) , ElementValuePair (& 'a ElementValuePair < 'a >) , ElementValue (& 'a ElementValue < 'a >) , ElementValueArrayInitializer (& 'a ElementValueArrayInitializer < 'a >) , InterfaceBody (& 'a InterfaceBody < 'a >) , InterfaceMemberDeclaration (& 'a InterfaceMemberDeclaration < 'a >) , ConstantDeclaration (& 'a ConstantDeclaration < 'a >) , InterfaceMethodDeclaration (& 'a InterfaceMethodDeclaration < 'a >) , AnnotationTypeBody (& 'a AnnotationTypeBody < 'a >) , AnnotationTypeElementDeclaration (& 'a AnnotationTypeElementDeclaration < 'a >) , AnnotationMethodDeclaration (& 'a AnnotationMethodDeclaration < 'a >) , DefaultValue (& 'a DefaultValue < 'a >) , ClassModifier (& 'a ClassModifier < 'a >) , ConstructorModifier (& 'a ConstructorModifier < 'a >) , InterfaceModifier (& 'a InterfaceModifier < 'a >) , ConstantModifier (& 'a ConstantModifier < 'a >) , InterfaceMethodModifier (& 'a InterfaceMethodModifier < 'a >) , FieldModifier (& 'a FieldModifier < 'a >) , MethodModifier (& 'a MethodModifier < 'a >) , VariableModifier (& 'a VariableModifier < 'a >) , Statement (& 'a Statement < 'a >) , StatementExpression (& 'a StatementExpression < 'a >) , SwitchBlockStatementGroup (& 'a SwitchBlockStatementGroup < 'a >) , SwitchLabel (& 'a SwitchLabel < 'a >) , ForControl (& 'a ForControl < 'a >) , CatchClause (& 'a CatchClause < 'a >) , CatchType (& 'a CatchType < 'a >) , Finally (& 'a Finally < 'a >) , ResourceSpecification (& 'a ResourceSpecification < 'a >) , Resource (& 'a Resource < 'a >) , ForInit (& 'a ForInit < 'a >) , ForUpdate (& 'a ForUpdate < 'a >) , Expression (& 'a Expression < 'a >) , Primary (& 'a Primary < 'a >) , QualifiedIdentifier (& 'a QualifiedIdentifier < 'a >) , SuperSuffix (& 'a SuperSuffix < 'a >) , NonWildTypeArguments (& 'a NonWildTypeArguments < 'a >) , Type (& 'a Type < 'a >) , PrimitiveType (& 'a PrimitiveType < 'a >) , ReferenceType (& 'a ReferenceType < 'a >) , ClassType (& 'a ClassType < 'a >) , ClassTypeToInstantiate (& 'a ClassTypeToInstantiate < 'a >) , TypeArguments (& 'a TypeArguments < 'a >) , TypeArgument (& 'a TypeArgument < 'a >) , ArrayType (& 'a ArrayType < 'a >) , UnannType (& 'a UnannType < 'a >) , UnannPrimitiveType (& 'a UnannPrimitiveType < 'a >) , UnannReferenceType (& 'a UnannReferenceType < 'a >) , UnannClassType (& 'a UnannClassType < 'a >) , UnannArrayType (& 'a UnannArrayType < 'a >) , Literal (& 'a Literal < 'a >) , Selector (& 'a Selector < 'a >) , MethodInvocation (& 'a MethodInvocation < 'a >) , TypeArgumentsOrDiamond (& 'a TypeArgumentsOrDiamond < 'a >) , ClassInstanceCreationExpression (& 'a ClassInstanceCreationExpression < 'a >) , ArrayCreationExpression (& 'a ArrayCreationExpression < 'a >) , Lambda (& 'a Lambda < 'a >) , LambdaParameters (& 'a LambdaParameters < 'a >) , LambdaParameterList (& 'a LambdaParameterList < 'a >) , LambdaParameter (& 'a LambdaParameter < 'a >) , LambdaParameterType (& 'a LambdaParameterType < 'a >) , LambdaBody (& 'a LambdaBody < 'a >) , Layout (& 'a Layout < 'a >) , 
+ T144 , 
+// [$ 0-9 A-Z _ a-z]
+ T145 }
+impl TokenKind { pub fn name (& self) -> & 'static str { match self { TokenKind :: T0 => "HexDigit" , TokenKind :: T1 => "IntegerLiteral" , TokenKind :: T2 => "FloatingPointLiteral" , TokenKind :: T3 => "BooleanLiteral" , TokenKind :: T4 => "CharacterLiteral" , TokenKind :: T5 => "DecimalIntegerLiteral" , TokenKind :: T6 => "StringLiteral" , TokenKind :: T7 => "NullLiteral" , TokenKind :: T8 => "Dot" , TokenKind :: T9 => "HexIntegerLiteral" , TokenKind :: T10 => "OctalIntegerLiteral" , TokenKind :: T11 => "BinaryIntegerLiteral" , TokenKind :: T12 => "HexadecimalFloatingPointLiteral" , TokenKind :: T13 => "HexDigits" , TokenKind :: T14 => "HexDigitOrUnderscore" , TokenKind :: T15 => "DecimalFloatingPointLiteral" , TokenKind :: T16 => "ExponentPart" , TokenKind :: T17 => "ExponentIndicator" , TokenKind :: T18 => "SignedInteger" , TokenKind :: T19 => "Sign" , TokenKind :: T20 => "Digits" , TokenKind :: T21 => "FloatTypeSuffix" , TokenKind :: T22 => "OctalNumeral" , TokenKind :: T23 => "OctalDigits" , TokenKind :: T24 => "OctalDigit" , TokenKind :: T25 => "OctalDigitOrUnderscore" , TokenKind :: T26 => "SingleCharacter" , TokenKind :: T27 => "StringCharacter" , TokenKind :: T28 => "EscapeSequence" , TokenKind :: T29 => "UnicodeEscape" , TokenKind :: T30 => "ZeroToThree" , TokenKind :: T31 => "AssignmentOperator" , TokenKind :: T32 => "Identifier" , TokenKind :: T33 => "TypeKeyword" , TokenKind :: T34 => "TypeIdentifier" , TokenKind :: T35 => "IdentifierChars" , TokenKind :: T36 => "JavaLetter" , TokenKind :: T37 => "JavaLetterOrDigit" , TokenKind :: T38 => "Else" , TokenKind :: T39 => "OpenBracket" , TokenKind :: T40 => "Plus" , TokenKind :: T41 => "Minus" , TokenKind :: T42 => "Keyword" , TokenKind :: T43 => "WhiteSpace" , TokenKind :: T44 => "Comment" , TokenKind :: T45 => "CommentChar" , TokenKind :: T46 => "TraditionalComment" , TokenKind :: T47 => "EndOfLineComment" , TokenKind :: T48 => "\"open\"" , TokenKind :: T49 => "\"module\"" , TokenKind :: T50 => "\"{\"" , TokenKind :: T51 => "\"}\"" , TokenKind :: T52 => "\"requires\"" , TokenKind :: T53 => "\";\"" , TokenKind :: T54 => "\"exports\"" , TokenKind :: T55 => "\"to\"" , TokenKind :: T56 => "\",\"" , TokenKind :: T57 => "\"opens\"" , TokenKind :: T58 => "\"uses\"" , TokenKind :: T59 => "\"provides\"" , TokenKind :: T60 => "\"with\"" , TokenKind :: T61 => "\"transitive\"" , TokenKind :: T62 => "\"static\"" , TokenKind :: T63 => "\"package\"" , TokenKind :: T64 => "\"import\"" , TokenKind :: T65 => "\".\"" , TokenKind :: T66 => "\"*\"" , TokenKind :: T67 => "\"class\"" , TokenKind :: T68 => "\"extends\"" , TokenKind :: T69 => "\"implements\"" , TokenKind :: T70 => "\"enum\"" , TokenKind :: T71 => "\"interface\"" , TokenKind :: T72 => "\"@\"" , TokenKind :: T73 => "\"(\"" , TokenKind :: T74 => "\")\"" , TokenKind :: T75 => "\"[\"" , TokenKind :: T76 => "\"]\"" , TokenKind :: T77 => "\"...\"" , TokenKind :: T78 => "\"this\"" , TokenKind :: T79 => "\"void\"" , TokenKind :: T80 => "\"throws\"" , TokenKind :: T81 => "\"super\"" , TokenKind :: T82 => "\"<\"" , TokenKind :: T83 => "\">\"" , TokenKind :: T84 => "\"&\"" , TokenKind :: T85 => "\"var\"" , TokenKind :: T86 => "\"=\"" , TokenKind :: T87 => "\"default\"" , TokenKind :: T88 => "\"public\"" , TokenKind :: T89 => "\"protected\"" , TokenKind :: T90 => "\"private\"" , TokenKind :: T91 => "\"abstract\"" , TokenKind :: T92 => "\"final\"" , TokenKind :: T93 => "\"strictfp\"" , TokenKind :: T94 => "\"transient\"" , TokenKind :: T95 => "\"volatile\"" , TokenKind :: T96 => "\"synchronized\"" , TokenKind :: T97 => "\"native\"" , TokenKind :: T98 => "\"assert\"" , TokenKind :: T99 => "\":\"" , TokenKind :: T100 => "\"switch\"" , TokenKind :: T101 => "\"do\"" , TokenKind :: T102 => "\"while\"" , TokenKind :: T103 => "\"break\"" , TokenKind :: T104 => "\"continue\"" , TokenKind :: T105 => "\"return\"" , TokenKind :: T106 => "\"throw\"" , TokenKind :: T107 => "\"try\"" , TokenKind :: T108 => "\"if\"" , TokenKind :: T109 => "\"for\"" , TokenKind :: T110 => "\"case\"" , TokenKind :: T111 => "\"catch\"" , TokenKind :: T112 => "\"|\"" , TokenKind :: T113 => "\"finally\"" , TokenKind :: T114 => "\"++\"" , TokenKind :: T115 => "\"--\"" , TokenKind :: T116 => "\"::\"" , TokenKind :: T117 => "\"new\"" , TokenKind :: T118 => "\"+\"" , TokenKind :: T119 => "\"-\"" , TokenKind :: T120 => "\"!\"" , TokenKind :: T121 => "\"~\"" , TokenKind :: T122 => "\"/\"" , TokenKind :: T123 => "\"%\"" , TokenKind :: T124 => "\"<<\"" , TokenKind :: T125 => "\">>\"" , TokenKind :: T126 => "\">>>\"" , TokenKind :: T127 => "\"<=\"" , TokenKind :: T128 => "\">=\"" , TokenKind :: T129 => "\"instanceof\"" , TokenKind :: T130 => "\"==\"" , TokenKind :: T131 => "\"!=\"" , TokenKind :: T132 => "\"^\"" , TokenKind :: T133 => "\"&&\"" , TokenKind :: T134 => "\"||\"" , TokenKind :: T135 => "\"?\"" , TokenKind :: T136 => "\"byte\"" , TokenKind :: T137 => "\"short\"" , TokenKind :: T138 => "\"char\"" , TokenKind :: T139 => "\"int\"" , TokenKind :: T140 => "\"long\"" , TokenKind :: T141 => "\"float\"" , TokenKind :: T142 => "\"double\"" , TokenKind :: T143 => "\"boolean\"" , TokenKind :: T144 => "\"->\"" , TokenKind :: T145 => "[$ 0-9 A-Z _ a-z]" , } } } # [derive (Debug)] pub struct Start < T , L > { pub before : L , pub node : T , pub after : L , pub span : Span , } # [derive (Debug , Clone , Copy)] pub enum ParseTree < 'a > { CompilationUnit (& 'a CompilationUnit < 'a >) , OrdinaryCompilationUnit (& 'a OrdinaryCompilationUnit < 'a >) , ModularCompilationUnit (& 'a ModularCompilationUnit < 'a >) , ModuleDeclaration (& 'a ModuleDeclaration < 'a >) , ModuleDirective (& 'a ModuleDirective < 'a >) , RequiresModifier (& 'a RequiresModifier < 'a >) , PackageDeclaration (& 'a PackageDeclaration < 'a >) , ImportDeclaration (& 'a ImportDeclaration < 'a >) , TypeDeclaration (& 'a TypeDeclaration < 'a >) , ClassDeclaration (& 'a ClassDeclaration < 'a >) , NormalClassDeclaration (& 'a NormalClassDeclaration < 'a >) , EnumDeclaration (& 'a EnumDeclaration < 'a >) , InterfaceDeclaration (& 'a InterfaceDeclaration < 'a >) , NormalInterfaceDeclaration (& 'a NormalInterfaceDeclaration < 'a >) , AnnotationTypeDeclaration (& 'a AnnotationTypeDeclaration < 'a >) , ClassBody (& 'a ClassBody < 'a >) , ClassBodyDeclaration (& 'a ClassBodyDeclaration < 'a >) , MethodDeclaration (& 'a MethodDeclaration < 'a >) , MethodDeclarator (& 'a MethodDeclarator < 'a >) , FormalParameterList (& 'a FormalParameterList < 'a >) , FormalParameter (& 'a FormalParameter < 'a >) , LastFormalParameter (& 'a LastFormalParameter < 'a >) , ReceiverParameter (& 'a ReceiverParameter < 'a >) , Result (& 'a Result < 'a >) , Throws (& 'a Throws < 'a >) , MethodBody (& 'a MethodBody < 'a >) , ConstructorDeclaration (& 'a ConstructorDeclaration < 'a >) , ConstructorBody (& 'a ConstructorBody < 'a >) , ExplicitConstructorInvocation (& 'a ExplicitConstructorInvocation < 'a >) , TypeList (& 'a TypeList < 'a >) , ClassTypeList (& 'a ClassTypeList < 'a >) , TypeParameters (& 'a TypeParameters < 'a >) , TypeParameter (& 'a TypeParameter < 'a >) , TypeBound (& 'a TypeBound < 'a >) , Initializer (& 'a Initializer < 'a >) , EnumBody (& 'a EnumBody < 'a >) , EnumConstant (& 'a EnumConstant < 'a >) , Arguments (& 'a Arguments < 'a >) , EnumBodyDeclarations (& 'a EnumBodyDeclarations < 'a >) , Block (& 'a Block < 'a >) , BlockStatement (& 'a BlockStatement < 'a >) , LocalVariableDeclarationStatement (& 'a LocalVariableDeclarationStatement < 'a >) , LocalVariableType (& 'a LocalVariableType < 'a >) , FieldDeclaration (& 'a FieldDeclaration < 'a >) , VariableDeclarator (& 'a VariableDeclarator < 'a >) , VariableDeclaratorId (& 'a VariableDeclaratorId < 'a >) , VariableInitializer (& 'a VariableInitializer < 'a >) , ArrayInitializer (& 'a ArrayInitializer < 'a >) , Annotation (& 'a Annotation < 'a >) , Values (& 'a Values < 'a >) , AnnotationElement (& 'a AnnotationElement < 'a >) , ElementValuePair (& 'a ElementValuePair < 'a >) , ElementValue (& 'a ElementValue < 'a >) , ElementValueArrayInitializer (& 'a ElementValueArrayInitializer < 'a >) , InterfaceBody (& 'a InterfaceBody < 'a >) , InterfaceMemberDeclaration (& 'a InterfaceMemberDeclaration < 'a >) , ConstantDeclaration (& 'a ConstantDeclaration < 'a >) , InterfaceMethodDeclaration (& 'a InterfaceMethodDeclaration < 'a >) , AnnotationTypeBody (& 'a AnnotationTypeBody < 'a >) , AnnotationTypeElementDeclaration (& 'a AnnotationTypeElementDeclaration < 'a >) , AnnotationMethodDeclaration (& 'a AnnotationMethodDeclaration < 'a >) , DefaultValue (& 'a DefaultValue < 'a >) , ClassModifier (& 'a ClassModifier < 'a >) , ConstructorModifier (& 'a ConstructorModifier < 'a >) , InterfaceModifier (& 'a InterfaceModifier < 'a >) , ConstantModifier (& 'a ConstantModifier < 'a >) , InterfaceMethodModifier (& 'a InterfaceMethodModifier < 'a >) , FieldModifier (& 'a FieldModifier < 'a >) , MethodModifier (& 'a MethodModifier < 'a >) , VariableModifier (& 'a VariableModifier < 'a >) , Statement (& 'a Statement < 'a >) , StatementExpression (& 'a StatementExpression < 'a >) , SwitchBlockStatementGroup (& 'a SwitchBlockStatementGroup < 'a >) , SwitchLabel (& 'a SwitchLabel < 'a >) , ForControl (& 'a ForControl < 'a >) , CatchClause (& 'a CatchClause < 'a >) , CatchType (& 'a CatchType < 'a >) , Finally (& 'a Finally < 'a >) , ResourceSpecification (& 'a ResourceSpecification < 'a >) , Resource (& 'a Resource < 'a >) , ForInit (& 'a ForInit < 'a >) , ForUpdate (& 'a ForUpdate < 'a >) , Expression (& 'a Expression < 'a >) , Primary (& 'a Primary < 'a >) , QualifiedIdentifier (& 'a QualifiedIdentifier < 'a >) , SuperSuffix (& 'a SuperSuffix < 'a >) , NonWildTypeArguments (& 'a NonWildTypeArguments < 'a >) , Type (& 'a Type < 'a >) , PrimitiveType (& 'a PrimitiveType < 'a >) , ReferenceType (& 'a ReferenceType < 'a >) , ClassType (& 'a ClassType < 'a >) , ClassTypeToInstantiate (& 'a ClassTypeToInstantiate < 'a >) , TypeArguments (& 'a TypeArguments < 'a >) , TypeArgument (& 'a TypeArgument < 'a >) , ArrayType (& 'a ArrayType < 'a >) , UnannType (& 'a UnannType < 'a >) , UnannPrimitiveType (& 'a UnannPrimitiveType < 'a >) , UnannReferenceType (& 'a UnannReferenceType < 'a >) , UnannClassType (& 'a UnannClassType < 'a >) , UnannArrayType (& 'a UnannArrayType < 'a >) , Literal (& 'a Literal < 'a >) , Selector (& 'a Selector < 'a >) , MethodInvocation (& 'a MethodInvocation < 'a >) , TypeArgumentsOrDiamond (& 'a TypeArgumentsOrDiamond < 'a >) , ClassInstanceCreationExpression (& 'a ClassInstanceCreationExpression < 'a >) , ArrayCreationExpression (& 'a ArrayCreationExpression < 'a >) , Lambda (& 'a Lambda < 'a >) , LambdaParameters (& 'a LambdaParameters < 'a >) , LambdaParameterList (& 'a LambdaParameterList < 'a >) , LambdaParameter (& 'a LambdaParameter < 'a >) , LambdaParameterType (& 'a LambdaParameterType < 'a >) , LambdaBody (& 'a LambdaBody < 'a >) , Layout (& 'a Layout < 'a >) , 
 // PackageDeclaration?
  Opt0 (& 'a Opt0 < 'a >) , 
 // ImportDeclaration+
@@ -316,7 +318,7 @@ impl TokenKind { pub fn name (& self) -> & 'static str { match self { TokenKind 
  Opt3 (& 'a Opt3 < 'a >) , 
 // Annotation*
  Star2 (& 'a Star2 < 'a >) , 
-// "open"?
+// [$ 0-9 A-Z _ a-z] !<< "open" !>> [$ 0-9 A-Z _ a-z]?
  Opt4 (& 'a Opt4 < 'a >) , 
 // ModuleDirective+
  Plus3 (& 'a Plus3 < 'a >) , 
@@ -332,11 +334,11 @@ impl TokenKind { pub fn name (& self) -> & 'static str { match self { TokenKind 
  Star4 (& 'a Star4 < 'a >) , 
 // {QualifiedIdentifier ","}+
  Plus5 (& 'a Plus5 < 'a >) , 
-// ("to" {QualifiedIdentifier ","}+)
+// ([$ 0-9 A-Z _ a-z] !<< "to" !>> [$ 0-9 A-Z _ a-z] {QualifiedIdentifier ","}+)
  Group0 (& 'a Group0 < 'a >) , 
-// ("to" {QualifiedIdentifier ","}+)?
+// ([$ 0-9 A-Z _ a-z] !<< "to" !>> [$ 0-9 A-Z _ a-z] {QualifiedIdentifier ","}+)?
  Opt7 (& 'a Opt7 < 'a >) , 
-// "static"?
+// [$ 0-9 A-Z _ a-z] !<< "static" !>> [$ 0-9 A-Z _ a-z]?
  Opt8 (& 'a Opt8 < 'a >) , 
 // ("." "*")
  Group1 (& 'a Group1 < 'a >) , 
@@ -350,13 +352,13 @@ impl TokenKind { pub fn name (& self) -> & 'static str { match self { TokenKind 
  Star5 (& 'a Star5 < 'a >) , 
 // TypeParameters?
  Opt11 (& 'a Opt11 < 'a >) , 
-// ("extends" ClassType)
+// ([$ 0-9 A-Z _ a-z] !<< "extends" !>> [$ 0-9 A-Z _ a-z] ClassType)
  Group2 (& 'a Group2 < 'a >) , 
-// ("extends" ClassType)?
+// ([$ 0-9 A-Z _ a-z] !<< "extends" !>> [$ 0-9 A-Z _ a-z] ClassType)?
  Opt12 (& 'a Opt12 < 'a >) , 
-// ("implements" ClassTypeList)
+// ([$ 0-9 A-Z _ a-z] !<< "implements" !>> [$ 0-9 A-Z _ a-z] ClassTypeList)
  Group3 (& 'a Group3 < 'a >) , 
-// ("implements" ClassTypeList)?
+// ([$ 0-9 A-Z _ a-z] !<< "implements" !>> [$ 0-9 A-Z _ a-z] ClassTypeList)?
  Opt13 (& 'a Opt13 < 'a >) , 
 // InterfaceModifier+
  Plus7 (& 'a Plus7 < 'a >) , 
@@ -364,9 +366,9 @@ impl TokenKind { pub fn name (& self) -> & 'static str { match self { TokenKind 
  Opt14 (& 'a Opt14 < 'a >) , 
 // InterfaceModifier*
  Star6 (& 'a Star6 < 'a >) , 
-// ("extends" ClassTypeList)
+// ([$ 0-9 A-Z _ a-z] !<< "extends" !>> [$ 0-9 A-Z _ a-z] ClassTypeList)
  Group4 (& 'a Group4 < 'a >) , 
-// ("extends" ClassTypeList)?
+// ([$ 0-9 A-Z _ a-z] !<< "extends" !>> [$ 0-9 A-Z _ a-z] ClassTypeList)?
  Opt15 (& 'a Opt15 < 'a >) , 
 // ClassBodyDeclaration+
  Plus8 (& 'a Plus8 < 'a >) , 
@@ -576,7 +578,7 @@ impl TokenKind { pub fn name (& self) -> & 'static str { match self { TokenKind 
  Plus34 (& 'a Plus34 < 'a >) , 
 // ";"?
  Opt60 (& 'a Opt60 < 'a >) , 
-// (UnannReferenceType | "var")
+// (UnannReferenceType | [$ 0-9 A-Z _ a-z] !<< "var" !>> [$ 0-9 A-Z _ a-z])
  Alt1 (& 'a Alt1 < 'a >) , 
 // {StatementExpression ","}+
  Plus35 (& 'a Plus35 < 'a >) , 
@@ -612,11 +614,15 @@ impl TokenKind { pub fn name (& self) -> & 'static str { match self { TokenKind 
  Group16 (& 'a Group16 < 'a >) , 
 // (QualifiedIdentifier ".")?
  Opt63 (& 'a Opt63 < 'a >) , 
-// (Type | "void")
+// (Type | [$ 0-9 A-Z _ a-z] !<< "void" !>> [$ 0-9 A-Z _ a-z])
  Alt10 (& 'a Alt10 < 'a >) , 
 // {Identifier "."}+
  Plus38 (& 'a Plus38 < 'a >) , 
-// ("byte" | "short" | "char" | "int" | "long" | "float" | "double" | "boolean")
+// ([$ 0-9 A-Z _ a-z] !<< "byte" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "short" !>> [$
+// 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "char" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z]
+// !<< "int" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "long" !>> [$ 0-9 A-Z _ a-z] | [$
+// 0-9 A-Z _ a-z] !<< "float" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "double" !>> [$
+// 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "boolean" !>> [$ 0-9 A-Z _ a-z])
  Alt11 (& 'a Alt11 < 'a >) , 
 // ("." Annotation* TypeIdentifier TypeArguments?)
  Group17 (& 'a Group17 < 'a >) , 
@@ -638,11 +644,14 @@ impl TokenKind { pub fn name (& self) -> & 'static str { match self { TokenKind 
  Opt66 (& 'a Opt66 < 'a >) , 
 // {TypeArgument ","}+
  Plus41 (& 'a Plus41 < 'a >) , 
-// ("extends" | "super")
+// ([$ 0-9 A-Z _ a-z] !<< "extends" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "super" !>>
+// [$ 0-9 A-Z _ a-z])
  Alt12 (& 'a Alt12 < 'a >) , 
-// (("extends" | "super") ReferenceType)
+// (([$ 0-9 A-Z _ a-z] !<< "extends" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "super"
+// !>> [$ 0-9 A-Z _ a-z]) ReferenceType)
  Group19 (& 'a Group19 < 'a >) , 
-// (("extends" | "super") ReferenceType)?
+// (([$ 0-9 A-Z _ a-z] !<< "extends" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "super"
+// !>> [$ 0-9 A-Z _ a-z]) ReferenceType)?
  Opt67 (& 'a Opt67 < 'a >) , 
 // (ClassType | PrimitiveType)
  Alt13 (& 'a Alt13 < 'a >) , 
@@ -1328,30 +1337,37 @@ fn unwrap_token (self) -> Token { match self { ParseTree :: Token (t) => t , _ =
  # [derive (Debug)] pub enum OrdinaryCompilationUnit < 'a > { Alt0 { package_declaration : & 'a Opt0 < 'a > , layout_1 : & 'a Layout < 'a > , import_declarations : & 'a Star0 < 'a > , layout_3 : & 'a Layout < 'a > , type_declarations : & 'a Star1 < 'a > , span : Span } , Amb (& 'a [& 'a OrdinaryCompilationUnit < 'a >]) , } 
 // ModularCompilationUnit = ImportDeclaration* Layout ModuleDeclaration
  # [derive (Debug)] pub enum ModularCompilationUnit < 'a > { Alt0 { import_declarations : & 'a Star0 < 'a > , layout : & 'a Layout < 'a > , module_declaration : & 'a ModuleDeclaration < 'a > , span : Span } , Amb (& 'a [& 'a ModularCompilationUnit < 'a >]) , } 
-// ModuleDeclaration = Annotation* Layout "open"? Layout "module" Layout QualifiedIdentifier
+// ModuleDeclaration = Annotation* Layout [$ 0-9 A-Z _ a-z] !<< "open" !>> [$ 0-9 A-Z _ a-z]?
+// Layout [$ 0-9 A-Z _ a-z] !<< "module" !>> [$ 0-9 A-Z _ a-z] Layout QualifiedIdentifier
 // Layout "{" Layout ModuleDirective* Layout "}"
  # [derive (Debug)] pub enum ModuleDeclaration < 'a > { Alt0 { annotations : & 'a Star2 < 'a > , layout_1 : & 'a Layout < 'a > , opt_4 : & 'a Opt4 < 'a > , layout_3 : & 'a Layout < 'a > , lit_4 : Token , layout_5 : & 'a Layout < 'a > , qualified_identifier : & 'a QualifiedIdentifier < 'a > , layout_7 : & 'a Layout < 'a > , lit_8 : Token , layout_9 : & 'a Layout < 'a > , module_directives : & 'a Star3 < 'a > , layout_11 : & 'a Layout < 'a > , lit_12 : Token , span : Span } , Amb (& 'a [& 'a ModuleDeclaration < 'a >]) , } # [derive (Debug)] pub enum ModuleDirective < 'a > { 
-// ModuleDirective = "requires" Layout RequiresModifier* Layout QualifiedIdentifier Layout
-// ";" #Requires
+// ModuleDirective = [$ 0-9 A-Z _ a-z] !<< "requires" !>> [$ 0-9 A-Z _ a-z] Layout
+// RequiresModifier* Layout QualifiedIdentifier Layout ";" #Requires
  Requires { lit_0 : Token , layout_1 : & 'a Layout < 'a > , requires_modifiers : & 'a Star4 < 'a > , layout_3 : & 'a Layout < 'a > , qualified_identifier : & 'a QualifiedIdentifier < 'a > , layout_5 : & 'a Layout < 'a > , lit_6 : Token , span : Span } , 
-// ModuleDirective = "exports" Layout QualifiedIdentifier Layout ("to" {QualifiedIdentifier
-// ","}+)? Layout ";" #Exports
+// ModuleDirective = [$ 0-9 A-Z _ a-z] !<< "exports" !>> [$ 0-9 A-Z _ a-z] Layout
+// QualifiedIdentifier Layout ([$ 0-9 A-Z _ a-z] !<< "to" !>> [$ 0-9 A-Z _ a-z]
+// {QualifiedIdentifier ","}+)? Layout ";" #Exports
  Exports { lit_0 : Token , layout_1 : & 'a Layout < 'a > , qualified_identifier : & 'a QualifiedIdentifier < 'a > , layout_3 : & 'a Layout < 'a > , opt_7 : & 'a Opt7 < 'a > , layout_5 : & 'a Layout < 'a > , lit_6 : Token , span : Span } , 
-// ModuleDirective = "opens" Layout QualifiedIdentifier Layout ("to" {QualifiedIdentifier
-// ","}+)? Layout ";" #Opens
+// ModuleDirective = [$ 0-9 A-Z _ a-z] !<< "opens" !>> [$ 0-9 A-Z _ a-z] Layout
+// QualifiedIdentifier Layout ([$ 0-9 A-Z _ a-z] !<< "to" !>> [$ 0-9 A-Z _ a-z]
+// {QualifiedIdentifier ","}+)? Layout ";" #Opens
  Opens { lit_0 : Token , layout_1 : & 'a Layout < 'a > , qualified_identifier : & 'a QualifiedIdentifier < 'a > , layout_3 : & 'a Layout < 'a > , opt_7 : & 'a Opt7 < 'a > , layout_5 : & 'a Layout < 'a > , lit_6 : Token , span : Span } , 
-// ModuleDirective = "uses" Layout QualifiedIdentifier Layout ";" #Uses
+// ModuleDirective = [$ 0-9 A-Z _ a-z] !<< "uses" !>> [$ 0-9 A-Z _ a-z] Layout
+// QualifiedIdentifier Layout ";" #Uses
  Uses { lit_0 : Token , layout_1 : & 'a Layout < 'a > , qualified_identifier : & 'a QualifiedIdentifier < 'a > , layout_3 : & 'a Layout < 'a > , lit_4 : Token , span : Span } , 
-// ModuleDirective = "provides" Layout QualifiedIdentifier Layout "with" Layout
+// ModuleDirective = [$ 0-9 A-Z _ a-z] !<< "provides" !>> [$ 0-9 A-Z _ a-z] Layout
+// QualifiedIdentifier Layout [$ 0-9 A-Z _ a-z] !<< "with" !>> [$ 0-9 A-Z _ a-z] Layout
 // {QualifiedIdentifier ","}+ Layout ";" #Provides
  Provides { lit_0 : Token , layout_1 : & 'a Layout < 'a > , qualified_identifier_2 : & 'a QualifiedIdentifier < 'a > , layout_3 : & 'a Layout < 'a > , lit_4 : Token , layout_5 : & 'a Layout < 'a > , qualified_identifiers_6 : & 'a Plus5 < 'a > , layout_7 : & 'a Layout < 'a > , lit_8 : Token , span : Span } , Amb (& 'a [& 'a ModuleDirective < 'a >]) } # [derive (Debug)] pub enum RequiresModifier < 'a > { 
-// RequiresModifier = "transitive"
+// RequiresModifier = [$ 0-9 A-Z _ a-z] !<< "transitive" !>> [$ 0-9 A-Z _ a-z]
  Alt0 { lit_0 : Token , span : Span } , 
-// RequiresModifier = "static"
+// RequiresModifier = [$ 0-9 A-Z _ a-z] !<< "static" !>> [$ 0-9 A-Z _ a-z]
  Alt1 { lit_0 : Token , span : Span } , Amb (& 'a [& 'a RequiresModifier < 'a >]) } 
-// PackageDeclaration = Annotation* Layout "package" Layout QualifiedIdentifier Layout ";"
+// PackageDeclaration = Annotation* Layout [$ 0-9 A-Z _ a-z] !<< "package" !>> [$ 0-9 A-Z _
+// a-z] Layout QualifiedIdentifier Layout ";"
  # [derive (Debug)] pub enum PackageDeclaration < 'a > { Alt0 { annotations : & 'a Star2 < 'a > , layout_1 : & 'a Layout < 'a > , lit_2 : Token , layout_3 : & 'a Layout < 'a > , qualified_identifier : & 'a QualifiedIdentifier < 'a > , layout_5 : & 'a Layout < 'a > , lit_6 : Token , span : Span } , Amb (& 'a [& 'a PackageDeclaration < 'a >]) , } 
-// ImportDeclaration = "import" Layout "static"? Layout QualifiedIdentifier Layout ("." "*")?
+// ImportDeclaration = [$ 0-9 A-Z _ a-z] !<< "import" !>> [$ 0-9 A-Z _ a-z] Layout [$ 0-9 A-Z
+// _ a-z] !<< "static" !>> [$ 0-9 A-Z _ a-z]? Layout QualifiedIdentifier Layout ("." "*")?
 // Layout ";"
  # [derive (Debug)] pub enum ImportDeclaration < 'a > { Alt0 { lit_0 : Token , layout_1 : & 'a Layout < 'a > , opt_8 : & 'a Opt8 < 'a > , layout_3 : & 'a Layout < 'a > , qualified_identifier : & 'a QualifiedIdentifier < 'a > , layout_5 : & 'a Layout < 'a > , opt_9 : & 'a Opt9 < 'a > , layout_7 : & 'a Layout < 'a > , lit_8 : Token , span : Span } , Amb (& 'a [& 'a ImportDeclaration < 'a >]) , } # [derive (Debug)] pub enum TypeDeclaration < 'a > { 
 // TypeDeclaration = ClassDeclaration
@@ -1364,22 +1380,25 @@ fn unwrap_token (self) -> Token { match self { ParseTree :: Token (t) => t , _ =
  Alt0 { normal_class_declaration : & 'a NormalClassDeclaration < 'a > , span : Span } , 
 // ClassDeclaration = EnumDeclaration
  Alt1 { enum_declaration : & 'a EnumDeclaration < 'a > , span : Span } , Amb (& 'a [& 'a ClassDeclaration < 'a >]) } 
-// NormalClassDeclaration = ClassModifier* Layout "class" Layout TypeIdentifier Layout
-// TypeParameters? Layout ("extends" ClassType)? Layout ("implements" ClassTypeList)? Layout
-// ClassBody
+// NormalClassDeclaration = ClassModifier* Layout [$ 0-9 A-Z _ a-z] !<< "class" !>> [$ 0-9
+// A-Z _ a-z] Layout TypeIdentifier Layout TypeParameters? Layout ([$ 0-9 A-Z _ a-z] !<<
+// "extends" !>> [$ 0-9 A-Z _ a-z] ClassType)? Layout ([$ 0-9 A-Z _ a-z] !<< "implements" !>>
+// [$ 0-9 A-Z _ a-z] ClassTypeList)? Layout ClassBody
  # [derive (Debug)] pub enum NormalClassDeclaration < 'a > { Alt0 { class_modifiers : & 'a Star5 < 'a > , layout_1 : & 'a Layout < 'a > , lit_2 : Token , layout_3 : & 'a Layout < 'a > , type_identifier : Token , layout_5 : & 'a Layout < 'a > , type_parameters : & 'a Opt11 < 'a > , layout_7 : & 'a Layout < 'a > , opt_12 : & 'a Opt12 < 'a > , layout_9 : & 'a Layout < 'a > , opt_13 : & 'a Opt13 < 'a > , layout_11 : & 'a Layout < 'a > , class_body : & 'a ClassBody < 'a > , span : Span } , Amb (& 'a [& 'a NormalClassDeclaration < 'a >]) , } 
-// EnumDeclaration = ClassModifier* Layout "enum" Layout TypeIdentifier Layout ("implements"
+// EnumDeclaration = ClassModifier* Layout [$ 0-9 A-Z _ a-z] !<< "enum" !>> [$ 0-9 A-Z _ a-z]
+// Layout TypeIdentifier Layout ([$ 0-9 A-Z _ a-z] !<< "implements" !>> [$ 0-9 A-Z _ a-z]
 // ClassTypeList)? Layout EnumBody
  # [derive (Debug)] pub enum EnumDeclaration < 'a > { Alt0 { class_modifiers : & 'a Star5 < 'a > , layout_1 : & 'a Layout < 'a > , lit_2 : Token , layout_3 : & 'a Layout < 'a > , type_identifier : Token , layout_5 : & 'a Layout < 'a > , opt_13 : & 'a Opt13 < 'a > , layout_7 : & 'a Layout < 'a > , enum_body : & 'a EnumBody < 'a > , span : Span } , Amb (& 'a [& 'a EnumDeclaration < 'a >]) , } # [derive (Debug)] pub enum InterfaceDeclaration < 'a > { 
 // InterfaceDeclaration = NormalInterfaceDeclaration
  Alt0 { normal_interface_declaration : & 'a NormalInterfaceDeclaration < 'a > , span : Span } , 
 // InterfaceDeclaration = AnnotationTypeDeclaration
  Alt1 { annotation_type_declaration : & 'a AnnotationTypeDeclaration < 'a > , span : Span } , Amb (& 'a [& 'a InterfaceDeclaration < 'a >]) } 
-// NormalInterfaceDeclaration = InterfaceModifier* Layout "interface" Layout TypeIdentifier
-// Layout TypeParameters? Layout ("extends" ClassTypeList)? Layout InterfaceBody
+// NormalInterfaceDeclaration = InterfaceModifier* Layout [$ 0-9 A-Z _ a-z] !<< "interface"
+// !>> [$ 0-9 A-Z _ a-z] Layout TypeIdentifier Layout TypeParameters? Layout ([$ 0-9 A-Z _
+// a-z] !<< "extends" !>> [$ 0-9 A-Z _ a-z] ClassTypeList)? Layout InterfaceBody
  # [derive (Debug)] pub enum NormalInterfaceDeclaration < 'a > { Alt0 { interface_modifiers : & 'a Star6 < 'a > , layout_1 : & 'a Layout < 'a > , lit_2 : Token , layout_3 : & 'a Layout < 'a > , type_identifier : Token , layout_5 : & 'a Layout < 'a > , type_parameters : & 'a Opt11 < 'a > , layout_7 : & 'a Layout < 'a > , opt_15 : & 'a Opt15 < 'a > , layout_9 : & 'a Layout < 'a > , interface_body : & 'a InterfaceBody < 'a > , span : Span } , Amb (& 'a [& 'a NormalInterfaceDeclaration < 'a >]) , } 
-// AnnotationTypeDeclaration = InterfaceModifier* Layout "@" Layout "interface" Layout
-// TypeIdentifier Layout AnnotationTypeBody
+// AnnotationTypeDeclaration = InterfaceModifier* Layout "@" Layout [$ 0-9 A-Z _ a-z] !<<
+// "interface" !>> [$ 0-9 A-Z _ a-z] Layout TypeIdentifier Layout AnnotationTypeBody
  # [derive (Debug)] pub enum AnnotationTypeDeclaration < 'a > { Alt0 { interface_modifiers : & 'a Star6 < 'a > , layout_1 : & 'a Layout < 'a > , lit_2 : Token , layout_3 : & 'a Layout < 'a > , lit_4 : Token , layout_5 : & 'a Layout < 'a > , type_identifier : Token , layout_7 : & 'a Layout < 'a > , annotation_type_body : & 'a AnnotationTypeBody < 'a > , span : Span } , Amb (& 'a [& 'a AnnotationTypeDeclaration < 'a >]) , } 
 // ClassBody = "{" Layout ClassBodyDeclaration* Layout "}"
  # [derive (Debug)] pub enum ClassBody < 'a > { Alt0 { lit_0 : Token , layout_1 : & 'a Layout < 'a > , class_body_declarations : & 'a Star7 < 'a > , layout_3 : & 'a Layout < 'a > , lit_4 : Token , span : Span } , Amb (& 'a [& 'a ClassBody < 'a >]) , } # [derive (Debug)] pub enum ClassBodyDeclaration < 'a > { 
@@ -1415,13 +1434,14 @@ fn unwrap_token (self) -> Token { match self { ParseTree :: Token (t) => t , _ =
  Alt0 { variable_modifiers : & 'a Star11 < 'a > , layout_1 : & 'a Layout < 'a > , unann_type : & 'a UnannType < 'a > , layout_3 : & 'a Layout < 'a > , annotations : & 'a Star2 < 'a > , layout_5 : & 'a Layout < 'a > , lit_6 : Token , layout_7 : & 'a Layout < 'a > , variable_declarator_id : & 'a VariableDeclaratorId < 'a > , span : Span } , 
 // LastFormalParameter = FormalParameter
  Alt1 { formal_parameter : & 'a FormalParameter < 'a > , span : Span } , Amb (& 'a [& 'a LastFormalParameter < 'a >]) } 
-// ReceiverParameter = Annotation* Layout UnannType Layout (Identifier ".")? Layout "this"
+// ReceiverParameter = Annotation* Layout UnannType Layout (Identifier ".")? Layout [$ 0-9
+// A-Z _ a-z] !<< "this" !>> [$ 0-9 A-Z _ a-z]
  # [derive (Debug)] pub enum ReceiverParameter < 'a > { Alt0 { annotations : & 'a Star2 < 'a > , layout_1 : & 'a Layout < 'a > , unann_type : & 'a UnannType < 'a > , layout_3 : & 'a Layout < 'a > , opt_25 : & 'a Opt25 < 'a > , layout_5 : & 'a Layout < 'a > , lit_6 : Token , span : Span } , Amb (& 'a [& 'a ReceiverParameter < 'a >]) , } # [derive (Debug)] pub enum Result < 'a > { 
 // Result = UnannType
  Alt0 { unann_type : & 'a UnannType < 'a > , span : Span } , 
-// Result = "void"
+// Result = [$ 0-9 A-Z _ a-z] !<< "void" !>> [$ 0-9 A-Z _ a-z]
  Alt1 { lit_0 : Token , span : Span } , Amb (& 'a [& 'a Result < 'a >]) } 
-// Throws = "throws" Layout {ClassType ","}+
+// Throws = [$ 0-9 A-Z _ a-z] !<< "throws" !>> [$ 0-9 A-Z _ a-z] Layout {ClassType ","}+
  # [derive (Debug)] pub enum Throws < 'a > { Alt0 { lit_0 : Token , layout : & 'a Layout < 'a > , class_types : & 'a Plus13 < 'a > , span : Span } , Amb (& 'a [& 'a Throws < 'a >]) , } # [derive (Debug)] pub enum MethodBody < 'a > { 
 // MethodBody = Block
  Alt0 { block : & 'a Block < 'a > , span : Span } , 
@@ -1433,11 +1453,12 @@ fn unwrap_token (self) -> Token { match self { ParseTree :: Token (t) => t , _ =
 // ConstructorBody = "{" Layout ExplicitConstructorInvocation? Layout BlockStatement* Layout
 // "}"
  # [derive (Debug)] pub enum ConstructorBody < 'a > { Alt0 { lit_0 : Token , layout_1 : & 'a Layout < 'a > , explicit_constructor_invocation : & 'a Opt27 < 'a > , layout_3 : & 'a Layout < 'a > , block_statements : & 'a Star13 < 'a > , layout_5 : & 'a Layout < 'a > , lit_6 : Token , span : Span } , Amb (& 'a [& 'a ConstructorBody < 'a >]) , } # [derive (Debug)] pub enum ExplicitConstructorInvocation < 'a > { 
-// ExplicitConstructorInvocation = constructorInvocation:NonWildTypeArguments? Layout "this"
-// Layout Arguments Layout ";"
+// ExplicitConstructorInvocation = constructorInvocation:NonWildTypeArguments? Layout [$ 0-9
+// A-Z _ a-z] !<< "this" !>> [$ 0-9 A-Z _ a-z] Layout Arguments Layout ";"
  Alt0 { constructor_invocation : & 'a Opt29 < 'a > , layout_1 : & 'a Layout < 'a > , lit_2 : Token , layout_3 : & 'a Layout < 'a > , arguments : & 'a Arguments < 'a > , layout_5 : & 'a Layout < 'a > , lit_6 : Token , span : Span } , 
 // ExplicitConstructorInvocation = superConstructorInvocation:(Primary ".")? Layout
-// NonWildTypeArguments? Layout "super" Layout Arguments Layout ";"
+// NonWildTypeArguments? Layout [$ 0-9 A-Z _ a-z] !<< "super" !>> [$ 0-9 A-Z _ a-z] Layout
+// Arguments Layout ";"
  Alt1 { super_constructor_invocation : & 'a Opt30 < 'a > , layout_1 : & 'a Layout < 'a > , non_wild_type_arguments : & 'a Opt29 < 'a > , layout_3 : & 'a Layout < 'a > , lit_4 : Token , layout_5 : & 'a Layout < 'a > , arguments : & 'a Arguments < 'a > , layout_7 : & 'a Layout < 'a > , lit_8 : Token , span : Span } , Amb (& 'a [& 'a ExplicitConstructorInvocation < 'a >]) } 
 // TypeList = {Type ","}+
  # [derive (Debug)] pub enum TypeList < 'a > { Alt0 { types : & 'a Plus16 < 'a > , span : Span } , Amb (& 'a [& 'a TypeList < 'a >]) , } 
@@ -1447,9 +1468,10 @@ fn unwrap_token (self) -> Token { match self { ParseTree :: Token (t) => t , _ =
  # [derive (Debug)] pub enum TypeParameters < 'a > { Alt0 { lit_0 : Token , layout_1 : & 'a Layout < 'a > , type_parameters : & 'a Plus17 < 'a > , layout_3 : & 'a Layout < 'a > , lit_4 : Token , span : Span } , Amb (& 'a [& 'a TypeParameters < 'a >]) , } 
 // TypeParameter = Annotation* Layout TypeIdentifier Layout TypeBound?
  # [derive (Debug)] pub enum TypeParameter < 'a > { Alt0 { annotations : & 'a Star2 < 'a > , layout_1 : & 'a Layout < 'a > , type_identifier : Token , layout_3 : & 'a Layout < 'a > , type_bound : & 'a Opt31 < 'a > , span : Span } , Amb (& 'a [& 'a TypeParameter < 'a >]) , } 
-// TypeBound = "extends" Layout ReferenceType Layout ("&" ReferenceType)*
+// TypeBound = [$ 0-9 A-Z _ a-z] !<< "extends" !>> [$ 0-9 A-Z _ a-z] Layout ReferenceType
+// Layout ("&" ReferenceType)*
  # [derive (Debug)] pub enum TypeBound < 'a > { Alt0 { lit_0 : Token , layout_1 : & 'a Layout < 'a > , reference_type : & 'a ReferenceType < 'a > , layout_3 : & 'a Layout < 'a > , star_14 : & 'a Star14 < 'a > , span : Span } , Amb (& 'a [& 'a TypeBound < 'a >]) , } 
-// Initializer = "static"? Layout Block
+// Initializer = [$ 0-9 A-Z _ a-z] !<< "static" !>> [$ 0-9 A-Z _ a-z]? Layout Block
  # [derive (Debug)] pub enum Initializer < 'a > { Alt0 { opt_8 : & 'a Opt8 < 'a > , layout : & 'a Layout < 'a > , block : & 'a Block < 'a > , span : Span } , Amb (& 'a [& 'a Initializer < 'a >]) , } 
 // EnumBody = "{" Layout {EnumConstant ","}* Layout ","? Layout EnumBodyDeclarations? Layout
 // "}"
@@ -1473,7 +1495,7 @@ fn unwrap_token (self) -> Token { match self { ParseTree :: Token (t) => t , _ =
  # [derive (Debug)] pub enum LocalVariableDeclarationStatement < 'a > { Alt0 { variable_modifiers : & 'a Star11 < 'a > , layout_1 : & 'a Layout < 'a > , local_variable_type : & 'a LocalVariableType < 'a > , layout_3 : & 'a Layout < 'a > , variable_declarators : & 'a Plus21 < 'a > , layout_5 : & 'a Layout < 'a > , lit_6 : Token , span : Span } , Amb (& 'a [& 'a LocalVariableDeclarationStatement < 'a >]) , } # [derive (Debug)] pub enum LocalVariableType < 'a > { 
 // LocalVariableType = UnannType
  Alt0 { unann_type : & 'a UnannType < 'a > , span : Span } , 
-// LocalVariableType = "var"
+// LocalVariableType = [$ 0-9 A-Z _ a-z] !<< "var" !>> [$ 0-9 A-Z _ a-z]
  Alt1 { lit_0 : Token , span : Span } , Amb (& 'a [& 'a LocalVariableType < 'a >]) } 
 // FieldDeclaration = FieldModifier* Layout UnannType Layout {VariableDeclarator ","}+ Layout
 // ";"
@@ -1539,107 +1561,107 @@ fn unwrap_token (self) -> Token { match self { ParseTree :: Token (t) => t , _ =
 // AnnotationMethodDeclaration = InterfaceMethodModifier* Layout UnannType Layout Identifier
 // Layout "(" Layout ")" Layout (Annotation* "[" "]")* Layout DefaultValue? Layout ";"
  # [derive (Debug)] pub enum AnnotationMethodDeclaration < 'a > { Alt0 { interface_method_modifiers : & 'a Star22 < 'a > , layout_1 : & 'a Layout < 'a > , unann_type : & 'a UnannType < 'a > , layout_3 : & 'a Layout < 'a > , identifier : Token , layout_5 : & 'a Layout < 'a > , lit_6 : Token , layout_7 : & 'a Layout < 'a > , lit_8 : Token , layout_9 : & 'a Layout < 'a > , star_9 : & 'a Star9 < 'a > , layout_11 : & 'a Layout < 'a > , default_value : & 'a Opt49 < 'a > , layout_13 : & 'a Layout < 'a > , lit_14 : Token , span : Span } , Amb (& 'a [& 'a AnnotationMethodDeclaration < 'a >]) , } 
-// DefaultValue = "default" Layout ElementValue
+// DefaultValue = [$ 0-9 A-Z _ a-z] !<< "default" !>> [$ 0-9 A-Z _ a-z] Layout ElementValue
  # [derive (Debug)] pub enum DefaultValue < 'a > { Alt0 { lit_0 : Token , layout : & 'a Layout < 'a > , element_value : & 'a ElementValue < 'a > , span : Span } , Amb (& 'a [& 'a DefaultValue < 'a >]) , } # [derive (Debug)] pub enum ClassModifier < 'a > { 
 // ClassModifier = Annotation
  Alt0 { annotation : & 'a Annotation < 'a > , span : Span } , 
-// ClassModifier = "public"
+// ClassModifier = [$ 0-9 A-Z _ a-z] !<< "public" !>> [$ 0-9 A-Z _ a-z]
  Alt1 { lit_0 : Token , span : Span } , 
-// ClassModifier = "protected"
+// ClassModifier = [$ 0-9 A-Z _ a-z] !<< "protected" !>> [$ 0-9 A-Z _ a-z]
  Alt2 { lit_0 : Token , span : Span } , 
-// ClassModifier = "private"
+// ClassModifier = [$ 0-9 A-Z _ a-z] !<< "private" !>> [$ 0-9 A-Z _ a-z]
  Alt3 { lit_0 : Token , span : Span } , 
-// ClassModifier = "abstract"
+// ClassModifier = [$ 0-9 A-Z _ a-z] !<< "abstract" !>> [$ 0-9 A-Z _ a-z]
  Alt4 { lit_0 : Token , span : Span } , 
-// ClassModifier = "static"
+// ClassModifier = [$ 0-9 A-Z _ a-z] !<< "static" !>> [$ 0-9 A-Z _ a-z]
  Alt5 { lit_0 : Token , span : Span } , 
-// ClassModifier = "final"
+// ClassModifier = [$ 0-9 A-Z _ a-z] !<< "final" !>> [$ 0-9 A-Z _ a-z]
  Alt6 { lit_0 : Token , span : Span } , 
-// ClassModifier = "strictfp"
+// ClassModifier = [$ 0-9 A-Z _ a-z] !<< "strictfp" !>> [$ 0-9 A-Z _ a-z]
  Alt7 { lit_0 : Token , span : Span } , Amb (& 'a [& 'a ClassModifier < 'a >]) } # [derive (Debug)] pub enum ConstructorModifier < 'a > { 
 // ConstructorModifier = Annotation
  Alt0 { annotation : & 'a Annotation < 'a > , span : Span } , 
-// ConstructorModifier = "public"
+// ConstructorModifier = [$ 0-9 A-Z _ a-z] !<< "public" !>> [$ 0-9 A-Z _ a-z]
  Alt1 { lit_0 : Token , span : Span } , 
-// ConstructorModifier = "protected"
+// ConstructorModifier = [$ 0-9 A-Z _ a-z] !<< "protected" !>> [$ 0-9 A-Z _ a-z]
  Alt2 { lit_0 : Token , span : Span } , 
-// ConstructorModifier = "private"
+// ConstructorModifier = [$ 0-9 A-Z _ a-z] !<< "private" !>> [$ 0-9 A-Z _ a-z]
  Alt3 { lit_0 : Token , span : Span } , Amb (& 'a [& 'a ConstructorModifier < 'a >]) } # [derive (Debug)] pub enum InterfaceModifier < 'a > { 
 // InterfaceModifier = Annotation
  Alt0 { annotation : & 'a Annotation < 'a > , span : Span } , 
-// InterfaceModifier = "public"
+// InterfaceModifier = [$ 0-9 A-Z _ a-z] !<< "public" !>> [$ 0-9 A-Z _ a-z]
  Alt1 { lit_0 : Token , span : Span } , 
-// InterfaceModifier = "protected"
+// InterfaceModifier = [$ 0-9 A-Z _ a-z] !<< "protected" !>> [$ 0-9 A-Z _ a-z]
  Alt2 { lit_0 : Token , span : Span } , 
-// InterfaceModifier = "private"
+// InterfaceModifier = [$ 0-9 A-Z _ a-z] !<< "private" !>> [$ 0-9 A-Z _ a-z]
  Alt3 { lit_0 : Token , span : Span } , 
-// InterfaceModifier = "abstract"
+// InterfaceModifier = [$ 0-9 A-Z _ a-z] !<< "abstract" !>> [$ 0-9 A-Z _ a-z]
  Alt4 { lit_0 : Token , span : Span } , 
-// InterfaceModifier = "static"
+// InterfaceModifier = [$ 0-9 A-Z _ a-z] !<< "static" !>> [$ 0-9 A-Z _ a-z]
  Alt5 { lit_0 : Token , span : Span } , 
-// InterfaceModifier = "strictfp"
+// InterfaceModifier = [$ 0-9 A-Z _ a-z] !<< "strictfp" !>> [$ 0-9 A-Z _ a-z]
  Alt6 { lit_0 : Token , span : Span } , Amb (& 'a [& 'a InterfaceModifier < 'a >]) } # [derive (Debug)] pub enum ConstantModifier < 'a > { 
 // ConstantModifier = Annotation
  Alt0 { annotation : & 'a Annotation < 'a > , span : Span } , 
-// ConstantModifier = "public"
+// ConstantModifier = [$ 0-9 A-Z _ a-z] !<< "public" !>> [$ 0-9 A-Z _ a-z]
  Alt1 { lit_0 : Token , span : Span } , 
-// ConstantModifier = "static"
+// ConstantModifier = [$ 0-9 A-Z _ a-z] !<< "static" !>> [$ 0-9 A-Z _ a-z]
  Alt2 { lit_0 : Token , span : Span } , 
-// ConstantModifier = "final"
+// ConstantModifier = [$ 0-9 A-Z _ a-z] !<< "final" !>> [$ 0-9 A-Z _ a-z]
  Alt3 { lit_0 : Token , span : Span } , Amb (& 'a [& 'a ConstantModifier < 'a >]) } # [derive (Debug)] pub enum InterfaceMethodModifier < 'a > { 
 // InterfaceMethodModifier = Annotation
  Alt0 { annotation : & 'a Annotation < 'a > , span : Span } , 
-// InterfaceMethodModifier = "public"
+// InterfaceMethodModifier = [$ 0-9 A-Z _ a-z] !<< "public" !>> [$ 0-9 A-Z _ a-z]
  Alt1 { lit_0 : Token , span : Span } , 
-// InterfaceMethodModifier = "abstract"
+// InterfaceMethodModifier = [$ 0-9 A-Z _ a-z] !<< "abstract" !>> [$ 0-9 A-Z _ a-z]
  Alt2 { lit_0 : Token , span : Span } , 
-// InterfaceMethodModifier = "default"
+// InterfaceMethodModifier = [$ 0-9 A-Z _ a-z] !<< "default" !>> [$ 0-9 A-Z _ a-z]
  Alt3 { lit_0 : Token , span : Span } , 
-// InterfaceMethodModifier = "static"
+// InterfaceMethodModifier = [$ 0-9 A-Z _ a-z] !<< "static" !>> [$ 0-9 A-Z _ a-z]
  Alt4 { lit_0 : Token , span : Span } , 
-// InterfaceMethodModifier = "strictfp"
+// InterfaceMethodModifier = [$ 0-9 A-Z _ a-z] !<< "strictfp" !>> [$ 0-9 A-Z _ a-z]
  Alt5 { lit_0 : Token , span : Span } , 
-// InterfaceMethodModifier = "private"
+// InterfaceMethodModifier = [$ 0-9 A-Z _ a-z] !<< "private" !>> [$ 0-9 A-Z _ a-z]
  Alt6 { lit_0 : Token , span : Span } , Amb (& 'a [& 'a InterfaceMethodModifier < 'a >]) } # [derive (Debug)] pub enum FieldModifier < 'a > { 
 // FieldModifier = Annotation
  Alt0 { annotation : & 'a Annotation < 'a > , span : Span } , 
-// FieldModifier = "public"
+// FieldModifier = [$ 0-9 A-Z _ a-z] !<< "public" !>> [$ 0-9 A-Z _ a-z]
  Alt1 { lit_0 : Token , span : Span } , 
-// FieldModifier = "protected"
+// FieldModifier = [$ 0-9 A-Z _ a-z] !<< "protected" !>> [$ 0-9 A-Z _ a-z]
  Alt2 { lit_0 : Token , span : Span } , 
-// FieldModifier = "private"
+// FieldModifier = [$ 0-9 A-Z _ a-z] !<< "private" !>> [$ 0-9 A-Z _ a-z]
  Alt3 { lit_0 : Token , span : Span } , 
-// FieldModifier = "static"
+// FieldModifier = [$ 0-9 A-Z _ a-z] !<< "static" !>> [$ 0-9 A-Z _ a-z]
  Alt4 { lit_0 : Token , span : Span } , 
-// FieldModifier = "final"
+// FieldModifier = [$ 0-9 A-Z _ a-z] !<< "final" !>> [$ 0-9 A-Z _ a-z]
  Alt5 { lit_0 : Token , span : Span } , 
-// FieldModifier = "transient"
+// FieldModifier = [$ 0-9 A-Z _ a-z] !<< "transient" !>> [$ 0-9 A-Z _ a-z]
  Alt6 { lit_0 : Token , span : Span } , 
-// FieldModifier = "volatile"
+// FieldModifier = [$ 0-9 A-Z _ a-z] !<< "volatile" !>> [$ 0-9 A-Z _ a-z]
  Alt7 { lit_0 : Token , span : Span } , Amb (& 'a [& 'a FieldModifier < 'a >]) } # [derive (Debug)] pub enum MethodModifier < 'a > { 
 // MethodModifier = Annotation
  Alt0 { annotation : & 'a Annotation < 'a > , span : Span } , 
-// MethodModifier = "public"
+// MethodModifier = [$ 0-9 A-Z _ a-z] !<< "public" !>> [$ 0-9 A-Z _ a-z]
  Alt1 { lit_0 : Token , span : Span } , 
-// MethodModifier = "protected"
+// MethodModifier = [$ 0-9 A-Z _ a-z] !<< "protected" !>> [$ 0-9 A-Z _ a-z]
  Alt2 { lit_0 : Token , span : Span } , 
-// MethodModifier = "private"
+// MethodModifier = [$ 0-9 A-Z _ a-z] !<< "private" !>> [$ 0-9 A-Z _ a-z]
  Alt3 { lit_0 : Token , span : Span } , 
-// MethodModifier = "abstract"
+// MethodModifier = [$ 0-9 A-Z _ a-z] !<< "abstract" !>> [$ 0-9 A-Z _ a-z]
  Alt4 { lit_0 : Token , span : Span } , 
-// MethodModifier = "static"
+// MethodModifier = [$ 0-9 A-Z _ a-z] !<< "static" !>> [$ 0-9 A-Z _ a-z]
  Alt5 { lit_0 : Token , span : Span } , 
-// MethodModifier = "final"
+// MethodModifier = [$ 0-9 A-Z _ a-z] !<< "final" !>> [$ 0-9 A-Z _ a-z]
  Alt6 { lit_0 : Token , span : Span } , 
-// MethodModifier = "synchronized"
+// MethodModifier = [$ 0-9 A-Z _ a-z] !<< "synchronized" !>> [$ 0-9 A-Z _ a-z]
  Alt7 { lit_0 : Token , span : Span } , 
-// MethodModifier = "native"
+// MethodModifier = [$ 0-9 A-Z _ a-z] !<< "native" !>> [$ 0-9 A-Z _ a-z]
  Alt8 { lit_0 : Token , span : Span } , 
-// MethodModifier = "strictfp"
+// MethodModifier = [$ 0-9 A-Z _ a-z] !<< "strictfp" !>> [$ 0-9 A-Z _ a-z]
  Alt9 { lit_0 : Token , span : Span } , Amb (& 'a [& 'a MethodModifier < 'a >]) } # [derive (Debug)] pub enum VariableModifier < 'a > { 
 // VariableModifier = Annotation
  Alt0 { annotation : & 'a Annotation < 'a > , span : Span } , 
-// VariableModifier = "final"
+// VariableModifier = [$ 0-9 A-Z _ a-z] !<< "final" !>> [$ 0-9 A-Z _ a-z]
  Alt1 { lit_0 : Token , span : Span } , Amb (& 'a [& 'a VariableModifier < 'a >]) } # [derive (Debug)] pub enum Statement < 'a > { 
 // Statement = Block #Block
  Block { block : & 'a Block < 'a > , span : Span } , 
@@ -1647,51 +1669,64 @@ fn unwrap_token (self) -> Token { match self { ParseTree :: Token (t) => t , _ =
  Empty { lit_0 : Token , span : Span } , 
 // Statement = StatementExpression Layout ";" #Expression
  Expression { statement_expression : & 'a StatementExpression < 'a > , layout : & 'a Layout < 'a > , lit_2 : Token , span : Span } , 
-// Statement = "assert" Layout Expression(0, 0) Layout (":" Expression)? Layout ";" #Assert
+// Statement = [$ 0-9 A-Z _ a-z] !<< "assert" !>> [$ 0-9 A-Z _ a-z] Layout Expression(0, 0)
+// Layout (":" Expression)? Layout ";" #Assert
  Assert { lit_0 : Token , layout_1 : & 'a Layout < 'a > , expression : & 'a Expression < 'a > , layout_3 : & 'a Layout < 'a > , opt_50 : & 'a Opt50 < 'a > , layout_5 : & 'a Layout < 'a > , lit_6 : Token , span : Span } , 
-// Statement = "switch" Layout "(" Layout Expression(0, 0) Layout ")" Layout "{" Layout
-// SwitchBlockStatementGroup* Layout SwitchLabel* Layout "}" #Switch
+// Statement = [$ 0-9 A-Z _ a-z] !<< "switch" !>> [$ 0-9 A-Z _ a-z] Layout "(" Layout
+// Expression(0, 0) Layout ")" Layout "{" Layout SwitchBlockStatementGroup* Layout
+// SwitchLabel* Layout "}" #Switch
  Switch { lit_0 : Token , layout_1 : & 'a Layout < 'a > , lit_2 : Token , layout_3 : & 'a Layout < 'a > , expression : & 'a Expression < 'a > , layout_5 : & 'a Layout < 'a > , lit_6 : Token , layout_7 : & 'a Layout < 'a > , lit_8 : Token , layout_9 : & 'a Layout < 'a > , switch_block_statement_groups : & 'a Star24 < 'a > , layout_11 : & 'a Layout < 'a > , switch_labels : & 'a Star25 < 'a > , layout_13 : & 'a Layout < 'a > , lit_14 : Token , span : Span } , 
-// Statement = "do" Layout Statement Layout "while" Layout "(" Layout Expression(0, 0) Layout
+// Statement = [$ 0-9 A-Z _ a-z] !<< "do" !>> [$ 0-9 A-Z _ a-z] Layout Statement Layout [$
+// 0-9 A-Z _ a-z] !<< "while" !>> [$ 0-9 A-Z _ a-z] Layout "(" Layout Expression(0, 0) Layout
 // ")" Layout ";" #Do
  Do { lit_0 : Token , layout_1 : & 'a Layout < 'a > , statement : & 'a Statement < 'a > , layout_3 : & 'a Layout < 'a > , lit_4 : Token , layout_5 : & 'a Layout < 'a > , lit_6 : Token , layout_7 : & 'a Layout < 'a > , expression : & 'a Expression < 'a > , layout_9 : & 'a Layout < 'a > , lit_10 : Token , layout_11 : & 'a Layout < 'a > , lit_12 : Token , span : Span } , 
-// Statement = "break" Layout Identifier? Layout ";" #Break
+// Statement = [$ 0-9 A-Z _ a-z] !<< "break" !>> [$ 0-9 A-Z _ a-z] Layout Identifier? Layout
+// ";" #Break
  Break { lit_0 : Token , layout_1 : & 'a Layout < 'a > , identifier : & 'a Opt53 < 'a > , layout_3 : & 'a Layout < 'a > , lit_4 : Token , span : Span } , 
-// Statement = "continue" Layout Identifier? Layout ";" #Continue
+// Statement = [$ 0-9 A-Z _ a-z] !<< "continue" !>> [$ 0-9 A-Z _ a-z] Layout Identifier?
+// Layout ";" #Continue
  Continue { lit_0 : Token , layout_1 : & 'a Layout < 'a > , identifier : & 'a Opt53 < 'a > , layout_3 : & 'a Layout < 'a > , lit_4 : Token , span : Span } , 
-// Statement = "return" Layout Expression? Layout ";" #Return
+// Statement = [$ 0-9 A-Z _ a-z] !<< "return" !>> [$ 0-9 A-Z _ a-z] Layout Expression? Layout
+// ";" #Return
  Return { lit_0 : Token , layout_1 : & 'a Layout < 'a > , expression : & 'a Opt54 < 'a > , layout_3 : & 'a Layout < 'a > , lit_4 : Token , span : Span } , 
-// Statement = "synchronized" Layout "(" Layout Expression(0, 0) Layout ")" Layout Block
-// #Synchronized
+// Statement = [$ 0-9 A-Z _ a-z] !<< "synchronized" !>> [$ 0-9 A-Z _ a-z] Layout "(" Layout
+// Expression(0, 0) Layout ")" Layout Block #Synchronized
  Synchronized { lit_0 : Token , layout_1 : & 'a Layout < 'a > , lit_2 : Token , layout_3 : & 'a Layout < 'a > , expression : & 'a Expression < 'a > , layout_5 : & 'a Layout < 'a > , lit_6 : Token , layout_7 : & 'a Layout < 'a > , block : & 'a Block < 'a > , span : Span } , 
-// Statement = "throw" Layout Expression(0, 0) Layout ";" #Throw
+// Statement = [$ 0-9 A-Z _ a-z] !<< "throw" !>> [$ 0-9 A-Z _ a-z] Layout Expression(0, 0)
+// Layout ";" #Throw
  Throw { lit_0 : Token , layout_1 : & 'a Layout < 'a > , expression : & 'a Expression < 'a > , layout_3 : & 'a Layout < 'a > , lit_4 : Token , span : Span } , 
-// Statement = "try" Layout Block Layout CatchClause+ #Try
+// Statement = [$ 0-9 A-Z _ a-z] !<< "try" !>> [$ 0-9 A-Z _ a-z] Layout Block Layout
+// CatchClause+ #Try
  Try { lit_0 : Token , layout_1 : & 'a Layout < 'a > , block : & 'a Block < 'a > , layout_3 : & 'a Layout < 'a > , catch_clauses : & 'a Plus32 < 'a > , span : Span } , 
-// Statement = "try" Layout Block Layout CatchClause* Layout Finally #TryFinally
+// Statement = [$ 0-9 A-Z _ a-z] !<< "try" !>> [$ 0-9 A-Z _ a-z] Layout Block Layout
+// CatchClause* Layout Finally #TryFinally
  TryFinally { lit_0 : Token , layout_1 : & 'a Layout < 'a > , block : & 'a Block < 'a > , layout_3 : & 'a Layout < 'a > , catch_clauses : & 'a Star26 < 'a > , layout_5 : & 'a Layout < 'a > , finally : & 'a Finally < 'a > , span : Span } , 
-// Statement = "try" Layout ResourceSpecification Layout Block Layout CatchClause* Layout
-// Finally? #TryWithResourcesStmt
+// Statement = [$ 0-9 A-Z _ a-z] !<< "try" !>> [$ 0-9 A-Z _ a-z] Layout ResourceSpecification
+// Layout Block Layout CatchClause* Layout Finally? #TryWithResourcesStmt
  TryWithResourcesStmt { lit_0 : Token , layout_1 : & 'a Layout < 'a > , resource_specification : & 'a ResourceSpecification < 'a > , layout_3 : & 'a Layout < 'a > , block : & 'a Block < 'a > , layout_5 : & 'a Layout < 'a > , catch_clauses : & 'a Star26 < 'a > , layout_7 : & 'a Layout < 'a > , finally : & 'a Opt56 < 'a > , span : Span } , 
 // Statement = Identifier Layout ":" Layout Statement #Label
  Label { identifier : Token , layout_1 : & 'a Layout < 'a > , lit_2 : Token , layout_3 : & 'a Layout < 'a > , statement : & 'a Statement < 'a > , span : Span } , 
-// Statement = "if" Layout "(" Layout Expression(0, 0) Layout ")" Layout Statement !>>> Else
-// #If
+// Statement = [$ 0-9 A-Z _ a-z] !<< "if" !>> [$ 0-9 A-Z _ a-z] Layout "(" Layout
+// Expression(0, 0) Layout ")" Layout Statement !>>> Else #If
  If { lit_0 : Token , layout_1 : & 'a Layout < 'a > , lit_2 : Token , layout_3 : & 'a Layout < 'a > , expression : & 'a Expression < 'a > , layout_5 : & 'a Layout < 'a > , lit_6 : Token , layout_7 : & 'a Layout < 'a > , statement : & 'a Statement < 'a > , span : Span } , 
-// Statement = "if" Layout "(" Layout Expression(0, 0) Layout ")" Layout Statement Layout
-// Else Layout Statement #IfElse
+// Statement = [$ 0-9 A-Z _ a-z] !<< "if" !>> [$ 0-9 A-Z _ a-z] Layout "(" Layout
+// Expression(0, 0) Layout ")" Layout Statement Layout [$ 0-9 A-Z _ a-z] !<< Else !>> [$ 0-9
+// A-Z _ a-z] Layout Statement #IfElse
  IfElse { lit_0 : Token , layout_1 : & 'a Layout < 'a > , lit_2 : Token , layout_3 : & 'a Layout < 'a > , expression : & 'a Expression < 'a > , layout_5 : & 'a Layout < 'a > , lit_6 : Token , layout_7 : & 'a Layout < 'a > , statement_8 : & 'a Statement < 'a > , layout_9 : & 'a Layout < 'a > , r#else : Token , layout_11 : & 'a Layout < 'a > , statement_12 : & 'a Statement < 'a > , span : Span } , 
-// Statement = "while" Layout "(" Layout Expression(0, 0) Layout ")" Layout Statement #While
+// Statement = [$ 0-9 A-Z _ a-z] !<< "while" !>> [$ 0-9 A-Z _ a-z] Layout "(" Layout
+// Expression(0, 0) Layout ")" Layout Statement #While
  While { lit_0 : Token , layout_1 : & 'a Layout < 'a > , lit_2 : Token , layout_3 : & 'a Layout < 'a > , expression : & 'a Expression < 'a > , layout_5 : & 'a Layout < 'a > , lit_6 : Token , layout_7 : & 'a Layout < 'a > , statement : & 'a Statement < 'a > , span : Span } , 
-// Statement = "for" Layout "(" Layout ForControl Layout ")" Layout Statement #For
+// Statement = [$ 0-9 A-Z _ a-z] !<< "for" !>> [$ 0-9 A-Z _ a-z] Layout "(" Layout ForControl
+// Layout ")" Layout Statement #For
  For { lit_0 : Token , layout_1 : & 'a Layout < 'a > , lit_2 : Token , layout_3 : & 'a Layout < 'a > , for_control : & 'a ForControl < 'a > , layout_5 : & 'a Layout < 'a > , lit_6 : Token , layout_7 : & 'a Layout < 'a > , statement : & 'a Statement < 'a > , span : Span } , Amb (& 'a [& 'a Statement < 'a >]) } 
 // StatementExpression = Expression(0, 32768)
  # [derive (Debug)] pub enum StatementExpression < 'a > { Alt0 { expression : & 'a Expression < 'a > , span : Span } , Amb (& 'a [& 'a StatementExpression < 'a >]) , } 
 // SwitchBlockStatementGroup = SwitchLabel+ Layout BlockStatement+
  # [derive (Debug)] pub enum SwitchBlockStatementGroup < 'a > { Alt0 { switch_labels : & 'a Plus31 < 'a > , layout : & 'a Layout < 'a > , block_statements : & 'a Plus15 < 'a > , span : Span } , Amb (& 'a [& 'a SwitchBlockStatementGroup < 'a >]) , } # [derive (Debug)] pub enum SwitchLabel < 'a > { 
-// SwitchLabel = "case" Layout Expression(0, 0) Layout ":"
+// SwitchLabel = [$ 0-9 A-Z _ a-z] !<< "case" !>> [$ 0-9 A-Z _ a-z] Layout Expression(0, 0)
+// Layout ":"
  Alt0 { lit_0 : Token , layout_1 : & 'a Layout < 'a > , expression : & 'a Expression < 'a > , layout_3 : & 'a Layout < 'a > , lit_4 : Token , span : Span } , 
-// SwitchLabel = "default" Layout ":"
+// SwitchLabel = [$ 0-9 A-Z _ a-z] !<< "default" !>> [$ 0-9 A-Z _ a-z] Layout ":"
  Alt1 { lit_0 : Token , layout : & 'a Layout < 'a > , lit_2 : Token , span : Span } , Amb (& 'a [& 'a SwitchLabel < 'a >]) } # [derive (Debug)] pub enum ForControl < 'a > { 
 // ForControl = ForInit? Layout ";" Layout Expression? Layout ";" Layout ForUpdate?
 // #Traditional
@@ -1699,21 +1734,21 @@ fn unwrap_token (self) -> Token { match self { ParseTree :: Token (t) => t , _ =
 // ForControl = VariableModifier* Layout LocalVariableType Layout VariableDeclaratorId Layout
 // ":" Layout Expression(0, 0) #Enhanced
  Enhanced { variable_modifiers : & 'a Star11 < 'a > , layout_1 : & 'a Layout < 'a > , local_variable_type : & 'a LocalVariableType < 'a > , layout_3 : & 'a Layout < 'a > , variable_declarator_id : & 'a VariableDeclaratorId < 'a > , layout_5 : & 'a Layout < 'a > , lit_6 : Token , layout_7 : & 'a Layout < 'a > , expression : & 'a Expression < 'a > , span : Span } , Amb (& 'a [& 'a ForControl < 'a >]) } 
-// CatchClause = "catch" Layout "(" Layout VariableModifier* Layout CatchType Layout
-// Identifier Layout ")" Layout Block
+// CatchClause = [$ 0-9 A-Z _ a-z] !<< "catch" !>> [$ 0-9 A-Z _ a-z] Layout "(" Layout
+// VariableModifier* Layout CatchType Layout Identifier Layout ")" Layout Block
  # [derive (Debug)] pub enum CatchClause < 'a > { Alt0 { lit_0 : Token , layout_1 : & 'a Layout < 'a > , lit_2 : Token , layout_3 : & 'a Layout < 'a > , variable_modifiers : & 'a Star11 < 'a > , layout_5 : & 'a Layout < 'a > , catch_type : & 'a CatchType < 'a > , layout_7 : & 'a Layout < 'a > , identifier : Token , layout_9 : & 'a Layout < 'a > , lit_10 : Token , layout_11 : & 'a Layout < 'a > , block : & 'a Block < 'a > , span : Span } , Amb (& 'a [& 'a CatchClause < 'a >]) , } 
 // CatchType = UnannClassType Layout ("|" ClassType)*
  # [derive (Debug)] pub enum CatchType < 'a > { Alt0 { unann_class_type : & 'a UnannClassType < 'a > , layout : & 'a Layout < 'a > , star_27 : & 'a Star27 < 'a > , span : Span } , Amb (& 'a [& 'a CatchType < 'a >]) , } 
-// Finally = "finally" Layout Block
+// Finally = [$ 0-9 A-Z _ a-z] !<< "finally" !>> [$ 0-9 A-Z _ a-z] Layout Block
  # [derive (Debug)] pub enum Finally < 'a > { Alt0 { lit_0 : Token , layout : & 'a Layout < 'a > , block : & 'a Block < 'a > , span : Span } , Amb (& 'a [& 'a Finally < 'a >]) , } 
 // ResourceSpecification = "(" Layout {Resource ";"}+ Layout ";"? Layout ")"
  # [derive (Debug)] pub enum ResourceSpecification < 'a > { Alt0 { lit_0 : Token , layout_1 : & 'a Layout < 'a > , resources : & 'a Plus34 < 'a > , layout_3 : & 'a Layout < 'a > , opt_60 : & 'a Opt60 < 'a > , layout_5 : & 'a Layout < 'a > , lit_6 : Token , span : Span } , Amb (& 'a [& 'a ResourceSpecification < 'a >]) , } # [derive (Debug)] pub enum Resource < 'a > { 
-// Resource = VariableModifier* Layout (UnannReferenceType | "var") Layout
-// VariableDeclaratorId Layout "=" Layout Expression(0, 0)
+// Resource = VariableModifier* Layout (UnannReferenceType | [$ 0-9 A-Z _ a-z] !<< "var" !>>
+// [$ 0-9 A-Z _ a-z]) Layout VariableDeclaratorId Layout "=" Layout Expression(0, 0)
  Alt0 { variable_modifiers : & 'a Star11 < 'a > , layout_1 : & 'a Layout < 'a > , alt_1 : & 'a Alt1 < 'a > , layout_3 : & 'a Layout < 'a > , variable_declarator_id : & 'a VariableDeclaratorId < 'a > , layout_5 : & 'a Layout < 'a > , lit_6 : Token , layout_7 : & 'a Layout < 'a > , expression : & 'a Expression < 'a > , span : Span } , 
 // Resource = QualifiedIdentifier
  Alt1 { qualified_identifier : & 'a QualifiedIdentifier < 'a > , span : Span } , 
-// Resource = "this" Layout "." Layout Identifier
+// Resource = [$ 0-9 A-Z _ a-z] !<< "this" !>> [$ 0-9 A-Z _ a-z] Layout "." Layout Identifier
  Alt2 { lit_0 : Token , layout_1 : & 'a Layout < 'a > , lit_2 : Token , layout_3 : & 'a Layout < 'a > , identifier : Token , span : Span } , Amb (& 'a [& 'a Resource < 'a >]) } # [derive (Debug)] pub enum ForInit < 'a > { 
 // ForInit = expressions:{StatementExpression ","}+
  Alt0 { expressions : & 'a Plus35 < 'a > , span : Span } , 
@@ -1743,24 +1778,25 @@ fn unwrap_token (self) -> Token { match self { ParseTree :: Token (t) => t , _ =
 // Identifier TypeArguments?)* Layout "::" Layout TypeArguments? Layout Identifier return 6
 // #ParameterizedMethodRef
  ParameterizedMethodRef { qualified_identifier : & 'a QualifiedIdentifier < 'a > , layout_1 : & 'a Layout < 'a > , type_arguments_2 : & 'a TypeArguments < 'a > , layout_3 : & 'a Layout < 'a > , star_28 : & 'a Star28 < 'a > , layout_5 : & 'a Layout < 'a > , lit_6 : Token , layout_7 : & 'a Layout < 'a > , type_arguments_8 : & 'a Opt61 < 'a > , layout_9 : & 'a Layout < 'a > , identifier : Token , span : Span } , 
-// Expression(p, e) = [128 & e == 0] ClassType Layout "::" Layout TypeArguments? Layout "new"
-// return 7 #ConstructorRef
+// Expression(p, e) = [128 & e == 0] ClassType Layout "::" Layout TypeArguments? Layout [$
+// 0-9 A-Z _ a-z] !<< "new" !>> [$ 0-9 A-Z _ a-z] return 7 #ConstructorRef
  ConstructorRef { class_type : & 'a ClassType < 'a > , layout_1 : & 'a Layout < 'a > , lit_2 : Token , layout_3 : & 'a Layout < 'a > , type_arguments : & 'a Opt61 < 'a > , layout_5 : & 'a Layout < 'a > , lit_6 : Token , span : Span } , 
-// Expression(p, e) = [256 & e == 0] ArrayType Layout "::" Layout "new" return 8
-// #ArrayConstructorRef
+// Expression(p, e) = [256 & e == 0] ArrayType Layout "::" Layout [$ 0-9 A-Z _ a-z] !<< "new"
+// !>> [$ 0-9 A-Z _ a-z] return 8 #ArrayConstructorRef
  ArrayConstructorRef { array_type : & 'a ArrayType < 'a > , layout_1 : & 'a Layout < 'a > , lit_2 : Token , layout_3 : & 'a Layout < 'a > , lit_4 : Token , span : Span } , 
-// Expression(p, e) = [512 & e == 0] "super" Layout "::" Layout TypeArguments? Layout
-// Identifier return 9 #SuperMethodRef
+// Expression(p, e) = [512 & e == 0] [$ 0-9 A-Z _ a-z] !<< "super" !>> [$ 0-9 A-Z _ a-z]
+// Layout "::" Layout TypeArguments? Layout Identifier return 9 #SuperMethodRef
  SuperMethodRef { lit_0 : Token , layout_1 : & 'a Layout < 'a > , lit_2 : Token , layout_3 : & 'a Layout < 'a > , type_arguments : & 'a Opt61 < 'a > , layout_5 : & 'a Layout < 'a > , identifier : Token , span : Span } , 
-// Expression(p, e) = [1024 & e == 0] QualifiedIdentifier Layout "." Layout "super" Layout
-// "::" Layout TypeArguments? Layout Identifier return 10 #QualifiedSuperMethodRef
+// Expression(p, e) = [1024 & e == 0] QualifiedIdentifier Layout "." Layout [$ 0-9 A-Z _ a-z]
+// !<< "super" !>> [$ 0-9 A-Z _ a-z] Layout "::" Layout TypeArguments? Layout Identifier
+// return 10 #QualifiedSuperMethodRef
  QualifiedSuperMethodRef { qualified_identifier : & 'a QualifiedIdentifier < 'a > , layout_1 : & 'a Layout < 'a > , lit_2 : Token , layout_3 : & 'a Layout < 'a > , lit_4 : Token , layout_5 : & 'a Layout < 'a > , lit_6 : Token , layout_7 : & 'a Layout < 'a > , type_arguments : & 'a Opt61 < 'a > , layout_9 : & 'a Layout < 'a > , identifier : Token , span : Span } , 
 // Expression(p, e) = [2048 & e == 0] ("+" !>> Plus | "-" !>> Minus | "++" | "--" | "!" |
 // "~") Layout r=Expression(15, 0) return (((r >> 16 == 0) ? 15 : min(r >> 16, 15)) << 16) |
 // 11 #Prefix
  Prefix { alt_3 : & 'a Alt3 < 'a > , layout : & 'a Layout < 'a > , expression : & 'a Expression < 'a > , span : Span } , 
-// Expression(p, e) = [4096 & e == 0] "new" Layout (ClassInstanceCreationExpression |
-// ArrayCreationExpression) return 12 #New
+// Expression(p, e) = [4096 & e == 0] [$ 0-9 A-Z _ a-z] !<< "new" !>> [$ 0-9 A-Z _ a-z]
+// Layout (ClassInstanceCreationExpression | ArrayCreationExpression) return 12 #New
  New { lit_0 : Token , layout : & 'a Layout < 'a > , alt_4 : & 'a Alt4 < 'a > , span : Span } , 
 // Expression(p, e) = [8192 & e == 0] "(" Layout PrimitiveType Layout ")" Layout
 // r=Expression(15, 0) return (((r >> 16 == 0) ? 15 : min(r >> 16, 15)) << 16) | 13
@@ -1787,7 +1823,8 @@ fn unwrap_token (self) -> Token { match self { ParseTree :: Token (t) => t , _ =
 // == 0) ? 11 : min(r >> 16, 11)) << 16) | 15 #Comparison
  Comparison { expression_0 : & 'a Expression < 'a > , layout_1 : & 'a Layout < 'a > , alt_8 : & 'a Alt8 < 'a > , layout_3 : & 'a Layout < 'a > , expression_4 : & 'a Expression < 'a > , span : Span } , 
 // Expression(p, e) = [65536 & e == 0] [10 >= p] l=Expression(p, 0) [(l >> 16 == 0) || (l >>
-// 16 >= 10)] Layout "instanceof" Layout Type return 16 #InstanceOf
+// 16 >= 10)] Layout [$ 0-9 A-Z _ a-z] !<< "instanceof" !>> [$ 0-9 A-Z _ a-z] Layout Type
+// return 16 #InstanceOf
  InstanceOf { expression : & 'a Expression < 'a > , layout_1 : & 'a Layout < 'a > , lit_2 : Token , layout_3 : & 'a Layout < 'a > , r#type : & 'a Type < 'a > , span : Span } , 
 // Expression(p, e) = [9 >= p] l=Expression(p, 0) [(l >> 16 == 0) || (l >> 16 >= 9)] Layout
 // ("==" | "!=") Layout r=Expression(10, 0) return (((r >> 16 == 0) ? 9 : min(r >> 16, 9)) <<
@@ -1826,13 +1863,15 @@ fn unwrap_token (self) -> Token { match self { ParseTree :: Token (t) => t , _ =
  Lambda { lambda : & 'a Lambda < 'a > , span : Span } , Amb (& 'a [& 'a Expression < 'a >]) } # [derive (Debug)] pub enum Primary < 'a > { 
 // Primary = Literal #Literal
  Literal { literal : & 'a Literal < 'a > , span : Span } , 
-// Primary = (QualifiedIdentifier ".")? Layout "this" #This
+// Primary = (QualifiedIdentifier ".")? Layout [$ 0-9 A-Z _ a-z] !<< "this" !>> [$ 0-9 A-Z _
+// a-z] #This
  This { opt_63 : & 'a Opt63 < 'a > , layout : & 'a Layout < 'a > , lit_2 : Token , span : Span } , 
-// Primary = "super" Layout SuperSuffix #Super
+// Primary = [$ 0-9 A-Z _ a-z] !<< "super" !>> [$ 0-9 A-Z _ a-z] Layout SuperSuffix #Super
  Super { lit_0 : Token , layout : & 'a Layout < 'a > , super_suffix : & 'a SuperSuffix < 'a > , span : Span } , 
 // Primary = Identifier #Identifier
  Identifier { identifier : Token , span : Span } , 
-// Primary = (Type | "void") Layout "." Layout "class" #Type
+// Primary = (Type | [$ 0-9 A-Z _ a-z] !<< "void" !>> [$ 0-9 A-Z _ a-z]) Layout "." Layout [$
+// 0-9 A-Z _ a-z] !<< "class" !>> [$ 0-9 A-Z _ a-z] #Type
  Type { alt_10 : & 'a Alt10 < 'a > , layout_1 : & 'a Layout < 'a > , lit_2 : Token , layout_3 : & 'a Layout < 'a > , lit_4 : Token , span : Span } , 
 // Primary = "(" Layout Expression(0, 0) Layout ")" #Expression
  Expression { lit_0 : Token , layout_1 : & 'a Layout < 'a > , expression : & 'a Expression < 'a > , layout_3 : & 'a Layout < 'a > , lit_4 : Token , span : Span } , Amb (& 'a [& 'a Primary < 'a >]) } 
@@ -1846,8 +1885,12 @@ fn unwrap_token (self) -> Token { match self { ParseTree :: Token (t) => t , _ =
  Alt0 { primitive_type : & 'a PrimitiveType < 'a > , span : Span } , 
 // Type = ReferenceType
  Alt1 { reference_type : & 'a ReferenceType < 'a > , span : Span } , Amb (& 'a [& 'a Type < 'a >]) } 
-// PrimitiveType = Annotation* Layout ("byte" | "short" | "char" | "int" | "long" | "float" |
-// "double" | "boolean")
+// PrimitiveType = Annotation* Layout ([$ 0-9 A-Z _ a-z] !<< "byte" !>> [$ 0-9 A-Z _ a-z] |
+// [$ 0-9 A-Z _ a-z] !<< "short" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "char" !>> [$
+// 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "int" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<<
+// "long" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "float" !>> [$ 0-9 A-Z _ a-z] | [$
+// 0-9 A-Z _ a-z] !<< "double" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "boolean" !>> [$
+// 0-9 A-Z _ a-z])
  # [derive (Debug)] pub enum PrimitiveType < 'a > { Alt0 { annotations : & 'a Star2 < 'a > , layout : & 'a Layout < 'a > , alt_11 : & 'a Alt11 < 'a > , span : Span } , Amb (& 'a [& 'a PrimitiveType < 'a >]) , } # [derive (Debug)] pub enum ReferenceType < 'a > { 
 // ReferenceType = ClassType
  Alt0 { class_type : & 'a ClassType < 'a > , span : Span } , 
@@ -1863,7 +1906,8 @@ fn unwrap_token (self) -> Token { match self { ParseTree :: Token (t) => t , _ =
  # [derive (Debug)] pub enum TypeArguments < 'a > { Alt0 { lit_0 : Token , layout_1 : & 'a Layout < 'a > , type_arguments : & 'a Plus41 < 'a > , layout_3 : & 'a Layout < 'a > , lit_4 : Token , span : Span } , Amb (& 'a [& 'a TypeArguments < 'a >]) , } # [derive (Debug)] pub enum TypeArgument < 'a > { 
 // TypeArgument = ReferenceType #Simple
  Simple { reference_type : & 'a ReferenceType < 'a > , span : Span } , 
-// TypeArgument = wildCardTypeArgument:Annotation* Layout "?" Layout (("extends" | "super")
+// TypeArgument = wildCardTypeArgument:Annotation* Layout "?" Layout (([$ 0-9 A-Z _ a-z] !<<
+// "extends" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "super" !>> [$ 0-9 A-Z _ a-z])
 // ReferenceType)? #WildCard
  WildCard { wild_card_type_argument : & 'a Star2 < 'a > , layout_1 : & 'a Layout < 'a > , lit_2 : Token , layout_3 : & 'a Layout < 'a > , opt_67 : & 'a Opt67 < 'a > , span : Span } , Amb (& 'a [& 'a TypeArgument < 'a >]) } 
 // ArrayType = (ClassType | PrimitiveType) Layout (Annotation* "[" "]")+
@@ -1872,21 +1916,21 @@ fn unwrap_token (self) -> Token { match self { ParseTree :: Token (t) => t , _ =
  Alt0 { unann_primitive_type : & 'a UnannPrimitiveType < 'a > , span : Span } , 
 // UnannType = UnannReferenceType
  Alt1 { unann_reference_type : & 'a UnannReferenceType < 'a > , span : Span } , Amb (& 'a [& 'a UnannType < 'a >]) } # [derive (Debug)] pub enum UnannPrimitiveType < 'a > { 
-// UnannPrimitiveType = "byte"
+// UnannPrimitiveType = [$ 0-9 A-Z _ a-z] !<< "byte" !>> [$ 0-9 A-Z _ a-z]
  Alt0 { lit_0 : Token , span : Span } , 
-// UnannPrimitiveType = "short"
+// UnannPrimitiveType = [$ 0-9 A-Z _ a-z] !<< "short" !>> [$ 0-9 A-Z _ a-z]
  Alt1 { lit_0 : Token , span : Span } , 
-// UnannPrimitiveType = "char"
+// UnannPrimitiveType = [$ 0-9 A-Z _ a-z] !<< "char" !>> [$ 0-9 A-Z _ a-z]
  Alt2 { lit_0 : Token , span : Span } , 
-// UnannPrimitiveType = "int"
+// UnannPrimitiveType = [$ 0-9 A-Z _ a-z] !<< "int" !>> [$ 0-9 A-Z _ a-z]
  Alt3 { lit_0 : Token , span : Span } , 
-// UnannPrimitiveType = "long"
+// UnannPrimitiveType = [$ 0-9 A-Z _ a-z] !<< "long" !>> [$ 0-9 A-Z _ a-z]
  Alt4 { lit_0 : Token , span : Span } , 
-// UnannPrimitiveType = "float"
+// UnannPrimitiveType = [$ 0-9 A-Z _ a-z] !<< "float" !>> [$ 0-9 A-Z _ a-z]
  Alt5 { lit_0 : Token , span : Span } , 
-// UnannPrimitiveType = "double"
+// UnannPrimitiveType = [$ 0-9 A-Z _ a-z] !<< "double" !>> [$ 0-9 A-Z _ a-z]
  Alt6 { lit_0 : Token , span : Span } , 
-// UnannPrimitiveType = "boolean"
+// UnannPrimitiveType = [$ 0-9 A-Z _ a-z] !<< "boolean" !>> [$ 0-9 A-Z _ a-z]
  Alt7 { lit_0 : Token , span : Span } , Amb (& 'a [& 'a UnannPrimitiveType < 'a >]) } # [derive (Debug)] pub enum UnannReferenceType < 'a > { 
 // UnannReferenceType = UnannClassType
  Alt0 { unann_class_type : & 'a UnannClassType < 'a > , span : Span } , 
@@ -1901,22 +1945,22 @@ fn unwrap_token (self) -> Token { match self { ParseTree :: Token (t) => t , _ =
  Integer { integer_literal : Token , span : Span } , 
 // Literal = FloatingPointLiteral #Float
  Float { floating_point_literal : Token , span : Span } , 
-// Literal = BooleanLiteral #Boolean
+// Literal = [$ 0-9 A-Z _ a-z] !<< BooleanLiteral !>> [$ 0-9 A-Z _ a-z] #Boolean
  Boolean { boolean_literal : Token , span : Span } , 
 // Literal = CharacterLiteral #Character
  Character { character_literal : Token , span : Span } , 
 // Literal = StringLiteral #String
  String { string_literal : Token , span : Span } , 
-// Literal = NullLiteral #Null
+// Literal = [$ 0-9 A-Z _ a-z] !<< NullLiteral !>> [$ 0-9 A-Z _ a-z] #Null
  Null { null_literal : Token , span : Span } , Amb (& 'a [& 'a Literal < 'a >]) } # [derive (Debug)] pub enum Selector < 'a > { 
 // Selector = Identifier #Identifier
  Identifier { identifier : Token , span : Span } , 
 // Selector = NonWildTypeArguments? Layout MethodInvocation #Method
  Method { non_wild_type_arguments : & 'a Opt29 < 'a > , layout : & 'a Layout < 'a > , method_invocation : & 'a MethodInvocation < 'a > , span : Span } , 
-// Selector = "super" Layout SuperSuffix #Super
+// Selector = [$ 0-9 A-Z _ a-z] !<< "super" !>> [$ 0-9 A-Z _ a-z] Layout SuperSuffix #Super
  Super { lit_0 : Token , layout : & 'a Layout < 'a > , super_suffix : & 'a SuperSuffix < 'a > , span : Span } , 
-// Selector = "new" Layout TypeArguments? Layout Identifier Layout TypeArgumentsOrDiamond?
-// Layout Arguments Layout ClassBody? #New
+// Selector = [$ 0-9 A-Z _ a-z] !<< "new" !>> [$ 0-9 A-Z _ a-z] Layout TypeArguments? Layout
+// Identifier Layout TypeArgumentsOrDiamond? Layout Arguments Layout ClassBody? #New
  New { lit_0 : Token , layout_1 : & 'a Layout < 'a > , type_arguments : & 'a Opt61 < 'a > , layout_3 : & 'a Layout < 'a > , identifier : Token , layout_5 : & 'a Layout < 'a > , type_arguments_or_diamond : & 'a Opt66 < 'a > , layout_7 : & 'a Layout < 'a > , arguments : & 'a Arguments < 'a > , layout_9 : & 'a Layout < 'a > , class_body : & 'a Opt37 < 'a > , span : Span } , Amb (& 'a [& 'a Selector < 'a >]) } 
 // MethodInvocation = Identifier Layout Arguments
  # [derive (Debug)] pub enum MethodInvocation < 'a > { Alt0 { identifier : Token , layout : & 'a Layout < 'a > , arguments : & 'a Arguments < 'a > , span : Span } , Amb (& 'a [& 'a MethodInvocation < 'a >]) , } # [derive (Debug)] pub enum TypeArgumentsOrDiamond < 'a > { 
@@ -1950,7 +1994,7 @@ fn unwrap_token (self) -> Token { match self { ParseTree :: Token (t) => t , _ =
  Alt1 { variable_modifiers : & 'a Star11 < 'a > , layout_1 : & 'a Layout < 'a > , unann_type : & 'a UnannType < 'a > , layout_3 : & 'a Layout < 'a > , annotations : & 'a Star2 < 'a > , layout_5 : & 'a Layout < 'a > , lit_6 : Token , layout_7 : & 'a Layout < 'a > , variable_declarator_id : & 'a VariableDeclaratorId < 'a > , span : Span } , Amb (& 'a [& 'a LambdaParameter < 'a >]) } # [derive (Debug)] pub enum LambdaParameterType < 'a > { 
 // LambdaParameterType = UnannType
  Alt0 { unann_type : & 'a UnannType < 'a > , span : Span } , 
-// LambdaParameterType = "var"
+// LambdaParameterType = [$ 0-9 A-Z _ a-z] !<< "var" !>> [$ 0-9 A-Z _ a-z]
  Alt1 { lit_0 : Token , span : Span } , Amb (& 'a [& 'a LambdaParameterType < 'a >]) } # [derive (Debug)] pub enum LambdaBody < 'a > { 
 // LambdaBody(p) = r=Expression(p, 0) return r
  Alt0 { expression : & 'a Expression < 'a > , span : Span } , 
@@ -2006,9 +2050,9 @@ fn unwrap_token (self) -> Token { match self { ParseTree :: Token (t) => t , _ =
  Alt1 { span : Span } , Amb (& 'a [& 'a Opt3 < 'a >]) } 
 // Annotation*
  # [derive (Debug)] pub enum Star2 < 'a > { Alt0 { opt_3 : & 'a Opt3 < 'a > , span : Span } , Amb (& 'a [& 'a Star2 < 'a >]) , } 
-// "open"?
+// [$ 0-9 A-Z _ a-z] !<< "open" !>> [$ 0-9 A-Z _ a-z]?
  # [derive (Debug)] pub enum Opt4 < 'a > { 
-// Opt_4 = "open"
+// Opt_4 = [$ 0-9 A-Z _ a-z] !<< "open" !>> [$ 0-9 A-Z _ a-z]
  Alt0 { lit_0 : Token , span : Span } , 
 // Opt_4 =
  Alt1 { span : Span } , Amb (& 'a [& 'a Opt4 < 'a >]) } 
@@ -2046,17 +2090,17 @@ fn unwrap_token (self) -> Token { match self { ParseTree :: Token (t) => t , _ =
  Alt0 { qualified_identifiers_0 : & 'a Plus5 < 'a > , layout_1 : & 'a Layout < 'a > , lit_2 : Token , layout_3 : & 'a Layout < 'a > , qualified_identifier_4 : & 'a QualifiedIdentifier < 'a > , span : Span } , 
 // Plus_5 = QualifiedIdentifier
  Alt1 { qualified_identifier : & 'a QualifiedIdentifier < 'a > , span : Span } , Amb (& 'a [& 'a Plus5 < 'a >]) } 
-// ("to" {QualifiedIdentifier ","}+)
+// ([$ 0-9 A-Z _ a-z] !<< "to" !>> [$ 0-9 A-Z _ a-z] {QualifiedIdentifier ","}+)
  # [derive (Debug)] pub enum Group0 < 'a > { Alt0 { lit_0 : Token , layout : & 'a Layout < 'a > , qualified_identifiers : & 'a Plus5 < 'a > , span : Span } , Amb (& 'a [& 'a Group0 < 'a >]) , } 
-// ("to" {QualifiedIdentifier ","}+)?
+// ([$ 0-9 A-Z _ a-z] !<< "to" !>> [$ 0-9 A-Z _ a-z] {QualifiedIdentifier ","}+)?
  # [derive (Debug)] pub enum Opt7 < 'a > { 
-// Opt_7 = ("to" {QualifiedIdentifier ","}+)
+// Opt_7 = ([$ 0-9 A-Z _ a-z] !<< "to" !>> [$ 0-9 A-Z _ a-z] {QualifiedIdentifier ","}+)
  Alt0 { group_0 : & 'a Group0 < 'a > , span : Span } , 
 // Opt_7 =
  Alt1 { span : Span } , Amb (& 'a [& 'a Opt7 < 'a >]) } 
-// "static"?
+// [$ 0-9 A-Z _ a-z] !<< "static" !>> [$ 0-9 A-Z _ a-z]?
  # [derive (Debug)] pub enum Opt8 < 'a > { 
-// Opt_8 = "static"
+// Opt_8 = [$ 0-9 A-Z _ a-z] !<< "static" !>> [$ 0-9 A-Z _ a-z]
  Alt0 { lit_0 : Token , span : Span } , 
 // Opt_8 =
  Alt1 { span : Span } , Amb (& 'a [& 'a Opt8 < 'a >]) } 
@@ -2088,19 +2132,19 @@ fn unwrap_token (self) -> Token { match self { ParseTree :: Token (t) => t , _ =
  Alt0 { type_parameters : & 'a TypeParameters < 'a > , span : Span } , 
 // Opt_11 =
  Alt1 { span : Span } , Amb (& 'a [& 'a Opt11 < 'a >]) } 
-// ("extends" ClassType)
+// ([$ 0-9 A-Z _ a-z] !<< "extends" !>> [$ 0-9 A-Z _ a-z] ClassType)
  # [derive (Debug)] pub enum Group2 < 'a > { Alt0 { lit_0 : Token , layout : & 'a Layout < 'a > , class_type : & 'a ClassType < 'a > , span : Span } , Amb (& 'a [& 'a Group2 < 'a >]) , } 
-// ("extends" ClassType)?
+// ([$ 0-9 A-Z _ a-z] !<< "extends" !>> [$ 0-9 A-Z _ a-z] ClassType)?
  # [derive (Debug)] pub enum Opt12 < 'a > { 
-// Opt_12 = ("extends" ClassType)
+// Opt_12 = ([$ 0-9 A-Z _ a-z] !<< "extends" !>> [$ 0-9 A-Z _ a-z] ClassType)
  Alt0 { group_2 : & 'a Group2 < 'a > , span : Span } , 
 // Opt_12 =
  Alt1 { span : Span } , Amb (& 'a [& 'a Opt12 < 'a >]) } 
-// ("implements" ClassTypeList)
+// ([$ 0-9 A-Z _ a-z] !<< "implements" !>> [$ 0-9 A-Z _ a-z] ClassTypeList)
  # [derive (Debug)] pub enum Group3 < 'a > { Alt0 { lit_0 : Token , layout : & 'a Layout < 'a > , class_type_list : & 'a ClassTypeList < 'a > , span : Span } , Amb (& 'a [& 'a Group3 < 'a >]) , } 
-// ("implements" ClassTypeList)?
+// ([$ 0-9 A-Z _ a-z] !<< "implements" !>> [$ 0-9 A-Z _ a-z] ClassTypeList)?
  # [derive (Debug)] pub enum Opt13 < 'a > { 
-// Opt_13 = ("implements" ClassTypeList)
+// Opt_13 = ([$ 0-9 A-Z _ a-z] !<< "implements" !>> [$ 0-9 A-Z _ a-z] ClassTypeList)
  Alt0 { group_3 : & 'a Group3 < 'a > , span : Span } , 
 // Opt_13 =
  Alt1 { span : Span } , Amb (& 'a [& 'a Opt13 < 'a >]) } 
@@ -2118,11 +2162,11 @@ fn unwrap_token (self) -> Token { match self { ParseTree :: Token (t) => t , _ =
  Alt1 { span : Span } , Amb (& 'a [& 'a Opt14 < 'a >]) } 
 // InterfaceModifier*
  # [derive (Debug)] pub enum Star6 < 'a > { Alt0 { opt_14 : & 'a Opt14 < 'a > , span : Span } , Amb (& 'a [& 'a Star6 < 'a >]) , } 
-// ("extends" ClassTypeList)
+// ([$ 0-9 A-Z _ a-z] !<< "extends" !>> [$ 0-9 A-Z _ a-z] ClassTypeList)
  # [derive (Debug)] pub enum Group4 < 'a > { Alt0 { lit_0 : Token , layout : & 'a Layout < 'a > , class_type_list : & 'a ClassTypeList < 'a > , span : Span } , Amb (& 'a [& 'a Group4 < 'a >]) , } 
-// ("extends" ClassTypeList)?
+// ([$ 0-9 A-Z _ a-z] !<< "extends" !>> [$ 0-9 A-Z _ a-z] ClassTypeList)?
  # [derive (Debug)] pub enum Opt15 < 'a > { 
-// Opt_15 = ("extends" ClassTypeList)
+// Opt_15 = ([$ 0-9 A-Z _ a-z] !<< "extends" !>> [$ 0-9 A-Z _ a-z] ClassTypeList)
  Alt0 { group_4 : & 'a Group4 < 'a > , span : Span } , 
 // Opt_15 =
  Alt1 { span : Span } , Amb (& 'a [& 'a Opt15 < 'a >]) } 
@@ -2626,11 +2670,11 @@ fn unwrap_token (self) -> Token { match self { ParseTree :: Token (t) => t , _ =
  Alt0 { lit_0 : Token , span : Span } , 
 // Opt_60 =
  Alt1 { span : Span } , Amb (& 'a [& 'a Opt60 < 'a >]) } 
-// (UnannReferenceType | "var")
+// (UnannReferenceType | [$ 0-9 A-Z _ a-z] !<< "var" !>> [$ 0-9 A-Z _ a-z])
  # [derive (Debug)] pub enum Alt1 < 'a > { 
 // Alt_1 = UnannReferenceType
  Alt0 { unann_reference_type : & 'a UnannReferenceType < 'a > , span : Span } , 
-// Alt_1 = "var"
+// Alt_1 = [$ 0-9 A-Z _ a-z] !<< "var" !>> [$ 0-9 A-Z _ a-z]
  Alt1 { lit_0 : Token , span : Span } , Amb (& 'a [& 'a Alt1 < 'a >]) } 
 // {StatementExpression ","}+
  # [derive (Debug)] pub enum Plus35 < 'a > { 
@@ -2738,11 +2782,11 @@ fn unwrap_token (self) -> Token { match self { ParseTree :: Token (t) => t , _ =
  Alt0 { group_16 : & 'a Group16 < 'a > , span : Span } , 
 // Opt_63 =
  Alt1 { span : Span } , Amb (& 'a [& 'a Opt63 < 'a >]) } 
-// (Type | "void")
+// (Type | [$ 0-9 A-Z _ a-z] !<< "void" !>> [$ 0-9 A-Z _ a-z])
  # [derive (Debug)] pub enum Alt10 < 'a > { 
 // Alt_10 = Type
  Alt0 { r#type : & 'a Type < 'a > , span : Span } , 
-// Alt_10 = "void"
+// Alt_10 = [$ 0-9 A-Z _ a-z] !<< "void" !>> [$ 0-9 A-Z _ a-z]
  Alt1 { lit_0 : Token , span : Span } , Amb (& 'a [& 'a Alt10 < 'a >]) } 
 // {Identifier "."}+
  # [derive (Debug)] pub enum Plus38 < 'a > { 
@@ -2750,23 +2794,27 @@ fn unwrap_token (self) -> Token { match self { ParseTree :: Token (t) => t , _ =
  Alt0 { identifiers_0 : & 'a Plus38 < 'a > , layout_1 : & 'a Layout < 'a > , lit_2 : Token , layout_3 : & 'a Layout < 'a > , identifier_4 : Token , span : Span } , 
 // Plus_38 = Identifier
  Alt1 { identifier : Token , span : Span } , Amb (& 'a [& 'a Plus38 < 'a >]) } 
-// ("byte" | "short" | "char" | "int" | "long" | "float" | "double" | "boolean")
+// ([$ 0-9 A-Z _ a-z] !<< "byte" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "short" !>> [$
+// 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "char" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z]
+// !<< "int" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "long" !>> [$ 0-9 A-Z _ a-z] | [$
+// 0-9 A-Z _ a-z] !<< "float" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "double" !>> [$
+// 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "boolean" !>> [$ 0-9 A-Z _ a-z])
  # [derive (Debug)] pub enum Alt11 < 'a > { 
-// Alt_11 = "byte"
+// Alt_11 = [$ 0-9 A-Z _ a-z] !<< "byte" !>> [$ 0-9 A-Z _ a-z]
  Alt0 { lit_0 : Token , span : Span } , 
-// Alt_11 = "short"
+// Alt_11 = [$ 0-9 A-Z _ a-z] !<< "short" !>> [$ 0-9 A-Z _ a-z]
  Alt1 { lit_0 : Token , span : Span } , 
-// Alt_11 = "char"
+// Alt_11 = [$ 0-9 A-Z _ a-z] !<< "char" !>> [$ 0-9 A-Z _ a-z]
  Alt2 { lit_0 : Token , span : Span } , 
-// Alt_11 = "int"
+// Alt_11 = [$ 0-9 A-Z _ a-z] !<< "int" !>> [$ 0-9 A-Z _ a-z]
  Alt3 { lit_0 : Token , span : Span } , 
-// Alt_11 = "long"
+// Alt_11 = [$ 0-9 A-Z _ a-z] !<< "long" !>> [$ 0-9 A-Z _ a-z]
  Alt4 { lit_0 : Token , span : Span } , 
-// Alt_11 = "float"
+// Alt_11 = [$ 0-9 A-Z _ a-z] !<< "float" !>> [$ 0-9 A-Z _ a-z]
  Alt5 { lit_0 : Token , span : Span } , 
-// Alt_11 = "double"
+// Alt_11 = [$ 0-9 A-Z _ a-z] !<< "double" !>> [$ 0-9 A-Z _ a-z]
  Alt6 { lit_0 : Token , span : Span } , 
-// Alt_11 = "boolean"
+// Alt_11 = [$ 0-9 A-Z _ a-z] !<< "boolean" !>> [$ 0-9 A-Z _ a-z]
  Alt7 { lit_0 : Token , span : Span } , Amb (& 'a [& 'a Alt11 < 'a >]) } 
 // ("." Annotation* TypeIdentifier TypeArguments?)
  # [derive (Debug)] pub enum Group17 < 'a > { Alt0 { lit_0 : Token , layout_1 : & 'a Layout < 'a > , annotations : & 'a Star2 < 'a > , layout_3 : & 'a Layout < 'a > , type_identifier : Token , layout_5 : & 'a Layout < 'a > , type_arguments : & 'a Opt61 < 'a > , span : Span } , Amb (& 'a [& 'a Group17 < 'a >]) , } 
@@ -2813,17 +2861,21 @@ fn unwrap_token (self) -> Token { match self { ParseTree :: Token (t) => t , _ =
  Alt0 { type_arguments_0 : & 'a Plus41 < 'a > , layout_1 : & 'a Layout < 'a > , lit_2 : Token , layout_3 : & 'a Layout < 'a > , type_argument_4 : & 'a TypeArgument < 'a > , span : Span } , 
 // Plus_41 = TypeArgument
  Alt1 { type_argument : & 'a TypeArgument < 'a > , span : Span } , Amb (& 'a [& 'a Plus41 < 'a >]) } 
-// ("extends" | "super")
+// ([$ 0-9 A-Z _ a-z] !<< "extends" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "super" !>>
+// [$ 0-9 A-Z _ a-z])
  # [derive (Debug)] pub enum Alt12 < 'a > { 
-// Alt_12 = "extends"
+// Alt_12 = [$ 0-9 A-Z _ a-z] !<< "extends" !>> [$ 0-9 A-Z _ a-z]
  Alt0 { lit_0 : Token , span : Span } , 
-// Alt_12 = "super"
+// Alt_12 = [$ 0-9 A-Z _ a-z] !<< "super" !>> [$ 0-9 A-Z _ a-z]
  Alt1 { lit_0 : Token , span : Span } , Amb (& 'a [& 'a Alt12 < 'a >]) } 
-// (("extends" | "super") ReferenceType)
+// (([$ 0-9 A-Z _ a-z] !<< "extends" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "super"
+// !>> [$ 0-9 A-Z _ a-z]) ReferenceType)
  # [derive (Debug)] pub enum Group19 < 'a > { Alt0 { alt_12 : & 'a Alt12 < 'a > , layout : & 'a Layout < 'a > , reference_type : & 'a ReferenceType < 'a > , span : Span } , Amb (& 'a [& 'a Group19 < 'a >]) , } 
-// (("extends" | "super") ReferenceType)?
+// (([$ 0-9 A-Z _ a-z] !<< "extends" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "super"
+// !>> [$ 0-9 A-Z _ a-z]) ReferenceType)?
  # [derive (Debug)] pub enum Opt67 < 'a > { 
-// Opt_67 = (("extends" | "super") ReferenceType)
+// Opt_67 = (([$ 0-9 A-Z _ a-z] !<< "extends" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<<
+// "super" !>> [$ 0-9 A-Z _ a-z]) ReferenceType)
  Alt0 { group_19 : & 'a Group19 < 'a > , span : Span } , 
 // Opt_67 =
  Alt1 { span : Span } , Amb (& 'a [& 'a Opt67 < 'a >]) } 
@@ -4031,7 +4083,7 @@ impl < 'a > Opt4 < 'a > { pub fn as_parse_tree (& 'a self) -> ParseTree < 'a > {
 pub fn child (& self , index : usize) -> Option < ParseTree < 'a >> { match self { Opt4 :: Alt0 { lit_0 , .. } => match index { 0 => Some (ParseTree :: Token (* lit_0)) , _ => None , } , Opt4 :: Alt1 { .. } => None , Opt4 :: Amb (alts) => alts . get (index) . copied () . map (ParseTree :: Opt4) , } }
 pub fn child_count (& self) -> usize { match self { Opt4 :: Alt0 { .. } => 1usize , Opt4 :: Alt1 { .. } => 0usize , Opt4 :: Amb (alts) => alts . len () , } }
 pub fn span (& self) -> Span { match self { Opt4 :: Alt0 { span , .. } => * span , Opt4 :: Alt1 { span , .. } => * span , Opt4 :: Amb (alts) => alts [0] . span () , } }
-pub fn display_name (& self) -> & 'static str { match self { Opt4 :: Amb (_) => "Amb" , _ => "\"open\"?" , } }
+pub fn display_name (& self) -> & 'static str { match self { Opt4 :: Amb (_) => "Amb" , _ => "[$ 0-9 A-Z _ a-z] !<< \"open\" !>> [$ 0-9 A-Z _ a-z]?" , } }
 pub fn origin (& self) -> Option < Origin > { match self { Opt4 :: Amb (_) => None , _ => Some (Origin :: Opt) , } } }
 impl < 'a > Plus3 < 'a > { pub fn as_parse_tree (& 'a self) -> ParseTree < 'a > { ParseTree :: Plus3 (self) }
 pub fn child (& self , index : usize) -> Option < ParseTree < 'a >> { match self { Plus3 :: Alt0 { module_directives_0 , layout , module_directive_2 , .. } => match index { 0 => Some (ParseTree :: Plus3 (module_directives_0)) , 1 => Some (ParseTree :: Layout (layout)) , 2 => Some (ParseTree :: ModuleDirective (module_directive_2)) , _ => None , } , Plus3 :: Alt1 { module_directive , .. } => match index { 0 => Some (ParseTree :: ModuleDirective (module_directive)) , _ => None , } , Plus3 :: Amb (alts) => alts . get (index) . copied () . map (ParseTree :: Plus3) , } }
@@ -4088,7 +4140,7 @@ impl < 'a > Group0 < 'a > { pub fn as_parse_tree (& 'a self) -> ParseTree < 'a >
 pub fn child (& self , index : usize) -> Option < ParseTree < 'a >> { match self { Group0 :: Alt0 { lit_0 , layout , qualified_identifiers , .. } => match index { 0 => Some (ParseTree :: Token (* lit_0)) , 1 => Some (ParseTree :: Layout (layout)) , 2 => Some (ParseTree :: Plus5 (qualified_identifiers)) , _ => None , } , Group0 :: Amb (alts) => alts . get (index) . copied () . map (ParseTree :: Group0) , } }
 pub fn child_count (& self) -> usize { match self { Group0 :: Alt0 { .. } => 3usize , Group0 :: Amb (alts) => alts . len () , } }
 pub fn span (& self) -> Span { match self { Group0 :: Alt0 { span , .. } => * span , Group0 :: Amb (alts) => alts [0] . span () , } }
-pub fn display_name (& self) -> & 'static str { match self { Group0 :: Amb (_) => "Amb" , _ => "(\"to\" {QualifiedIdentifier \",\"}+)" , } }
+pub fn display_name (& self) -> & 'static str { match self { Group0 :: Amb (_) => "Amb" , _ => "([$ 0-9 A-Z _ a-z] !<< \"to\" !>> [$ 0-9 A-Z _ a-z] {QualifiedIdentifier \",\"}+)" , } }
 pub fn origin (& self) -> Option < Origin > { match self { Group0 :: Amb (_) => None , _ => Some (Origin :: Group) , } }
 pub fn lit_0 (& self) -> Token { match self { Group0 :: Alt0 { lit_0 , .. } => * lit_0 , Group0 :: Amb (_) => panic ! ("Group_0 is ambiguous") , } }
 pub fn layout (& self) -> & 'a Layout < 'a > { match self { Group0 :: Alt0 { layout , .. } => layout , Group0 :: Amb (_) => panic ! ("Group_0 is ambiguous") , } }
@@ -4097,13 +4149,13 @@ impl < 'a > Opt7 < 'a > { pub fn as_parse_tree (& 'a self) -> ParseTree < 'a > {
 pub fn child (& self , index : usize) -> Option < ParseTree < 'a >> { match self { Opt7 :: Alt0 { group_0 , .. } => match index { 0 => Some (ParseTree :: Group0 (group_0)) , _ => None , } , Opt7 :: Alt1 { .. } => None , Opt7 :: Amb (alts) => alts . get (index) . copied () . map (ParseTree :: Opt7) , } }
 pub fn child_count (& self) -> usize { match self { Opt7 :: Alt0 { .. } => 1usize , Opt7 :: Alt1 { .. } => 0usize , Opt7 :: Amb (alts) => alts . len () , } }
 pub fn span (& self) -> Span { match self { Opt7 :: Alt0 { span , .. } => * span , Opt7 :: Alt1 { span , .. } => * span , Opt7 :: Amb (alts) => alts [0] . span () , } }
-pub fn display_name (& self) -> & 'static str { match self { Opt7 :: Amb (_) => "Amb" , _ => "(\"to\" {QualifiedIdentifier \",\"}+)?" , } }
+pub fn display_name (& self) -> & 'static str { match self { Opt7 :: Amb (_) => "Amb" , _ => "([$ 0-9 A-Z _ a-z] !<< \"to\" !>> [$ 0-9 A-Z _ a-z] {QualifiedIdentifier \",\"}+)?" , } }
 pub fn origin (& self) -> Option < Origin > { match self { Opt7 :: Amb (_) => None , _ => Some (Origin :: Opt) , } } }
 impl < 'a > Opt8 < 'a > { pub fn as_parse_tree (& 'a self) -> ParseTree < 'a > { ParseTree :: Opt8 (self) }
 pub fn child (& self , index : usize) -> Option < ParseTree < 'a >> { match self { Opt8 :: Alt0 { lit_0 , .. } => match index { 0 => Some (ParseTree :: Token (* lit_0)) , _ => None , } , Opt8 :: Alt1 { .. } => None , Opt8 :: Amb (alts) => alts . get (index) . copied () . map (ParseTree :: Opt8) , } }
 pub fn child_count (& self) -> usize { match self { Opt8 :: Alt0 { .. } => 1usize , Opt8 :: Alt1 { .. } => 0usize , Opt8 :: Amb (alts) => alts . len () , } }
 pub fn span (& self) -> Span { match self { Opt8 :: Alt0 { span , .. } => * span , Opt8 :: Alt1 { span , .. } => * span , Opt8 :: Amb (alts) => alts [0] . span () , } }
-pub fn display_name (& self) -> & 'static str { match self { Opt8 :: Amb (_) => "Amb" , _ => "\"static\"?" , } }
+pub fn display_name (& self) -> & 'static str { match self { Opt8 :: Amb (_) => "Amb" , _ => "[$ 0-9 A-Z _ a-z] !<< \"static\" !>> [$ 0-9 A-Z _ a-z]?" , } }
 pub fn origin (& self) -> Option < Origin > { match self { Opt8 :: Amb (_) => None , _ => Some (Origin :: Opt) , } } }
 impl < 'a > Group1 < 'a > { pub fn as_parse_tree (& 'a self) -> ParseTree < 'a > { ParseTree :: Group1 (self) }
 pub fn child (& self , index : usize) -> Option < ParseTree < 'a >> { match self { Group1 :: Alt0 { lit_0 , layout , lit_2 , .. } => match index { 0 => Some (ParseTree :: Token (* lit_0)) , 1 => Some (ParseTree :: Layout (layout)) , 2 => Some (ParseTree :: Token (* lit_2)) , _ => None , } , Group1 :: Amb (alts) => alts . get (index) . copied () . map (ParseTree :: Group1) , } }
@@ -4152,7 +4204,7 @@ impl < 'a > Group2 < 'a > { pub fn as_parse_tree (& 'a self) -> ParseTree < 'a >
 pub fn child (& self , index : usize) -> Option < ParseTree < 'a >> { match self { Group2 :: Alt0 { lit_0 , layout , class_type , .. } => match index { 0 => Some (ParseTree :: Token (* lit_0)) , 1 => Some (ParseTree :: Layout (layout)) , 2 => Some (ParseTree :: ClassType (class_type)) , _ => None , } , Group2 :: Amb (alts) => alts . get (index) . copied () . map (ParseTree :: Group2) , } }
 pub fn child_count (& self) -> usize { match self { Group2 :: Alt0 { .. } => 3usize , Group2 :: Amb (alts) => alts . len () , } }
 pub fn span (& self) -> Span { match self { Group2 :: Alt0 { span , .. } => * span , Group2 :: Amb (alts) => alts [0] . span () , } }
-pub fn display_name (& self) -> & 'static str { match self { Group2 :: Amb (_) => "Amb" , _ => "(\"extends\" ClassType)" , } }
+pub fn display_name (& self) -> & 'static str { match self { Group2 :: Amb (_) => "Amb" , _ => "([$ 0-9 A-Z _ a-z] !<< \"extends\" !>> [$ 0-9 A-Z _ a-z] ClassType)" , } }
 pub fn origin (& self) -> Option < Origin > { match self { Group2 :: Amb (_) => None , _ => Some (Origin :: Group) , } }
 pub fn lit_0 (& self) -> Token { match self { Group2 :: Alt0 { lit_0 , .. } => * lit_0 , Group2 :: Amb (_) => panic ! ("Group_2 is ambiguous") , } }
 pub fn layout (& self) -> & 'a Layout < 'a > { match self { Group2 :: Alt0 { layout , .. } => layout , Group2 :: Amb (_) => panic ! ("Group_2 is ambiguous") , } }
@@ -4161,13 +4213,13 @@ impl < 'a > Opt12 < 'a > { pub fn as_parse_tree (& 'a self) -> ParseTree < 'a > 
 pub fn child (& self , index : usize) -> Option < ParseTree < 'a >> { match self { Opt12 :: Alt0 { group_2 , .. } => match index { 0 => Some (ParseTree :: Group2 (group_2)) , _ => None , } , Opt12 :: Alt1 { .. } => None , Opt12 :: Amb (alts) => alts . get (index) . copied () . map (ParseTree :: Opt12) , } }
 pub fn child_count (& self) -> usize { match self { Opt12 :: Alt0 { .. } => 1usize , Opt12 :: Alt1 { .. } => 0usize , Opt12 :: Amb (alts) => alts . len () , } }
 pub fn span (& self) -> Span { match self { Opt12 :: Alt0 { span , .. } => * span , Opt12 :: Alt1 { span , .. } => * span , Opt12 :: Amb (alts) => alts [0] . span () , } }
-pub fn display_name (& self) -> & 'static str { match self { Opt12 :: Amb (_) => "Amb" , _ => "(\"extends\" ClassType)?" , } }
+pub fn display_name (& self) -> & 'static str { match self { Opt12 :: Amb (_) => "Amb" , _ => "([$ 0-9 A-Z _ a-z] !<< \"extends\" !>> [$ 0-9 A-Z _ a-z] ClassType)?" , } }
 pub fn origin (& self) -> Option < Origin > { match self { Opt12 :: Amb (_) => None , _ => Some (Origin :: Opt) , } } }
 impl < 'a > Group3 < 'a > { pub fn as_parse_tree (& 'a self) -> ParseTree < 'a > { ParseTree :: Group3 (self) }
 pub fn child (& self , index : usize) -> Option < ParseTree < 'a >> { match self { Group3 :: Alt0 { lit_0 , layout , class_type_list , .. } => match index { 0 => Some (ParseTree :: Token (* lit_0)) , 1 => Some (ParseTree :: Layout (layout)) , 2 => Some (ParseTree :: ClassTypeList (class_type_list)) , _ => None , } , Group3 :: Amb (alts) => alts . get (index) . copied () . map (ParseTree :: Group3) , } }
 pub fn child_count (& self) -> usize { match self { Group3 :: Alt0 { .. } => 3usize , Group3 :: Amb (alts) => alts . len () , } }
 pub fn span (& self) -> Span { match self { Group3 :: Alt0 { span , .. } => * span , Group3 :: Amb (alts) => alts [0] . span () , } }
-pub fn display_name (& self) -> & 'static str { match self { Group3 :: Amb (_) => "Amb" , _ => "(\"implements\" ClassTypeList)" , } }
+pub fn display_name (& self) -> & 'static str { match self { Group3 :: Amb (_) => "Amb" , _ => "([$ 0-9 A-Z _ a-z] !<< \"implements\" !>> [$ 0-9 A-Z _ a-z] ClassTypeList)" , } }
 pub fn origin (& self) -> Option < Origin > { match self { Group3 :: Amb (_) => None , _ => Some (Origin :: Group) , } }
 pub fn lit_0 (& self) -> Token { match self { Group3 :: Alt0 { lit_0 , .. } => * lit_0 , Group3 :: Amb (_) => panic ! ("Group_3 is ambiguous") , } }
 pub fn layout (& self) -> & 'a Layout < 'a > { match self { Group3 :: Alt0 { layout , .. } => layout , Group3 :: Amb (_) => panic ! ("Group_3 is ambiguous") , } }
@@ -4176,7 +4228,7 @@ impl < 'a > Opt13 < 'a > { pub fn as_parse_tree (& 'a self) -> ParseTree < 'a > 
 pub fn child (& self , index : usize) -> Option < ParseTree < 'a >> { match self { Opt13 :: Alt0 { group_3 , .. } => match index { 0 => Some (ParseTree :: Group3 (group_3)) , _ => None , } , Opt13 :: Alt1 { .. } => None , Opt13 :: Amb (alts) => alts . get (index) . copied () . map (ParseTree :: Opt13) , } }
 pub fn child_count (& self) -> usize { match self { Opt13 :: Alt0 { .. } => 1usize , Opt13 :: Alt1 { .. } => 0usize , Opt13 :: Amb (alts) => alts . len () , } }
 pub fn span (& self) -> Span { match self { Opt13 :: Alt0 { span , .. } => * span , Opt13 :: Alt1 { span , .. } => * span , Opt13 :: Amb (alts) => alts [0] . span () , } }
-pub fn display_name (& self) -> & 'static str { match self { Opt13 :: Amb (_) => "Amb" , _ => "(\"implements\" ClassTypeList)?" , } }
+pub fn display_name (& self) -> & 'static str { match self { Opt13 :: Amb (_) => "Amb" , _ => "([$ 0-9 A-Z _ a-z] !<< \"implements\" !>> [$ 0-9 A-Z _ a-z] ClassTypeList)?" , } }
 pub fn origin (& self) -> Option < Origin > { match self { Opt13 :: Amb (_) => None , _ => Some (Origin :: Opt) , } } }
 impl < 'a > Plus7 < 'a > { pub fn as_parse_tree (& 'a self) -> ParseTree < 'a > { ParseTree :: Plus7 (self) }
 pub fn child (& self , index : usize) -> Option < ParseTree < 'a >> { match self { Plus7 :: Alt0 { interface_modifiers_0 , layout , interface_modifier_2 , .. } => match index { 0 => Some (ParseTree :: Plus7 (interface_modifiers_0)) , 1 => Some (ParseTree :: Layout (layout)) , 2 => Some (ParseTree :: InterfaceModifier (interface_modifier_2)) , _ => None , } , Plus7 :: Alt1 { interface_modifier , .. } => match index { 0 => Some (ParseTree :: InterfaceModifier (interface_modifier)) , _ => None , } , Plus7 :: Amb (alts) => alts . get (index) . copied () . map (ParseTree :: Plus7) , } }
@@ -4204,7 +4256,7 @@ impl < 'a > Group4 < 'a > { pub fn as_parse_tree (& 'a self) -> ParseTree < 'a >
 pub fn child (& self , index : usize) -> Option < ParseTree < 'a >> { match self { Group4 :: Alt0 { lit_0 , layout , class_type_list , .. } => match index { 0 => Some (ParseTree :: Token (* lit_0)) , 1 => Some (ParseTree :: Layout (layout)) , 2 => Some (ParseTree :: ClassTypeList (class_type_list)) , _ => None , } , Group4 :: Amb (alts) => alts . get (index) . copied () . map (ParseTree :: Group4) , } }
 pub fn child_count (& self) -> usize { match self { Group4 :: Alt0 { .. } => 3usize , Group4 :: Amb (alts) => alts . len () , } }
 pub fn span (& self) -> Span { match self { Group4 :: Alt0 { span , .. } => * span , Group4 :: Amb (alts) => alts [0] . span () , } }
-pub fn display_name (& self) -> & 'static str { match self { Group4 :: Amb (_) => "Amb" , _ => "(\"extends\" ClassTypeList)" , } }
+pub fn display_name (& self) -> & 'static str { match self { Group4 :: Amb (_) => "Amb" , _ => "([$ 0-9 A-Z _ a-z] !<< \"extends\" !>> [$ 0-9 A-Z _ a-z] ClassTypeList)" , } }
 pub fn origin (& self) -> Option < Origin > { match self { Group4 :: Amb (_) => None , _ => Some (Origin :: Group) , } }
 pub fn lit_0 (& self) -> Token { match self { Group4 :: Alt0 { lit_0 , .. } => * lit_0 , Group4 :: Amb (_) => panic ! ("Group_4 is ambiguous") , } }
 pub fn layout (& self) -> & 'a Layout < 'a > { match self { Group4 :: Alt0 { layout , .. } => layout , Group4 :: Amb (_) => panic ! ("Group_4 is ambiguous") , } }
@@ -4213,7 +4265,7 @@ impl < 'a > Opt15 < 'a > { pub fn as_parse_tree (& 'a self) -> ParseTree < 'a > 
 pub fn child (& self , index : usize) -> Option < ParseTree < 'a >> { match self { Opt15 :: Alt0 { group_4 , .. } => match index { 0 => Some (ParseTree :: Group4 (group_4)) , _ => None , } , Opt15 :: Alt1 { .. } => None , Opt15 :: Amb (alts) => alts . get (index) . copied () . map (ParseTree :: Opt15) , } }
 pub fn child_count (& self) -> usize { match self { Opt15 :: Alt0 { .. } => 1usize , Opt15 :: Alt1 { .. } => 0usize , Opt15 :: Amb (alts) => alts . len () , } }
 pub fn span (& self) -> Span { match self { Opt15 :: Alt0 { span , .. } => * span , Opt15 :: Alt1 { span , .. } => * span , Opt15 :: Amb (alts) => alts [0] . span () , } }
-pub fn display_name (& self) -> & 'static str { match self { Opt15 :: Amb (_) => "Amb" , _ => "(\"extends\" ClassTypeList)?" , } }
+pub fn display_name (& self) -> & 'static str { match self { Opt15 :: Amb (_) => "Amb" , _ => "([$ 0-9 A-Z _ a-z] !<< \"extends\" !>> [$ 0-9 A-Z _ a-z] ClassTypeList)?" , } }
 pub fn origin (& self) -> Option < Origin > { match self { Opt15 :: Amb (_) => None , _ => Some (Origin :: Opt) , } } }
 impl < 'a > Plus8 < 'a > { pub fn as_parse_tree (& 'a self) -> ParseTree < 'a > { ParseTree :: Plus8 (self) }
 pub fn child (& self , index : usize) -> Option < ParseTree < 'a >> { match self { Plus8 :: Alt0 { class_body_declarations_0 , layout , class_body_declaration_2 , .. } => match index { 0 => Some (ParseTree :: Plus8 (class_body_declarations_0)) , 1 => Some (ParseTree :: Layout (layout)) , 2 => Some (ParseTree :: ClassBodyDeclaration (class_body_declaration_2)) , _ => None , } , Plus8 :: Alt1 { class_body_declaration , .. } => match index { 0 => Some (ParseTree :: ClassBodyDeclaration (class_body_declaration)) , _ => None , } , Plus8 :: Amb (alts) => alts . get (index) . copied () . map (ParseTree :: Plus8) , } }
@@ -4964,7 +5016,7 @@ impl < 'a > Alt1 < 'a > { pub fn as_parse_tree (& 'a self) -> ParseTree < 'a > {
 pub fn child (& self , index : usize) -> Option < ParseTree < 'a >> { match self { Alt1 :: Alt0 { unann_reference_type , .. } => match index { 0 => Some (ParseTree :: UnannReferenceType (unann_reference_type)) , _ => None , } , Alt1 :: Alt1 { lit_0 , .. } => match index { 0 => Some (ParseTree :: Token (* lit_0)) , _ => None , } , Alt1 :: Amb (alts) => alts . get (index) . copied () . map (ParseTree :: Alt1) , } }
 pub fn child_count (& self) -> usize { match self { Alt1 :: Alt0 { .. } => 1usize , Alt1 :: Alt1 { .. } => 1usize , Alt1 :: Amb (alts) => alts . len () , } }
 pub fn span (& self) -> Span { match self { Alt1 :: Alt0 { span , .. } => * span , Alt1 :: Alt1 { span , .. } => * span , Alt1 :: Amb (alts) => alts [0] . span () , } }
-pub fn display_name (& self) -> & 'static str { match self { Alt1 :: Amb (_) => "Amb" , _ => "(UnannReferenceType | \"var\")" , } }
+pub fn display_name (& self) -> & 'static str { match self { Alt1 :: Amb (_) => "Amb" , _ => "(UnannReferenceType | [$ 0-9 A-Z _ a-z] !<< \"var\" !>> [$ 0-9 A-Z _ a-z])" , } }
 pub fn origin (& self) -> Option < Origin > { match self { Alt1 :: Amb (_) => None , _ => Some (Origin :: Alt) , } } }
 impl < 'a > Plus35 < 'a > { pub fn as_parse_tree (& 'a self) -> ParseTree < 'a > { ParseTree :: Plus35 (self) }
 pub fn child (& self , index : usize) -> Option < ParseTree < 'a >> { match self { Plus35 :: Alt0 { statement_expressions_0 , layout_1 , lit_2 , layout_3 , statement_expression_4 , .. } => match index { 0 => Some (ParseTree :: Plus35 (statement_expressions_0)) , 1 => Some (ParseTree :: Layout (layout_1)) , 2 => Some (ParseTree :: Token (* lit_2)) , 3 => Some (ParseTree :: Layout (layout_3)) , 4 => Some (ParseTree :: StatementExpression (statement_expression_4)) , _ => None , } , Plus35 :: Alt1 { statement_expression , .. } => match index { 0 => Some (ParseTree :: StatementExpression (statement_expression)) , _ => None , } , Plus35 :: Amb (alts) => alts . get (index) . copied () . map (ParseTree :: Plus35) , } }
@@ -5086,7 +5138,7 @@ impl < 'a > Alt10 < 'a > { pub fn as_parse_tree (& 'a self) -> ParseTree < 'a > 
 pub fn child (& self , index : usize) -> Option < ParseTree < 'a >> { match self { Alt10 :: Alt0 { r#type , .. } => match index { 0 => Some (ParseTree :: Type (r#type)) , _ => None , } , Alt10 :: Alt1 { lit_0 , .. } => match index { 0 => Some (ParseTree :: Token (* lit_0)) , _ => None , } , Alt10 :: Amb (alts) => alts . get (index) . copied () . map (ParseTree :: Alt10) , } }
 pub fn child_count (& self) -> usize { match self { Alt10 :: Alt0 { .. } => 1usize , Alt10 :: Alt1 { .. } => 1usize , Alt10 :: Amb (alts) => alts . len () , } }
 pub fn span (& self) -> Span { match self { Alt10 :: Alt0 { span , .. } => * span , Alt10 :: Alt1 { span , .. } => * span , Alt10 :: Amb (alts) => alts [0] . span () , } }
-pub fn display_name (& self) -> & 'static str { match self { Alt10 :: Amb (_) => "Amb" , _ => "(Type | \"void\")" , } }
+pub fn display_name (& self) -> & 'static str { match self { Alt10 :: Amb (_) => "Amb" , _ => "(Type | [$ 0-9 A-Z _ a-z] !<< \"void\" !>> [$ 0-9 A-Z _ a-z])" , } }
 pub fn origin (& self) -> Option < Origin > { match self { Alt10 :: Amb (_) => None , _ => Some (Origin :: Alt) , } } }
 impl < 'a > Plus38 < 'a > { pub fn as_parse_tree (& 'a self) -> ParseTree < 'a > { ParseTree :: Plus38 (self) }
 pub fn child (& self , index : usize) -> Option < ParseTree < 'a >> { match self { Plus38 :: Alt0 { identifiers_0 , layout_1 , lit_2 , layout_3 , identifier_4 , .. } => match index { 0 => Some (ParseTree :: Plus38 (identifiers_0)) , 1 => Some (ParseTree :: Layout (layout_1)) , 2 => Some (ParseTree :: Token (* lit_2)) , 3 => Some (ParseTree :: Layout (layout_3)) , 4 => Some (ParseTree :: Token (* identifier_4)) , _ => None , } , Plus38 :: Alt1 { identifier , .. } => match index { 0 => Some (ParseTree :: Token (* identifier)) , _ => None , } , Plus38 :: Amb (alts) => alts . get (index) . copied () . map (ParseTree :: Plus38) , } }
@@ -5099,7 +5151,7 @@ impl < 'a > Alt11 < 'a > { pub fn as_parse_tree (& 'a self) -> ParseTree < 'a > 
 pub fn child (& self , index : usize) -> Option < ParseTree < 'a >> { match self { Alt11 :: Alt0 { lit_0 , .. } => match index { 0 => Some (ParseTree :: Token (* lit_0)) , _ => None , } , Alt11 :: Alt1 { lit_0 , .. } => match index { 0 => Some (ParseTree :: Token (* lit_0)) , _ => None , } , Alt11 :: Alt2 { lit_0 , .. } => match index { 0 => Some (ParseTree :: Token (* lit_0)) , _ => None , } , Alt11 :: Alt3 { lit_0 , .. } => match index { 0 => Some (ParseTree :: Token (* lit_0)) , _ => None , } , Alt11 :: Alt4 { lit_0 , .. } => match index { 0 => Some (ParseTree :: Token (* lit_0)) , _ => None , } , Alt11 :: Alt5 { lit_0 , .. } => match index { 0 => Some (ParseTree :: Token (* lit_0)) , _ => None , } , Alt11 :: Alt6 { lit_0 , .. } => match index { 0 => Some (ParseTree :: Token (* lit_0)) , _ => None , } , Alt11 :: Alt7 { lit_0 , .. } => match index { 0 => Some (ParseTree :: Token (* lit_0)) , _ => None , } , Alt11 :: Amb (alts) => alts . get (index) . copied () . map (ParseTree :: Alt11) , } }
 pub fn child_count (& self) -> usize { match self { Alt11 :: Alt0 { .. } => 1usize , Alt11 :: Alt1 { .. } => 1usize , Alt11 :: Alt2 { .. } => 1usize , Alt11 :: Alt3 { .. } => 1usize , Alt11 :: Alt4 { .. } => 1usize , Alt11 :: Alt5 { .. } => 1usize , Alt11 :: Alt6 { .. } => 1usize , Alt11 :: Alt7 { .. } => 1usize , Alt11 :: Amb (alts) => alts . len () , } }
 pub fn span (& self) -> Span { match self { Alt11 :: Alt0 { span , .. } => * span , Alt11 :: Alt1 { span , .. } => * span , Alt11 :: Alt2 { span , .. } => * span , Alt11 :: Alt3 { span , .. } => * span , Alt11 :: Alt4 { span , .. } => * span , Alt11 :: Alt5 { span , .. } => * span , Alt11 :: Alt6 { span , .. } => * span , Alt11 :: Alt7 { span , .. } => * span , Alt11 :: Amb (alts) => alts [0] . span () , } }
-pub fn display_name (& self) -> & 'static str { match self { Alt11 :: Amb (_) => "Amb" , _ => "(\"byte\" | \"short\" | \"char\" | \"int\" | \"long\" | \"float\" | \"double\" | \"boolean\")" , } }
+pub fn display_name (& self) -> & 'static str { match self { Alt11 :: Amb (_) => "Amb" , _ => "([$ 0-9 A-Z _ a-z] !<< \"byte\" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< \"short\" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< \"char\" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< \"int\" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< \"long\" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< \"float\" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< \"double\" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< \"boolean\" !>> [$ 0-9 A-Z _ a-z])" , } }
 pub fn origin (& self) -> Option < Origin > { match self { Alt11 :: Amb (_) => None , _ => Some (Origin :: Alt) , } } }
 impl < 'a > Group17 < 'a > { pub fn as_parse_tree (& 'a self) -> ParseTree < 'a > { ParseTree :: Group17 (self) }
 pub fn child (& self , index : usize) -> Option < ParseTree < 'a >> { match self { Group17 :: Alt0 { lit_0 , layout_1 , annotations , layout_3 , type_identifier , layout_5 , type_arguments , .. } => match index { 0 => Some (ParseTree :: Token (* lit_0)) , 1 => Some (ParseTree :: Layout (layout_1)) , 2 => Some (ParseTree :: Star2 (annotations)) , 3 => Some (ParseTree :: Layout (layout_3)) , 4 => Some (ParseTree :: Token (* type_identifier)) , 5 => Some (ParseTree :: Layout (layout_5)) , 6 => Some (ParseTree :: Opt61 (type_arguments)) , _ => None , } , Group17 :: Amb (alts) => alts . get (index) . copied () . map (ParseTree :: Group17) , } }
@@ -5180,13 +5232,13 @@ impl < 'a > Alt12 < 'a > { pub fn as_parse_tree (& 'a self) -> ParseTree < 'a > 
 pub fn child (& self , index : usize) -> Option < ParseTree < 'a >> { match self { Alt12 :: Alt0 { lit_0 , .. } => match index { 0 => Some (ParseTree :: Token (* lit_0)) , _ => None , } , Alt12 :: Alt1 { lit_0 , .. } => match index { 0 => Some (ParseTree :: Token (* lit_0)) , _ => None , } , Alt12 :: Amb (alts) => alts . get (index) . copied () . map (ParseTree :: Alt12) , } }
 pub fn child_count (& self) -> usize { match self { Alt12 :: Alt0 { .. } => 1usize , Alt12 :: Alt1 { .. } => 1usize , Alt12 :: Amb (alts) => alts . len () , } }
 pub fn span (& self) -> Span { match self { Alt12 :: Alt0 { span , .. } => * span , Alt12 :: Alt1 { span , .. } => * span , Alt12 :: Amb (alts) => alts [0] . span () , } }
-pub fn display_name (& self) -> & 'static str { match self { Alt12 :: Amb (_) => "Amb" , _ => "(\"extends\" | \"super\")" , } }
+pub fn display_name (& self) -> & 'static str { match self { Alt12 :: Amb (_) => "Amb" , _ => "([$ 0-9 A-Z _ a-z] !<< \"extends\" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< \"super\" !>> [$ 0-9 A-Z _ a-z])" , } }
 pub fn origin (& self) -> Option < Origin > { match self { Alt12 :: Amb (_) => None , _ => Some (Origin :: Alt) , } } }
 impl < 'a > Group19 < 'a > { pub fn as_parse_tree (& 'a self) -> ParseTree < 'a > { ParseTree :: Group19 (self) }
 pub fn child (& self , index : usize) -> Option < ParseTree < 'a >> { match self { Group19 :: Alt0 { alt_12 , layout , reference_type , .. } => match index { 0 => Some (ParseTree :: Alt12 (alt_12)) , 1 => Some (ParseTree :: Layout (layout)) , 2 => Some (ParseTree :: ReferenceType (reference_type)) , _ => None , } , Group19 :: Amb (alts) => alts . get (index) . copied () . map (ParseTree :: Group19) , } }
 pub fn child_count (& self) -> usize { match self { Group19 :: Alt0 { .. } => 3usize , Group19 :: Amb (alts) => alts . len () , } }
 pub fn span (& self) -> Span { match self { Group19 :: Alt0 { span , .. } => * span , Group19 :: Amb (alts) => alts [0] . span () , } }
-pub fn display_name (& self) -> & 'static str { match self { Group19 :: Amb (_) => "Amb" , _ => "((\"extends\" | \"super\") ReferenceType)" , } }
+pub fn display_name (& self) -> & 'static str { match self { Group19 :: Amb (_) => "Amb" , _ => "(([$ 0-9 A-Z _ a-z] !<< \"extends\" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< \"super\" !>> [$ 0-9 A-Z _ a-z]) ReferenceType)" , } }
 pub fn origin (& self) -> Option < Origin > { match self { Group19 :: Amb (_) => None , _ => Some (Origin :: Group) , } }
 pub fn alt_12 (& self) -> & 'a Alt12 < 'a > { match self { Group19 :: Alt0 { alt_12 , .. } => alt_12 , Group19 :: Amb (_) => panic ! ("Group_19 is ambiguous") , } }
 pub fn layout (& self) -> & 'a Layout < 'a > { match self { Group19 :: Alt0 { layout , .. } => layout , Group19 :: Amb (_) => panic ! ("Group_19 is ambiguous") , } }
@@ -5195,7 +5247,7 @@ impl < 'a > Opt67 < 'a > { pub fn as_parse_tree (& 'a self) -> ParseTree < 'a > 
 pub fn child (& self , index : usize) -> Option < ParseTree < 'a >> { match self { Opt67 :: Alt0 { group_19 , .. } => match index { 0 => Some (ParseTree :: Group19 (group_19)) , _ => None , } , Opt67 :: Alt1 { .. } => None , Opt67 :: Amb (alts) => alts . get (index) . copied () . map (ParseTree :: Opt67) , } }
 pub fn child_count (& self) -> usize { match self { Opt67 :: Alt0 { .. } => 1usize , Opt67 :: Alt1 { .. } => 0usize , Opt67 :: Amb (alts) => alts . len () , } }
 pub fn span (& self) -> Span { match self { Opt67 :: Alt0 { span , .. } => * span , Opt67 :: Alt1 { span , .. } => * span , Opt67 :: Amb (alts) => alts [0] . span () , } }
-pub fn display_name (& self) -> & 'static str { match self { Opt67 :: Amb (_) => "Amb" , _ => "((\"extends\" | \"super\") ReferenceType)?" , } }
+pub fn display_name (& self) -> & 'static str { match self { Opt67 :: Amb (_) => "Amb" , _ => "(([$ 0-9 A-Z _ a-z] !<< \"extends\" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< \"super\" !>> [$ 0-9 A-Z _ a-z]) ReferenceType)?" , } }
 pub fn origin (& self) -> Option < Origin > { match self { Opt67 :: Amb (_) => None , _ => Some (Origin :: Opt) , } } }
 impl < 'a > Alt13 < 'a > { pub fn as_parse_tree (& 'a self) -> ParseTree < 'a > { ParseTree :: Alt13 (self) }
 pub fn child (& self , index : usize) -> Option < ParseTree < 'a >> { match self { Alt13 :: Alt0 { class_type , .. } => match index { 0 => Some (ParseTree :: ClassType (class_type)) , _ => None , } , Alt13 :: Alt1 { primitive_type , .. } => match index { 0 => Some (ParseTree :: PrimitiveType (primitive_type)) , _ => None , } , Alt13 :: Amb (alts) => alts . get (index) . copied () . map (ParseTree :: Alt13) , } }
@@ -6490,7 +6542,9 @@ fn token_kind (terminal_id : TerminalId) -> TokenKind { match terminal_id {
 // "boolean"
  TerminalId (143) => TokenKind :: T143 , 
 // "->"
- TerminalId (144) => TokenKind :: T144 , _ => unreachable ! ("Unknown TerminalId: {:?}" , terminal_id) , } } pub struct JavaParseTreeBuilder < 'a > { pub arena : & 'a Arena , }
+ TerminalId (144) => TokenKind :: T144 , 
+// [$ 0-9 A-Z _ a-z]
+ TerminalId (145) => TokenKind :: T145 , _ => unreachable ! ("Unknown TerminalId: {:?}" , terminal_id) , } } pub struct JavaParseTreeBuilder < 'a > { pub arena : & 'a Arena , }
 impl < 'a > JavaParseTreeBuilder < 'a > { pub fn new (tree_arena : & 'a Arena) -> Self { Self { arena : tree_arena } } }
 impl < 'a > ParseTreeBuilder < ParseTree < 'a >> for JavaParseTreeBuilder < 'a > { fn new_nonterminal_node (& self , nonterminal_node : & NonterminalNode , children : OneOrMany < ParseTree < 'a >>) -> ParseTree < 'a > { match nonterminal_node . nonterminal_id { 
 // CompilationUnit
@@ -6510,38 +6564,45 @@ impl < 'a > ParseTreeBuilder < ParseTree < 'a >> for JavaParseTreeBuilder < 'a >
  SlotId (13) => { let [import_declarations , layout , module_declaration] = children . into_array :: < 3usize > () ; ParseTree :: ModularCompilationUnit (self . arena . alloc (ModularCompilationUnit :: Alt0 { import_declarations : import_declarations . unwrap_star_0 () , layout : layout . unwrap_layout () , module_declaration : module_declaration . unwrap_module_declaration () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // ModuleDeclaration
  NonterminalId (3) => match nonterminal_node . return_slot { 
-// ModuleDeclaration : Annotation* Layout "open"? Layout "module" Layout QualifiedIdentifier
+// ModuleDeclaration : Annotation* Layout [$ 0-9 A-Z _ a-z] !<< "open" !>> [$ 0-9 A-Z _ a-z]?
+// Layout [$ 0-9 A-Z _ a-z] !<< "module" !>> [$ 0-9 A-Z _ a-z] Layout QualifiedIdentifier
 // Layout "{" Layout ModuleDirective* Layout "}".
  SlotId (27) => { let [annotations , layout_1 , opt_4 , layout_3 , lit_4 , layout_5 , qualified_identifier , layout_7 , lit_8 , layout_9 , module_directives , layout_11 , lit_12] = children . into_array :: < 13usize > () ; ParseTree :: ModuleDeclaration (self . arena . alloc (ModuleDeclaration :: Alt0 { annotations : annotations . unwrap_star_2 () , layout_1 : layout_1 . unwrap_layout () , opt_4 : opt_4 . unwrap_opt_4 () , layout_3 : layout_3 . unwrap_layout () , lit_4 : lit_4 . unwrap_token () , layout_5 : layout_5 . unwrap_layout () , qualified_identifier : qualified_identifier . unwrap_qualified_identifier () , layout_7 : layout_7 . unwrap_layout () , lit_8 : lit_8 . unwrap_token () , layout_9 : layout_9 . unwrap_layout () , module_directives : module_directives . unwrap_star_3 () , layout_11 : layout_11 . unwrap_layout () , lit_12 : lit_12 . unwrap_token () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // ModuleDirective
  NonterminalId (4) => match nonterminal_node . return_slot { 
-// ModuleDirective : "requires" Layout RequiresModifier* Layout QualifiedIdentifier Layout
-// ";".
+// ModuleDirective : [$ 0-9 A-Z _ a-z] !<< "requires" !>> [$ 0-9 A-Z _ a-z] Layout
+// RequiresModifier* Layout QualifiedIdentifier Layout ";".
  SlotId (35) => { let [lit_0 , layout_1 , requires_modifiers , layout_3 , qualified_identifier , layout_5 , lit_6] = children . into_array :: < 7usize > () ; ParseTree :: ModuleDirective (self . arena . alloc (ModuleDirective :: Requires { lit_0 : lit_0 . unwrap_token () , layout_1 : layout_1 . unwrap_layout () , requires_modifiers : requires_modifiers . unwrap_star_4 () , layout_3 : layout_3 . unwrap_layout () , qualified_identifier : qualified_identifier . unwrap_qualified_identifier () , layout_5 : layout_5 . unwrap_layout () , lit_6 : lit_6 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// ModuleDirective : "exports" Layout QualifiedIdentifier Layout ("to" {QualifiedIdentifier
-// ","}+)? Layout ";".
+// ModuleDirective : [$ 0-9 A-Z _ a-z] !<< "exports" !>> [$ 0-9 A-Z _ a-z] Layout
+// QualifiedIdentifier Layout ([$ 0-9 A-Z _ a-z] !<< "to" !>> [$ 0-9 A-Z _ a-z]
+// {QualifiedIdentifier ","}+)? Layout ";".
  SlotId (43) => { let [lit_0 , layout_1 , qualified_identifier , layout_3 , opt_7 , layout_5 , lit_6] = children . into_array :: < 7usize > () ; ParseTree :: ModuleDirective (self . arena . alloc (ModuleDirective :: Exports { lit_0 : lit_0 . unwrap_token () , layout_1 : layout_1 . unwrap_layout () , qualified_identifier : qualified_identifier . unwrap_qualified_identifier () , layout_3 : layout_3 . unwrap_layout () , opt_7 : opt_7 . unwrap_opt_7 () , layout_5 : layout_5 . unwrap_layout () , lit_6 : lit_6 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// ModuleDirective : "opens" Layout QualifiedIdentifier Layout ("to" {QualifiedIdentifier
-// ","}+)? Layout ";".
+// ModuleDirective : [$ 0-9 A-Z _ a-z] !<< "opens" !>> [$ 0-9 A-Z _ a-z] Layout
+// QualifiedIdentifier Layout ([$ 0-9 A-Z _ a-z] !<< "to" !>> [$ 0-9 A-Z _ a-z]
+// {QualifiedIdentifier ","}+)? Layout ";".
  SlotId (51) => { let [lit_0 , layout_1 , qualified_identifier , layout_3 , opt_7 , layout_5 , lit_6] = children . into_array :: < 7usize > () ; ParseTree :: ModuleDirective (self . arena . alloc (ModuleDirective :: Opens { lit_0 : lit_0 . unwrap_token () , layout_1 : layout_1 . unwrap_layout () , qualified_identifier : qualified_identifier . unwrap_qualified_identifier () , layout_3 : layout_3 . unwrap_layout () , opt_7 : opt_7 . unwrap_opt_7 () , layout_5 : layout_5 . unwrap_layout () , lit_6 : lit_6 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// ModuleDirective : "uses" Layout QualifiedIdentifier Layout ";".
+// ModuleDirective : [$ 0-9 A-Z _ a-z] !<< "uses" !>> [$ 0-9 A-Z _ a-z] Layout
+// QualifiedIdentifier Layout ";".
  SlotId (57) => { let [lit_0 , layout_1 , qualified_identifier , layout_3 , lit_4] = children . into_array :: < 5usize > () ; ParseTree :: ModuleDirective (self . arena . alloc (ModuleDirective :: Uses { lit_0 : lit_0 . unwrap_token () , layout_1 : layout_1 . unwrap_layout () , qualified_identifier : qualified_identifier . unwrap_qualified_identifier () , layout_3 : layout_3 . unwrap_layout () , lit_4 : lit_4 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// ModuleDirective : "provides" Layout QualifiedIdentifier Layout "with" Layout
+// ModuleDirective : [$ 0-9 A-Z _ a-z] !<< "provides" !>> [$ 0-9 A-Z _ a-z] Layout
+// QualifiedIdentifier Layout [$ 0-9 A-Z _ a-z] !<< "with" !>> [$ 0-9 A-Z _ a-z] Layout
 // {QualifiedIdentifier ","}+ Layout ";".
  SlotId (67) => { let [lit_0 , layout_1 , qualified_identifier_2 , layout_3 , lit_4 , layout_5 , qualified_identifiers_6 , layout_7 , lit_8] = children . into_array :: < 9usize > () ; ParseTree :: ModuleDirective (self . arena . alloc (ModuleDirective :: Provides { lit_0 : lit_0 . unwrap_token () , layout_1 : layout_1 . unwrap_layout () , qualified_identifier_2 : qualified_identifier_2 . unwrap_qualified_identifier () , layout_3 : layout_3 . unwrap_layout () , lit_4 : lit_4 . unwrap_token () , layout_5 : layout_5 . unwrap_layout () , qualified_identifiers_6 : qualified_identifiers_6 . unwrap_plus_5 () , layout_7 : layout_7 . unwrap_layout () , lit_8 : lit_8 . unwrap_token () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // RequiresModifier
  NonterminalId (5) => match nonterminal_node . return_slot { 
-// RequiresModifier : "transitive".
+// RequiresModifier : [$ 0-9 A-Z _ a-z] !<< "transitive" !>> [$ 0-9 A-Z _ a-z].
  SlotId (69) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: RequiresModifier (self . arena . alloc (RequiresModifier :: Alt0 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// RequiresModifier : "static".
+// RequiresModifier : [$ 0-9 A-Z _ a-z] !<< "static" !>> [$ 0-9 A-Z _ a-z].
  SlotId (71) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: RequiresModifier (self . arena . alloc (RequiresModifier :: Alt1 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // PackageDeclaration
  NonterminalId (6) => match nonterminal_node . return_slot { 
-// PackageDeclaration : Annotation* Layout "package" Layout QualifiedIdentifier Layout ";".
+// PackageDeclaration : Annotation* Layout [$ 0-9 A-Z _ a-z] !<< "package" !>> [$ 0-9 A-Z _
+// a-z] Layout QualifiedIdentifier Layout ";".
  SlotId (79) => { let [annotations , layout_1 , lit_2 , layout_3 , qualified_identifier , layout_5 , lit_6] = children . into_array :: < 7usize > () ; ParseTree :: PackageDeclaration (self . arena . alloc (PackageDeclaration :: Alt0 { annotations : annotations . unwrap_star_2 () , layout_1 : layout_1 . unwrap_layout () , lit_2 : lit_2 . unwrap_token () , layout_3 : layout_3 . unwrap_layout () , qualified_identifier : qualified_identifier . unwrap_qualified_identifier () , layout_5 : layout_5 . unwrap_layout () , lit_6 : lit_6 . unwrap_token () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // ImportDeclaration
  NonterminalId (7) => match nonterminal_node . return_slot { 
-// ImportDeclaration : "import" Layout "static"? Layout QualifiedIdentifier Layout ("." "*")?
+// ImportDeclaration : [$ 0-9 A-Z _ a-z] !<< "import" !>> [$ 0-9 A-Z _ a-z] Layout [$ 0-9 A-Z
+// _ a-z] !<< "static" !>> [$ 0-9 A-Z _ a-z]? Layout QualifiedIdentifier Layout ("." "*")?
 // Layout ";".
  SlotId (89) => { let [lit_0 , layout_1 , opt_8 , layout_3 , qualified_identifier , layout_5 , opt_9 , layout_7 , lit_8] = children . into_array :: < 9usize > () ; ParseTree :: ImportDeclaration (self . arena . alloc (ImportDeclaration :: Alt0 { lit_0 : lit_0 . unwrap_token () , layout_1 : layout_1 . unwrap_layout () , opt_8 : opt_8 . unwrap_opt_8 () , layout_3 : layout_3 . unwrap_layout () , qualified_identifier : qualified_identifier . unwrap_qualified_identifier () , layout_5 : layout_5 . unwrap_layout () , opt_9 : opt_9 . unwrap_opt_9 () , layout_7 : layout_7 . unwrap_layout () , lit_8 : lit_8 . unwrap_token () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // TypeDeclaration
@@ -6560,13 +6621,15 @@ impl < 'a > ParseTreeBuilder < ParseTree < 'a >> for JavaParseTreeBuilder < 'a >
  SlotId (99) => { let [enum_declaration] = children . into_array :: < 1usize > () ; ParseTree :: ClassDeclaration (self . arena . alloc (ClassDeclaration :: Alt1 { enum_declaration : enum_declaration . unwrap_enum_declaration () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // NormalClassDeclaration
  NonterminalId (10) => match nonterminal_node . return_slot { 
-// NormalClassDeclaration : ClassModifier* Layout "class" Layout TypeIdentifier Layout
-// TypeParameters? Layout ("extends" ClassType)? Layout ("implements" ClassTypeList)? Layout
-// ClassBody.
+// NormalClassDeclaration : ClassModifier* Layout [$ 0-9 A-Z _ a-z] !<< "class" !>> [$ 0-9
+// A-Z _ a-z] Layout TypeIdentifier Layout TypeParameters? Layout ([$ 0-9 A-Z _ a-z] !<<
+// "extends" !>> [$ 0-9 A-Z _ a-z] ClassType)? Layout ([$ 0-9 A-Z _ a-z] !<< "implements" !>>
+// [$ 0-9 A-Z _ a-z] ClassTypeList)? Layout ClassBody.
  SlotId (113) => { let [class_modifiers , layout_1 , lit_2 , layout_3 , type_identifier , layout_5 , type_parameters , layout_7 , opt_12 , layout_9 , opt_13 , layout_11 , class_body] = children . into_array :: < 13usize > () ; ParseTree :: NormalClassDeclaration (self . arena . alloc (NormalClassDeclaration :: Alt0 { class_modifiers : class_modifiers . unwrap_star_5 () , layout_1 : layout_1 . unwrap_layout () , lit_2 : lit_2 . unwrap_token () , layout_3 : layout_3 . unwrap_layout () , type_identifier : type_identifier . unwrap_token () , layout_5 : layout_5 . unwrap_layout () , type_parameters : type_parameters . unwrap_opt_11 () , layout_7 : layout_7 . unwrap_layout () , opt_12 : opt_12 . unwrap_opt_12 () , layout_9 : layout_9 . unwrap_layout () , opt_13 : opt_13 . unwrap_opt_13 () , layout_11 : layout_11 . unwrap_layout () , class_body : class_body . unwrap_class_body () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // EnumDeclaration
  NonterminalId (11) => match nonterminal_node . return_slot { 
-// EnumDeclaration : ClassModifier* Layout "enum" Layout TypeIdentifier Layout ("implements"
+// EnumDeclaration : ClassModifier* Layout [$ 0-9 A-Z _ a-z] !<< "enum" !>> [$ 0-9 A-Z _ a-z]
+// Layout TypeIdentifier Layout ([$ 0-9 A-Z _ a-z] !<< "implements" !>> [$ 0-9 A-Z _ a-z]
 // ClassTypeList)? Layout EnumBody.
  SlotId (123) => { let [class_modifiers , layout_1 , lit_2 , layout_3 , type_identifier , layout_5 , opt_13 , layout_7 , enum_body] = children . into_array :: < 9usize > () ; ParseTree :: EnumDeclaration (self . arena . alloc (EnumDeclaration :: Alt0 { class_modifiers : class_modifiers . unwrap_star_5 () , layout_1 : layout_1 . unwrap_layout () , lit_2 : lit_2 . unwrap_token () , layout_3 : layout_3 . unwrap_layout () , type_identifier : type_identifier . unwrap_token () , layout_5 : layout_5 . unwrap_layout () , opt_13 : opt_13 . unwrap_opt_13 () , layout_7 : layout_7 . unwrap_layout () , enum_body : enum_body . unwrap_enum_body () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // InterfaceDeclaration
@@ -6577,13 +6640,14 @@ impl < 'a > ParseTreeBuilder < ParseTree < 'a >> for JavaParseTreeBuilder < 'a >
  SlotId (127) => { let [annotation_type_declaration] = children . into_array :: < 1usize > () ; ParseTree :: InterfaceDeclaration (self . arena . alloc (InterfaceDeclaration :: Alt1 { annotation_type_declaration : annotation_type_declaration . unwrap_annotation_type_declaration () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // NormalInterfaceDeclaration
  NonterminalId (13) => match nonterminal_node . return_slot { 
-// NormalInterfaceDeclaration : InterfaceModifier* Layout "interface" Layout TypeIdentifier
-// Layout TypeParameters? Layout ("extends" ClassTypeList)? Layout InterfaceBody.
+// NormalInterfaceDeclaration : InterfaceModifier* Layout [$ 0-9 A-Z _ a-z] !<< "interface"
+// !>> [$ 0-9 A-Z _ a-z] Layout TypeIdentifier Layout TypeParameters? Layout ([$ 0-9 A-Z _
+// a-z] !<< "extends" !>> [$ 0-9 A-Z _ a-z] ClassTypeList)? Layout InterfaceBody.
  SlotId (139) => { let [interface_modifiers , layout_1 , lit_2 , layout_3 , type_identifier , layout_5 , type_parameters , layout_7 , opt_15 , layout_9 , interface_body] = children . into_array :: < 11usize > () ; ParseTree :: NormalInterfaceDeclaration (self . arena . alloc (NormalInterfaceDeclaration :: Alt0 { interface_modifiers : interface_modifiers . unwrap_star_6 () , layout_1 : layout_1 . unwrap_layout () , lit_2 : lit_2 . unwrap_token () , layout_3 : layout_3 . unwrap_layout () , type_identifier : type_identifier . unwrap_token () , layout_5 : layout_5 . unwrap_layout () , type_parameters : type_parameters . unwrap_opt_11 () , layout_7 : layout_7 . unwrap_layout () , opt_15 : opt_15 . unwrap_opt_15 () , layout_9 : layout_9 . unwrap_layout () , interface_body : interface_body . unwrap_interface_body () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // AnnotationTypeDeclaration
  NonterminalId (14) => match nonterminal_node . return_slot { 
-// AnnotationTypeDeclaration : InterfaceModifier* Layout "@" Layout "interface" Layout
-// TypeIdentifier Layout AnnotationTypeBody.
+// AnnotationTypeDeclaration : InterfaceModifier* Layout "@" Layout [$ 0-9 A-Z _ a-z] !<<
+// "interface" !>> [$ 0-9 A-Z _ a-z] Layout TypeIdentifier Layout AnnotationTypeBody.
  SlotId (149) => { let [interface_modifiers , layout_1 , lit_2 , layout_3 , lit_4 , layout_5 , type_identifier , layout_7 , annotation_type_body] = children . into_array :: < 9usize > () ; ParseTree :: AnnotationTypeDeclaration (self . arena . alloc (AnnotationTypeDeclaration :: Alt0 { interface_modifiers : interface_modifiers . unwrap_star_6 () , layout_1 : layout_1 . unwrap_layout () , lit_2 : lit_2 . unwrap_token () , layout_3 : layout_3 . unwrap_layout () , lit_4 : lit_4 . unwrap_token () , layout_5 : layout_5 . unwrap_layout () , type_identifier : type_identifier . unwrap_token () , layout_7 : layout_7 . unwrap_layout () , annotation_type_body : annotation_type_body . unwrap_annotation_type_body () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // ClassBody
  NonterminalId (15) => match nonterminal_node . return_slot { 
@@ -6635,17 +6699,18 @@ impl < 'a > ParseTreeBuilder < ParseTree < 'a >> for JavaParseTreeBuilder < 'a >
  SlotId (217) => { let [formal_parameter] = children . into_array :: < 1usize > () ; ParseTree :: LastFormalParameter (self . arena . alloc (LastFormalParameter :: Alt1 { formal_parameter : formal_parameter . unwrap_formal_parameter () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // ReceiverParameter
  NonterminalId (22) => match nonterminal_node . return_slot { 
-// ReceiverParameter : Annotation* Layout UnannType Layout (Identifier ".")? Layout "this".
+// ReceiverParameter : Annotation* Layout UnannType Layout (Identifier ".")? Layout [$ 0-9
+// A-Z _ a-z] !<< "this" !>> [$ 0-9 A-Z _ a-z].
  SlotId (225) => { let [annotations , layout_1 , unann_type , layout_3 , opt_25 , layout_5 , lit_6] = children . into_array :: < 7usize > () ; ParseTree :: ReceiverParameter (self . arena . alloc (ReceiverParameter :: Alt0 { annotations : annotations . unwrap_star_2 () , layout_1 : layout_1 . unwrap_layout () , unann_type : unann_type . unwrap_unann_type () , layout_3 : layout_3 . unwrap_layout () , opt_25 : opt_25 . unwrap_opt_25 () , layout_5 : layout_5 . unwrap_layout () , lit_6 : lit_6 . unwrap_token () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // Result
  NonterminalId (23) => match nonterminal_node . return_slot { 
 // Result : UnannType.
  SlotId (227) => { let [unann_type] = children . into_array :: < 1usize > () ; ParseTree :: Result (self . arena . alloc (Result :: Alt0 { unann_type : unann_type . unwrap_unann_type () , span : nonterminal_node . span , })) } , 
-// Result : "void".
+// Result : [$ 0-9 A-Z _ a-z] !<< "void" !>> [$ 0-9 A-Z _ a-z].
  SlotId (229) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: Result (self . arena . alloc (Result :: Alt1 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // Throws
  NonterminalId (24) => match nonterminal_node . return_slot { 
-// Throws : "throws" Layout {ClassType ","}+.
+// Throws : [$ 0-9 A-Z _ a-z] !<< "throws" !>> [$ 0-9 A-Z _ a-z] Layout {ClassType ","}+.
  SlotId (233) => { let [lit_0 , layout , class_types] = children . into_array :: < 3usize > () ; ParseTree :: Throws (self . arena . alloc (Throws :: Alt0 { lit_0 : lit_0 . unwrap_token () , layout : layout . unwrap_layout () , class_types : class_types . unwrap_plus_13 () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // MethodBody
  NonterminalId (25) => match nonterminal_node . return_slot { 
@@ -6665,11 +6730,12 @@ impl < 'a > ParseTreeBuilder < ParseTree < 'a >> for JavaParseTreeBuilder < 'a >
  SlotId (261) => { let [lit_0 , layout_1 , explicit_constructor_invocation , layout_3 , block_statements , layout_5 , lit_6] = children . into_array :: < 7usize > () ; ParseTree :: ConstructorBody (self . arena . alloc (ConstructorBody :: Alt0 { lit_0 : lit_0 . unwrap_token () , layout_1 : layout_1 . unwrap_layout () , explicit_constructor_invocation : explicit_constructor_invocation . unwrap_opt_27 () , layout_3 : layout_3 . unwrap_layout () , block_statements : block_statements . unwrap_star_13 () , layout_5 : layout_5 . unwrap_layout () , lit_6 : lit_6 . unwrap_token () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // ExplicitConstructorInvocation
  NonterminalId (28) => match nonterminal_node . return_slot { 
-// ExplicitConstructorInvocation : constructorInvocation:NonWildTypeArguments? Layout "this"
-// Layout Arguments Layout ";".
+// ExplicitConstructorInvocation : constructorInvocation:NonWildTypeArguments? Layout [$ 0-9
+// A-Z _ a-z] !<< "this" !>> [$ 0-9 A-Z _ a-z] Layout Arguments Layout ";".
  SlotId (269) => { let [constructor_invocation , layout_1 , lit_2 , layout_3 , arguments , layout_5 , lit_6] = children . into_array :: < 7usize > () ; ParseTree :: ExplicitConstructorInvocation (self . arena . alloc (ExplicitConstructorInvocation :: Alt0 { constructor_invocation : constructor_invocation . unwrap_opt_29 () , layout_1 : layout_1 . unwrap_layout () , lit_2 : lit_2 . unwrap_token () , layout_3 : layout_3 . unwrap_layout () , arguments : arguments . unwrap_arguments () , layout_5 : layout_5 . unwrap_layout () , lit_6 : lit_6 . unwrap_token () , span : nonterminal_node . span , })) } , 
 // ExplicitConstructorInvocation : superConstructorInvocation:(Primary ".")? Layout
-// NonWildTypeArguments? Layout "super" Layout Arguments Layout ";".
+// NonWildTypeArguments? Layout [$ 0-9 A-Z _ a-z] !<< "super" !>> [$ 0-9 A-Z _ a-z] Layout
+// Arguments Layout ";".
  SlotId (279) => { let [super_constructor_invocation , layout_1 , non_wild_type_arguments , layout_3 , lit_4 , layout_5 , arguments , layout_7 , lit_8] = children . into_array :: < 9usize > () ; ParseTree :: ExplicitConstructorInvocation (self . arena . alloc (ExplicitConstructorInvocation :: Alt1 { super_constructor_invocation : super_constructor_invocation . unwrap_opt_30 () , layout_1 : layout_1 . unwrap_layout () , non_wild_type_arguments : non_wild_type_arguments . unwrap_opt_29 () , layout_3 : layout_3 . unwrap_layout () , lit_4 : lit_4 . unwrap_token () , layout_5 : layout_5 . unwrap_layout () , arguments : arguments . unwrap_arguments () , layout_7 : layout_7 . unwrap_layout () , lit_8 : lit_8 . unwrap_token () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // TypeList
  NonterminalId (29) => match nonterminal_node . return_slot { 
@@ -6689,11 +6755,12 @@ impl < 'a > ParseTreeBuilder < ParseTree < 'a >> for JavaParseTreeBuilder < 'a >
  SlotId (295) => { let [annotations , layout_1 , type_identifier , layout_3 , type_bound] = children . into_array :: < 5usize > () ; ParseTree :: TypeParameter (self . arena . alloc (TypeParameter :: Alt0 { annotations : annotations . unwrap_star_2 () , layout_1 : layout_1 . unwrap_layout () , type_identifier : type_identifier . unwrap_token () , layout_3 : layout_3 . unwrap_layout () , type_bound : type_bound . unwrap_opt_31 () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // TypeBound
  NonterminalId (33) => match nonterminal_node . return_slot { 
-// TypeBound : "extends" Layout ReferenceType Layout ("&" ReferenceType)*.
+// TypeBound : [$ 0-9 A-Z _ a-z] !<< "extends" !>> [$ 0-9 A-Z _ a-z] Layout ReferenceType
+// Layout ("&" ReferenceType)*.
  SlotId (301) => { let [lit_0 , layout_1 , reference_type , layout_3 , star_14] = children . into_array :: < 5usize > () ; ParseTree :: TypeBound (self . arena . alloc (TypeBound :: Alt0 { lit_0 : lit_0 . unwrap_token () , layout_1 : layout_1 . unwrap_layout () , reference_type : reference_type . unwrap_reference_type () , layout_3 : layout_3 . unwrap_layout () , star_14 : star_14 . unwrap_star_14 () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // Initializer
  NonterminalId (34) => match nonterminal_node . return_slot { 
-// Initializer : "static"? Layout Block.
+// Initializer : [$ 0-9 A-Z _ a-z] !<< "static" !>> [$ 0-9 A-Z _ a-z]? Layout Block.
  SlotId (305) => { let [opt_8 , layout , block] = children . into_array :: < 3usize > () ; ParseTree :: Initializer (self . arena . alloc (Initializer :: Alt0 { opt_8 : opt_8 . unwrap_opt_8 () , layout : layout . unwrap_layout () , block : block . unwrap_block () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // EnumBody
  NonterminalId (35) => match nonterminal_node . return_slot { 
@@ -6733,7 +6800,7 @@ impl < 'a > ParseTreeBuilder < ParseTree < 'a >> for JavaParseTreeBuilder < 'a >
  NonterminalId (42) => match nonterminal_node . return_slot { 
 // LocalVariableType : UnannType.
  SlotId (355) => { let [unann_type] = children . into_array :: < 1usize > () ; ParseTree :: LocalVariableType (self . arena . alloc (LocalVariableType :: Alt0 { unann_type : unann_type . unwrap_unann_type () , span : nonterminal_node . span , })) } , 
-// LocalVariableType : "var".
+// LocalVariableType : [$ 0-9 A-Z _ a-z] !<< "var" !>> [$ 0-9 A-Z _ a-z].
  SlotId (357) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: LocalVariableType (self . arena . alloc (LocalVariableType :: Alt1 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // FieldDeclaration
  NonterminalId (43) => match nonterminal_node . return_slot { 
@@ -6837,123 +6904,123 @@ impl < 'a > ParseTreeBuilder < ParseTree < 'a >> for JavaParseTreeBuilder < 'a >
  SlotId (489) => { let [interface_method_modifiers , layout_1 , unann_type , layout_3 , identifier , layout_5 , lit_6 , layout_7 , lit_8 , layout_9 , star_9 , layout_11 , default_value , layout_13 , lit_14] = children . into_array :: < 15usize > () ; ParseTree :: AnnotationMethodDeclaration (self . arena . alloc (AnnotationMethodDeclaration :: Alt0 { interface_method_modifiers : interface_method_modifiers . unwrap_star_22 () , layout_1 : layout_1 . unwrap_layout () , unann_type : unann_type . unwrap_unann_type () , layout_3 : layout_3 . unwrap_layout () , identifier : identifier . unwrap_token () , layout_5 : layout_5 . unwrap_layout () , lit_6 : lit_6 . unwrap_token () , layout_7 : layout_7 . unwrap_layout () , lit_8 : lit_8 . unwrap_token () , layout_9 : layout_9 . unwrap_layout () , star_9 : star_9 . unwrap_star_9 () , layout_11 : layout_11 . unwrap_layout () , default_value : default_value . unwrap_opt_49 () , layout_13 : layout_13 . unwrap_layout () , lit_14 : lit_14 . unwrap_token () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // DefaultValue
  NonterminalId (61) => match nonterminal_node . return_slot { 
-// DefaultValue : "default" Layout ElementValue.
+// DefaultValue : [$ 0-9 A-Z _ a-z] !<< "default" !>> [$ 0-9 A-Z _ a-z] Layout ElementValue.
  SlotId (493) => { let [lit_0 , layout , element_value] = children . into_array :: < 3usize > () ; ParseTree :: DefaultValue (self . arena . alloc (DefaultValue :: Alt0 { lit_0 : lit_0 . unwrap_token () , layout : layout . unwrap_layout () , element_value : element_value . unwrap_element_value () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // ClassModifier
  NonterminalId (62) => match nonterminal_node . return_slot { 
 // ClassModifier : Annotation.
  SlotId (495) => { let [annotation] = children . into_array :: < 1usize > () ; ParseTree :: ClassModifier (self . arena . alloc (ClassModifier :: Alt0 { annotation : annotation . unwrap_annotation () , span : nonterminal_node . span , })) } , 
-// ClassModifier : "public".
+// ClassModifier : [$ 0-9 A-Z _ a-z] !<< "public" !>> [$ 0-9 A-Z _ a-z].
  SlotId (497) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: ClassModifier (self . arena . alloc (ClassModifier :: Alt1 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// ClassModifier : "protected".
+// ClassModifier : [$ 0-9 A-Z _ a-z] !<< "protected" !>> [$ 0-9 A-Z _ a-z].
  SlotId (499) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: ClassModifier (self . arena . alloc (ClassModifier :: Alt2 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// ClassModifier : "private".
+// ClassModifier : [$ 0-9 A-Z _ a-z] !<< "private" !>> [$ 0-9 A-Z _ a-z].
  SlotId (501) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: ClassModifier (self . arena . alloc (ClassModifier :: Alt3 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// ClassModifier : "abstract".
+// ClassModifier : [$ 0-9 A-Z _ a-z] !<< "abstract" !>> [$ 0-9 A-Z _ a-z].
  SlotId (503) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: ClassModifier (self . arena . alloc (ClassModifier :: Alt4 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// ClassModifier : "static".
+// ClassModifier : [$ 0-9 A-Z _ a-z] !<< "static" !>> [$ 0-9 A-Z _ a-z].
  SlotId (505) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: ClassModifier (self . arena . alloc (ClassModifier :: Alt5 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// ClassModifier : "final".
+// ClassModifier : [$ 0-9 A-Z _ a-z] !<< "final" !>> [$ 0-9 A-Z _ a-z].
  SlotId (507) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: ClassModifier (self . arena . alloc (ClassModifier :: Alt6 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// ClassModifier : "strictfp".
+// ClassModifier : [$ 0-9 A-Z _ a-z] !<< "strictfp" !>> [$ 0-9 A-Z _ a-z].
  SlotId (509) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: ClassModifier (self . arena . alloc (ClassModifier :: Alt7 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // ConstructorModifier
  NonterminalId (63) => match nonterminal_node . return_slot { 
 // ConstructorModifier : Annotation.
  SlotId (511) => { let [annotation] = children . into_array :: < 1usize > () ; ParseTree :: ConstructorModifier (self . arena . alloc (ConstructorModifier :: Alt0 { annotation : annotation . unwrap_annotation () , span : nonterminal_node . span , })) } , 
-// ConstructorModifier : "public".
+// ConstructorModifier : [$ 0-9 A-Z _ a-z] !<< "public" !>> [$ 0-9 A-Z _ a-z].
  SlotId (513) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: ConstructorModifier (self . arena . alloc (ConstructorModifier :: Alt1 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// ConstructorModifier : "protected".
+// ConstructorModifier : [$ 0-9 A-Z _ a-z] !<< "protected" !>> [$ 0-9 A-Z _ a-z].
  SlotId (515) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: ConstructorModifier (self . arena . alloc (ConstructorModifier :: Alt2 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// ConstructorModifier : "private".
+// ConstructorModifier : [$ 0-9 A-Z _ a-z] !<< "private" !>> [$ 0-9 A-Z _ a-z].
  SlotId (517) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: ConstructorModifier (self . arena . alloc (ConstructorModifier :: Alt3 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // InterfaceModifier
  NonterminalId (64) => match nonterminal_node . return_slot { 
 // InterfaceModifier : Annotation.
  SlotId (519) => { let [annotation] = children . into_array :: < 1usize > () ; ParseTree :: InterfaceModifier (self . arena . alloc (InterfaceModifier :: Alt0 { annotation : annotation . unwrap_annotation () , span : nonterminal_node . span , })) } , 
-// InterfaceModifier : "public".
+// InterfaceModifier : [$ 0-9 A-Z _ a-z] !<< "public" !>> [$ 0-9 A-Z _ a-z].
  SlotId (521) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: InterfaceModifier (self . arena . alloc (InterfaceModifier :: Alt1 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// InterfaceModifier : "protected".
+// InterfaceModifier : [$ 0-9 A-Z _ a-z] !<< "protected" !>> [$ 0-9 A-Z _ a-z].
  SlotId (523) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: InterfaceModifier (self . arena . alloc (InterfaceModifier :: Alt2 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// InterfaceModifier : "private".
+// InterfaceModifier : [$ 0-9 A-Z _ a-z] !<< "private" !>> [$ 0-9 A-Z _ a-z].
  SlotId (525) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: InterfaceModifier (self . arena . alloc (InterfaceModifier :: Alt3 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// InterfaceModifier : "abstract".
+// InterfaceModifier : [$ 0-9 A-Z _ a-z] !<< "abstract" !>> [$ 0-9 A-Z _ a-z].
  SlotId (527) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: InterfaceModifier (self . arena . alloc (InterfaceModifier :: Alt4 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// InterfaceModifier : "static".
+// InterfaceModifier : [$ 0-9 A-Z _ a-z] !<< "static" !>> [$ 0-9 A-Z _ a-z].
  SlotId (529) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: InterfaceModifier (self . arena . alloc (InterfaceModifier :: Alt5 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// InterfaceModifier : "strictfp".
+// InterfaceModifier : [$ 0-9 A-Z _ a-z] !<< "strictfp" !>> [$ 0-9 A-Z _ a-z].
  SlotId (531) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: InterfaceModifier (self . arena . alloc (InterfaceModifier :: Alt6 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // ConstantModifier
  NonterminalId (65) => match nonterminal_node . return_slot { 
 // ConstantModifier : Annotation.
  SlotId (533) => { let [annotation] = children . into_array :: < 1usize > () ; ParseTree :: ConstantModifier (self . arena . alloc (ConstantModifier :: Alt0 { annotation : annotation . unwrap_annotation () , span : nonterminal_node . span , })) } , 
-// ConstantModifier : "public".
+// ConstantModifier : [$ 0-9 A-Z _ a-z] !<< "public" !>> [$ 0-9 A-Z _ a-z].
  SlotId (535) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: ConstantModifier (self . arena . alloc (ConstantModifier :: Alt1 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// ConstantModifier : "static".
+// ConstantModifier : [$ 0-9 A-Z _ a-z] !<< "static" !>> [$ 0-9 A-Z _ a-z].
  SlotId (537) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: ConstantModifier (self . arena . alloc (ConstantModifier :: Alt2 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// ConstantModifier : "final".
+// ConstantModifier : [$ 0-9 A-Z _ a-z] !<< "final" !>> [$ 0-9 A-Z _ a-z].
  SlotId (539) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: ConstantModifier (self . arena . alloc (ConstantModifier :: Alt3 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // InterfaceMethodModifier
  NonterminalId (66) => match nonterminal_node . return_slot { 
 // InterfaceMethodModifier : Annotation.
  SlotId (541) => { let [annotation] = children . into_array :: < 1usize > () ; ParseTree :: InterfaceMethodModifier (self . arena . alloc (InterfaceMethodModifier :: Alt0 { annotation : annotation . unwrap_annotation () , span : nonterminal_node . span , })) } , 
-// InterfaceMethodModifier : "public".
+// InterfaceMethodModifier : [$ 0-9 A-Z _ a-z] !<< "public" !>> [$ 0-9 A-Z _ a-z].
  SlotId (543) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: InterfaceMethodModifier (self . arena . alloc (InterfaceMethodModifier :: Alt1 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// InterfaceMethodModifier : "abstract".
+// InterfaceMethodModifier : [$ 0-9 A-Z _ a-z] !<< "abstract" !>> [$ 0-9 A-Z _ a-z].
  SlotId (545) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: InterfaceMethodModifier (self . arena . alloc (InterfaceMethodModifier :: Alt2 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// InterfaceMethodModifier : "default".
+// InterfaceMethodModifier : [$ 0-9 A-Z _ a-z] !<< "default" !>> [$ 0-9 A-Z _ a-z].
  SlotId (547) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: InterfaceMethodModifier (self . arena . alloc (InterfaceMethodModifier :: Alt3 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// InterfaceMethodModifier : "static".
+// InterfaceMethodModifier : [$ 0-9 A-Z _ a-z] !<< "static" !>> [$ 0-9 A-Z _ a-z].
  SlotId (549) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: InterfaceMethodModifier (self . arena . alloc (InterfaceMethodModifier :: Alt4 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// InterfaceMethodModifier : "strictfp".
+// InterfaceMethodModifier : [$ 0-9 A-Z _ a-z] !<< "strictfp" !>> [$ 0-9 A-Z _ a-z].
  SlotId (551) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: InterfaceMethodModifier (self . arena . alloc (InterfaceMethodModifier :: Alt5 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// InterfaceMethodModifier : "private".
+// InterfaceMethodModifier : [$ 0-9 A-Z _ a-z] !<< "private" !>> [$ 0-9 A-Z _ a-z].
  SlotId (553) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: InterfaceMethodModifier (self . arena . alloc (InterfaceMethodModifier :: Alt6 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // FieldModifier
  NonterminalId (67) => match nonterminal_node . return_slot { 
 // FieldModifier : Annotation.
  SlotId (555) => { let [annotation] = children . into_array :: < 1usize > () ; ParseTree :: FieldModifier (self . arena . alloc (FieldModifier :: Alt0 { annotation : annotation . unwrap_annotation () , span : nonterminal_node . span , })) } , 
-// FieldModifier : "public".
+// FieldModifier : [$ 0-9 A-Z _ a-z] !<< "public" !>> [$ 0-9 A-Z _ a-z].
  SlotId (557) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: FieldModifier (self . arena . alloc (FieldModifier :: Alt1 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// FieldModifier : "protected".
+// FieldModifier : [$ 0-9 A-Z _ a-z] !<< "protected" !>> [$ 0-9 A-Z _ a-z].
  SlotId (559) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: FieldModifier (self . arena . alloc (FieldModifier :: Alt2 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// FieldModifier : "private".
+// FieldModifier : [$ 0-9 A-Z _ a-z] !<< "private" !>> [$ 0-9 A-Z _ a-z].
  SlotId (561) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: FieldModifier (self . arena . alloc (FieldModifier :: Alt3 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// FieldModifier : "static".
+// FieldModifier : [$ 0-9 A-Z _ a-z] !<< "static" !>> [$ 0-9 A-Z _ a-z].
  SlotId (563) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: FieldModifier (self . arena . alloc (FieldModifier :: Alt4 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// FieldModifier : "final".
+// FieldModifier : [$ 0-9 A-Z _ a-z] !<< "final" !>> [$ 0-9 A-Z _ a-z].
  SlotId (565) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: FieldModifier (self . arena . alloc (FieldModifier :: Alt5 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// FieldModifier : "transient".
+// FieldModifier : [$ 0-9 A-Z _ a-z] !<< "transient" !>> [$ 0-9 A-Z _ a-z].
  SlotId (567) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: FieldModifier (self . arena . alloc (FieldModifier :: Alt6 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// FieldModifier : "volatile".
+// FieldModifier : [$ 0-9 A-Z _ a-z] !<< "volatile" !>> [$ 0-9 A-Z _ a-z].
  SlotId (569) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: FieldModifier (self . arena . alloc (FieldModifier :: Alt7 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // MethodModifier
  NonterminalId (68) => match nonterminal_node . return_slot { 
 // MethodModifier : Annotation.
  SlotId (571) => { let [annotation] = children . into_array :: < 1usize > () ; ParseTree :: MethodModifier (self . arena . alloc (MethodModifier :: Alt0 { annotation : annotation . unwrap_annotation () , span : nonterminal_node . span , })) } , 
-// MethodModifier : "public".
+// MethodModifier : [$ 0-9 A-Z _ a-z] !<< "public" !>> [$ 0-9 A-Z _ a-z].
  SlotId (573) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: MethodModifier (self . arena . alloc (MethodModifier :: Alt1 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// MethodModifier : "protected".
+// MethodModifier : [$ 0-9 A-Z _ a-z] !<< "protected" !>> [$ 0-9 A-Z _ a-z].
  SlotId (575) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: MethodModifier (self . arena . alloc (MethodModifier :: Alt2 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// MethodModifier : "private".
+// MethodModifier : [$ 0-9 A-Z _ a-z] !<< "private" !>> [$ 0-9 A-Z _ a-z].
  SlotId (577) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: MethodModifier (self . arena . alloc (MethodModifier :: Alt3 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// MethodModifier : "abstract".
+// MethodModifier : [$ 0-9 A-Z _ a-z] !<< "abstract" !>> [$ 0-9 A-Z _ a-z].
  SlotId (579) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: MethodModifier (self . arena . alloc (MethodModifier :: Alt4 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// MethodModifier : "static".
+// MethodModifier : [$ 0-9 A-Z _ a-z] !<< "static" !>> [$ 0-9 A-Z _ a-z].
  SlotId (581) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: MethodModifier (self . arena . alloc (MethodModifier :: Alt5 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// MethodModifier : "final".
+// MethodModifier : [$ 0-9 A-Z _ a-z] !<< "final" !>> [$ 0-9 A-Z _ a-z].
  SlotId (583) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: MethodModifier (self . arena . alloc (MethodModifier :: Alt6 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// MethodModifier : "synchronized".
+// MethodModifier : [$ 0-9 A-Z _ a-z] !<< "synchronized" !>> [$ 0-9 A-Z _ a-z].
  SlotId (585) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: MethodModifier (self . arena . alloc (MethodModifier :: Alt7 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// MethodModifier : "native".
+// MethodModifier : [$ 0-9 A-Z _ a-z] !<< "native" !>> [$ 0-9 A-Z _ a-z].
  SlotId (587) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: MethodModifier (self . arena . alloc (MethodModifier :: Alt8 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// MethodModifier : "strictfp".
+// MethodModifier : [$ 0-9 A-Z _ a-z] !<< "strictfp" !>> [$ 0-9 A-Z _ a-z].
  SlotId (589) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: MethodModifier (self . arena . alloc (MethodModifier :: Alt9 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // VariableModifier
  NonterminalId (69) => match nonterminal_node . return_slot { 
 // VariableModifier : Annotation.
  SlotId (591) => { let [annotation] = children . into_array :: < 1usize > () ; ParseTree :: VariableModifier (self . arena . alloc (VariableModifier :: Alt0 { annotation : annotation . unwrap_annotation () , span : nonterminal_node . span , })) } , 
-// VariableModifier : "final".
+// VariableModifier : [$ 0-9 A-Z _ a-z] !<< "final" !>> [$ 0-9 A-Z _ a-z].
  SlotId (593) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: VariableModifier (self . arena . alloc (VariableModifier :: Alt1 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // Statement
  NonterminalId (70) => match nonterminal_node . return_slot { 
@@ -6963,41 +7030,55 @@ impl < 'a > ParseTreeBuilder < ParseTree < 'a >> for JavaParseTreeBuilder < 'a >
  SlotId (597) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: Statement (self . arena . alloc (Statement :: Empty { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
 // Statement : StatementExpression Layout ";".
  SlotId (601) => { let [statement_expression , layout , lit_2] = children . into_array :: < 3usize > () ; ParseTree :: Statement (self . arena . alloc (Statement :: Expression { statement_expression : statement_expression . unwrap_statement_expression () , layout : layout . unwrap_layout () , lit_2 : lit_2 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// Statement : "assert" Layout Expression(0, 0) Layout (":" Expression)? Layout ";".
+// Statement : [$ 0-9 A-Z _ a-z] !<< "assert" !>> [$ 0-9 A-Z _ a-z] Layout Expression(0, 0)
+// Layout (":" Expression)? Layout ";".
  SlotId (609) => { let [lit_0 , layout_1 , expression , layout_3 , opt_50 , layout_5 , lit_6] = children . into_array :: < 7usize > () ; ParseTree :: Statement (self . arena . alloc (Statement :: Assert { lit_0 : lit_0 . unwrap_token () , layout_1 : layout_1 . unwrap_layout () , expression : expression . unwrap_expression () , layout_3 : layout_3 . unwrap_layout () , opt_50 : opt_50 . unwrap_opt_50 () , layout_5 : layout_5 . unwrap_layout () , lit_6 : lit_6 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// Statement : "switch" Layout "(" Layout Expression(0, 0) Layout ")" Layout "{" Layout
-// SwitchBlockStatementGroup* Layout SwitchLabel* Layout "}".
+// Statement : [$ 0-9 A-Z _ a-z] !<< "switch" !>> [$ 0-9 A-Z _ a-z] Layout "(" Layout
+// Expression(0, 0) Layout ")" Layout "{" Layout SwitchBlockStatementGroup* Layout
+// SwitchLabel* Layout "}".
  SlotId (625) => { let [lit_0 , layout_1 , lit_2 , layout_3 , expression , layout_5 , lit_6 , layout_7 , lit_8 , layout_9 , switch_block_statement_groups , layout_11 , switch_labels , layout_13 , lit_14] = children . into_array :: < 15usize > () ; ParseTree :: Statement (self . arena . alloc (Statement :: Switch { lit_0 : lit_0 . unwrap_token () , layout_1 : layout_1 . unwrap_layout () , lit_2 : lit_2 . unwrap_token () , layout_3 : layout_3 . unwrap_layout () , expression : expression . unwrap_expression () , layout_5 : layout_5 . unwrap_layout () , lit_6 : lit_6 . unwrap_token () , layout_7 : layout_7 . unwrap_layout () , lit_8 : lit_8 . unwrap_token () , layout_9 : layout_9 . unwrap_layout () , switch_block_statement_groups : switch_block_statement_groups . unwrap_star_24 () , layout_11 : layout_11 . unwrap_layout () , switch_labels : switch_labels . unwrap_star_25 () , layout_13 : layout_13 . unwrap_layout () , lit_14 : lit_14 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// Statement : "do" Layout Statement Layout "while" Layout "(" Layout Expression(0, 0) Layout
+// Statement : [$ 0-9 A-Z _ a-z] !<< "do" !>> [$ 0-9 A-Z _ a-z] Layout Statement Layout [$
+// 0-9 A-Z _ a-z] !<< "while" !>> [$ 0-9 A-Z _ a-z] Layout "(" Layout Expression(0, 0) Layout
 // ")" Layout ";".
  SlotId (639) => { let [lit_0 , layout_1 , statement , layout_3 , lit_4 , layout_5 , lit_6 , layout_7 , expression , layout_9 , lit_10 , layout_11 , lit_12] = children . into_array :: < 13usize > () ; ParseTree :: Statement (self . arena . alloc (Statement :: Do { lit_0 : lit_0 . unwrap_token () , layout_1 : layout_1 . unwrap_layout () , statement : statement . unwrap_statement () , layout_3 : layout_3 . unwrap_layout () , lit_4 : lit_4 . unwrap_token () , layout_5 : layout_5 . unwrap_layout () , lit_6 : lit_6 . unwrap_token () , layout_7 : layout_7 . unwrap_layout () , expression : expression . unwrap_expression () , layout_9 : layout_9 . unwrap_layout () , lit_10 : lit_10 . unwrap_token () , layout_11 : layout_11 . unwrap_layout () , lit_12 : lit_12 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// Statement : "break" Layout Identifier? Layout ";".
+// Statement : [$ 0-9 A-Z _ a-z] !<< "break" !>> [$ 0-9 A-Z _ a-z] Layout Identifier? Layout
+// ";".
  SlotId (645) => { let [lit_0 , layout_1 , identifier , layout_3 , lit_4] = children . into_array :: < 5usize > () ; ParseTree :: Statement (self . arena . alloc (Statement :: Break { lit_0 : lit_0 . unwrap_token () , layout_1 : layout_1 . unwrap_layout () , identifier : identifier . unwrap_opt_53 () , layout_3 : layout_3 . unwrap_layout () , lit_4 : lit_4 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// Statement : "continue" Layout Identifier? Layout ";".
+// Statement : [$ 0-9 A-Z _ a-z] !<< "continue" !>> [$ 0-9 A-Z _ a-z] Layout Identifier?
+// Layout ";".
  SlotId (651) => { let [lit_0 , layout_1 , identifier , layout_3 , lit_4] = children . into_array :: < 5usize > () ; ParseTree :: Statement (self . arena . alloc (Statement :: Continue { lit_0 : lit_0 . unwrap_token () , layout_1 : layout_1 . unwrap_layout () , identifier : identifier . unwrap_opt_53 () , layout_3 : layout_3 . unwrap_layout () , lit_4 : lit_4 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// Statement : "return" Layout Expression? Layout ";".
+// Statement : [$ 0-9 A-Z _ a-z] !<< "return" !>> [$ 0-9 A-Z _ a-z] Layout Expression? Layout
+// ";".
  SlotId (657) => { let [lit_0 , layout_1 , expression , layout_3 , lit_4] = children . into_array :: < 5usize > () ; ParseTree :: Statement (self . arena . alloc (Statement :: Return { lit_0 : lit_0 . unwrap_token () , layout_1 : layout_1 . unwrap_layout () , expression : expression . unwrap_opt_54 () , layout_3 : layout_3 . unwrap_layout () , lit_4 : lit_4 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// Statement : "synchronized" Layout "(" Layout Expression(0, 0) Layout ")" Layout Block.
+// Statement : [$ 0-9 A-Z _ a-z] !<< "synchronized" !>> [$ 0-9 A-Z _ a-z] Layout "(" Layout
+// Expression(0, 0) Layout ")" Layout Block.
  SlotId (667) => { let [lit_0 , layout_1 , lit_2 , layout_3 , expression , layout_5 , lit_6 , layout_7 , block] = children . into_array :: < 9usize > () ; ParseTree :: Statement (self . arena . alloc (Statement :: Synchronized { lit_0 : lit_0 . unwrap_token () , layout_1 : layout_1 . unwrap_layout () , lit_2 : lit_2 . unwrap_token () , layout_3 : layout_3 . unwrap_layout () , expression : expression . unwrap_expression () , layout_5 : layout_5 . unwrap_layout () , lit_6 : lit_6 . unwrap_token () , layout_7 : layout_7 . unwrap_layout () , block : block . unwrap_block () , span : nonterminal_node . span , })) } , 
-// Statement : "throw" Layout Expression(0, 0) Layout ";".
+// Statement : [$ 0-9 A-Z _ a-z] !<< "throw" !>> [$ 0-9 A-Z _ a-z] Layout Expression(0, 0)
+// Layout ";".
  SlotId (673) => { let [lit_0 , layout_1 , expression , layout_3 , lit_4] = children . into_array :: < 5usize > () ; ParseTree :: Statement (self . arena . alloc (Statement :: Throw { lit_0 : lit_0 . unwrap_token () , layout_1 : layout_1 . unwrap_layout () , expression : expression . unwrap_expression () , layout_3 : layout_3 . unwrap_layout () , lit_4 : lit_4 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// Statement : "try" Layout Block Layout CatchClause+.
+// Statement : [$ 0-9 A-Z _ a-z] !<< "try" !>> [$ 0-9 A-Z _ a-z] Layout Block Layout
+// CatchClause+.
  SlotId (679) => { let [lit_0 , layout_1 , block , layout_3 , catch_clauses] = children . into_array :: < 5usize > () ; ParseTree :: Statement (self . arena . alloc (Statement :: Try { lit_0 : lit_0 . unwrap_token () , layout_1 : layout_1 . unwrap_layout () , block : block . unwrap_block () , layout_3 : layout_3 . unwrap_layout () , catch_clauses : catch_clauses . unwrap_plus_32 () , span : nonterminal_node . span , })) } , 
-// Statement : "try" Layout Block Layout CatchClause* Layout Finally.
+// Statement : [$ 0-9 A-Z _ a-z] !<< "try" !>> [$ 0-9 A-Z _ a-z] Layout Block Layout
+// CatchClause* Layout Finally.
  SlotId (687) => { let [lit_0 , layout_1 , block , layout_3 , catch_clauses , layout_5 , finally] = children . into_array :: < 7usize > () ; ParseTree :: Statement (self . arena . alloc (Statement :: TryFinally { lit_0 : lit_0 . unwrap_token () , layout_1 : layout_1 . unwrap_layout () , block : block . unwrap_block () , layout_3 : layout_3 . unwrap_layout () , catch_clauses : catch_clauses . unwrap_star_26 () , layout_5 : layout_5 . unwrap_layout () , finally : finally . unwrap_finally () , span : nonterminal_node . span , })) } , 
-// Statement : "try" Layout ResourceSpecification Layout Block Layout CatchClause* Layout
-// Finally?.
+// Statement : [$ 0-9 A-Z _ a-z] !<< "try" !>> [$ 0-9 A-Z _ a-z] Layout ResourceSpecification
+// Layout Block Layout CatchClause* Layout Finally?.
  SlotId (697) => { let [lit_0 , layout_1 , resource_specification , layout_3 , block , layout_5 , catch_clauses , layout_7 , finally] = children . into_array :: < 9usize > () ; ParseTree :: Statement (self . arena . alloc (Statement :: TryWithResourcesStmt { lit_0 : lit_0 . unwrap_token () , layout_1 : layout_1 . unwrap_layout () , resource_specification : resource_specification . unwrap_resource_specification () , layout_3 : layout_3 . unwrap_layout () , block : block . unwrap_block () , layout_5 : layout_5 . unwrap_layout () , catch_clauses : catch_clauses . unwrap_star_26 () , layout_7 : layout_7 . unwrap_layout () , finally : finally . unwrap_opt_56 () , span : nonterminal_node . span , })) } , 
 // Statement : Identifier Layout ":" Layout Statement.
  SlotId (703) => { let [identifier , layout_1 , lit_2 , layout_3 , statement] = children . into_array :: < 5usize > () ; ParseTree :: Statement (self . arena . alloc (Statement :: Label { identifier : identifier . unwrap_token () , layout_1 : layout_1 . unwrap_layout () , lit_2 : lit_2 . unwrap_token () , layout_3 : layout_3 . unwrap_layout () , statement : statement . unwrap_statement () , span : nonterminal_node . span , })) } , 
-// Statement : "if" Layout "(" Layout Expression(0, 0) Layout ")" Layout Statement !>>> Else.
+// Statement : [$ 0-9 A-Z _ a-z] !<< "if" !>> [$ 0-9 A-Z _ a-z] Layout "(" Layout
+// Expression(0, 0) Layout ")" Layout Statement !>>> Else.
  SlotId (713) => { let [lit_0 , layout_1 , lit_2 , layout_3 , expression , layout_5 , lit_6 , layout_7 , statement] = children . into_array :: < 9usize > () ; ParseTree :: Statement (self . arena . alloc (Statement :: If { lit_0 : lit_0 . unwrap_token () , layout_1 : layout_1 . unwrap_layout () , lit_2 : lit_2 . unwrap_token () , layout_3 : layout_3 . unwrap_layout () , expression : expression . unwrap_expression () , layout_5 : layout_5 . unwrap_layout () , lit_6 : lit_6 . unwrap_token () , layout_7 : layout_7 . unwrap_layout () , statement : statement . unwrap_statement () , span : nonterminal_node . span , })) } , 
-// Statement : "if" Layout "(" Layout Expression(0, 0) Layout ")" Layout Statement Layout
-// Else Layout Statement.
+// Statement : [$ 0-9 A-Z _ a-z] !<< "if" !>> [$ 0-9 A-Z _ a-z] Layout "(" Layout
+// Expression(0, 0) Layout ")" Layout Statement Layout [$ 0-9 A-Z _ a-z] !<< Else !>> [$ 0-9
+// A-Z _ a-z] Layout Statement.
  SlotId (727) => { let [lit_0 , layout_1 , lit_2 , layout_3 , expression , layout_5 , lit_6 , layout_7 , statement_8 , layout_9 , r#else , layout_11 , statement_12] = children . into_array :: < 13usize > () ; ParseTree :: Statement (self . arena . alloc (Statement :: IfElse { lit_0 : lit_0 . unwrap_token () , layout_1 : layout_1 . unwrap_layout () , lit_2 : lit_2 . unwrap_token () , layout_3 : layout_3 . unwrap_layout () , expression : expression . unwrap_expression () , layout_5 : layout_5 . unwrap_layout () , lit_6 : lit_6 . unwrap_token () , layout_7 : layout_7 . unwrap_layout () , statement_8 : statement_8 . unwrap_statement () , layout_9 : layout_9 . unwrap_layout () , r#else : r#else . unwrap_token () , layout_11 : layout_11 . unwrap_layout () , statement_12 : statement_12 . unwrap_statement () , span : nonterminal_node . span , })) } , 
-// Statement : "while" Layout "(" Layout Expression(0, 0) Layout ")" Layout Statement.
+// Statement : [$ 0-9 A-Z _ a-z] !<< "while" !>> [$ 0-9 A-Z _ a-z] Layout "(" Layout
+// Expression(0, 0) Layout ")" Layout Statement.
  SlotId (737) => { let [lit_0 , layout_1 , lit_2 , layout_3 , expression , layout_5 , lit_6 , layout_7 , statement] = children . into_array :: < 9usize > () ; ParseTree :: Statement (self . arena . alloc (Statement :: While { lit_0 : lit_0 . unwrap_token () , layout_1 : layout_1 . unwrap_layout () , lit_2 : lit_2 . unwrap_token () , layout_3 : layout_3 . unwrap_layout () , expression : expression . unwrap_expression () , layout_5 : layout_5 . unwrap_layout () , lit_6 : lit_6 . unwrap_token () , layout_7 : layout_7 . unwrap_layout () , statement : statement . unwrap_statement () , span : nonterminal_node . span , })) } , 
-// Statement : "for" Layout "(" Layout ForControl Layout ")" Layout Statement.
+// Statement : [$ 0-9 A-Z _ a-z] !<< "for" !>> [$ 0-9 A-Z _ a-z] Layout "(" Layout ForControl
+// Layout ")" Layout Statement.
  SlotId (747) => { let [lit_0 , layout_1 , lit_2 , layout_3 , for_control , layout_5 , lit_6 , layout_7 , statement] = children . into_array :: < 9usize > () ; ParseTree :: Statement (self . arena . alloc (Statement :: For { lit_0 : lit_0 . unwrap_token () , layout_1 : layout_1 . unwrap_layout () , lit_2 : lit_2 . unwrap_token () , layout_3 : layout_3 . unwrap_layout () , for_control : for_control . unwrap_for_control () , layout_5 : layout_5 . unwrap_layout () , lit_6 : lit_6 . unwrap_token () , layout_7 : layout_7 . unwrap_layout () , statement : statement . unwrap_statement () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // StatementExpression
  NonterminalId (71) => match nonterminal_node . return_slot { 
@@ -7009,9 +7090,10 @@ impl < 'a > ParseTreeBuilder < ParseTree < 'a >> for JavaParseTreeBuilder < 'a >
  SlotId (753) => { let [switch_labels , layout , block_statements] = children . into_array :: < 3usize > () ; ParseTree :: SwitchBlockStatementGroup (self . arena . alloc (SwitchBlockStatementGroup :: Alt0 { switch_labels : switch_labels . unwrap_plus_31 () , layout : layout . unwrap_layout () , block_statements : block_statements . unwrap_plus_15 () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // SwitchLabel
  NonterminalId (73) => match nonterminal_node . return_slot { 
-// SwitchLabel : "case" Layout Expression(0, 0) Layout ":".
+// SwitchLabel : [$ 0-9 A-Z _ a-z] !<< "case" !>> [$ 0-9 A-Z _ a-z] Layout Expression(0, 0)
+// Layout ":".
  SlotId (759) => { let [lit_0 , layout_1 , expression , layout_3 , lit_4] = children . into_array :: < 5usize > () ; ParseTree :: SwitchLabel (self . arena . alloc (SwitchLabel :: Alt0 { lit_0 : lit_0 . unwrap_token () , layout_1 : layout_1 . unwrap_layout () , expression : expression . unwrap_expression () , layout_3 : layout_3 . unwrap_layout () , lit_4 : lit_4 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// SwitchLabel : "default" Layout ":".
+// SwitchLabel : [$ 0-9 A-Z _ a-z] !<< "default" !>> [$ 0-9 A-Z _ a-z] Layout ":".
  SlotId (763) => { let [lit_0 , layout , lit_2] = children . into_array :: < 3usize > () ; ParseTree :: SwitchLabel (self . arena . alloc (SwitchLabel :: Alt1 { lit_0 : lit_0 . unwrap_token () , layout : layout . unwrap_layout () , lit_2 : lit_2 . unwrap_token () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // ForControl
  NonterminalId (74) => match nonterminal_node . return_slot { 
@@ -7022,8 +7104,8 @@ impl < 'a > ParseTreeBuilder < ParseTree < 'a >> for JavaParseTreeBuilder < 'a >
  SlotId (783) => { let [variable_modifiers , layout_1 , local_variable_type , layout_3 , variable_declarator_id , layout_5 , lit_6 , layout_7 , expression] = children . into_array :: < 9usize > () ; ParseTree :: ForControl (self . arena . alloc (ForControl :: Enhanced { variable_modifiers : variable_modifiers . unwrap_star_11 () , layout_1 : layout_1 . unwrap_layout () , local_variable_type : local_variable_type . unwrap_local_variable_type () , layout_3 : layout_3 . unwrap_layout () , variable_declarator_id : variable_declarator_id . unwrap_variable_declarator_id () , layout_5 : layout_5 . unwrap_layout () , lit_6 : lit_6 . unwrap_token () , layout_7 : layout_7 . unwrap_layout () , expression : expression . unwrap_expression () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // CatchClause
  NonterminalId (75) => match nonterminal_node . return_slot { 
-// CatchClause : "catch" Layout "(" Layout VariableModifier* Layout CatchType Layout
-// Identifier Layout ")" Layout Block.
+// CatchClause : [$ 0-9 A-Z _ a-z] !<< "catch" !>> [$ 0-9 A-Z _ a-z] Layout "(" Layout
+// VariableModifier* Layout CatchType Layout Identifier Layout ")" Layout Block.
  SlotId (797) => { let [lit_0 , layout_1 , lit_2 , layout_3 , variable_modifiers , layout_5 , catch_type , layout_7 , identifier , layout_9 , lit_10 , layout_11 , block] = children . into_array :: < 13usize > () ; ParseTree :: CatchClause (self . arena . alloc (CatchClause :: Alt0 { lit_0 : lit_0 . unwrap_token () , layout_1 : layout_1 . unwrap_layout () , lit_2 : lit_2 . unwrap_token () , layout_3 : layout_3 . unwrap_layout () , variable_modifiers : variable_modifiers . unwrap_star_11 () , layout_5 : layout_5 . unwrap_layout () , catch_type : catch_type . unwrap_catch_type () , layout_7 : layout_7 . unwrap_layout () , identifier : identifier . unwrap_token () , layout_9 : layout_9 . unwrap_layout () , lit_10 : lit_10 . unwrap_token () , layout_11 : layout_11 . unwrap_layout () , block : block . unwrap_block () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // CatchType
  NonterminalId (76) => match nonterminal_node . return_slot { 
@@ -7031,7 +7113,7 @@ impl < 'a > ParseTreeBuilder < ParseTree < 'a >> for JavaParseTreeBuilder < 'a >
  SlotId (801) => { let [unann_class_type , layout , star_27] = children . into_array :: < 3usize > () ; ParseTree :: CatchType (self . arena . alloc (CatchType :: Alt0 { unann_class_type : unann_class_type . unwrap_unann_class_type () , layout : layout . unwrap_layout () , star_27 : star_27 . unwrap_star_27 () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // Finally
  NonterminalId (77) => match nonterminal_node . return_slot { 
-// Finally : "finally" Layout Block.
+// Finally : [$ 0-9 A-Z _ a-z] !<< "finally" !>> [$ 0-9 A-Z _ a-z] Layout Block.
  SlotId (805) => { let [lit_0 , layout , block] = children . into_array :: < 3usize > () ; ParseTree :: Finally (self . arena . alloc (Finally :: Alt0 { lit_0 : lit_0 . unwrap_token () , layout : layout . unwrap_layout () , block : block . unwrap_block () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // ResourceSpecification
  NonterminalId (78) => match nonterminal_node . return_slot { 
@@ -7039,12 +7121,13 @@ impl < 'a > ParseTreeBuilder < ParseTree < 'a >> for JavaParseTreeBuilder < 'a >
  SlotId (813) => { let [lit_0 , layout_1 , resources , layout_3 , opt_60 , layout_5 , lit_6] = children . into_array :: < 7usize > () ; ParseTree :: ResourceSpecification (self . arena . alloc (ResourceSpecification :: Alt0 { lit_0 : lit_0 . unwrap_token () , layout_1 : layout_1 . unwrap_layout () , resources : resources . unwrap_plus_34 () , layout_3 : layout_3 . unwrap_layout () , opt_60 : opt_60 . unwrap_opt_60 () , layout_5 : layout_5 . unwrap_layout () , lit_6 : lit_6 . unwrap_token () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // Resource
  NonterminalId (79) => match nonterminal_node . return_slot { 
-// Resource : VariableModifier* Layout (UnannReferenceType | "var") Layout
-// VariableDeclaratorId Layout "=" Layout Expression(0, 0).
+// Resource : VariableModifier* Layout (UnannReferenceType | [$ 0-9 A-Z _ a-z] !<< "var" !>>
+// [$ 0-9 A-Z _ a-z]) Layout VariableDeclaratorId Layout "=" Layout Expression(0, 0).
  SlotId (823) => { let [variable_modifiers , layout_1 , alt_1 , layout_3 , variable_declarator_id , layout_5 , lit_6 , layout_7 , expression] = children . into_array :: < 9usize > () ; ParseTree :: Resource (self . arena . alloc (Resource :: Alt0 { variable_modifiers : variable_modifiers . unwrap_star_11 () , layout_1 : layout_1 . unwrap_layout () , alt_1 : alt_1 . unwrap_alt_1 () , layout_3 : layout_3 . unwrap_layout () , variable_declarator_id : variable_declarator_id . unwrap_variable_declarator_id () , layout_5 : layout_5 . unwrap_layout () , lit_6 : lit_6 . unwrap_token () , layout_7 : layout_7 . unwrap_layout () , expression : expression . unwrap_expression () , span : nonterminal_node . span , })) } , 
 // Resource : QualifiedIdentifier.
  SlotId (825) => { let [qualified_identifier] = children . into_array :: < 1usize > () ; ParseTree :: Resource (self . arena . alloc (Resource :: Alt1 { qualified_identifier : qualified_identifier . unwrap_qualified_identifier () , span : nonterminal_node . span , })) } , 
-// Resource : "this" Layout "." Layout Identifier.
+// Resource : [$ 0-9 A-Z _ a-z] !<< "this" !>> [$ 0-9 A-Z _ a-z] Layout "." Layout
+// Identifier.
  SlotId (831) => { let [lit_0 , layout_1 , lit_2 , layout_3 , identifier] = children . into_array :: < 5usize > () ; ParseTree :: Resource (self . arena . alloc (Resource :: Alt2 { lit_0 : lit_0 . unwrap_token () , layout_1 : layout_1 . unwrap_layout () , lit_2 : lit_2 . unwrap_token () , layout_3 : layout_3 . unwrap_layout () , identifier : identifier . unwrap_token () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // ForInit
  NonterminalId (80) => match nonterminal_node . return_slot { 
@@ -7061,13 +7144,15 @@ impl < 'a > ParseTreeBuilder < ParseTree < 'a >> for JavaParseTreeBuilder < 'a >
  NonterminalId (82) => match nonterminal_node . return_slot { 
 // Primary : Literal.
  SlotId (843) => { let [literal] = children . into_array :: < 1usize > () ; ParseTree :: Primary (self . arena . alloc (Primary :: Literal { literal : literal . unwrap_literal () , span : nonterminal_node . span , })) } , 
-// Primary : (QualifiedIdentifier ".")? Layout "this".
+// Primary : (QualifiedIdentifier ".")? Layout [$ 0-9 A-Z _ a-z] !<< "this" !>> [$ 0-9 A-Z _
+// a-z].
  SlotId (847) => { let [opt_63 , layout , lit_2] = children . into_array :: < 3usize > () ; ParseTree :: Primary (self . arena . alloc (Primary :: This { opt_63 : opt_63 . unwrap_opt_63 () , layout : layout . unwrap_layout () , lit_2 : lit_2 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// Primary : "super" Layout SuperSuffix.
+// Primary : [$ 0-9 A-Z _ a-z] !<< "super" !>> [$ 0-9 A-Z _ a-z] Layout SuperSuffix.
  SlotId (851) => { let [lit_0 , layout , super_suffix] = children . into_array :: < 3usize > () ; ParseTree :: Primary (self . arena . alloc (Primary :: Super { lit_0 : lit_0 . unwrap_token () , layout : layout . unwrap_layout () , super_suffix : super_suffix . unwrap_super_suffix () , span : nonterminal_node . span , })) } , 
 // Primary : Identifier.
  SlotId (853) => { let [identifier] = children . into_array :: < 1usize > () ; ParseTree :: Primary (self . arena . alloc (Primary :: Identifier { identifier : identifier . unwrap_token () , span : nonterminal_node . span , })) } , 
-// Primary : (Type | "void") Layout "." Layout "class".
+// Primary : (Type | [$ 0-9 A-Z _ a-z] !<< "void" !>> [$ 0-9 A-Z _ a-z]) Layout "." Layout [$
+// 0-9 A-Z _ a-z] !<< "class" !>> [$ 0-9 A-Z _ a-z].
  SlotId (859) => { let [alt_10 , layout_1 , lit_2 , layout_3 , lit_4] = children . into_array :: < 5usize > () ; ParseTree :: Primary (self . arena . alloc (Primary :: Type { alt_10 : alt_10 . unwrap_alt_10 () , layout_1 : layout_1 . unwrap_layout () , lit_2 : lit_2 . unwrap_token () , layout_3 : layout_3 . unwrap_layout () , lit_4 : lit_4 . unwrap_token () , span : nonterminal_node . span , })) } , 
 // Primary : "(" Layout Expression(0, 0) Layout ")".
  SlotId (865) => { let [lit_0 , layout_1 , expression , layout_3 , lit_4] = children . into_array :: < 5usize > () ; ParseTree :: Primary (self . arena . alloc (Primary :: Expression { lit_0 : lit_0 . unwrap_token () , layout_1 : layout_1 . unwrap_layout () , expression : expression . unwrap_expression () , layout_3 : layout_3 . unwrap_layout () , lit_4 : lit_4 . unwrap_token () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
@@ -7091,8 +7176,12 @@ impl < 'a > ParseTreeBuilder < ParseTree < 'a >> for JavaParseTreeBuilder < 'a >
  SlotId (885) => { let [reference_type] = children . into_array :: < 1usize > () ; ParseTree :: Type (self . arena . alloc (Type :: Alt1 { reference_type : reference_type . unwrap_reference_type () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // PrimitiveType
  NonterminalId (87) => match nonterminal_node . return_slot { 
-// PrimitiveType : Annotation* Layout ("byte" | "short" | "char" | "int" | "long" | "float" |
-// "double" | "boolean").
+// PrimitiveType : Annotation* Layout ([$ 0-9 A-Z _ a-z] !<< "byte" !>> [$ 0-9 A-Z _ a-z] |
+// [$ 0-9 A-Z _ a-z] !<< "short" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "char" !>> [$
+// 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "int" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<<
+// "long" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "float" !>> [$ 0-9 A-Z _ a-z] | [$
+// 0-9 A-Z _ a-z] !<< "double" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "boolean" !>> [$
+// 0-9 A-Z _ a-z]).
  SlotId (889) => { let [annotations , layout , alt_11] = children . into_array :: < 3usize > () ; ParseTree :: PrimitiveType (self . arena . alloc (PrimitiveType :: Alt0 { annotations : annotations . unwrap_star_2 () , layout : layout . unwrap_layout () , alt_11 : alt_11 . unwrap_alt_11 () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // ReferenceType
  NonterminalId (88) => match nonterminal_node . return_slot { 
@@ -7118,7 +7207,8 @@ impl < 'a > ParseTreeBuilder < ParseTree < 'a >> for JavaParseTreeBuilder < 'a >
  NonterminalId (92) => match nonterminal_node . return_slot { 
 // TypeArgument : ReferenceType.
  SlotId (917) => { let [reference_type] = children . into_array :: < 1usize > () ; ParseTree :: TypeArgument (self . arena . alloc (TypeArgument :: Simple { reference_type : reference_type . unwrap_reference_type () , span : nonterminal_node . span , })) } , 
-// TypeArgument : wildCardTypeArgument:Annotation* Layout "?" Layout (("extends" | "super")
+// TypeArgument : wildCardTypeArgument:Annotation* Layout "?" Layout (([$ 0-9 A-Z _ a-z] !<<
+// "extends" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "super" !>> [$ 0-9 A-Z _ a-z])
 // ReferenceType)?.
  SlotId (923) => { let [wild_card_type_argument , layout_1 , lit_2 , layout_3 , opt_67] = children . into_array :: < 5usize > () ; ParseTree :: TypeArgument (self . arena . alloc (TypeArgument :: WildCard { wild_card_type_argument : wild_card_type_argument . unwrap_star_2 () , layout_1 : layout_1 . unwrap_layout () , lit_2 : lit_2 . unwrap_token () , layout_3 : layout_3 . unwrap_layout () , opt_67 : opt_67 . unwrap_opt_67 () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // ArrayType
@@ -7133,21 +7223,21 @@ impl < 'a > ParseTreeBuilder < ParseTree < 'a >> for JavaParseTreeBuilder < 'a >
  SlotId (931) => { let [unann_reference_type] = children . into_array :: < 1usize > () ; ParseTree :: UnannType (self . arena . alloc (UnannType :: Alt1 { unann_reference_type : unann_reference_type . unwrap_unann_reference_type () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // UnannPrimitiveType
  NonterminalId (95) => match nonterminal_node . return_slot { 
-// UnannPrimitiveType : "byte".
+// UnannPrimitiveType : [$ 0-9 A-Z _ a-z] !<< "byte" !>> [$ 0-9 A-Z _ a-z].
  SlotId (933) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: UnannPrimitiveType (self . arena . alloc (UnannPrimitiveType :: Alt0 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// UnannPrimitiveType : "short".
+// UnannPrimitiveType : [$ 0-9 A-Z _ a-z] !<< "short" !>> [$ 0-9 A-Z _ a-z].
  SlotId (935) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: UnannPrimitiveType (self . arena . alloc (UnannPrimitiveType :: Alt1 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// UnannPrimitiveType : "char".
+// UnannPrimitiveType : [$ 0-9 A-Z _ a-z] !<< "char" !>> [$ 0-9 A-Z _ a-z].
  SlotId (937) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: UnannPrimitiveType (self . arena . alloc (UnannPrimitiveType :: Alt2 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// UnannPrimitiveType : "int".
+// UnannPrimitiveType : [$ 0-9 A-Z _ a-z] !<< "int" !>> [$ 0-9 A-Z _ a-z].
  SlotId (939) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: UnannPrimitiveType (self . arena . alloc (UnannPrimitiveType :: Alt3 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// UnannPrimitiveType : "long".
+// UnannPrimitiveType : [$ 0-9 A-Z _ a-z] !<< "long" !>> [$ 0-9 A-Z _ a-z].
  SlotId (941) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: UnannPrimitiveType (self . arena . alloc (UnannPrimitiveType :: Alt4 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// UnannPrimitiveType : "float".
+// UnannPrimitiveType : [$ 0-9 A-Z _ a-z] !<< "float" !>> [$ 0-9 A-Z _ a-z].
  SlotId (943) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: UnannPrimitiveType (self . arena . alloc (UnannPrimitiveType :: Alt5 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// UnannPrimitiveType : "double".
+// UnannPrimitiveType : [$ 0-9 A-Z _ a-z] !<< "double" !>> [$ 0-9 A-Z _ a-z].
  SlotId (945) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: UnannPrimitiveType (self . arena . alloc (UnannPrimitiveType :: Alt6 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// UnannPrimitiveType : "boolean".
+// UnannPrimitiveType : [$ 0-9 A-Z _ a-z] !<< "boolean" !>> [$ 0-9 A-Z _ a-z].
  SlotId (947) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: UnannPrimitiveType (self . arena . alloc (UnannPrimitiveType :: Alt7 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // UnannReferenceType
  NonterminalId (96) => match nonterminal_node . return_slot { 
@@ -7170,13 +7260,13 @@ impl < 'a > ParseTreeBuilder < ParseTree < 'a >> for JavaParseTreeBuilder < 'a >
  SlotId (963) => { let [integer_literal] = children . into_array :: < 1usize > () ; ParseTree :: Literal (self . arena . alloc (Literal :: Integer { integer_literal : integer_literal . unwrap_token () , span : nonterminal_node . span , })) } , 
 // Literal : FloatingPointLiteral.
  SlotId (965) => { let [floating_point_literal] = children . into_array :: < 1usize > () ; ParseTree :: Literal (self . arena . alloc (Literal :: Float { floating_point_literal : floating_point_literal . unwrap_token () , span : nonterminal_node . span , })) } , 
-// Literal : BooleanLiteral.
+// Literal : [$ 0-9 A-Z _ a-z] !<< BooleanLiteral !>> [$ 0-9 A-Z _ a-z].
  SlotId (967) => { let [boolean_literal] = children . into_array :: < 1usize > () ; ParseTree :: Literal (self . arena . alloc (Literal :: Boolean { boolean_literal : boolean_literal . unwrap_token () , span : nonterminal_node . span , })) } , 
 // Literal : CharacterLiteral.
  SlotId (969) => { let [character_literal] = children . into_array :: < 1usize > () ; ParseTree :: Literal (self . arena . alloc (Literal :: Character { character_literal : character_literal . unwrap_token () , span : nonterminal_node . span , })) } , 
 // Literal : StringLiteral.
  SlotId (971) => { let [string_literal] = children . into_array :: < 1usize > () ; ParseTree :: Literal (self . arena . alloc (Literal :: String { string_literal : string_literal . unwrap_token () , span : nonterminal_node . span , })) } , 
-// Literal : NullLiteral.
+// Literal : [$ 0-9 A-Z _ a-z] !<< NullLiteral !>> [$ 0-9 A-Z _ a-z].
  SlotId (973) => { let [null_literal] = children . into_array :: < 1usize > () ; ParseTree :: Literal (self . arena . alloc (Literal :: Null { null_literal : null_literal . unwrap_token () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // Selector
  NonterminalId (100) => match nonterminal_node . return_slot { 
@@ -7184,10 +7274,10 @@ impl < 'a > ParseTreeBuilder < ParseTree < 'a >> for JavaParseTreeBuilder < 'a >
  SlotId (975) => { let [identifier] = children . into_array :: < 1usize > () ; ParseTree :: Selector (self . arena . alloc (Selector :: Identifier { identifier : identifier . unwrap_token () , span : nonterminal_node . span , })) } , 
 // Selector : NonWildTypeArguments? Layout MethodInvocation.
  SlotId (979) => { let [non_wild_type_arguments , layout , method_invocation] = children . into_array :: < 3usize > () ; ParseTree :: Selector (self . arena . alloc (Selector :: Method { non_wild_type_arguments : non_wild_type_arguments . unwrap_opt_29 () , layout : layout . unwrap_layout () , method_invocation : method_invocation . unwrap_method_invocation () , span : nonterminal_node . span , })) } , 
-// Selector : "super" Layout SuperSuffix.
+// Selector : [$ 0-9 A-Z _ a-z] !<< "super" !>> [$ 0-9 A-Z _ a-z] Layout SuperSuffix.
  SlotId (983) => { let [lit_0 , layout , super_suffix] = children . into_array :: < 3usize > () ; ParseTree :: Selector (self . arena . alloc (Selector :: Super { lit_0 : lit_0 . unwrap_token () , layout : layout . unwrap_layout () , super_suffix : super_suffix . unwrap_super_suffix () , span : nonterminal_node . span , })) } , 
-// Selector : "new" Layout TypeArguments? Layout Identifier Layout TypeArgumentsOrDiamond?
-// Layout Arguments Layout ClassBody?.
+// Selector : [$ 0-9 A-Z _ a-z] !<< "new" !>> [$ 0-9 A-Z _ a-z] Layout TypeArguments? Layout
+// Identifier Layout TypeArgumentsOrDiamond? Layout Arguments Layout ClassBody?.
  SlotId (995) => { let [lit_0 , layout_1 , type_arguments , layout_3 , identifier , layout_5 , type_arguments_or_diamond , layout_7 , arguments , layout_9 , class_body] = children . into_array :: < 11usize > () ; ParseTree :: Selector (self . arena . alloc (Selector :: New { lit_0 : lit_0 . unwrap_token () , layout_1 : layout_1 . unwrap_layout () , type_arguments : type_arguments . unwrap_opt_61 () , layout_3 : layout_3 . unwrap_layout () , identifier : identifier . unwrap_token () , layout_5 : layout_5 . unwrap_layout () , type_arguments_or_diamond : type_arguments_or_diamond . unwrap_opt_66 () , layout_7 : layout_7 . unwrap_layout () , arguments : arguments . unwrap_arguments () , layout_9 : layout_9 . unwrap_layout () , class_body : class_body . unwrap_opt_37 () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // MethodInvocation
  NonterminalId (101) => match nonterminal_node . return_slot { 
@@ -7236,7 +7326,7 @@ impl < 'a > ParseTreeBuilder < ParseTree < 'a >> for JavaParseTreeBuilder < 'a >
  NonterminalId (108) => match nonterminal_node . return_slot { 
 // LambdaParameterType : UnannType.
  SlotId (1055) => { let [unann_type] = children . into_array :: < 1usize > () ; ParseTree :: LambdaParameterType (self . arena . alloc (LambdaParameterType :: Alt0 { unann_type : unann_type . unwrap_unann_type () , span : nonterminal_node . span , })) } , 
-// LambdaParameterType : "var".
+// LambdaParameterType : [$ 0-9 A-Z _ a-z] !<< "var" !>> [$ 0-9 A-Z _ a-z].
  SlotId (1057) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: LambdaParameterType (self . arena . alloc (LambdaParameterType :: Alt1 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // Layout
  NonterminalId (109) => match nonterminal_node . return_slot { 
@@ -7298,9 +7388,10 @@ impl < 'a > ParseTreeBuilder < ParseTree < 'a >> for JavaParseTreeBuilder < 'a >
  SlotId (1095) => { let [opt_3] = children . into_array :: < 1usize > () ; ParseTree :: Star2 (self . arena . alloc (Star2 :: Alt0 { opt_3 : opt_3 . unwrap_opt_3 () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // Opt_4
  NonterminalId (120) => match nonterminal_node . return_slot { 
-// "open"? : "open".
+// [$ 0-9 A-Z _ a-z] !<< "open" !>> [$ 0-9 A-Z _ a-z]? : [$ 0-9 A-Z _ a-z] !<< "open" !>> [$
+// 0-9 A-Z _ a-z].
  SlotId (1097) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: Opt4 (self . arena . alloc (Opt4 :: Alt0 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// "open"? : .
+// [$ 0-9 A-Z _ a-z] !<< "open" !>> [$ 0-9 A-Z _ a-z]? : .
  SlotId (1098) => { let [] = children . into_array :: < 0usize > () ; ParseTree :: Opt4 (self . arena . alloc (Opt4 :: Alt1 { span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // Plus_3
  NonterminalId (121) => match nonterminal_node . return_slot { 
@@ -7343,19 +7434,22 @@ impl < 'a > ParseTreeBuilder < ParseTree < 'a >> for JavaParseTreeBuilder < 'a >
  SlotId (1128) => { let [qualified_identifier] = children . into_array :: < 1usize > () ; ParseTree :: Plus5 (self . arena . alloc (Plus5 :: Alt1 { qualified_identifier : qualified_identifier . unwrap_qualified_identifier () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // Group_0
  NonterminalId (128) => match nonterminal_node . return_slot { 
-// ("to" {QualifiedIdentifier ","}+) : "to" Layout {QualifiedIdentifier ","}+.
+// ([$ 0-9 A-Z _ a-z] !<< "to" !>> [$ 0-9 A-Z _ a-z] {QualifiedIdentifier ","}+) : [$ 0-9 A-Z
+// _ a-z] !<< "to" !>> [$ 0-9 A-Z _ a-z] Layout {QualifiedIdentifier ","}+.
  SlotId (1132) => { let [lit_0 , layout , qualified_identifiers] = children . into_array :: < 3usize > () ; ParseTree :: Group0 (self . arena . alloc (Group0 :: Alt0 { lit_0 : lit_0 . unwrap_token () , layout : layout . unwrap_layout () , qualified_identifiers : qualified_identifiers . unwrap_plus_5 () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // Opt_7
  NonterminalId (129) => match nonterminal_node . return_slot { 
-// ("to" {QualifiedIdentifier ","}+)? : ("to" {QualifiedIdentifier ","}+).
+// ([$ 0-9 A-Z _ a-z] !<< "to" !>> [$ 0-9 A-Z _ a-z] {QualifiedIdentifier ","}+)? : ([$ 0-9
+// A-Z _ a-z] !<< "to" !>> [$ 0-9 A-Z _ a-z] {QualifiedIdentifier ","}+).
  SlotId (1134) => { let [group_0] = children . into_array :: < 1usize > () ; ParseTree :: Opt7 (self . arena . alloc (Opt7 :: Alt0 { group_0 : group_0 . unwrap_group_0 () , span : nonterminal_node . span , })) } , 
-// ("to" {QualifiedIdentifier ","}+)? : .
+// ([$ 0-9 A-Z _ a-z] !<< "to" !>> [$ 0-9 A-Z _ a-z] {QualifiedIdentifier ","}+)? : .
  SlotId (1135) => { let [] = children . into_array :: < 0usize > () ; ParseTree :: Opt7 (self . arena . alloc (Opt7 :: Alt1 { span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // Opt_8
  NonterminalId (130) => match nonterminal_node . return_slot { 
-// "static"? : "static".
+// [$ 0-9 A-Z _ a-z] !<< "static" !>> [$ 0-9 A-Z _ a-z]? : [$ 0-9 A-Z _ a-z] !<< "static" !>>
+// [$ 0-9 A-Z _ a-z].
  SlotId (1137) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: Opt8 (self . arena . alloc (Opt8 :: Alt0 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// "static"? : .
+// [$ 0-9 A-Z _ a-z] !<< "static" !>> [$ 0-9 A-Z _ a-z]? : .
  SlotId (1138) => { let [] = children . into_array :: < 0usize > () ; ParseTree :: Opt8 (self . arena . alloc (Opt8 :: Alt1 { span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // Group_1
  NonterminalId (131) => match nonterminal_node . return_slot { 
@@ -7391,23 +7485,27 @@ impl < 'a > ParseTreeBuilder < ParseTree < 'a >> for JavaParseTreeBuilder < 'a >
  SlotId (1159) => { let [] = children . into_array :: < 0usize > () ; ParseTree :: Opt11 (self . arena . alloc (Opt11 :: Alt1 { span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // Group_2
  NonterminalId (137) => match nonterminal_node . return_slot { 
-// ("extends" ClassType) : "extends" Layout ClassType.
+// ([$ 0-9 A-Z _ a-z] !<< "extends" !>> [$ 0-9 A-Z _ a-z] ClassType) : [$ 0-9 A-Z _ a-z] !<<
+// "extends" !>> [$ 0-9 A-Z _ a-z] Layout ClassType.
  SlotId (1163) => { let [lit_0 , layout , class_type] = children . into_array :: < 3usize > () ; ParseTree :: Group2 (self . arena . alloc (Group2 :: Alt0 { lit_0 : lit_0 . unwrap_token () , layout : layout . unwrap_layout () , class_type : class_type . unwrap_class_type () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // Opt_12
  NonterminalId (138) => match nonterminal_node . return_slot { 
-// ("extends" ClassType)? : ("extends" ClassType).
+// ([$ 0-9 A-Z _ a-z] !<< "extends" !>> [$ 0-9 A-Z _ a-z] ClassType)? : ([$ 0-9 A-Z _ a-z]
+// !<< "extends" !>> [$ 0-9 A-Z _ a-z] ClassType).
  SlotId (1165) => { let [group_2] = children . into_array :: < 1usize > () ; ParseTree :: Opt12 (self . arena . alloc (Opt12 :: Alt0 { group_2 : group_2 . unwrap_group_2 () , span : nonterminal_node . span , })) } , 
-// ("extends" ClassType)? : .
+// ([$ 0-9 A-Z _ a-z] !<< "extends" !>> [$ 0-9 A-Z _ a-z] ClassType)? : .
  SlotId (1166) => { let [] = children . into_array :: < 0usize > () ; ParseTree :: Opt12 (self . arena . alloc (Opt12 :: Alt1 { span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // Group_3
  NonterminalId (139) => match nonterminal_node . return_slot { 
-// ("implements" ClassTypeList) : "implements" Layout ClassTypeList.
+// ([$ 0-9 A-Z _ a-z] !<< "implements" !>> [$ 0-9 A-Z _ a-z] ClassTypeList) : [$ 0-9 A-Z _
+// a-z] !<< "implements" !>> [$ 0-9 A-Z _ a-z] Layout ClassTypeList.
  SlotId (1170) => { let [lit_0 , layout , class_type_list] = children . into_array :: < 3usize > () ; ParseTree :: Group3 (self . arena . alloc (Group3 :: Alt0 { lit_0 : lit_0 . unwrap_token () , layout : layout . unwrap_layout () , class_type_list : class_type_list . unwrap_class_type_list () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // Opt_13
  NonterminalId (140) => match nonterminal_node . return_slot { 
-// ("implements" ClassTypeList)? : ("implements" ClassTypeList).
+// ([$ 0-9 A-Z _ a-z] !<< "implements" !>> [$ 0-9 A-Z _ a-z] ClassTypeList)? : ([$ 0-9 A-Z _
+// a-z] !<< "implements" !>> [$ 0-9 A-Z _ a-z] ClassTypeList).
  SlotId (1172) => { let [group_3] = children . into_array :: < 1usize > () ; ParseTree :: Opt13 (self . arena . alloc (Opt13 :: Alt0 { group_3 : group_3 . unwrap_group_3 () , span : nonterminal_node . span , })) } , 
-// ("implements" ClassTypeList)? : .
+// ([$ 0-9 A-Z _ a-z] !<< "implements" !>> [$ 0-9 A-Z _ a-z] ClassTypeList)? : .
  SlotId (1173) => { let [] = children . into_array :: < 0usize > () ; ParseTree :: Opt13 (self . arena . alloc (Opt13 :: Alt1 { span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // Plus_7
  NonterminalId (141) => match nonterminal_node . return_slot { 
@@ -7427,13 +7525,15 @@ impl < 'a > ParseTreeBuilder < ParseTree < 'a >> for JavaParseTreeBuilder < 'a >
  SlotId (1184) => { let [opt_14] = children . into_array :: < 1usize > () ; ParseTree :: Star6 (self . arena . alloc (Star6 :: Alt0 { opt_14 : opt_14 . unwrap_opt_14 () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // Group_4
  NonterminalId (144) => match nonterminal_node . return_slot { 
-// ("extends" ClassTypeList) : "extends" Layout ClassTypeList.
+// ([$ 0-9 A-Z _ a-z] !<< "extends" !>> [$ 0-9 A-Z _ a-z] ClassTypeList) : [$ 0-9 A-Z _ a-z]
+// !<< "extends" !>> [$ 0-9 A-Z _ a-z] Layout ClassTypeList.
  SlotId (1188) => { let [lit_0 , layout , class_type_list] = children . into_array :: < 3usize > () ; ParseTree :: Group4 (self . arena . alloc (Group4 :: Alt0 { lit_0 : lit_0 . unwrap_token () , layout : layout . unwrap_layout () , class_type_list : class_type_list . unwrap_class_type_list () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // Opt_15
  NonterminalId (145) => match nonterminal_node . return_slot { 
-// ("extends" ClassTypeList)? : ("extends" ClassTypeList).
+// ([$ 0-9 A-Z _ a-z] !<< "extends" !>> [$ 0-9 A-Z _ a-z] ClassTypeList)? : ([$ 0-9 A-Z _
+// a-z] !<< "extends" !>> [$ 0-9 A-Z _ a-z] ClassTypeList).
  SlotId (1190) => { let [group_4] = children . into_array :: < 1usize > () ; ParseTree :: Opt15 (self . arena . alloc (Opt15 :: Alt0 { group_4 : group_4 . unwrap_group_4 () , span : nonterminal_node . span , })) } , 
-// ("extends" ClassTypeList)? : .
+// ([$ 0-9 A-Z _ a-z] !<< "extends" !>> [$ 0-9 A-Z _ a-z] ClassTypeList)? : .
  SlotId (1191) => { let [] = children . into_array :: < 0usize > () ; ParseTree :: Opt15 (self . arena . alloc (Opt15 :: Alt1 { span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // Plus_8
  NonterminalId (146) => match nonterminal_node . return_slot { 
@@ -8005,9 +8105,11 @@ impl < 'a > ParseTreeBuilder < ParseTree < 'a >> for JavaParseTreeBuilder < 'a >
  SlotId (1598) => { let [] = children . into_array :: < 0usize > () ; ParseTree :: Opt60 (self . arena . alloc (Opt60 :: Alt1 { span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // Alt_1
  NonterminalId (250) => match nonterminal_node . return_slot { 
-// (UnannReferenceType | "var") : UnannReferenceType.
+// (UnannReferenceType | [$ 0-9 A-Z _ a-z] !<< "var" !>> [$ 0-9 A-Z _ a-z]) :
+// UnannReferenceType.
  SlotId (1600) => { let [unann_reference_type] = children . into_array :: < 1usize > () ; ParseTree :: Alt1 (self . arena . alloc (Alt1 :: Alt0 { unann_reference_type : unann_reference_type . unwrap_unann_reference_type () , span : nonterminal_node . span , })) } , 
-// (UnannReferenceType | "var") : "var".
+// (UnannReferenceType | [$ 0-9 A-Z _ a-z] !<< "var" !>> [$ 0-9 A-Z _ a-z]) : [$ 0-9 A-Z _
+// a-z] !<< "var" !>> [$ 0-9 A-Z _ a-z].
  SlotId (1602) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: Alt1 (self . arena . alloc (Alt1 :: Alt1 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // Plus_35
  NonterminalId (251) => match nonterminal_node . return_slot { 
@@ -8126,9 +8228,10 @@ impl < 'a > ParseTreeBuilder < ParseTree < 'a >> for JavaParseTreeBuilder < 'a >
  SlotId (1693) => { let [] = children . into_array :: < 0usize > () ; ParseTree :: Opt63 (self . arena . alloc (Opt63 :: Alt1 { span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // Alt_10
  NonterminalId (268) => match nonterminal_node . return_slot { 
-// (Type | "void") : Type.
+// (Type | [$ 0-9 A-Z _ a-z] !<< "void" !>> [$ 0-9 A-Z _ a-z]) : Type.
  SlotId (1695) => { let [r#type] = children . into_array :: < 1usize > () ; ParseTree :: Alt10 (self . arena . alloc (Alt10 :: Alt0 { r#type : r#type . unwrap_type () , span : nonterminal_node . span , })) } , 
-// (Type | "void") : "void".
+// (Type | [$ 0-9 A-Z _ a-z] !<< "void" !>> [$ 0-9 A-Z _ a-z]) : [$ 0-9 A-Z _ a-z] !<< "void"
+// !>> [$ 0-9 A-Z _ a-z].
  SlotId (1697) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: Alt10 (self . arena . alloc (Alt10 :: Alt1 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // Plus_38
  NonterminalId (269) => match nonterminal_node . return_slot { 
@@ -8138,21 +8241,61 @@ impl < 'a > ParseTreeBuilder < ParseTree < 'a >> for JavaParseTreeBuilder < 'a >
  SlotId (1705) => { let [identifier] = children . into_array :: < 1usize > () ; ParseTree :: Plus38 (self . arena . alloc (Plus38 :: Alt1 { identifier : identifier . unwrap_token () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // Alt_11
  NonterminalId (270) => match nonterminal_node . return_slot { 
-// ("byte" | "short" | "char" | "int" | "long" | "float" | "double" | "boolean") : "byte".
+// ([$ 0-9 A-Z _ a-z] !<< "byte" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "short" !>> [$
+// 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "char" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z]
+// !<< "int" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "long" !>> [$ 0-9 A-Z _ a-z] | [$
+// 0-9 A-Z _ a-z] !<< "float" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "double" !>> [$
+// 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "boolean" !>> [$ 0-9 A-Z _ a-z]) : [$ 0-9 A-Z _
+// a-z] !<< "byte" !>> [$ 0-9 A-Z _ a-z].
  SlotId (1707) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: Alt11 (self . arena . alloc (Alt11 :: Alt0 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// ("byte" | "short" | "char" | "int" | "long" | "float" | "double" | "boolean") : "short".
+// ([$ 0-9 A-Z _ a-z] !<< "byte" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "short" !>> [$
+// 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "char" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z]
+// !<< "int" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "long" !>> [$ 0-9 A-Z _ a-z] | [$
+// 0-9 A-Z _ a-z] !<< "float" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "double" !>> [$
+// 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "boolean" !>> [$ 0-9 A-Z _ a-z]) : [$ 0-9 A-Z _
+// a-z] !<< "short" !>> [$ 0-9 A-Z _ a-z].
  SlotId (1709) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: Alt11 (self . arena . alloc (Alt11 :: Alt1 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// ("byte" | "short" | "char" | "int" | "long" | "float" | "double" | "boolean") : "char".
+// ([$ 0-9 A-Z _ a-z] !<< "byte" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "short" !>> [$
+// 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "char" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z]
+// !<< "int" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "long" !>> [$ 0-9 A-Z _ a-z] | [$
+// 0-9 A-Z _ a-z] !<< "float" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "double" !>> [$
+// 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "boolean" !>> [$ 0-9 A-Z _ a-z]) : [$ 0-9 A-Z _
+// a-z] !<< "char" !>> [$ 0-9 A-Z _ a-z].
  SlotId (1711) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: Alt11 (self . arena . alloc (Alt11 :: Alt2 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// ("byte" | "short" | "char" | "int" | "long" | "float" | "double" | "boolean") : "int".
+// ([$ 0-9 A-Z _ a-z] !<< "byte" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "short" !>> [$
+// 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "char" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z]
+// !<< "int" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "long" !>> [$ 0-9 A-Z _ a-z] | [$
+// 0-9 A-Z _ a-z] !<< "float" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "double" !>> [$
+// 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "boolean" !>> [$ 0-9 A-Z _ a-z]) : [$ 0-9 A-Z _
+// a-z] !<< "int" !>> [$ 0-9 A-Z _ a-z].
  SlotId (1713) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: Alt11 (self . arena . alloc (Alt11 :: Alt3 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// ("byte" | "short" | "char" | "int" | "long" | "float" | "double" | "boolean") : "long".
+// ([$ 0-9 A-Z _ a-z] !<< "byte" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "short" !>> [$
+// 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "char" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z]
+// !<< "int" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "long" !>> [$ 0-9 A-Z _ a-z] | [$
+// 0-9 A-Z _ a-z] !<< "float" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "double" !>> [$
+// 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "boolean" !>> [$ 0-9 A-Z _ a-z]) : [$ 0-9 A-Z _
+// a-z] !<< "long" !>> [$ 0-9 A-Z _ a-z].
  SlotId (1715) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: Alt11 (self . arena . alloc (Alt11 :: Alt4 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// ("byte" | "short" | "char" | "int" | "long" | "float" | "double" | "boolean") : "float".
+// ([$ 0-9 A-Z _ a-z] !<< "byte" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "short" !>> [$
+// 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "char" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z]
+// !<< "int" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "long" !>> [$ 0-9 A-Z _ a-z] | [$
+// 0-9 A-Z _ a-z] !<< "float" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "double" !>> [$
+// 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "boolean" !>> [$ 0-9 A-Z _ a-z]) : [$ 0-9 A-Z _
+// a-z] !<< "float" !>> [$ 0-9 A-Z _ a-z].
  SlotId (1717) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: Alt11 (self . arena . alloc (Alt11 :: Alt5 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// ("byte" | "short" | "char" | "int" | "long" | "float" | "double" | "boolean") : "double".
+// ([$ 0-9 A-Z _ a-z] !<< "byte" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "short" !>> [$
+// 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "char" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z]
+// !<< "int" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "long" !>> [$ 0-9 A-Z _ a-z] | [$
+// 0-9 A-Z _ a-z] !<< "float" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "double" !>> [$
+// 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "boolean" !>> [$ 0-9 A-Z _ a-z]) : [$ 0-9 A-Z _
+// a-z] !<< "double" !>> [$ 0-9 A-Z _ a-z].
  SlotId (1719) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: Alt11 (self . arena . alloc (Alt11 :: Alt6 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// ("byte" | "short" | "char" | "int" | "long" | "float" | "double" | "boolean") : "boolean".
+// ([$ 0-9 A-Z _ a-z] !<< "byte" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "short" !>> [$
+// 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "char" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z]
+// !<< "int" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "long" !>> [$ 0-9 A-Z _ a-z] | [$
+// 0-9 A-Z _ a-z] !<< "float" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "double" !>> [$
+// 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "boolean" !>> [$ 0-9 A-Z _ a-z]) : [$ 0-9 A-Z _
+// a-z] !<< "boolean" !>> [$ 0-9 A-Z _ a-z].
  SlotId (1721) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: Alt11 (self . arena . alloc (Alt11 :: Alt7 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // Group_17
  NonterminalId (271) => match nonterminal_node . return_slot { 
@@ -8214,19 +8357,26 @@ impl < 'a > ParseTreeBuilder < ParseTree < 'a >> for JavaParseTreeBuilder < 'a >
  SlotId (1768) => { let [type_argument] = children . into_array :: < 1usize > () ; ParseTree :: Plus41 (self . arena . alloc (Plus41 :: Alt1 { type_argument : type_argument . unwrap_type_argument () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // Alt_12
  NonterminalId (281) => match nonterminal_node . return_slot { 
-// ("extends" | "super") : "extends".
+// ([$ 0-9 A-Z _ a-z] !<< "extends" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "super" !>>
+// [$ 0-9 A-Z _ a-z]) : [$ 0-9 A-Z _ a-z] !<< "extends" !>> [$ 0-9 A-Z _ a-z].
  SlotId (1770) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: Alt12 (self . arena . alloc (Alt12 :: Alt0 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// ("extends" | "super") : "super".
+// ([$ 0-9 A-Z _ a-z] !<< "extends" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "super" !>>
+// [$ 0-9 A-Z _ a-z]) : [$ 0-9 A-Z _ a-z] !<< "super" !>> [$ 0-9 A-Z _ a-z].
  SlotId (1772) => { let [lit_0] = children . into_array :: < 1usize > () ; ParseTree :: Alt12 (self . arena . alloc (Alt12 :: Alt1 { lit_0 : lit_0 . unwrap_token () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // Group_19
  NonterminalId (282) => match nonterminal_node . return_slot { 
-// (("extends" | "super") ReferenceType) : ("extends" | "super") Layout ReferenceType.
+// (([$ 0-9 A-Z _ a-z] !<< "extends" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "super"
+// !>> [$ 0-9 A-Z _ a-z]) ReferenceType) : ([$ 0-9 A-Z _ a-z] !<< "extends" !>> [$ 0-9 A-Z _
+// a-z] | [$ 0-9 A-Z _ a-z] !<< "super" !>> [$ 0-9 A-Z _ a-z]) Layout ReferenceType.
  SlotId (1776) => { let [alt_12 , layout , reference_type] = children . into_array :: < 3usize > () ; ParseTree :: Group19 (self . arena . alloc (Group19 :: Alt0 { alt_12 : alt_12 . unwrap_alt_12 () , layout : layout . unwrap_layout () , reference_type : reference_type . unwrap_reference_type () , span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // Opt_67
  NonterminalId (283) => match nonterminal_node . return_slot { 
-// (("extends" | "super") ReferenceType)? : (("extends" | "super") ReferenceType).
+// (([$ 0-9 A-Z _ a-z] !<< "extends" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "super"
+// !>> [$ 0-9 A-Z _ a-z]) ReferenceType)? : (([$ 0-9 A-Z _ a-z] !<< "extends" !>> [$ 0-9 A-Z
+// _ a-z] | [$ 0-9 A-Z _ a-z] !<< "super" !>> [$ 0-9 A-Z _ a-z]) ReferenceType).
  SlotId (1778) => { let [group_19] = children . into_array :: < 1usize > () ; ParseTree :: Opt67 (self . arena . alloc (Opt67 :: Alt0 { group_19 : group_19 . unwrap_group_19 () , span : nonterminal_node . span , })) } , 
-// (("extends" | "super") ReferenceType)? : .
+// (([$ 0-9 A-Z _ a-z] !<< "extends" !>> [$ 0-9 A-Z _ a-z] | [$ 0-9 A-Z _ a-z] !<< "super"
+// !>> [$ 0-9 A-Z _ a-z]) ReferenceType)? : .
  SlotId (1779) => { let [] = children . into_array :: < 0usize > () ; ParseTree :: Opt67 (self . arena . alloc (Opt67 :: Alt1 { span : nonterminal_node . span , })) } , _ => unreachable ! () } , 
 // Alt_13
  NonterminalId (284) => match nonterminal_node . return_slot { 
@@ -8774,22 +8924,24 @@ impl < 'a > ParseTreeBuilder < ParseTree < 'a >> for JavaParseTreeBuilder < 'a >
 // Expression : [64 & e == 0] QualifiedIdentifier Layout TypeArguments Layout ("." Identifier
 // TypeArguments?)* Layout "::" Layout TypeArguments? Layout Identifier return 6.
  SlotId (2355) => { let [qualified_identifier , layout_1 , type_arguments_2 , layout_3 , star_28 , layout_5 , lit_6 , layout_7 , type_arguments_8 , layout_9 , identifier] = children . into_array :: < 11usize > () ; ParseTree :: Expression (self . arena . alloc (Expression :: ParameterizedMethodRef { qualified_identifier : qualified_identifier . unwrap_qualified_identifier () , layout_1 : layout_1 . unwrap_layout () , type_arguments_2 : type_arguments_2 . unwrap_type_arguments () , layout_3 : layout_3 . unwrap_layout () , star_28 : star_28 . unwrap_star_28 () , layout_5 : layout_5 . unwrap_layout () , lit_6 : lit_6 . unwrap_token () , layout_7 : layout_7 . unwrap_layout () , type_arguments_8 : type_arguments_8 . unwrap_opt_61 () , layout_9 : layout_9 . unwrap_layout () , identifier : identifier . unwrap_token () , span : nonterminal_node . span , })) } , 
-// Expression : [128 & e == 0] ClassType Layout "::" Layout TypeArguments? Layout "new"
-// return 7.
+// Expression : [128 & e == 0] ClassType Layout "::" Layout TypeArguments? Layout [$ 0-9 A-Z
+// _ a-z] !<< "new" !>> [$ 0-9 A-Z _ a-z] return 7.
  SlotId (2365) => { let [class_type , layout_1 , lit_2 , layout_3 , type_arguments , layout_5 , lit_6] = children . into_array :: < 7usize > () ; ParseTree :: Expression (self . arena . alloc (Expression :: ConstructorRef { class_type : class_type . unwrap_class_type () , layout_1 : layout_1 . unwrap_layout () , lit_2 : lit_2 . unwrap_token () , layout_3 : layout_3 . unwrap_layout () , type_arguments : type_arguments . unwrap_opt_61 () , layout_5 : layout_5 . unwrap_layout () , lit_6 : lit_6 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// Expression : [256 & e == 0] ArrayType Layout "::" Layout "new" return 8.
+// Expression : [256 & e == 0] ArrayType Layout "::" Layout [$ 0-9 A-Z _ a-z] !<< "new" !>>
+// [$ 0-9 A-Z _ a-z] return 8.
  SlotId (2373) => { let [array_type , layout_1 , lit_2 , layout_3 , lit_4] = children . into_array :: < 5usize > () ; ParseTree :: Expression (self . arena . alloc (Expression :: ArrayConstructorRef { array_type : array_type . unwrap_array_type () , layout_1 : layout_1 . unwrap_layout () , lit_2 : lit_2 . unwrap_token () , layout_3 : layout_3 . unwrap_layout () , lit_4 : lit_4 . unwrap_token () , span : nonterminal_node . span , })) } , 
-// Expression : [512 & e == 0] "super" Layout "::" Layout TypeArguments? Layout Identifier
-// return 9.
+// Expression : [512 & e == 0] [$ 0-9 A-Z _ a-z] !<< "super" !>> [$ 0-9 A-Z _ a-z] Layout
+// "::" Layout TypeArguments? Layout Identifier return 9.
  SlotId (2383) => { let [lit_0 , layout_1 , lit_2 , layout_3 , type_arguments , layout_5 , identifier] = children . into_array :: < 7usize > () ; ParseTree :: Expression (self . arena . alloc (Expression :: SuperMethodRef { lit_0 : lit_0 . unwrap_token () , layout_1 : layout_1 . unwrap_layout () , lit_2 : lit_2 . unwrap_token () , layout_3 : layout_3 . unwrap_layout () , type_arguments : type_arguments . unwrap_opt_61 () , layout_5 : layout_5 . unwrap_layout () , identifier : identifier . unwrap_token () , span : nonterminal_node . span , })) } , 
-// Expression : [1024 & e == 0] QualifiedIdentifier Layout "." Layout "super" Layout "::"
-// Layout TypeArguments? Layout Identifier return 10.
+// Expression : [1024 & e == 0] QualifiedIdentifier Layout "." Layout [$ 0-9 A-Z _ a-z] !<<
+// "super" !>> [$ 0-9 A-Z _ a-z] Layout "::" Layout TypeArguments? Layout Identifier return
+// 10.
  SlotId (2397) => { let [qualified_identifier , layout_1 , lit_2 , layout_3 , lit_4 , layout_5 , lit_6 , layout_7 , type_arguments , layout_9 , identifier] = children . into_array :: < 11usize > () ; ParseTree :: Expression (self . arena . alloc (Expression :: QualifiedSuperMethodRef { qualified_identifier : qualified_identifier . unwrap_qualified_identifier () , layout_1 : layout_1 . unwrap_layout () , lit_2 : lit_2 . unwrap_token () , layout_3 : layout_3 . unwrap_layout () , lit_4 : lit_4 . unwrap_token () , layout_5 : layout_5 . unwrap_layout () , lit_6 : lit_6 . unwrap_token () , layout_7 : layout_7 . unwrap_layout () , type_arguments : type_arguments . unwrap_opt_61 () , layout_9 : layout_9 . unwrap_layout () , identifier : identifier . unwrap_token () , span : nonterminal_node . span , })) } , 
 // Expression : [2048 & e == 0] ("+" !>> Plus | "-" !>> Minus | "++" | "--" | "!" | "~")
 // Layout r=Expression(15, 0) return (((r >> 16 == 0) ? 15 : min(r >> 16, 15)) << 16) | 11.
  SlotId (2403) => { let [alt_3 , layout , expression] = children . into_array :: < 3usize > () ; ParseTree :: Expression (self . arena . alloc (Expression :: Prefix { alt_3 : alt_3 . unwrap_alt_3 () , layout : layout . unwrap_layout () , expression : expression . unwrap_expression () , span : nonterminal_node . span , })) } , 
-// Expression : [4096 & e == 0] "new" Layout (ClassInstanceCreationExpression |
-// ArrayCreationExpression) return 12.
+// Expression : [4096 & e == 0] [$ 0-9 A-Z _ a-z] !<< "new" !>> [$ 0-9 A-Z _ a-z] Layout
+// (ClassInstanceCreationExpression | ArrayCreationExpression) return 12.
  SlotId (2409) => { let [lit_0 , layout , alt_4] = children . into_array :: < 3usize > () ; ParseTree :: Expression (self . arena . alloc (Expression :: New { lit_0 : lit_0 . unwrap_token () , layout : layout . unwrap_layout () , alt_4 : alt_4 . unwrap_alt_4 () , span : nonterminal_node . span , })) } , 
 // Expression : [8192 & e == 0] "(" Layout PrimitiveType Layout ")" Layout r=Expression(15,
 // 0) return (((r >> 16 == 0) ? 15 : min(r >> 16, 15)) << 16) | 13.
@@ -8814,7 +8966,8 @@ impl < 'a > ParseTreeBuilder < ParseTree < 'a >> for JavaParseTreeBuilder < 'a >
 // 11 : min(r >> 16, 11)) << 16) | 15.
  SlotId (2466) => { let [expression_0 , layout_1 , alt_8 , layout_3 , expression_4] = children . into_array :: < 5usize > () ; ParseTree :: Expression (self . arena . alloc (Expression :: Comparison { expression_0 : expression_0 . unwrap_expression () , layout_1 : layout_1 . unwrap_layout () , alt_8 : alt_8 . unwrap_alt_8 () , layout_3 : layout_3 . unwrap_layout () , expression_4 : expression_4 . unwrap_expression () , span : nonterminal_node . span , })) } , 
 // Expression : [65536 & e == 0] [10 >= p] l=Expression(p, 0) [(l >> 16 == 0) || (l >> 16 >=
-// 10)] Layout "instanceof" Layout Type return 16.
+// 10)] Layout [$ 0-9 A-Z _ a-z] !<< "instanceof" !>> [$ 0-9 A-Z _ a-z] Layout Type return
+// 16.
  SlotId (2476) => { let [expression , layout_1 , lit_2 , layout_3 , r#type] = children . into_array :: < 5usize > () ; ParseTree :: Expression (self . arena . alloc (Expression :: InstanceOf { expression : expression . unwrap_expression () , layout_1 : layout_1 . unwrap_layout () , lit_2 : lit_2 . unwrap_token () , layout_3 : layout_3 . unwrap_layout () , r#type : r#type . unwrap_type () , span : nonterminal_node . span , })) } , 
 // Expression : [9 >= p] l=Expression(p, 0) [(l >> 16 == 0) || (l >> 16 >= 9)] Layout ("==" |
 // "!=") Layout r=Expression(10, 0) return (((r >> 16 == 0) ? 9 : min(r >> 16, 9)) << 16) |
