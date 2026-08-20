@@ -1,8 +1,9 @@
 <h1 align="center">Java grammar for Iguana</h1>
 
-A Java 11 grammar written in
-[Iggy](https://iguana-parser.org/docs/grammar-definition/), based on the syntax
-described in the
+A Java 11 grammar for
+[Iguana](https://github.com/iguana-parser/iguana-rs), written in
+[Iggy](https://iguana-parser.org/docs/grammar-definition/) and based on the
+syntax described in the
 [Java Language Specification](https://docs.oracle.com/javase/specs/jls/se11/html/).
 The grammar is defined in [`java.iggy`](java.iggy) and can be
 [browsed or run in the playground](https://iguana-parser.org/grammars/java/).
@@ -40,8 +41,8 @@ iguana generate --grammar java.iggy --output .
 cargo build --release
 ```
 
-The repository has golden tests for individual language features and corpus
-tests against OpenJDK, Spring, and Elasticsearch:
+The repository has golden-file tests for individual language features and
+corpus tests against OpenJDK, Spring, and Elasticsearch:
 
 ```sh
 cargo run --release -- --dir tests --ext java --start CompilationUnit --check-sexpr
