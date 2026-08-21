@@ -1,0 +1,73 @@
+name: Test
+
+# Reusable test workflow: regenerate the parser with a released iguana,
+# verify the committed sources match, then run the golden and corpus
+# suites. The grammar repo's own CI calls it with the default version;
+# an iguana-rs caller can later pass a different source of the generator.
+on:
+  workflow_call:
+    inputs:
+      iguana-version:
+        description: The released iguana version to generate with
+        type: string
+        default: 0.1.0-alpha
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      # A cross-repository caller gets its own repository from a bare
+      # checkout, not this one. The iguana-rs caller, when it exists, must
+      # pass this repository and a ref explicitly and check out both sides.
+      - uses: actions/checkout@v4
+
+      - uses: dtolnay/rust-toolchain@stable
+
+      - name: Cache cargo registry and build
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            target
+          key: cargo-${{ runner.os }}-${{ hashFiles('Cargo.lock') }}
+
+      - name: Cache the iguana binary
+        id: iguana-bin
+        uses: actions/cache@v4
+        with:
+          path: ~/.cargo/bin/iguana
+          key: iguana-${{ runner.os }}-${{ inputs.iguana-version }}
+
+      - name: Install iguana
+        if: steps.iguana-bin.outputs.cache-hit != 'true'
+        run: cargo install iguana --version ${{ inputs.iguana-version }} --locked
+
+      - name: Regenerate the parser
+        run: iguana generate
+
+      - name: Committed sources match the generator output
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git status --porcelain
+            git diff
+            exit 1
+          fi
+
+      - name: Build
+        run: cargo build --release --locked
+
+      - name: Golden tests
+        run: ./target/release/iguana-java --dir tests --ext java --start CompilationUnit --check-sexpr
+
+      - name: Cache corpus checkouts
+        uses: actions/cache@v4
+        with:
+          path: corpus/.cache
+          key: corpus-${{ hashFiles('corpus/repos.txt') }}
+
+      - name: Corpus test
+        run: ./target/release/iguana-java --corpus-test
