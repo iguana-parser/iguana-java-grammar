@@ -224,14 +224,13 @@
                                     (Selector Identifier))
                                   "."
                                   (Selector
-                                    (MethodInvocation
-                                      Identifier
-                                      (Arguments
-                                        "("
-                                        ({Expression ","}*
-                                          (Expression
-                                            (Primary Identifier)))
-                                        ")")))))
+                                    Identifier
+                                    (Arguments
+                                      "("
+                                      ({Expression ","}*
+                                        (Expression
+                                          (Primary Identifier)))
+                                      ")"))))
                               ";")))
                         "}"))))
                 (ClassBodyDeclaration

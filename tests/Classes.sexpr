@@ -107,19 +107,17 @@
             TypeIdentifier
             "extends"
             (ClassType
-              TypeIdentifier
-              (("." Annotation* TypeIdentifier TypeArguments?)*
-                "."
-                TypeIdentifier
-                "."
-                TypeIdentifier
-                (TypeArguments
-                  "<"
-                  ({TypeArgument ","}+
-                    (TypeArgument
-                      (ReferenceType
-                        (ClassType TypeIdentifier))))
-                  ">")))
+              (MarkedClassType
+                ((Identifier ".")* Identifier "." Identifier ".")
+                (MarkedTypeComponent
+                  TypeIdentifier
+                  (TypeArguments
+                    "<"
+                    ({TypeArgument ","}+
+                      (TypeArgument
+                        (ReferenceType
+                          (ClassType TypeIdentifier))))
+                    ">"))))
             (ClassBody "{" "}"))))
       (TypeDeclaration
         (ClassDeclaration
@@ -153,8 +151,8 @@
                 (ClassType TypeIdentifier)
                 ","
                 (ClassType
-                  TypeIdentifier
-                  (("." Annotation* TypeIdentifier TypeArguments?)* "." TypeIdentifier "." TypeIdentifier))
+                  ((Identifier ".")* Identifier "." Identifier ".")
+                  TypeIdentifier)
                 ","
                 (ClassType TypeIdentifier)))
             (ClassBody
@@ -212,30 +210,30 @@
                       "&"
                       (ReferenceType
                         (ClassType
-                          TypeIdentifier
-                          (TypeArguments
-                            "<"
-                            ({TypeArgument ","}+
-                              (TypeArgument
-                                (ReferenceType
-                                  (ClassType TypeIdentifier))))
-                            ">")))))))
+                          (MarkedClassType
+                            (MarkedTypeComponent
+                              TypeIdentifier
+                              (TypeArguments
+                                "<"
+                                ({TypeArgument ","}+
+                                  (TypeArgument
+                                    (ReferenceType
+                                      (ClassType TypeIdentifier))))
+                                ">")))))))))
               ">")
             "extends"
             (ClassType
-              TypeIdentifier
-              (("." Annotation* TypeIdentifier TypeArguments?)*
-                "."
-                TypeIdentifier
-                "."
-                TypeIdentifier
-                (TypeArguments
-                  "<"
-                  ({TypeArgument ","}+
-                    (TypeArgument
-                      (ReferenceType
-                        (ClassType TypeIdentifier))))
-                  ">")))
+              (MarkedClassType
+                ((Identifier ".")* Identifier "." Identifier ".")
+                (MarkedTypeComponent
+                  TypeIdentifier
+                  (TypeArguments
+                    "<"
+                    ({TypeArgument ","}+
+                      (TypeArgument
+                        (ReferenceType
+                          (ClassType TypeIdentifier))))
+                    ">"))))
             (ClassBody
               "{"
               (ClassBodyDeclaration*

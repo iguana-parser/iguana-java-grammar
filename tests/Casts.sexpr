@@ -3,13 +3,15 @@
     (ImportDeclaration*
       (ImportDeclaration
         "import"
-        (QualifiedIdentifier
-          ({Identifier "."}+ Identifier "." Identifier "." Identifier))
+        (TypeName
+          ((Identifier ".")* Identifier "." Identifier ".")
+          TypeIdentifier)
         ";")
       (ImportDeclaration
         "import"
-        (QualifiedIdentifier
-          ({Identifier "."}+ Identifier "." Identifier "." Identifier))
+        (TypeName
+          ((Identifier ".")* Identifier "." Identifier ".")
+          TypeIdentifier)
         ";"))
     (TypeDeclaration*
       (TypeDeclaration
@@ -49,14 +51,16 @@
                                 ({ReferenceType "&"}+
                                   (ReferenceType
                                     (ClassType
-                                      TypeIdentifier
-                                      (TypeArguments
-                                        "<"
-                                        ({TypeArgument ","}+
-                                          (TypeArgument
-                                            (ReferenceType
-                                              (ClassType TypeIdentifier))))
-                                        ">")))
+                                      (MarkedClassType
+                                        (MarkedTypeComponent
+                                          TypeIdentifier
+                                          (TypeArguments
+                                            "<"
+                                            ({TypeArgument ","}+
+                                              (TypeArgument
+                                                (ReferenceType
+                                                  (ClassType TypeIdentifier))))
+                                            ">")))))
                                   "&"
                                   (ReferenceType
                                     (ClassType TypeIdentifier)))
@@ -94,14 +98,16 @@
                                 ({ReferenceType "&"}+
                                   (ReferenceType
                                     (ClassType
-                                      TypeIdentifier
-                                      (TypeArguments
-                                        "<"
-                                        ({TypeArgument ","}+
-                                          (TypeArgument
-                                            (ReferenceType
-                                              (ClassType TypeIdentifier))))
-                                        ">")))
+                                      (MarkedClassType
+                                        (MarkedTypeComponent
+                                          TypeIdentifier
+                                          (TypeArguments
+                                            "<"
+                                            ({TypeArgument ","}+
+                                              (TypeArgument
+                                                (ReferenceType
+                                                  (ClassType TypeIdentifier))))
+                                            ">")))))
                                   "&"
                                   (ReferenceType
                                     (ClassType TypeIdentifier))
@@ -145,14 +151,16 @@
                                       ({ReferenceType "&"}+
                                         (ReferenceType
                                           (ClassType
-                                            TypeIdentifier
-                                            (TypeArguments
-                                              "<"
-                                              ({TypeArgument ","}+
-                                                (TypeArgument
-                                                  (ReferenceType
-                                                    (ClassType TypeIdentifier))))
-                                              ">")))
+                                            (MarkedClassType
+                                              (MarkedTypeComponent
+                                                TypeIdentifier
+                                                (TypeArguments
+                                                  "<"
+                                                  ({TypeArgument ","}+
+                                                    (TypeArgument
+                                                      (ReferenceType
+                                                        (ClassType TypeIdentifier))))
+                                                  ">")))))
                                         "&"
                                         (ReferenceType
                                           (ClassType TypeIdentifier)))
@@ -162,15 +170,14 @@
                                     ")"))
                                 "."
                                 (Selector
-                                  (MethodInvocation
-                                    Identifier
-                                    (Arguments
-                                      "("
-                                      ({Expression ","}*
-                                        (Expression
-                                          (Primary
-                                            (Literal IntegerLiteral))))
-                                      ")"))))
+                                  Identifier
+                                  (Arguments
+                                    "("
+                                    ({Expression ","}*
+                                      (Expression
+                                        (Primary
+                                          (Literal IntegerLiteral))))
+                                    ")")))
                               ";")))
                         "}"))))
                 (ClassBodyDeclaration

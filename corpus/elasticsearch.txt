@@ -3341,7 +3341,7 @@ core/src/test/java/org/elasticsearch/document/DocumentActionsIT.java	ok
 core/src/test/java/org/elasticsearch/document/ShardInfoIT.java	ok
 core/src/test/java/org/elasticsearch/env/ESFileStoreTests.java	ok
 core/src/test/java/org/elasticsearch/env/EnvironmentTests.java	ok
-core/src/test/java/org/elasticsearch/env/NodeEnvironmentTests.java	error	Parse error at line 211, col 36: Expected ")"
+core/src/test/java/org/elasticsearch/env/NodeEnvironmentTests.java	error	Parse error at line 211, column 36: Expected one of ";", ".", "@", ")", "[", "<", Identifier
 core/src/test/java/org/elasticsearch/exists/SimpleExistsIT.java	ok
 core/src/test/java/org/elasticsearch/explain/ExplainActionIT.java	ok
 core/src/test/java/org/elasticsearch/fieldstats/FieldStatsIntegrationIT.java	ok

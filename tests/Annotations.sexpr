@@ -153,8 +153,7 @@
                       (ElementValue
                         (Annotation
                           "@"
-                          (QualifiedIdentifier
-                            ({Identifier "."}+ Identifier)))))
+                          (TypeName TypeIdentifier))))
                     ";"))
                 (AnnotationTypeElementDeclaration
                   (AnnotationMethodDeclaration
@@ -220,8 +219,9 @@
               (InterfaceModifier
                 (Annotation
                   "@"
-                  (QualifiedIdentifier
-                    ({Identifier "."}+ Identifier "." Identifier "." Identifier "." Identifier))
+                  (TypeName
+                    ((Identifier ".")* Identifier "." Identifier "." Identifier ".")
+                    TypeIdentifier)
                   (Values
                     "("
                     (AnnotationElement
@@ -266,8 +266,9 @@
               (InterfaceModifier
                 (Annotation
                   "@"
-                  (QualifiedIdentifier
-                    ({Identifier "."}+ Identifier "." Identifier "." Identifier "." Identifier))
+                  (TypeName
+                    ((Identifier ".")* Identifier "." Identifier "." Identifier ".")
+                    TypeIdentifier)
                   (Values
                     "("
                     (AnnotationElement
@@ -342,8 +343,7 @@
               (ClassModifier
                 (Annotation
                   "@"
-                  (QualifiedIdentifier
-                    ({Identifier "."}+ Identifier)))))
+                  (TypeName TypeIdentifier))))
             "class"
             TypeIdentifier
             (ClassBody "{" "}"))))
@@ -354,8 +354,7 @@
               (ClassModifier
                 (Annotation
                   "@"
-                  (QualifiedIdentifier
-                    ({Identifier "."}+ Identifier))
+                  (TypeName TypeIdentifier)
                   (Values
                     "("
                     (AnnotationElement
@@ -375,8 +374,7 @@
               (ClassModifier
                 (Annotation
                   "@"
-                  (QualifiedIdentifier
-                    ({Identifier "."}+ Identifier))
+                  (TypeName TypeIdentifier)
                   (Values
                     "("
                     (AnnotationElement
@@ -407,8 +405,7 @@
               (ClassModifier
                 (Annotation
                   "@"
-                  (QualifiedIdentifier
-                    ({Identifier "."}+ Identifier))
+                  (TypeName TypeIdentifier)
                   (Values
                     "("
                     (AnnotationElement
@@ -472,8 +469,7 @@
               (ClassModifier
                 (Annotation
                   "@"
-                  (QualifiedIdentifier
-                    ({Identifier "."}+ Identifier))
+                  (TypeName TypeIdentifier)
                   (Values
                     "("
                     (AnnotationElement
@@ -484,8 +480,7 @@
                           (ElementValue
                             (Annotation
                               "@"
-                              (QualifiedIdentifier
-                                ({Identifier "."}+ Identifier)))))
+                              (TypeName TypeIdentifier))))
                         ","
                         (ElementValuePair
                           Identifier
@@ -497,8 +492,7 @@
                                 (ElementValue
                                   (Annotation
                                     "@"
-                                    (QualifiedIdentifier
-                                      ({Identifier "."}+ Identifier))
+                                    (TypeName TypeIdentifier)
                                     (Values
                                       "("
                                       (AnnotationElement
@@ -515,8 +509,7 @@
                                 (ElementValue
                                   (Annotation
                                     "@"
-                                    (QualifiedIdentifier
-                                      ({Identifier "."}+ Identifier))
+                                    (TypeName TypeIdentifier)
                                     (Values
                                       "("
                                       (AnnotationElement
@@ -549,8 +542,7 @@
               (ClassModifier
                 (Annotation
                   "@"
-                  (QualifiedIdentifier
-                    ({Identifier "."}+ Identifier))
+                  (TypeName TypeIdentifier)
                   (Values
                     "("
                     (AnnotationElement
@@ -563,8 +555,7 @@
               (ClassModifier
                 (Annotation
                   "@"
-                  (QualifiedIdentifier
-                    ({Identifier "."}+ Identifier))
+                  (TypeName TypeIdentifier)
                   (Values
                     "("
                     (AnnotationElement
@@ -591,8 +582,7 @@
                       (FieldModifier
                         (Annotation
                           "@"
-                          (QualifiedIdentifier
-                            ({Identifier "."}+ Identifier)))))
+                          (TypeName TypeIdentifier))))
                     (UnannType
                       (UnannPrimitiveType "int"))
                     ({VariableDeclarator ","}+
@@ -605,8 +595,7 @@
                       (MethodModifier
                         (Annotation
                           "@"
-                          (QualifiedIdentifier
-                            ({Identifier "."}+ Identifier))))
+                          (TypeName TypeIdentifier)))
                       (MethodModifier "public"))
                     (Result
                       (UnannType
@@ -638,8 +627,7 @@
                               (VariableModifier
                                 (Annotation
                                   "@"
-                                  (QualifiedIdentifier
-                                    ({Identifier "."}+ Identifier))
+                                  (TypeName TypeIdentifier)
                                   (Values
                                     "("
                                     (AnnotationElement
@@ -669,8 +657,7 @@
                                 (VariableModifier
                                   (Annotation
                                     "@"
-                                    (QualifiedIdentifier
-                                      ({Identifier "."}+ Identifier))
+                                    (TypeName TypeIdentifier)
                                     (Values
                                       "("
                                       (AnnotationElement
@@ -684,8 +671,8 @@
                                 (UnannType
                                   (UnannReferenceType
                                     (UnannClassType
-                                      TypeIdentifier
-                                      (("." Annotation* TypeIdentifier TypeArguments?)* "." TypeIdentifier "." TypeIdentifier)))))
+                                      ((Identifier ".")* Identifier "." Identifier ".")
+                                      TypeIdentifier))))
                               ({VariableDeclarator ","}+
                                 (VariableDeclarator
                                   (VariableDeclaratorId Identifier)

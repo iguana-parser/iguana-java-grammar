@@ -1,10 +1,10 @@
 <h1 align="center">Java grammar for Iguana</h1>
 
-A Java 11 grammar for
+A Java 14 grammar for
 [Iguana](https://github.com/iguana-parser/iguana-rs), written in
 [Iggy](https://iguana-parser.org/docs/grammar-definition/) and based on the
 syntax described in the
-[Java Language Specification](https://docs.oracle.com/javase/specs/jls/se11/html/).
+[Java Language Specification](https://docs.oracle.com/javase/specs/jls/se14/html/).
 The grammar is defined in [`java.iggy`](java.iggy) and can be
 [browsed or run in the playground](https://iguana-parser.org/grammars/java/).
 
@@ -25,8 +25,8 @@ The grammar has three notable design choices:
   [layout](https://iguana-parser.org/docs/grammar-definition/layout/) and the
   measured effect of the
   [LL(1) optimization](https://iguana-parser.org/docs/performance/#the-ll-1-optimization).
-- **Contextual keywords** such as `var` and the module-system words are reserved
-  only where the grammar expects them. The
+- **Contextual keywords** such as `var`, `yield`, and the module-system words are
+  reserved only where the grammar expects them. The
   [single-phase parsing documentation](https://iguana-parser.org/docs/concepts/single-phase-parsing/)
   explains how token matching follows the grammar context.
 

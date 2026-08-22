@@ -456,7 +456,7 @@
                                 (Expression
                                   (Expression
                                     (MethodInvocation
-                                      Identifier
+                                      UnqualifiedMethodIdentifier
                                       (Arguments "(" ")")))
                                   "*"
                                   (Expression
@@ -477,8 +477,7 @@
                   (Annotation*
                     (Annotation
                       "@"
-                      (QualifiedIdentifier
-                        ({Identifier "."}+ Identifier))))
+                      (TypeName TypeIdentifier)))
                   Identifier)
                 ","
                 (EnumConstant Identifier))

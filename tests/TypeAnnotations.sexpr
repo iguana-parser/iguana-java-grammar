@@ -3,28 +3,33 @@
     (ImportDeclaration*
       (ImportDeclaration
         "import"
-        (QualifiedIdentifier
-          ({Identifier "."}+ Identifier "." Identifier "." Identifier))
+        (TypeName
+          ((Identifier ".")* Identifier "." Identifier ".")
+          TypeIdentifier)
         ";")
       (ImportDeclaration
         "import"
-        (QualifiedIdentifier
-          ({Identifier "."}+ Identifier "." Identifier "." Identifier))
+        (TypeName
+          ((Identifier ".")* Identifier "." Identifier ".")
+          TypeIdentifier)
         ";")
       (ImportDeclaration
         "import"
-        (QualifiedIdentifier
-          ({Identifier "."}+ Identifier "." Identifier "." Identifier))
+        (TypeName
+          ((Identifier ".")* Identifier "." Identifier ".")
+          TypeIdentifier)
         ";")
       (ImportDeclaration
         "import"
-        (QualifiedIdentifier
-          ({Identifier "."}+ Identifier "." Identifier "." Identifier "." Identifier))
+        (TypeName
+          ((Identifier ".")* Identifier "." Identifier "." Identifier ".")
+          TypeIdentifier)
         ";")
       (ImportDeclaration
         "import"
-        (QualifiedIdentifier
-          ({Identifier "."}+ Identifier "." Identifier "." Identifier "." Identifier))
+        (TypeName
+          ((Identifier ".")* Identifier "." Identifier "." Identifier ".")
+          TypeIdentifier)
         ";"))
     (TypeDeclaration*
       (TypeDeclaration
@@ -34,8 +39,7 @@
               (InterfaceModifier
                 (Annotation
                   "@"
-                  (QualifiedIdentifier
-                    ({Identifier "."}+ Identifier))
+                  (TypeName TypeIdentifier)
                   (Values
                     "("
                     (AnnotationElement
@@ -63,8 +67,7 @@
               (InterfaceModifier
                 (Annotation
                   "@"
-                  (QualifiedIdentifier
-                    ({Identifier "."}+ Identifier))
+                  (TypeName TypeIdentifier)
                   (Values
                     "("
                     (AnnotationElement
@@ -92,8 +95,7 @@
               (InterfaceModifier
                 (Annotation
                   "@"
-                  (QualifiedIdentifier
-                    ({Identifier "."}+ Identifier))
+                  (TypeName TypeIdentifier)
                   (Values
                     "("
                     (AnnotationElement
@@ -128,8 +130,7 @@
                       (FieldModifier
                         (Annotation
                           "@"
-                          (QualifiedIdentifier
-                            ({Identifier "."}+ Identifier)))))
+                          (TypeName TypeIdentifier))))
                     (UnannType
                       (UnannReferenceType
                         (UnannClassType TypeIdentifier)))
@@ -148,19 +149,16 @@
                       (FieldModifier
                         (Annotation
                           "@"
-                          (QualifiedIdentifier
-                            ({Identifier "."}+ Identifier)))))
+                          (TypeName TypeIdentifier))))
                     (UnannType
                       (UnannReferenceType
                         (UnannClassType
-                          TypeIdentifier
-                          (("." Annotation* TypeIdentifier TypeArguments?)*
-                            "."
-                            (Annotation*
+                          ((Identifier ".")+ Identifier ".")
+                          (MarkedTypeComponent
+                            (Annotation+
                               (Annotation
                                 "@"
-                                (QualifiedIdentifier
-                                  ({Identifier "."}+ Identifier))))
+                                (TypeName TypeIdentifier)))
                             TypeIdentifier
                             (TypeArguments
                               "<"
@@ -168,22 +166,24 @@
                                 (TypeArgument
                                   (ReferenceType
                                     (ClassType
-                                      (Annotation*
-                                        (Annotation
-                                          "@"
-                                          (QualifiedIdentifier
-                                            ({Identifier "."}+ Identifier))))
-                                      TypeIdentifier)))
+                                      (MarkedClassType
+                                        (MarkedTypeComponent
+                                          (Annotation+
+                                            (Annotation
+                                              "@"
+                                              (TypeName TypeIdentifier)))
+                                          TypeIdentifier)))))
                                 ","
                                 (TypeArgument
                                   (ReferenceType
                                     (ClassType
-                                      (Annotation*
-                                        (Annotation
-                                          "@"
-                                          (QualifiedIdentifier
-                                            ({Identifier "."}+ Identifier))))
-                                      TypeIdentifier))))
+                                      (MarkedClassType
+                                        (MarkedTypeComponent
+                                          (Annotation+
+                                            (Annotation
+                                              "@"
+                                              (TypeName TypeIdentifier)))
+                                          TypeIdentifier))))))
                               ">")))))
                     ({VariableDeclarator ","}+
                       (VariableDeclarator
@@ -219,8 +219,7 @@
                                   (Annotation*
                                     (Annotation
                                       "@"
-                                      (QualifiedIdentifier
-                                        ({Identifier "."}+ Identifier))))
+                                      (TypeName TypeIdentifier)))
                                   "int")
                                 ")"
                                 (Expression
@@ -262,12 +261,13 @@
                                 ({ReferenceType "&"}+
                                   (ReferenceType
                                     (ClassType
-                                      (Annotation*
-                                        (Annotation
-                                          "@"
-                                          (QualifiedIdentifier
-                                            ({Identifier "."}+ Identifier))))
-                                      TypeIdentifier)))
+                                      (MarkedClassType
+                                        (MarkedTypeComponent
+                                          (Annotation+
+                                            (Annotation
+                                              "@"
+                                              (TypeName TypeIdentifier)))
+                                          TypeIdentifier)))))
                                 ")"
                                 (Expression
                                   (Primary Identifier)))
@@ -303,12 +303,13 @@
                                 (Type
                                   (ReferenceType
                                     (ClassType
-                                      (Annotation*
-                                        (Annotation
-                                          "@"
-                                          (QualifiedIdentifier
-                                            ({Identifier "."}+ Identifier))))
-                                      TypeIdentifier))))
+                                      (MarkedClassType
+                                        (MarkedTypeComponent
+                                          (Annotation+
+                                            (Annotation
+                                              "@"
+                                              (TypeName TypeIdentifier)))
+                                          TypeIdentifier))))))
                               ";")))
                         "}"))))
                 (ClassBodyDeclaration
@@ -325,12 +326,13 @@
                                 "extends"
                                 (ReferenceType
                                   (ClassType
-                                    (Annotation*
-                                      (Annotation
-                                        "@"
-                                        (QualifiedIdentifier
-                                          ({Identifier "."}+ Identifier))))
-                                    TypeIdentifier))))
+                                    (MarkedClassType
+                                      (MarkedTypeComponent
+                                        (Annotation+
+                                          (Annotation
+                                            "@"
+                                            (TypeName TypeIdentifier)))
+                                        TypeIdentifier))))))
                             ">"))))
                     ({VariableDeclarator ","}+
                       (VariableDeclarator
@@ -350,12 +352,13 @@
                                 "super"
                                 (ReferenceType
                                   (ClassType
-                                    (Annotation*
-                                      (Annotation
-                                        "@"
-                                        (QualifiedIdentifier
-                                          ({Identifier "."}+ Identifier))))
-                                    TypeIdentifier))))
+                                    (MarkedClassType
+                                      (MarkedTypeComponent
+                                        (Annotation+
+                                          (Annotation
+                                            "@"
+                                            (TypeName TypeIdentifier)))
+                                        TypeIdentifier))))))
                             ">"))))
                     ({VariableDeclarator ","}+
                       (VariableDeclarator
@@ -369,20 +372,22 @@
                       "throws"
                       ({ClassType ","}+
                         (ClassType
-                          (Annotation*
-                            (Annotation
-                              "@"
-                              (QualifiedIdentifier
-                                ({Identifier "."}+ Identifier))))
-                          TypeIdentifier)
+                          (MarkedClassType
+                            (MarkedTypeComponent
+                              (Annotation+
+                                (Annotation
+                                  "@"
+                                  (TypeName TypeIdentifier)))
+                              TypeIdentifier)))
                         ","
                         (ClassType
-                          (Annotation*
-                            (Annotation
-                              "@"
-                              (QualifiedIdentifier
-                                ({Identifier "."}+ Identifier))))
-                          TypeIdentifier)))
+                          (MarkedClassType
+                            (MarkedTypeComponent
+                              (Annotation+
+                                (Annotation
+                                  "@"
+                                  (TypeName TypeIdentifier)))
+                              TypeIdentifier)))))
                     (MethodBody
                       (Block "{" "}"))))
                 (ClassBodyDeclaration
@@ -406,8 +411,7 @@
                                     (Annotation*
                                       (Annotation
                                         "@"
-                                        (QualifiedIdentifier
-                                          ({Identifier "."}+ Identifier))))
+                                        (TypeName TypeIdentifier)))
                                     Identifier)
                                   (Arguments
                                     "("
@@ -444,8 +448,7 @@
                                       (Annotation*
                                         (Annotation
                                           "@"
-                                          (QualifiedIdentifier
-                                            ({Identifier "."}+ Identifier))))
+                                          (TypeName TypeIdentifier)))
                                       Identifier)
                                     (TypeArgumentsOrDiamond
                                       (TypeArguments
@@ -475,8 +478,7 @@
                               (VariableModifier
                                 (Annotation
                                   "@"
-                                  (QualifiedIdentifier
-                                    ({Identifier "."}+ Identifier)))))
+                                  (TypeName TypeIdentifier))))
                             (UnannType
                               (UnannReferenceType
                                 (UnannClassType TypeIdentifier)))
@@ -488,8 +490,7 @@
                               (VariableModifier
                                 (Annotation
                                   "@"
-                                  (QualifiedIdentifier
-                                    ({Identifier "."}+ Identifier)))))
+                                  (TypeName TypeIdentifier))))
                             (UnannType
                               (UnannPrimitiveType "int"))
                             (VariableDeclaratorId Identifier))))
@@ -509,8 +510,7 @@
                           (Annotation*
                             (Annotation
                               "@"
-                              (QualifiedIdentifier
-                                ({Identifier "."}+ Identifier))))
+                              (TypeName TypeIdentifier)))
                           "..."
                           (VariableDeclaratorId Identifier)))
                       ")")
@@ -530,8 +530,7 @@
                           (Annotation*
                             (Annotation
                               "@"
-                              (QualifiedIdentifier
-                                ({Identifier "."}+ Identifier))))
+                              (TypeName TypeIdentifier)))
                           "..."
                           (VariableDeclaratorId Identifier)))
                       ")")
@@ -551,8 +550,7 @@
                                 (VariableModifier
                                   (Annotation
                                     "@"
-                                    (QualifiedIdentifier
-                                      ({Identifier "."}+ Identifier)))))
+                                    (TypeName TypeIdentifier))))
                               (LocalVariableType
                                 (UnannType
                                   (UnannReferenceType
@@ -572,8 +570,7 @@
                                 (VariableModifier
                                   (Annotation
                                     "@"
-                                    (QualifiedIdentifier
-                                      ({Identifier "."}+ Identifier)))))
+                                    (TypeName TypeIdentifier))))
                               (LocalVariableType
                                 (UnannType
                                   (UnannPrimitiveType "int")))
@@ -597,8 +594,7 @@
                             (Annotation*
                               (Annotation
                                 "@"
-                                (QualifiedIdentifier
-                                  ({Identifier "."}+ Identifier))))
+                                (TypeName TypeIdentifier)))
                             "["
                             "]"))))
                     ({VariableDeclarator ","}+
@@ -615,15 +611,13 @@
                             (Annotation*
                               (Annotation
                                 "@"
-                                (QualifiedIdentifier
-                                  ({Identifier "."}+ Identifier))))
+                                (TypeName TypeIdentifier)))
                             "["
                             "]"
                             (Annotation*
                               (Annotation
                                 "@"
-                                (QualifiedIdentifier
-                                  ({Identifier "."}+ Identifier))))
+                                (TypeName TypeIdentifier)))
                             "["
                             "]"))))
                     ({VariableDeclarator ","}+
@@ -636,8 +630,7 @@
                       (FieldModifier
                         (Annotation
                           "@"
-                          (QualifiedIdentifier
-                            ({Identifier "."}+ Identifier)))))
+                          (TypeName TypeIdentifier))))
                     (UnannType
                       (UnannReferenceType
                         (UnannArrayType
@@ -646,8 +639,7 @@
                             (Annotation*
                               (Annotation
                                 "@"
-                                (QualifiedIdentifier
-                                  ({Identifier "."}+ Identifier))))
+                                (TypeName TypeIdentifier)))
                             "["
                             "]"))))
                     ({VariableDeclarator ","}+
@@ -688,8 +680,7 @@
                                         (Annotation*
                                           (Annotation
                                             "@"
-                                            (QualifiedIdentifier
-                                              ({Identifier "."}+ Identifier))))
+                                            (TypeName TypeIdentifier)))
                                         "["
                                         "]"))))
                                 ")"
@@ -731,15 +722,13 @@
                                         (Annotation*
                                           (Annotation
                                             "@"
-                                            (QualifiedIdentifier
-                                              ({Identifier "."}+ Identifier))))
+                                            (TypeName TypeIdentifier)))
                                         "["
                                         "]"
                                         (Annotation*
                                           (Annotation
                                             "@"
-                                            (QualifiedIdentifier
-                                              ({Identifier "."}+ Identifier))))
+                                            (TypeName TypeIdentifier)))
                                         "["
                                         "]"))))
                                 ")"
@@ -782,8 +771,7 @@
                                         (Annotation*
                                           (Annotation
                                             "@"
-                                            (QualifiedIdentifier
-                                              ({Identifier "."}+ Identifier))))
+                                            (TypeName TypeIdentifier)))
                                         "["
                                         "]")))))
                               ";")))
@@ -812,8 +800,7 @@
                                     (Annotation*
                                       (Annotation
                                         "@"
-                                        (QualifiedIdentifier
-                                          ({Identifier "."}+ Identifier))))
+                                        (TypeName TypeIdentifier)))
                                     "["
                                     (Expression
                                       (Primary
@@ -845,8 +832,7 @@
                                     (Annotation*
                                       (Annotation
                                         "@"
-                                        (QualifiedIdentifier
-                                          ({Identifier "."}+ Identifier))))
+                                        (TypeName TypeIdentifier)))
                                     "["
                                     (Expression
                                       (Primary
@@ -856,8 +842,7 @@
                                     (Annotation*
                                       (Annotation
                                         "@"
-                                        (QualifiedIdentifier
-                                          ({Identifier "."}+ Identifier))))
+                                        (TypeName TypeIdentifier)))
                                     "["
                                     "]")))
                               ";")))
@@ -875,8 +860,7 @@
                                 (Annotation*
                                   (Annotation
                                     "@"
-                                    (QualifiedIdentifier
-                                      ({Identifier "."}+ Identifier))))
+                                    (TypeName TypeIdentifier)))
                                 "?"))
                             ">"))))
                     ({VariableDeclarator ","}+
@@ -896,16 +880,14 @@
                                 (Annotation*
                                   (Annotation
                                     "@"
-                                    (QualifiedIdentifier
-                                      ({Identifier "."}+ Identifier))))
+                                    (TypeName TypeIdentifier)))
                                 "?")
                               ","
                               (TypeArgument
                                 (Annotation*
                                   (Annotation
                                     "@"
-                                    (QualifiedIdentifier
-                                      ({Identifier "."}+ Identifier))))
+                                    (TypeName TypeIdentifier)))
                                 "?"))
                             ">"))))
                     ({VariableDeclarator ","}+
@@ -921,8 +903,7 @@
                           (Annotation*
                             (Annotation
                               "@"
-                              (QualifiedIdentifier
-                                ({Identifier "."}+ Identifier))))
+                              (TypeName TypeIdentifier)))
                           TypeIdentifier))
                       ">")
                     (Result
@@ -962,12 +943,13 @@
                             "extends"
                             (ReferenceType
                               (ClassType
-                                (Annotation*
-                                  (Annotation
-                                    "@"
-                                    (QualifiedIdentifier
-                                      ({Identifier "."}+ Identifier))))
-                                TypeIdentifier)))))
+                                (MarkedClassType
+                                  (MarkedTypeComponent
+                                    (Annotation+
+                                      (Annotation
+                                        "@"
+                                        (TypeName TypeIdentifier)))
+                                    TypeIdentifier)))))))
                       ">")
                     (Result
                       (UnannType
@@ -1006,35 +988,38 @@
                             "extends"
                             (ReferenceType
                               (ClassType
-                                (Annotation*
-                                  (Annotation
-                                    "@"
-                                    (QualifiedIdentifier
-                                      ({Identifier "."}+ Identifier))))
-                                TypeIdentifier
-                                (TypeArguments
-                                  "<"
-                                  ({TypeArgument ","}+
-                                    (TypeArgument
-                                      (ReferenceType
-                                        (ClassType
-                                          (Annotation*
-                                            (Annotation
-                                              "@"
-                                              (QualifiedIdentifier
-                                                ({Identifier "."}+ Identifier))))
-                                          TypeIdentifier))))
-                                  ">")))
+                                (MarkedClassType
+                                  (MarkedTypeComponent
+                                    (Annotation+
+                                      (Annotation
+                                        "@"
+                                        (TypeName TypeIdentifier)))
+                                    TypeIdentifier
+                                    (TypeArguments
+                                      "<"
+                                      ({TypeArgument ","}+
+                                        (TypeArgument
+                                          (ReferenceType
+                                            (ClassType
+                                              (MarkedClassType
+                                                (MarkedTypeComponent
+                                                  (Annotation+
+                                                    (Annotation
+                                                      "@"
+                                                      (TypeName TypeIdentifier)))
+                                                  TypeIdentifier))))))
+                                      ">")))))
                             (("&" ReferenceType)*
                               "&"
                               (ReferenceType
                                 (ClassType
-                                  (Annotation*
-                                    (Annotation
-                                      "@"
-                                      (QualifiedIdentifier
-                                        ({Identifier "."}+ Identifier))))
-                                  TypeIdentifier))))))
+                                  (MarkedClassType
+                                    (MarkedTypeComponent
+                                      (Annotation+
+                                        (Annotation
+                                          "@"
+                                          (TypeName TypeIdentifier)))
+                                      TypeIdentifier))))))))
                       ">")
                     (Result
                       (UnannType
@@ -1074,8 +1059,7 @@
                     (Annotation*
                       (Annotation
                         "@"
-                        (QualifiedIdentifier
-                          ({Identifier "."}+ Identifier))))
+                        (TypeName TypeIdentifier)))
                     (Result
                       (UnannType
                         (UnannReferenceType
@@ -1110,8 +1094,7 @@
                     (Annotation*
                       (Annotation
                         "@"
-                        (QualifiedIdentifier
-                          ({Identifier "."}+ Identifier))))
+                        (TypeName TypeIdentifier)))
                     (Result
                       (UnannType
                         (UnannReferenceType
@@ -1148,8 +1131,7 @@
                     (Annotation*
                       (Annotation
                         "@"
-                        (QualifiedIdentifier
-                          ({Identifier "."}+ Identifier))))
+                        (TypeName TypeIdentifier)))
                     (Result
                       (UnannType
                         (UnannReferenceType
@@ -1161,12 +1143,13 @@
                                 (TypeArgument
                                   (ReferenceType
                                     (ClassType
-                                      (Annotation*
-                                        (Annotation
-                                          "@"
-                                          (QualifiedIdentifier
-                                            ({Identifier "."}+ Identifier))))
-                                      TypeIdentifier))))
+                                      (MarkedClassType
+                                        (MarkedTypeComponent
+                                          (Annotation+
+                                            (Annotation
+                                              "@"
+                                              (TypeName TypeIdentifier)))
+                                          TypeIdentifier))))))
                               ">")))))
                     (MethodDeclarator
                       Identifier
@@ -1178,8 +1161,7 @@
                               (VariableModifier
                                 (Annotation
                                   "@"
-                                  (QualifiedIdentifier
-                                    ({Identifier "."}+ Identifier)))))
+                                  (TypeName TypeIdentifier))))
                             (UnannType
                               (UnannReferenceType
                                 (UnannClassType TypeIdentifier)))

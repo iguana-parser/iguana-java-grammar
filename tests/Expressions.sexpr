@@ -556,19 +556,21 @@
                                     ({ReferenceType "&"}+
                                       (ReferenceType
                                         (ClassType
-                                          TypeIdentifier
-                                          (TypeArguments
-                                            "<"
-                                            ({TypeArgument ","}+
-                                              (TypeArgument
-                                                (ReferenceType
-                                                  (ClassType TypeIdentifier))))
-                                            ">")))
+                                          (MarkedClassType
+                                            (MarkedTypeComponent
+                                              TypeIdentifier
+                                              (TypeArguments
+                                                "<"
+                                                ({TypeArgument ","}+
+                                                  (TypeArgument
+                                                    (ReferenceType
+                                                      (ClassType TypeIdentifier))))
+                                                ">")))))
                                       "&"
                                       (ReferenceType
                                         (ClassType
-                                          TypeIdentifier
-                                          (("." Annotation* TypeIdentifier TypeArguments?)* "." TypeIdentifier "." TypeIdentifier))))
+                                          ((Identifier ".")* Identifier "." Identifier ".")
+                                          TypeIdentifier)))
                                     ")"
                                     (Expression
                                       (Primary Identifier)))))
@@ -719,9 +721,8 @@
                                       (Primary Identifier))
                                     "."
                                     (Selector
-                                      (MethodInvocation
-                                        Identifier
-                                        (Arguments "(" ")"))))))
+                                      Identifier
+                                      (Arguments "(" ")")))))
                               ";"))
                           (BlockStatement
                             (Statement
@@ -774,9 +775,8 @@
                                         (Literal StringLiteral)))
                                     "."
                                     (Selector
-                                      (MethodInvocation
-                                        Identifier
-                                        (Arguments "(" ")"))))))
+                                      Identifier
+                                      (Arguments "(" ")")))))
                               ";"))
                           (BlockStatement
                             (Statement
@@ -791,19 +791,18 @@
                                         (Literal StringLiteral)))
                                     "."
                                     (Selector
-                                      (MethodInvocation
-                                        Identifier
-                                        (Arguments
-                                          "("
-                                          ({Expression ","}*
-                                            (Expression
-                                              (Primary
-                                                (Literal IntegerLiteral)))
-                                            ","
-                                            (Expression
-                                              (Primary
-                                                (Literal IntegerLiteral))))
-                                          ")"))))))
+                                      Identifier
+                                      (Arguments
+                                        "("
+                                        ({Expression ","}*
+                                          (Expression
+                                            (Primary
+                                              (Literal IntegerLiteral)))
+                                          ","
+                                          (Expression
+                                            (Primary
+                                              (Literal IntegerLiteral))))
+                                        ")")))))
                               ";"))
                           (BlockStatement
                             (Statement
@@ -820,19 +819,16 @@
                                             (Literal StringLiteral)))
                                         "."
                                         (Selector
-                                          (MethodInvocation
-                                            Identifier
-                                            (Arguments "(" ")"))))
+                                          Identifier
+                                          (Arguments "(" ")")))
                                       "."
                                       (Selector
-                                        (MethodInvocation
-                                          Identifier
-                                          (Arguments "(" ")"))))
+                                        Identifier
+                                        (Arguments "(" ")")))
                                     "."
                                     (Selector
-                                      (MethodInvocation
-                                        Identifier
-                                        (Arguments "(" ")"))))))
+                                      Identifier
+                                      (Arguments "(" ")")))))
                               ";"))
                           (BlockStatement
                             (Statement

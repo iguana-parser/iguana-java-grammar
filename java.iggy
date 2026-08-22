@@ -17,8 +17,8 @@ ModuleDirective
   = "requires" RequiresModifier* QualifiedIdentifier ";"                   #Requires
   | "exports" QualifiedIdentifier ("to" { QualifiedIdentifier "," }+)? ";" #Exports
   | "opens" QualifiedIdentifier ("to" { QualifiedIdentifier "," }+)? ";"   #Opens
-  | "uses" QualifiedIdentifier ";"                                         #Uses
-  | "provides" QualifiedIdentifier "with" { QualifiedIdentifier "," }+ ";" #Provides
+  | "uses" TypeName ";"                                                    #Uses
+  | "provides" TypeName "with" { TypeName "," }+ ";"                       #Provides
 
 RequiresModifier
   = "transitive"
@@ -27,8 +27,15 @@ RequiresModifier
 PackageDeclaration
   = Annotation* "package" QualifiedIdentifier ";"
 
+// JLS 14 §7.5 defines four import forms, which differ in what each may name. A
+// TypeName ends in a TypeIdentifier, so `import yield;` is not valid. The qualifier of
+// a non-static on-demand import and the member of a single static import are ordinary
+// identifiers, so `import yield.*;` and `import static A.yield;` are valid.
 ImportDeclaration
-  = "import" "static"? QualifiedIdentifier ("." "*")? ";"
+  = "import" TypeName ";"                             #SingleType
+  | "import" QualifiedIdentifier "." "*" ";"          #TypeImportOnDemand
+  | "import" "static" TypeName "." Identifier ";"     #SingleStaticImport
+  | "import" "static" TypeName "." "*" ";"            #StaticImportOnDemand
 
 TypeDeclaration
   = ClassDeclaration
@@ -175,7 +182,7 @@ ArrayInitializer
   = "{" { VariableInitializer "," }* ","? "}"
 
 Annotation
-  = "@" QualifiedIdentifier Values?
+  = "@" TypeName Values?
 
 Values
   = "(" AnnotationElement? ")"
@@ -188,6 +195,10 @@ ElementValuePair
   = Identifier "=" ElementValue
 
 ElementValue
+  // !Assignment  `@A(x = y)` should be parsed as an ElementValuePair, not as
+  //              an ElementValue holding the assignment `x = y`. The exclusion
+  //              drops the Expression's Assignment alternative, so only the
+  //              first derivation survives.
   = Expression!Assignment
   | Annotation
   | ElementValueArrayInitializer
@@ -296,35 +307,64 @@ VariableModifier
   | "final"
 
 Statement
-  = Block                                                                       #Block
-  | ";"                                                                         #Empty
-  | StatementExpression ";"                                                     #Expression
-  | "assert" Expression (":" Expression)? ";"                                   #Assert
-  | "switch" "(" Expression ")" "{" SwitchBlockStatementGroup* SwitchLabel* "}" #Switch
-  | "do" Statement "while" "(" Expression ")" ";"                               #Do
-  | "break" Identifier? ";"                                                     #Break
-  | "continue" Identifier? ";"                                                  #Continue
-  | "return" Expression? ";"                                                    #Return
-  | "synchronized" "(" Expression ")" Block                                     #Synchronized
-  | "throw" Expression ";"                                                      #Throw
-  | "try" Block CatchClause+                                                    #Try
-  | "try" Block CatchClause* Finally                                            #TryFinally
-  | "try" ResourceSpecification Block CatchClause* Finally?                     #TryWithResourcesStmt
-  | Identifier ":" Statement                                                    #Label
-  | "if" "(" Expression ")" Statement !>>> Else                                 #If
-  | "if" "(" Expression ")" Statement Else Statement                            #IfElse
-  | "while" "(" Expression ")" Statement                                        #While
-  | "for" "(" ForControl ")" Statement                                          #For
+  = Block                                                   #Block
+  | ";"                                                     #Empty
+  | StatementExpression ";"                                 #Expression
+  | "assert" Expression (":" Expression)? ";"               #Assert
+  | "switch" "(" Expression ")" SwitchBlock                 #Switch
+  | "do" Statement "while" "(" Expression ")" ";"           #Do
+  | "break" Identifier? ";"                                 #Break
+  | "continue" Identifier? ";"                              #Continue
+  | "return" Expression? ";"                                #Return
+  | "synchronized" "(" Expression ")" Block                 #Synchronized
+  | "throw" Expression ";"                                  #Throw
+  | "yield" Expression ";"                                  #Yield
+  | "try" Block CatchClause+                                #Try
+  | "try" Block CatchClause* Finally                        #TryFinally
+  | "try" ResourceSpecification Block CatchClause* Finally? #TryWithResourcesStmt
+  | Identifier ":" Statement                                #Label
+  | "if" "(" Expression ")" Statement !>>> Else             #If
+  | "if" "(" Expression ")" Statement Else Statement        #IfElse
+  | "while" "(" Expression ")" Statement                    #While
+  | "for" "(" ForControl ")" Statement                      #For
 
 StatementExpression
-  = Expression!Comparison
+  // Each exclusion removes a derivation that would lead to ambiguity:
+  // !Comparison        `Map<K> m;` declares m of the generic type `Map<K>`, not the
+  //                    comparisons `(Map < K) > m`
+  // !SwitchExpression  `switch (d) { case 1: f(); };` is a switch statement and an
+  //                    empty statement, not one expression statement
+  // !Additive          `yield -1;` is a yield statement, not the sum `yield - 1`
+  = Expression!Comparison!SwitchExpression!Additive
+
+SwitchBlock
+  = "{" SwitchRule+ "}"                                   #Rules
+  | "{" SwitchBlockStatementGroup* (SwitchLabel ":")* "}" #Groups
+
+SwitchRule
+  = SwitchLabel "->" Expression ";"         #Expression
+  | SwitchLabel "->" Block                  #Block
+  | SwitchLabel "->" "throw" Expression ";" #Throw
 
 SwitchBlockStatementGroup
-  = SwitchLabel+ BlockStatement+
+  = (SwitchLabel ":")+ BlockStatement+
 
 SwitchLabel
-  = "case" Expression ":"
-  | "default" ":"
+  = "case" { CaseConstant "," }+ #Case
+  | "default"                    #Default
+
+CaseConstant
+  // !Lambda      `case A -> B -> C;` should be parsed as a SwitchRule with the lambda
+  //              `B -> C` as its expression, not with its label parsed as the lambda
+  //              `A -> B`. The exclusion drops the Expression's Lambda alternative, so
+  //              only the first derivation survives, through SwitchRule's first
+  //              alternative.
+  // !Assignment  An assignment as the case constant, as in `case a = 1:`, is
+  //              not valid. This is not a disambiguation, since that input is not
+  //              ambiguous. It is a deliberate language reduction: JLS 14 §14.11
+  //              defines a case constant as a conditional expression, which an
+  //              assignment is not.
+  = Expression!Lambda!Assignment
 
 ForControl
   = ForInit? ";" Expression? ";" ForUpdate?                                 #Traditional
@@ -356,47 +396,77 @@ ForUpdate
   = { Expression "," }+
 
 Expression
-  = Primary                                                                 #Primary
-  > Expression!InstanceOf "." Selector                                      #FieldAccess
-  | MethodInvocation                                                        #MethodInvocation
-  | Expression "[" Expression "]"                                           #ArrayAccess
-  | Expression ("++" | "--")                                                #Postfix
-  | Expression "::" TypeArguments? Identifier                               #MethodRef
-  | QualifiedIdentifier TypeArguments ("." Identifier TypeArguments?)* "::"
-      TypeArguments? Identifier                                             #ParameterizedMethodRef
-  | ClassType "::" TypeArguments? "new"                                     #ConstructorRef
-  | ArrayType "::" "new"                                                    #ArrayConstructorRef
-  | "super" "::" TypeArguments? Identifier                                  #SuperMethodRef
-  | QualifiedIdentifier "." "super" "::" TypeArguments? Identifier          #QualifiedSuperMethodRef
-  > ("+" !>> Plus | "-" !>> Minus | "++" | "--" | "!" | "~") Expression     #Prefix
-  | "new" (ClassInstanceCreationExpression | ArrayCreationExpression)       #New
-  | "(" PrimitiveType ")" Expression                                        #PrimitiveCast
-  | "(" { ReferenceType "&" }+ ")" Expression!Prefix                        #RefCast
+  = Primary                                                             #Primary
+  | "switch" "(" Expression ")" SwitchBlock                             #SwitchExpression
+  | MethodInvocation                                                    #MethodInvocation
+  | MarkedClassType "::" TypeArguments? Identifier                       #TypeMethodRef
+  | ClassType "::" TypeArguments? "new"                                 #ConstructorRef
+  | ArrayType "::" "new"                                                #ArrayConstructorRef
+  | ArrayType "::" TypeArguments? Identifier                            #ArrayMethodRef
+  | "super" "::" TypeArguments? Identifier                              #SuperMethodRef
+  | TypeName "." "super" "::" TypeArguments? Identifier                 #QualifiedSuperMethodRef
+  | "new" (ClassInstanceCreationExpression | ArrayCreationExpression)   #New
+  // !InstanceOf        `a instanceof Foo.Bar` should be parsed as one InstanceOf over
+  //                    the qualified type `Foo.Bar`, not as `.Bar` selected from
+  //                    `a instanceof Foo`. Dropping the InstanceOf alternative leaves
+  //                    one derivation.
+  // !SwitchExpression  A language reduction, not a disambiguation. JLS 14 §19 makes
+  //                    SwitchExpression an alternative of UnaryExpressionNotPlusMinus
+  //                    rather than of Primary or PostfixExpression, so a postfix
+  //                    operator cannot follow a switch expression:
+  //                    `switch (d) { ... }.f` is not valid, and
+  //                    `(switch (d) { ... }).f` is, because a parenthesized expression
+  //                    is a Primary. The exclusion applies to all four alternatives
+  //                    below.
+  > Expression!InstanceOf!SwitchExpression "." Selector                 #FieldAccess
+  | Expression!SwitchExpression "[" Expression "]"                      #ArrayAccess
+  | Expression!SwitchExpression ("++" | "--")                           #Postfix
+  | Expression!SwitchExpression "::" TypeArguments? Identifier          #MethodRef
+  > ("+" !>> Plus | "-" !>> Minus | "++" | "--") Expression             #Prefix
+  | ("!" | "~") Expression                                              #Complement
+  | "(" PrimitiveType ")" Expression                                    #PrimitiveCast
+  // !Prefix  `(a) - b` derives both as a subtraction and as a reference cast
+  //          of `-b`. Dropping the Prefix alternative keeps the subtraction,
+  //          which is what JLS 14 §15.16 requires: a reference cast takes a
+  //          unary expression that is not prefixed by + or -. The Complement
+  //          alternative is untouched, so `(Integer) ~x` is still a cast.
+  | "(" { ReferenceType "&" }+ ")" Expression!Prefix                    #RefCast
   > left Expression ("*" | "/" | "%") Expression
-  > left Expression ("+" | "-") !>> Plus !>> Minus Expression
+  > left Expression ("+" | "-") !>> Plus !>> Minus Expression           #Additive
   > left Expression ("<<" | ">>" | ">>>") Expression
-  > left Expression ("<" | ">" | "<=" | ">=") Expression                    #Comparison
-  > Expression "instanceof" Type                                            #InstanceOf
+  > left Expression ("<" | ">" | "<=" | ">=") Expression                #Comparison
+  > Expression "instanceof" Type                                        #InstanceOf
   > left Expression ("==" | "!=") Expression
   > left Expression "&" Expression
   > left Expression "^" Expression
   > left Expression "|" Expression
   > left Expression "&&" Expression
   > left Expression "||" Expression
-  > right Expression "?" Expression ":" Expression                          #Conditional
-  > right Expression!Comparison AssignmentOperator Expression               #Assignment
-  > Lambda                                                                  #Lambda
+  > right Expression "?" Expression ":" Expression                      #Conditional
+  // !Comparison  A language reduction, not a disambiguation. `a < b = c`
+  //              derives once and the exclusion deletes it: JLS 14 §15.26 takes
+  //              the left side of an assignment from the expression names,
+  //              field accesses, and array accesses, and a comparison is none
+  //              of those.
+  > right Expression!Comparison AssignmentOperator Expression           #Assignment
+  > Lambda                                                              #Lambda
 
 Primary
-  = Literal                           #Literal
-  | (QualifiedIdentifier ".")? "this" #This
-  | "super" SuperSuffix               #Super
-  | Identifier                        #Identifier
-  | (Type | "void") "." "class"       #Type
-  | "(" Expression ")"                #Expression
+  = Literal                     #Literal
+  | (TypeName ".")? "this"      #This
+  | "super" SuperSuffix         #Super
+  | Identifier                  #Identifier
+  | (Type | "void") "." "class" #Type
+  | "(" Expression ")"          #Expression
 
 QualifiedIdentifier
   = { Identifier "." }+
+
+// JLS 14 §6.5 takes the last component of a type name from TypeIdentifier and the
+// qualifier before it from ordinary identifiers, so `yield.Foo` is valid while `@yield`
+// and `yield.this` are not.
+TypeName
+  = (Identifier ".")* TypeIdentifier
 
 SuperSuffix
   = "." NonWildTypeArguments? Identifier Arguments?
@@ -416,9 +486,22 @@ ReferenceType
   = ClassType
   | ArrayType
 
+// JLS 14 §4.3 qualifies a class type with either a package name, whose components are
+// ordinary identifiers, or another class or interface type, whose components are type
+// identifiers. A component with annotations or type arguments is therefore a type
+// component, and every component after it is one too, since a package name cannot
+// follow a class or interface type. So `yield.Foo` names a type in a package called
+// yield, while `yield<T>.Foo` and `A<T>.yield.Foo` do not.
+MarkedTypeComponent
+  = Annotation+ TypeIdentifier TypeArguments?
+  | TypeIdentifier TypeArguments
+
+MarkedClassType
+  = (Identifier ".")* MarkedTypeComponent ("." Annotation* TypeIdentifier TypeArguments?)*
+
 ClassType
-  = Annotation* TypeIdentifier TypeArguments?
-      ("." Annotation* TypeIdentifier TypeArguments?)*
+  = (Identifier ".")* TypeIdentifier
+  | MarkedClassType
 
 ClassTypeToInstantiate
   = Annotation* Identifier ("." Annotation* Identifier)* TypeArgumentsOrDiamond?
@@ -451,9 +534,13 @@ UnannReferenceType
   = UnannClassType
   | UnannArrayType
 
+// An unannotated class type cannot begin with an annotation. A type component at the
+// start can therefore be distinguished from a package component only through type
+// arguments.
 UnannClassType
-  = TypeIdentifier TypeArguments?
-      ("." Annotation* TypeIdentifier TypeArguments?)*
+  = (Identifier ".")* TypeIdentifier
+  | TypeIdentifier TypeArguments ("." Annotation* TypeIdentifier TypeArguments?)*
+  | (Identifier ".")+ MarkedTypeComponent ("." Annotation* TypeIdentifier TypeArguments?)*
 
 UnannArrayType
   = (UnannClassType | UnannPrimitiveType) (Annotation* "[" "]")+
@@ -468,12 +555,12 @@ Literal
 
 Selector
   = Identifier                                                                   #Identifier
-  | NonWildTypeArguments? MethodInvocation                                       #Method
+  | NonWildTypeArguments? Identifier Arguments                                   #Method
   | "super" SuperSuffix                                                          #Super
   | "new" TypeArguments? Identifier TypeArgumentsOrDiamond? Arguments ClassBody? #New
 
 MethodInvocation
-  = Identifier Arguments
+  = UnqualifiedMethodIdentifier Arguments
 
 TypeArgumentsOrDiamond
   = "<" ">"
@@ -641,15 +728,33 @@ AssignmentOperator
   | ">>="
   | ">>>="
 
+// JLS 14 §3.8 takes an identifier from the identifier characters and excludes the
+// reserved words, `true`, `false`, and `null`, so none of them is a valid variable name.
 @Identifier @Regex
-Identifier
-  = IdentifierChars \ Keyword \ BooleanLiteral \ NullLiteral
+Identifier = IdentifierChars \ Keyword \ BooleanLiteral \ NullLiteral
 
 @Regex
-TypeKeyword = "var"
+TypeKeyword
+  = "var"
+  | "yield"
 
+// JLS 14 §3.8 calls `var` and `yield` restricted identifiers. A TypeIdentifier cannot be
+// a restricted identifier, so `class var {}` and `class yield {}` are not valid. The
+// restriction is on TypeIdentifier rather than on every identifier of a type name, which
+// is why `yield.Foo` is valid. `var` is an ordinary identifier in every other position;
+// `yield` is barred from one more, as the next rule says.
 @Regex
 TypeIdentifier = Identifier \ TypeKeyword
+
+@Regex
+Yield = "yield"
+
+// Without the exclusion `yield(x);` has two derivations: a yield statement over `(x)`,
+// and a call to a method named yield. JLS 14 §3.8 prohibits an unqualified invocation of
+// a method named yield, which leaves one. `this.yield(x)` is valid because `Selector`
+// uses plain Identifier.
+@Regex
+UnqualifiedMethodIdentifier = Identifier \ Yield
 
 @Regex
 IdentifierChars = JavaLetter (JavaLetter | JavaLetterOrDigit)*
@@ -742,5 +847,7 @@ CommentChar
 @Regex
 TraditionalComment = "/*" CommentChar* [*]+ "/"
 
+// JLS 14 §3.7 ends a line comment at a line terminator or at the end of the input,
+// so the terminator is not part of the comment and a file may end in one.
 @Regex
-EndOfLineComment = "//" ![\r\n]* [\r\n]
+EndOfLineComment = "//" ![\r\n]*

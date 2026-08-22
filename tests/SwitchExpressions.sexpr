@@ -1,0 +1,874 @@
+(CompilationUnit
+  (OrdinaryCompilationUnit
+    (TypeDeclaration*
+      (TypeDeclaration
+        (ClassDeclaration
+          (NormalClassDeclaration
+            "class"
+            TypeIdentifier
+            (ClassBody
+              "{"
+              (ClassBodyDeclaration*
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result
+                      (UnannType
+                        (UnannPrimitiveType "int")))
+                    (MethodDeclarator
+                      Identifier
+                      "("
+                      (FormalParameterList
+                        (LastFormalParameter
+                          (FormalParameter
+                            (UnannType
+                              (UnannPrimitiveType "int"))
+                            (VariableDeclaratorId Identifier))))
+                      ")")
+                    (MethodBody
+                      (Block
+                        "{"
+                        (BlockStatement*
+                          (BlockStatement
+                            (Statement
+                              "return"
+                              (Expression
+                                "switch"
+                                "("
+                                (Expression
+                                  (Primary Identifier))
+                                ")"
+                                (SwitchBlock
+                                  "{"
+                                  (SwitchRule+
+                                    (SwitchRule
+                                      (SwitchLabel
+                                        "case"
+                                        ({CaseConstant ","}+
+                                          (CaseConstant
+                                            (Expression
+                                              (Primary
+                                                (Literal IntegerLiteral))))))
+                                      "->"
+                                      (Expression
+                                        (Primary
+                                          (Literal IntegerLiteral)))
+                                      ";")
+                                    (SwitchRule
+                                      (SwitchLabel
+                                        "case"
+                                        ({CaseConstant ","}+
+                                          (CaseConstant
+                                            (Expression
+                                              (Primary
+                                                (Literal IntegerLiteral))))))
+                                      "->"
+                                      (Expression
+                                        (Primary
+                                          (Literal IntegerLiteral)))
+                                      ";")
+                                    (SwitchRule
+                                      (SwitchLabel "default")
+                                      "->"
+                                      (Expression
+                                        (Primary
+                                          (Literal IntegerLiteral)))
+                                      ";"))
+                                  "}"))
+                              ";")))
+                        "}"))))
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result
+                      (UnannType
+                        (UnannPrimitiveType "int")))
+                    (MethodDeclarator
+                      Identifier
+                      "("
+                      (FormalParameterList
+                        (LastFormalParameter
+                          (FormalParameter
+                            (UnannType
+                              (UnannPrimitiveType "int"))
+                            (VariableDeclaratorId Identifier))))
+                      ")")
+                    (MethodBody
+                      (Block
+                        "{"
+                        (BlockStatement*
+                          (BlockStatement
+                            (Statement
+                              "return"
+                              (Expression
+                                "switch"
+                                "("
+                                (Expression
+                                  (Primary Identifier))
+                                ")"
+                                (SwitchBlock
+                                  "{"
+                                  (SwitchRule+
+                                    (SwitchRule
+                                      (SwitchLabel
+                                        "case"
+                                        ({CaseConstant ","}+
+                                          (CaseConstant
+                                            (Expression
+                                              (Primary
+                                                (Literal IntegerLiteral))))
+                                          ","
+                                          (CaseConstant
+                                            (Expression
+                                              (Primary
+                                                (Literal IntegerLiteral))))
+                                          ","
+                                          (CaseConstant
+                                            (Expression
+                                              (Primary
+                                                (Literal IntegerLiteral))))))
+                                      "->"
+                                      (Expression
+                                        (Primary
+                                          (Literal IntegerLiteral)))
+                                      ";")
+                                    (SwitchRule
+                                      (SwitchLabel
+                                        "case"
+                                        ({CaseConstant ","}+
+                                          (CaseConstant
+                                            (Expression
+                                              (Primary
+                                                (Literal IntegerLiteral))))
+                                          ","
+                                          (CaseConstant
+                                            (Expression
+                                              (Primary
+                                                (Literal IntegerLiteral))))))
+                                      "->"
+                                      (Expression
+                                        (Primary
+                                          (Literal IntegerLiteral)))
+                                      ";")
+                                    (SwitchRule
+                                      (SwitchLabel "default")
+                                      "->"
+                                      (Expression
+                                        (Primary
+                                          (Literal IntegerLiteral)))
+                                      ";"))
+                                  "}"))
+                              ";")))
+                        "}"))))
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result
+                      (UnannType
+                        (UnannPrimitiveType "int")))
+                    (MethodDeclarator
+                      Identifier
+                      "("
+                      (FormalParameterList
+                        (LastFormalParameter
+                          (FormalParameter
+                            (UnannType
+                              (UnannPrimitiveType "int"))
+                            (VariableDeclaratorId Identifier))))
+                      ")")
+                    (MethodBody
+                      (Block
+                        "{"
+                        (BlockStatement*
+                          (BlockStatement
+                            (Statement
+                              "return"
+                              (Expression
+                                "switch"
+                                "("
+                                (Expression
+                                  (Primary Identifier))
+                                ")"
+                                (SwitchBlock
+                                  "{"
+                                  (SwitchRule+
+                                    (SwitchRule
+                                      (SwitchLabel
+                                        "case"
+                                        ({CaseConstant ","}+
+                                          (CaseConstant
+                                            (Expression
+                                              (Primary
+                                                (Literal IntegerLiteral))))))
+                                      "->"
+                                      (Block
+                                        "{"
+                                        (BlockStatement*
+                                          (BlockStatement
+                                            (Statement
+                                              "yield"
+                                              (Expression
+                                                (Primary
+                                                  (Literal IntegerLiteral)))
+                                              ";")))
+                                        "}"))
+                                    (SwitchRule
+                                      (SwitchLabel
+                                        "case"
+                                        ({CaseConstant ","}+
+                                          (CaseConstant
+                                            (Expression
+                                              (Primary
+                                                (Literal IntegerLiteral))))))
+                                      "->"
+                                      "throw"
+                                      (Expression
+                                        "new"
+                                        (ClassInstanceCreationExpression
+                                          (ClassTypeToInstantiate Identifier)
+                                          (Arguments
+                                            "("
+                                            ({Expression ","}*
+                                              (Expression
+                                                (Primary
+                                                  (Literal StringLiteral))))
+                                            ")")))
+                                      ";")
+                                    (SwitchRule
+                                      (SwitchLabel "default")
+                                      "->"
+                                      (Block
+                                        "{"
+                                        (BlockStatement*
+                                          (BlockStatement
+                                            (LocalVariableDeclarationStatement
+                                              (LocalVariableType
+                                                (UnannType
+                                                  (UnannPrimitiveType "int")))
+                                              ({VariableDeclarator ","}+
+                                                (VariableDeclarator
+                                                  (VariableDeclaratorId Identifier)
+                                                  "="
+                                                  (VariableInitializer
+                                                    (Expression
+                                                      (Expression
+                                                        (Primary Identifier))
+                                                      "*"
+                                                      (Expression
+                                                        (Primary
+                                                          (Literal IntegerLiteral)))))))
+                                              ";"))
+                                          (BlockStatement
+                                            (Statement
+                                              "yield"
+                                              (Expression
+                                                (Primary Identifier))
+                                              ";")))
+                                        "}")))
+                                  "}"))
+                              ";")))
+                        "}"))))
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result
+                      (UnannType
+                        (UnannPrimitiveType "int")))
+                    (MethodDeclarator
+                      Identifier
+                      "("
+                      (FormalParameterList
+                        (LastFormalParameter
+                          (FormalParameter
+                            (UnannType
+                              (UnannPrimitiveType "int"))
+                            (VariableDeclaratorId Identifier))))
+                      ")")
+                    (MethodBody
+                      (Block
+                        "{"
+                        (BlockStatement*
+                          (BlockStatement
+                            (Statement
+                              "return"
+                              (Expression
+                                "switch"
+                                "("
+                                (Expression
+                                  (Primary Identifier))
+                                ")"
+                                (SwitchBlock
+                                  "{"
+                                  (SwitchBlockStatementGroup*
+                                    (SwitchBlockStatementGroup
+                                      ((SwitchLabel ":")+
+                                        (SwitchLabel
+                                          "case"
+                                          ({CaseConstant ","}+
+                                            (CaseConstant
+                                              (Expression
+                                                (Primary
+                                                  (Literal IntegerLiteral))))))
+                                        ":"
+                                        (SwitchLabel
+                                          "case"
+                                          ({CaseConstant ","}+
+                                            (CaseConstant
+                                              (Expression
+                                                (Primary
+                                                  (Literal IntegerLiteral))))))
+                                        ":")
+                                      (BlockStatement+
+                                        (BlockStatement
+                                          (Statement
+                                            "yield"
+                                            (Expression
+                                              (Primary
+                                                (Literal IntegerLiteral)))
+                                            ";"))))
+                                    (SwitchBlockStatementGroup
+                                      ((SwitchLabel ":")+
+                                        (SwitchLabel
+                                          "case"
+                                          ({CaseConstant ","}+
+                                            (CaseConstant
+                                              (Expression
+                                                (Primary
+                                                  (Literal IntegerLiteral))))))
+                                        ":")
+                                      (BlockStatement+
+                                        (BlockStatement
+                                          (Statement
+                                            "yield"
+                                            (Expression
+                                              (Primary
+                                                "("
+                                                (Expression
+                                                  (Expression
+                                                    (Primary Identifier))
+                                                  "+"
+                                                  (Expression
+                                                    (Primary
+                                                      (Literal IntegerLiteral))))
+                                                ")"))
+                                            ";"))))
+                                    (SwitchBlockStatementGroup
+                                      ((SwitchLabel ":")+
+                                        (SwitchLabel "default")
+                                        ":")
+                                      (BlockStatement+
+                                        (BlockStatement
+                                          (Statement
+                                            "yield"
+                                            (Expression
+                                              (Primary
+                                                (Literal IntegerLiteral)))
+                                            ";")))))
+                                  "}"))
+                              ";")))
+                        "}"))))
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result "void")
+                    (MethodDeclarator
+                      Identifier
+                      "("
+                      (FormalParameterList
+                        (LastFormalParameter
+                          (FormalParameter
+                            (UnannType
+                              (UnannPrimitiveType "int"))
+                            (VariableDeclaratorId Identifier))))
+                      ")")
+                    (MethodBody
+                      (Block
+                        "{"
+                        (BlockStatement*
+                          (BlockStatement
+                            (Statement
+                              "switch"
+                              "("
+                              (Expression
+                                (Primary Identifier))
+                              ")"
+                              (SwitchBlock
+                                "{"
+                                (SwitchRule+
+                                  (SwitchRule
+                                    (SwitchLabel
+                                      "case"
+                                      ({CaseConstant ","}+
+                                        (CaseConstant
+                                          (Expression
+                                            (Primary
+                                              (Literal IntegerLiteral))))))
+                                    "->"
+                                    (Expression
+                                      (Expression
+                                        (Primary Identifier))
+                                      AssignmentOperator
+                                      (Expression
+                                        (Primary
+                                          (Literal IntegerLiteral))))
+                                    ";")
+                                  (SwitchRule
+                                    (SwitchLabel
+                                      "case"
+                                      ({CaseConstant ","}+
+                                        (CaseConstant
+                                          (Expression
+                                            (Primary
+                                              (Literal IntegerLiteral))))))
+                                    "->"
+                                    (Block
+                                      "{"
+                                      (BlockStatement*
+                                        (BlockStatement
+                                          (Statement
+                                            (StatementExpression
+                                              (Expression
+                                                (Expression
+                                                  (Primary Identifier))
+                                                AssignmentOperator
+                                                (Expression
+                                                  (Primary
+                                                    (Literal IntegerLiteral)))))
+                                            ";")))
+                                      "}"))
+                                  (SwitchRule
+                                    (SwitchLabel "default")
+                                    "->"
+                                    "throw"
+                                    (Expression
+                                      "new"
+                                      (ClassInstanceCreationExpression
+                                        (ClassTypeToInstantiate Identifier)
+                                        (Arguments "(" ")")))
+                                    ";"))
+                                "}"))))
+                        "}"))))
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result "void")
+                    (MethodDeclarator
+                      Identifier
+                      "("
+                      (FormalParameterList
+                        (LastFormalParameter
+                          (FormalParameter
+                            (UnannType
+                              (UnannPrimitiveType "int"))
+                            (VariableDeclaratorId Identifier))))
+                      ")")
+                    (MethodBody
+                      (Block
+                        "{"
+                        (BlockStatement*
+                          (BlockStatement
+                            (Statement
+                              "switch"
+                              "("
+                              (Expression
+                                (Primary Identifier))
+                              ")"
+                              (SwitchBlock
+                                "{"
+                                (SwitchBlockStatementGroup*
+                                  (SwitchBlockStatementGroup
+                                    ((SwitchLabel ":")+
+                                      (SwitchLabel
+                                        "case"
+                                        ({CaseConstant ","}+
+                                          (CaseConstant
+                                            (Expression
+                                              (Primary
+                                                (Literal IntegerLiteral))))
+                                          ","
+                                          (CaseConstant
+                                            (Expression
+                                              (Primary
+                                                (Literal IntegerLiteral))))))
+                                      ":")
+                                    (BlockStatement+
+                                      (BlockStatement
+                                        (Statement
+                                          (StatementExpression
+                                            (Expression
+                                              (Expression
+                                                (Primary Identifier))
+                                              AssignmentOperator
+                                              (Expression
+                                                (Primary
+                                                  (Literal IntegerLiteral)))))
+                                          ";"))
+                                      (BlockStatement
+                                        (Statement "break" ";"))))
+                                  (SwitchBlockStatementGroup
+                                    ((SwitchLabel ":")+
+                                      (SwitchLabel "default")
+                                      ":")
+                                    (BlockStatement+
+                                      (BlockStatement
+                                        (Statement
+                                          (StatementExpression
+                                            (Expression
+                                              (Expression
+                                                (Primary Identifier))
+                                              AssignmentOperator
+                                              (Expression
+                                                (Primary
+                                                  (Literal IntegerLiteral)))))
+                                          ";")))))
+                                "}")))
+                          (BlockStatement
+                            (Statement
+                              "switch"
+                              "("
+                              (Expression
+                                (Primary Identifier))
+                              ")"
+                              (SwitchBlock "{" "}"))))
+                        "}"))))
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result "void")
+                    (MethodDeclarator
+                      Identifier
+                      "("
+                      (FormalParameterList
+                        ((FormalParameter ",")*
+                          (FormalParameter
+                            (UnannType
+                              (UnannPrimitiveType "int"))
+                            (VariableDeclaratorId Identifier))
+                          ",")
+                        (LastFormalParameter
+                          (FormalParameter
+                            (UnannType
+                              (UnannPrimitiveType "int"))
+                            (VariableDeclaratorId Identifier))))
+                      ")")
+                    (MethodBody
+                      (Block
+                        "{"
+                        (BlockStatement*
+                          (BlockStatement
+                            (LocalVariableDeclarationStatement
+                              (LocalVariableType
+                                (UnannType
+                                  (UnannPrimitiveType "int")))
+                              ({VariableDeclarator ","}+
+                                (VariableDeclarator
+                                  (VariableDeclaratorId Identifier)
+                                  "="
+                                  (VariableInitializer
+                                    (Expression
+                                      (Expression
+                                        "switch"
+                                        "("
+                                        (Expression
+                                          (Primary Identifier))
+                                        ")"
+                                        (SwitchBlock
+                                          "{"
+                                          (SwitchRule+
+                                            (SwitchRule
+                                              (SwitchLabel "default")
+                                              "->"
+                                              (Expression
+                                                (Primary
+                                                  (Literal IntegerLiteral)))
+                                              ";"))
+                                          "}"))
+                                      "+"
+                                      (Expression
+                                        (Primary
+                                          (Literal IntegerLiteral)))))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (MethodInvocation
+                                    UnqualifiedMethodIdentifier
+                                    (Arguments
+                                      "("
+                                      ({Expression ","}*
+                                        (Expression
+                                          "switch"
+                                          "("
+                                          (Expression
+                                            (Primary Identifier))
+                                          ")"
+                                          (SwitchBlock
+                                            "{"
+                                            (SwitchRule+
+                                              (SwitchRule
+                                                (SwitchLabel "default")
+                                                "->"
+                                                (Expression
+                                                  (Primary
+                                                    (Literal IntegerLiteral)))
+                                                ";"))
+                                            "}")))
+                                      ")"))))
+                              ";"))
+                          (BlockStatement
+                            (LocalVariableDeclarationStatement
+                              (LocalVariableType
+                                (UnannType
+                                  (UnannPrimitiveType "int")))
+                              ({VariableDeclarator ","}+
+                                (VariableDeclarator
+                                  (VariableDeclaratorId Identifier)
+                                  "="
+                                  (VariableInitializer
+                                    (Expression
+                                      "switch"
+                                      "("
+                                      (Expression
+                                        (Primary Identifier))
+                                      ")"
+                                      (SwitchBlock
+                                        "{"
+                                        (SwitchRule+
+                                          (SwitchRule
+                                            (SwitchLabel "default")
+                                            "->"
+                                            (Expression
+                                              "switch"
+                                              "("
+                                              (Expression
+                                                (Primary Identifier))
+                                              ")"
+                                              (SwitchBlock
+                                                "{"
+                                                (SwitchRule+
+                                                  (SwitchRule
+                                                    (SwitchLabel "default")
+                                                    "->"
+                                                    (Expression
+                                                      (Primary
+                                                        (Literal IntegerLiteral)))
+                                                    ";"))
+                                                "}"))
+                                            ";"))
+                                        "}")))))
+                              ";"))
+                          (BlockStatement
+                            (LocalVariableDeclarationStatement
+                              (LocalVariableType
+                                (UnannType
+                                  (UnannPrimitiveType "int")))
+                              ({VariableDeclarator ","}+
+                                (VariableDeclarator
+                                  (VariableDeclaratorId Identifier)
+                                  "="
+                                  (VariableInitializer
+                                    (Expression
+                                      (Expression
+                                        (Expression
+                                          "switch"
+                                          "("
+                                          (Expression
+                                            (Primary Identifier))
+                                          ")"
+                                          (SwitchBlock
+                                            "{"
+                                            (SwitchRule+
+                                              (SwitchRule
+                                                (SwitchLabel "default")
+                                                "->"
+                                                (Expression
+                                                  (Primary
+                                                    (Literal IntegerLiteral)))
+                                                ";"))
+                                            "}"))
+                                        ">"
+                                        (Expression
+                                          (Primary
+                                            (Literal IntegerLiteral))))
+                                      "?"
+                                      (Expression
+                                        (Primary
+                                          (Literal IntegerLiteral)))
+                                      ":"
+                                      (Expression
+                                        (Primary
+                                          (Literal IntegerLiteral)))))))
+                              ";"))
+                          (BlockStatement
+                            (LocalVariableDeclarationStatement
+                              (LocalVariableType
+                                (UnannType
+                                  (UnannReferenceType
+                                    (UnannArrayType
+                                      (UnannPrimitiveType "int")
+                                      ((Annotation* "[" "]")+ "[" "]")))))
+                              ({VariableDeclarator ","}+
+                                (VariableDeclarator
+                                  (VariableDeclaratorId Identifier)
+                                  "="
+                                  (VariableInitializer
+                                    (ArrayInitializer
+                                      "{"
+                                      ({VariableInitializer ","}*
+                                        (VariableInitializer
+                                          (Expression
+                                            "switch"
+                                            "("
+                                            (Expression
+                                              (Primary Identifier))
+                                            ")"
+                                            (SwitchBlock
+                                              "{"
+                                              (SwitchRule+
+                                                (SwitchRule
+                                                  (SwitchLabel "default")
+                                                  "->"
+                                                  (Expression
+                                                    (Primary
+                                                      (Literal IntegerLiteral)))
+                                                  ";"))
+                                              "}"))))
+                                      "}"))))
+                              ";")))
+                        "}"))))
+                (ClassBodyDeclaration
+                  (FieldDeclaration
+                    (UnannType
+                      (UnannPrimitiveType "int"))
+                    ({VariableDeclarator ","}+
+                      (VariableDeclarator
+                        (VariableDeclaratorId Identifier)
+                        "="
+                        (VariableInitializer
+                          (Expression
+                            (Primary
+                              (Literal IntegerLiteral))))))
+                    ";"))
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result "void")
+                    (MethodDeclarator Identifier "(" ")")
+                    (MethodBody
+                      (Block
+                        "{"
+                        (BlockStatement*
+                          (BlockStatement
+                            (LocalVariableDeclarationStatement
+                              (LocalVariableType
+                                (UnannType
+                                  (UnannPrimitiveType "int")))
+                              ({VariableDeclarator ","}+
+                                (VariableDeclarator
+                                  (VariableDeclaratorId Identifier)
+                                  "="
+                                  (VariableInitializer
+                                    (Expression
+                                      (Primary
+                                        (Literal IntegerLiteral))))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Primary
+                                      (Literal IntegerLiteral)))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  "++"))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Primary
+                                      (Literal IntegerLiteral)))))
+                              ";"))
+                          (BlockStatement
+                            (LocalVariableDeclarationStatement
+                              (LocalVariableType
+                                (UnannType
+                                  (UnannPrimitiveType "int")))
+                              ({VariableDeclarator ","}+
+                                (VariableDeclarator
+                                  (VariableDeclaratorId Identifier)
+                                  "="
+                                  (VariableInitializer
+                                    (Expression
+                                      (Expression
+                                        (Primary Identifier))
+                                      "-"
+                                      (Expression
+                                        (Primary
+                                          (Literal IntegerLiteral)))))))
+                              ";"))
+                          (BlockStatement
+                            (LocalVariableDeclarationStatement
+                              (LocalVariableType
+                                (UnannType
+                                  (UnannPrimitiveType "int")))
+                              ({VariableDeclarator ","}+
+                                (VariableDeclarator
+                                  (VariableDeclaratorId Identifier)
+                                  "="
+                                  (VariableInitializer
+                                    (Expression
+                                      "-"
+                                      (Expression
+                                        (Primary Identifier))))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary "this"))
+                                  "."
+                                  (Selector
+                                    Identifier
+                                    (Arguments
+                                      "("
+                                      ({Expression ","}*
+                                        (Expression
+                                          (Primary Identifier)))
+                                      ")"))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  "."
+                                  (Selector
+                                    Identifier
+                                    (Arguments "(" ")"))))
+                              ";")))
+                        "}"))))
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result "void")
+                    (MethodDeclarator
+                      Identifier
+                      "("
+                      (FormalParameterList
+                        (LastFormalParameter
+                          (FormalParameter
+                            (UnannType
+                              (UnannPrimitiveType "int"))
+                            (VariableDeclaratorId Identifier))))
+                      ")")
+                    (MethodBody
+                      (Block "{" "}")))))
+              "}")))))))

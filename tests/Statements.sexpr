@@ -604,76 +604,84 @@
                               (Expression
                                 (Primary Identifier))
                               ")"
-                              "{"
-                              (SwitchBlockStatementGroup*
-                                (SwitchBlockStatementGroup
-                                  (SwitchLabel+
-                                    (SwitchLabel
-                                      "case"
-                                      (Expression
-                                        (Primary
-                                          (Literal IntegerLiteral)))
-                                      ":"))
-                                  (BlockStatement+
-                                    (BlockStatement
-                                      (Statement
-                                        (StatementExpression
-                                          (Expression
-                                            (Expression
-                                              (Primary Identifier))
-                                            AssignmentOperator
+                              (SwitchBlock
+                                "{"
+                                (SwitchBlockStatementGroup*
+                                  (SwitchBlockStatementGroup
+                                    ((SwitchLabel ":")+
+                                      (SwitchLabel
+                                        "case"
+                                        ({CaseConstant ","}+
+                                          (CaseConstant
                                             (Expression
                                               (Primary
-                                                (Literal IntegerLiteral)))))
-                                        ";"))
-                                    (BlockStatement
-                                      (Statement "break" ";"))))
-                                (SwitchBlockStatementGroup
-                                  (SwitchLabel+
-                                    (SwitchLabel
-                                      "case"
-                                      (Expression
-                                        (Primary
-                                          (Literal IntegerLiteral)))
+                                                (Literal IntegerLiteral))))))
                                       ":")
-                                    (SwitchLabel
-                                      "case"
-                                      (Expression
-                                        (Primary
-                                          (Literal IntegerLiteral)))
-                                      ":"))
-                                  (BlockStatement+
-                                    (BlockStatement
-                                      (Statement
-                                        (StatementExpression
-                                          (Expression
+                                    (BlockStatement+
+                                      (BlockStatement
+                                        (Statement
+                                          (StatementExpression
                                             (Expression
-                                              (Primary Identifier))
-                                            AssignmentOperator
-                                            (Expression
-                                              (Primary
-                                                (Literal IntegerLiteral)))))
-                                        ";"))
-                                    (BlockStatement
-                                      (Statement "break" ";"))))
-                                (SwitchBlockStatementGroup
-                                  (SwitchLabel+
-                                    (SwitchLabel "default" ":"))
-                                  (BlockStatement+
-                                    (BlockStatement
-                                      (Statement
-                                        (StatementExpression
-                                          (Expression
-                                            (Expression
-                                              (Primary Identifier))
-                                            AssignmentOperator
-                                            (Expression
-                                              "-"
+                                              (Expression
+                                                (Primary Identifier))
+                                              AssignmentOperator
                                               (Expression
                                                 (Primary
-                                                  (Literal IntegerLiteral))))))
-                                        ";")))))
-                              "}"))
+                                                  (Literal IntegerLiteral)))))
+                                          ";"))
+                                      (BlockStatement
+                                        (Statement "break" ";"))))
+                                  (SwitchBlockStatementGroup
+                                    ((SwitchLabel ":")+
+                                      (SwitchLabel
+                                        "case"
+                                        ({CaseConstant ","}+
+                                          (CaseConstant
+                                            (Expression
+                                              (Primary
+                                                (Literal IntegerLiteral))))))
+                                      ":"
+                                      (SwitchLabel
+                                        "case"
+                                        ({CaseConstant ","}+
+                                          (CaseConstant
+                                            (Expression
+                                              (Primary
+                                                (Literal IntegerLiteral))))))
+                                      ":")
+                                    (BlockStatement+
+                                      (BlockStatement
+                                        (Statement
+                                          (StatementExpression
+                                            (Expression
+                                              (Expression
+                                                (Primary Identifier))
+                                              AssignmentOperator
+                                              (Expression
+                                                (Primary
+                                                  (Literal IntegerLiteral)))))
+                                          ";"))
+                                      (BlockStatement
+                                        (Statement "break" ";"))))
+                                  (SwitchBlockStatementGroup
+                                    ((SwitchLabel ":")+
+                                      (SwitchLabel "default")
+                                      ":")
+                                    (BlockStatement+
+                                      (BlockStatement
+                                        (Statement
+                                          (StatementExpression
+                                            (Expression
+                                              (Expression
+                                                (Primary Identifier))
+                                              AssignmentOperator
+                                              (Expression
+                                                "-"
+                                                (Expression
+                                                  (Primary
+                                                    (Literal IntegerLiteral))))))
+                                          ";")))))
+                                "}")))
                           (BlockStatement
                             (Statement
                               Identifier
@@ -1111,8 +1119,8 @@
                                   (Resource
                                     (UnannReferenceType
                                       (UnannClassType
-                                        TypeIdentifier
-                                        (("." Annotation* TypeIdentifier TypeArguments?)* "." TypeIdentifier "." TypeIdentifier)))
+                                        ((Identifier ".")* Identifier "." Identifier ".")
+                                        TypeIdentifier))
                                     (VariableDeclaratorId Identifier)
                                     "="
                                     (Expression
@@ -1130,9 +1138,8 @@
                                             (Primary Identifier))
                                           "."
                                           (Selector
-                                            (MethodInvocation
-                                              Identifier
-                                              (Arguments "(" ")")))))
+                                            Identifier
+                                            (Arguments "(" ")"))))
                                       ";")))
                                 "}")))
                           (BlockStatement
@@ -1172,7 +1179,7 @@
                                     "="
                                     (Expression
                                       (MethodInvocation
-                                        Identifier
+                                        UnqualifiedMethodIdentifier
                                         (Arguments "(" ")")))))
                                 ")")
                               (Block

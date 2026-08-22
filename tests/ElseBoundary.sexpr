@@ -31,7 +31,7 @@
                               (StatementExpression
                                 (Expression
                                   (MethodInvocation
-                                    Identifier
+                                    UnqualifiedMethodIdentifier
                                     (Arguments "(" ")"))))
                               ";"))
                           (BlockStatement
@@ -48,7 +48,7 @@
                               (StatementExpression
                                 (Expression
                                   (MethodInvocation
-                                    Identifier
+                                    UnqualifiedMethodIdentifier
                                     (Arguments "(" ")"))))
                               ";"))
                           (BlockStatement
@@ -65,7 +65,7 @@
                               (StatementExpression
                                 (Expression
                                   (MethodInvocation
-                                    Identifier
+                                    UnqualifiedMethodIdentifier
                                     (Arguments
                                       "("
                                       ({Expression ","}*
@@ -102,7 +102,7 @@
                                   (StatementExpression
                                     (Expression
                                       (MethodInvocation
-                                        Identifier
+                                        UnqualifiedMethodIdentifier
                                         (Arguments "(" ")"))))
                                   ";")
                                 Else
@@ -110,7 +110,7 @@
                                   (StatementExpression
                                     (Expression
                                       (MethodInvocation
-                                        Identifier
+                                        UnqualifiedMethodIdentifier
                                         (Arguments "(" ")"))))
                                   ";")))))
                         "}")))))

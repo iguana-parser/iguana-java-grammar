@@ -3,13 +3,15 @@
     (ImportDeclaration*
       (ImportDeclaration
         "import"
-        (QualifiedIdentifier
-          ({Identifier "."}+ Identifier "." Identifier "." Identifier))
+        (TypeName
+          ((Identifier ".")* Identifier "." Identifier ".")
+          TypeIdentifier)
         ";")
       (ImportDeclaration
         "import"
-        (QualifiedIdentifier
-          ({Identifier "."}+ Identifier "." Identifier "." Identifier))
+        (TypeName
+          ((Identifier ".")* Identifier "." Identifier ".")
+          TypeIdentifier)
         ";"))
     (TypeDeclaration*
       (TypeDeclaration
@@ -52,12 +54,12 @@
                       "throws"
                       ({ClassType ","}+
                         (ClassType
-                          TypeIdentifier
-                          (("." Annotation* TypeIdentifier TypeArguments?)* "." TypeIdentifier "." TypeIdentifier))
+                          ((Identifier ".")* Identifier "." Identifier ".")
+                          TypeIdentifier)
                         ","
                         (ClassType
-                          TypeIdentifier
-                          (("." Annotation* TypeIdentifier TypeArguments?)* "." TypeIdentifier "." TypeIdentifier))))
+                          ((Identifier ".")* Identifier "." Identifier ".")
+                          TypeIdentifier)))
                     (MethodBody
                       (Block "{" "}"))))
                 (ClassBodyDeclaration
@@ -79,7 +81,7 @@
                                       (StatementExpression
                                         (Expression
                                           (MethodInvocation
-                                            Identifier
+                                            UnqualifiedMethodIdentifier
                                             (Arguments "(" ")"))))
                                       ";")))
                                 "}")
@@ -102,9 +104,8 @@
                                                 (Primary Identifier))
                                               "."
                                               (Selector
-                                                (MethodInvocation
-                                                  Identifier
-                                                  (Arguments "(" ")")))))
+                                                Identifier
+                                                (Arguments "(" ")"))))
                                           ";")))
                                     "}"))))))
                         "}"))))
@@ -127,7 +128,7 @@
                                       (StatementExpression
                                         (Expression
                                           (MethodInvocation
-                                            Identifier
+                                            UnqualifiedMethodIdentifier
                                             (Arguments "(" ")"))))
                                       ";")))
                                 "}")
@@ -153,9 +154,8 @@
                                                 (Primary Identifier))
                                               "."
                                               (Selector
-                                                (MethodInvocation
-                                                  Identifier
-                                                  (Arguments "(" ")")))))
+                                                Identifier
+                                                (Arguments "(" ")"))))
                                           ";")))
                                     "}"))))))
                         "}"))))
@@ -178,7 +178,7 @@
                                       (StatementExpression
                                         (Expression
                                           (MethodInvocation
-                                            Identifier
+                                            UnqualifiedMethodIdentifier
                                             (Arguments "(" ")"))))
                                       ";")))
                                 "}")
@@ -190,8 +190,7 @@
                                     (VariableModifier
                                       (Annotation
                                         "@"
-                                        (QualifiedIdentifier
-                                          ({Identifier "."}+ Identifier)))))
+                                        (TypeName TypeIdentifier))))
                                   (CatchType
                                     (UnannClassType TypeIdentifier)
                                     (("|" ClassType)*
@@ -210,9 +209,8 @@
                                                 (Primary Identifier))
                                               "."
                                               (Selector
-                                                (MethodInvocation
-                                                  Identifier
-                                                  (Arguments "(" ")")))))
+                                                Identifier
+                                                (Arguments "(" ")"))))
                                           ";")))
                                     "}"))))))
                         "}"))))
@@ -235,7 +233,7 @@
                                       (StatementExpression
                                         (Expression
                                           (MethodInvocation
-                                            Identifier
+                                            UnqualifiedMethodIdentifier
                                             (Arguments "(" ")"))))
                                       ";")))
                                 "}")
@@ -245,8 +243,8 @@
                                   "("
                                   (CatchType
                                     (UnannClassType
-                                      TypeIdentifier
-                                      (("." Annotation* TypeIdentifier TypeArguments?)* "." TypeIdentifier "." TypeIdentifier)))
+                                      ((Identifier ".")* Identifier "." Identifier ".")
+                                      TypeIdentifier))
                                   Identifier
                                   ")"
                                   (Block
@@ -260,9 +258,8 @@
                                                 (Primary Identifier))
                                               "."
                                               (Selector
-                                                (MethodInvocation
-                                                  Identifier
-                                                  (Arguments "(" ")")))))
+                                                Identifier
+                                                (Arguments "(" ")"))))
                                           ";")))
                                     "}"))))))
                         "}"))))
@@ -287,8 +284,8 @@
                                   (Resource
                                     (UnannReferenceType
                                       (UnannClassType
-                                        TypeIdentifier
-                                        (("." Annotation* TypeIdentifier TypeArguments?)* "." TypeIdentifier "." TypeIdentifier)))
+                                        ((Identifier ".")* Identifier "." Identifier ".")
+                                        TypeIdentifier))
                                     (VariableDeclaratorId Identifier)
                                     "="
                                     (Expression
@@ -306,9 +303,8 @@
                                             (Primary Identifier))
                                           "."
                                           (Selector
-                                            (MethodInvocation
-                                              Identifier
-                                              (Arguments "(" ")")))))
+                                            Identifier
+                                            (Arguments "(" ")"))))
                                       ";")))
                                 "}")
                               (CatchClause*
@@ -345,15 +341,14 @@
                                               (Selector Identifier))
                                             "."
                                             (Selector
-                                              (MethodInvocation
-                                                Identifier
-                                                (Arguments
-                                                  "("
-                                                  ({Expression ","}*
-                                                    (Expression
-                                                      (Primary
-                                                        (Literal StringLiteral))))
-                                                  ")")))))
+                                              Identifier
+                                              (Arguments
+                                                "("
+                                                ({Expression ","}*
+                                                  (Expression
+                                                    (Primary
+                                                      (Literal StringLiteral))))
+                                                ")"))))
                                         ";")))
                                   "}")))))
                         "}"))))
@@ -375,8 +370,8 @@
                                 (UnannType
                                   (UnannReferenceType
                                     (UnannClassType
-                                      TypeIdentifier
-                                      (("." Annotation* TypeIdentifier TypeArguments?)* "." TypeIdentifier "." TypeIdentifier)))))
+                                      ((Identifier ".")* Identifier "." Identifier ".")
+                                      TypeIdentifier))))
                               ({VariableDeclarator ","}+
                                 (VariableDeclarator
                                   (VariableDeclaratorId Identifier)
@@ -407,9 +402,8 @@
                                             (Primary Identifier))
                                           "."
                                           (Selector
-                                            (MethodInvocation
-                                              Identifier
-                                              (Arguments "(" ")")))))
+                                            Identifier
+                                            (Arguments "(" ")"))))
                                       ";")))
                                 "}"))))
                         "}"))))
@@ -421,8 +415,8 @@
                     (UnannType
                       (UnannReferenceType
                         (UnannClassType
-                          TypeIdentifier
-                          (("." Annotation* TypeIdentifier TypeArguments?)* "." TypeIdentifier "." TypeIdentifier))))
+                          ((Identifier ".")* Identifier "." Identifier ".")
+                          TypeIdentifier)))
                     ({VariableDeclarator ","}+
                       (VariableDeclarator
                         (VariableDeclaratorId Identifier)
@@ -465,9 +459,8 @@
                                             (Primary Identifier))
                                           "."
                                           (Selector
-                                            (MethodInvocation
-                                              Identifier
-                                              (Arguments "(" ")")))))
+                                            Identifier
+                                            (Arguments "(" ")"))))
                                       ";")))
                                 "}"))))
                         "}"))))
@@ -476,8 +469,8 @@
                     (UnannType
                       (UnannReferenceType
                         (UnannClassType
-                          TypeIdentifier
-                          (("." Annotation* TypeIdentifier TypeArguments?)* "." TypeIdentifier "." TypeIdentifier))))
+                          ((Identifier ".")* Identifier "." Identifier ".")
+                          TypeIdentifier)))
                     ({VariableDeclarator ","}+
                       (VariableDeclarator
                         (VariableDeclaratorId Identifier)))
@@ -516,9 +509,8 @@
                                             (Selector Identifier))
                                           "."
                                           (Selector
-                                            (MethodInvocation
-                                              Identifier
-                                              (Arguments "(" ")")))))
+                                            Identifier
+                                            (Arguments "(" ")"))))
                                       ";")))
                                 "}"))))
                         "}"))))
@@ -540,8 +532,8 @@
                                 (UnannType
                                   (UnannReferenceType
                                     (UnannClassType
-                                      TypeIdentifier
-                                      (("." Annotation* TypeIdentifier TypeArguments?)* "." TypeIdentifier "." TypeIdentifier)))))
+                                      ((Identifier ".")* Identifier "." Identifier ".")
+                                      TypeIdentifier))))
                               ({VariableDeclarator ","}+
                                 (VariableDeclarator
                                   (VariableDeclaratorId Identifier)
@@ -564,8 +556,8 @@
                                   (Resource
                                     (UnannReferenceType
                                       (UnannClassType
-                                        TypeIdentifier
-                                        (("." Annotation* TypeIdentifier TypeArguments?)* "." TypeIdentifier "." TypeIdentifier)))
+                                        ((Identifier ".")* Identifier "." Identifier ".")
+                                        TypeIdentifier))
                                     (VariableDeclaratorId Identifier)
                                     "="
                                     (Expression
@@ -583,9 +575,8 @@
                                             (Primary Identifier))
                                           "."
                                           (Selector
-                                            (MethodInvocation
-                                              Identifier
-                                              (Arguments "(" ")")))))
+                                            Identifier
+                                            (Arguments "(" ")"))))
                                       ";"))
                                   (BlockStatement
                                     (Statement
@@ -595,9 +586,8 @@
                                             (Primary Identifier))
                                           "."
                                           (Selector
-                                            (MethodInvocation
-                                              Identifier
-                                              (Arguments "(" ")")))))
+                                            Identifier
+                                            (Arguments "(" ")"))))
                                       ";")))
                                 "}"))))
                         "}")))))

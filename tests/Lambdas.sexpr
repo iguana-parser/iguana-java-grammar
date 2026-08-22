@@ -3,33 +3,39 @@
     (ImportDeclaration*
       (ImportDeclaration
         "import"
-        (QualifiedIdentifier
-          ({Identifier "."}+ Identifier "." Identifier "." Identifier))
+        (TypeName
+          ((Identifier ".")* Identifier "." Identifier ".")
+          TypeIdentifier)
         ";")
       (ImportDeclaration
         "import"
-        (QualifiedIdentifier
-          ({Identifier "."}+ Identifier "." Identifier "." Identifier "." Identifier))
+        (TypeName
+          ((Identifier ".")* Identifier "." Identifier "." Identifier ".")
+          TypeIdentifier)
         ";")
       (ImportDeclaration
         "import"
-        (QualifiedIdentifier
-          ({Identifier "."}+ Identifier "." Identifier "." Identifier "." Identifier))
+        (TypeName
+          ((Identifier ".")* Identifier "." Identifier "." Identifier ".")
+          TypeIdentifier)
         ";")
       (ImportDeclaration
         "import"
-        (QualifiedIdentifier
-          ({Identifier "."}+ Identifier "." Identifier "." Identifier "." Identifier))
+        (TypeName
+          ((Identifier ".")* Identifier "." Identifier "." Identifier ".")
+          TypeIdentifier)
         ";")
       (ImportDeclaration
         "import"
-        (QualifiedIdentifier
-          ({Identifier "."}+ Identifier "." Identifier "." Identifier "." Identifier))
+        (TypeName
+          ((Identifier ".")* Identifier "." Identifier "." Identifier ".")
+          TypeIdentifier)
         ";")
       (ImportDeclaration
         "import"
-        (QualifiedIdentifier
-          ({Identifier "."}+ Identifier "." Identifier "." Identifier "." Identifier))
+        (TypeName
+          ((Identifier ".")* Identifier "." Identifier "." Identifier ".")
+          TypeIdentifier)
         ";"))
     (TypeDeclaration*
       (TypeDeclaration
@@ -347,8 +353,7 @@
                                         (VariableModifier
                                           (Annotation
                                             "@"
-                                            (QualifiedIdentifier
-                                              ({Identifier "."}+ Identifier)))))
+                                            (TypeName TypeIdentifier))))
                                       (LambdaParameterType "var")
                                       (VariableDeclaratorId Identifier))))
                                 ")")
@@ -473,18 +478,20 @@
                               (TypeArgument
                                 (ReferenceType
                                   (ClassType
-                                    TypeIdentifier
-                                    (TypeArguments
-                                      "<"
-                                      ({TypeArgument ","}+
-                                        (TypeArgument
-                                          (ReferenceType
-                                            (ClassType TypeIdentifier)))
-                                        ","
-                                        (TypeArgument
-                                          (ReferenceType
-                                            (ClassType TypeIdentifier))))
-                                      ">")))))
+                                    (MarkedClassType
+                                      (MarkedTypeComponent
+                                        TypeIdentifier
+                                        (TypeArguments
+                                          "<"
+                                          ({TypeArgument ","}+
+                                            (TypeArgument
+                                              (ReferenceType
+                                                (ClassType TypeIdentifier)))
+                                            ","
+                                            (TypeArgument
+                                              (ReferenceType
+                                                (ClassType TypeIdentifier))))
+                                          ">")))))))
                             ">"))))
                     ({VariableDeclarator ","}+
                       (VariableDeclarator
@@ -573,18 +580,20 @@
                               (TypeArgument
                                 (ReferenceType
                                   (ClassType
-                                    TypeIdentifier
-                                    (TypeArguments
-                                      "<"
-                                      ({TypeArgument ","}+
-                                        (TypeArgument
-                                          (ReferenceType
-                                            (ClassType TypeIdentifier)))
-                                        ","
-                                        (TypeArgument
-                                          (ReferenceType
-                                            (ClassType TypeIdentifier))))
-                                      ">")))))
+                                    (MarkedClassType
+                                      (MarkedTypeComponent
+                                        TypeIdentifier
+                                        (TypeArguments
+                                          "<"
+                                          ({TypeArgument ","}+
+                                            (TypeArgument
+                                              (ReferenceType
+                                                (ClassType TypeIdentifier)))
+                                            ","
+                                            (TypeArgument
+                                              (ReferenceType
+                                                (ClassType TypeIdentifier))))
+                                          ">")))))))
                             ">"))))
                     ({VariableDeclarator ","}+
                       (VariableDeclarator
@@ -636,33 +645,31 @@
                                     (Primary Identifier))
                                   "."
                                   (Selector
-                                    (MethodInvocation
-                                      Identifier
-                                      (Arguments
-                                        "("
-                                        ({Expression ","}*
-                                          (Expression
-                                            (Lambda
-                                              (LambdaParameters Identifier)
-                                              "->"
-                                              (LambdaBody
+                                    Identifier
+                                    (Arguments
+                                      "("
+                                      ({Expression ","}*
+                                        (Expression
+                                          (Lambda
+                                            (LambdaParameters Identifier)
+                                            "->"
+                                            (LambdaBody
+                                              (Expression
                                                 (Expression
                                                   (Expression
-                                                    (Expression
-                                                      (Primary Identifier))
-                                                    "."
-                                                    (Selector Identifier))
+                                                    (Primary Identifier))
                                                   "."
-                                                  (Selector
-                                                    (MethodInvocation
-                                                      Identifier
-                                                      (Arguments
-                                                        "("
-                                                        ({Expression ","}*
-                                                          (Expression
-                                                            (Primary Identifier)))
-                                                        ")"))))))))
-                                        ")")))))
+                                                  (Selector Identifier))
+                                                "."
+                                                (Selector
+                                                  Identifier
+                                                  (Arguments
+                                                    "("
+                                                    ({Expression ","}*
+                                                      (Expression
+                                                        (Primary Identifier)))
+                                                    ")")))))))
+                                      ")"))))
                               ";"))
                           (BlockStatement
                             (Statement
@@ -672,24 +679,23 @@
                                     (Primary Identifier))
                                   "."
                                   (Selector
-                                    (MethodInvocation
-                                      Identifier
-                                      (Arguments
-                                        "("
-                                        ({Expression ","}*
-                                          (Expression
-                                            (Lambda
-                                              (LambdaParameters Identifier)
-                                              "->"
-                                              (LambdaBody
+                                    Identifier
+                                    (Arguments
+                                      "("
+                                      ({Expression ","}*
+                                        (Expression
+                                          (Lambda
+                                            (LambdaParameters Identifier)
+                                            "->"
+                                            (LambdaBody
+                                              (Expression
                                                 (Expression
-                                                  (Expression
-                                                    (Primary Identifier))
-                                                  "<"
-                                                  (Expression
-                                                    (Primary
-                                                      (Literal IntegerLiteral))))))))
-                                        ")")))))
+                                                  (Primary Identifier))
+                                                "<"
+                                                (Expression
+                                                  (Primary
+                                                    (Literal IntegerLiteral))))))))
+                                      ")"))))
                               ";"))
                           (BlockStatement
                             (Statement
@@ -699,27 +705,26 @@
                                     (Primary Identifier))
                                   "."
                                   (Selector
-                                    (MethodInvocation
-                                      Identifier
-                                      (Arguments
-                                        "("
-                                        ({Expression ","}*
-                                          (Expression
-                                            (Lambda
-                                              (LambdaParameters
-                                                "("
-                                                (LambdaParameterList
-                                                  ({Identifier ","}+ Identifier "," Identifier))
-                                                ")")
-                                              "->"
-                                              (LambdaBody
+                                    Identifier
+                                    (Arguments
+                                      "("
+                                      ({Expression ","}*
+                                        (Expression
+                                          (Lambda
+                                            (LambdaParameters
+                                              "("
+                                              (LambdaParameterList
+                                                ({Identifier ","}+ Identifier "," Identifier))
+                                              ")")
+                                            "->"
+                                            (LambdaBody
+                                              (Expression
                                                 (Expression
-                                                  (Expression
-                                                    (Primary Identifier))
-                                                  "-"
-                                                  (Expression
-                                                    (Primary Identifier)))))))
-                                        ")")))))
+                                                  (Primary Identifier))
+                                                "-"
+                                                (Expression
+                                                  (Primary Identifier)))))))
+                                      ")"))))
                               ";")))
                         "}")))))
               "}")))))))

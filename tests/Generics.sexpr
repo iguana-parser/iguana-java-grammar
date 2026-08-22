@@ -120,19 +120,21 @@
                                 "&"
                                 (ReferenceType
                                   (ClassType
-                                    TypeIdentifier
-                                    (TypeArguments
-                                      "<"
-                                      ({TypeArgument ","}+
-                                        (TypeArgument
-                                          (ReferenceType
-                                            (ClassType TypeIdentifier))))
-                                      ">")))
+                                    (MarkedClassType
+                                      (MarkedTypeComponent
+                                        TypeIdentifier
+                                        (TypeArguments
+                                          "<"
+                                          ({TypeArgument ","}+
+                                            (TypeArgument
+                                              (ReferenceType
+                                                (ClassType TypeIdentifier))))
+                                          ">")))))
                                 "&"
                                 (ReferenceType
                                   (ClassType
-                                    TypeIdentifier
-                                    (("." Annotation* TypeIdentifier TypeArguments?)* "." TypeIdentifier "." TypeIdentifier)))))))
+                                    ((Identifier ".")* Identifier "." Identifier ".")
+                                    TypeIdentifier))))))
                         ">")
                       (ClassBody "{" "}"))))
                 (ClassBodyDeclaration
@@ -151,14 +153,16 @@
                               "extends"
                               (ReferenceType
                                 (ClassType
-                                  TypeIdentifier
-                                  (TypeArguments
-                                    "<"
-                                    ({TypeArgument ","}+
-                                      (TypeArgument
-                                        (ReferenceType
-                                          (ClassType TypeIdentifier))))
-                                    ">"))))))
+                                  (MarkedClassType
+                                    (MarkedTypeComponent
+                                      TypeIdentifier
+                                      (TypeArguments
+                                        "<"
+                                        ({TypeArgument ","}+
+                                          (TypeArgument
+                                            (ReferenceType
+                                              (ClassType TypeIdentifier))))
+                                        ">"))))))))
                         ">")
                       (ClassBody "{" "}"))))
                 (ClassBodyDeclaration
@@ -298,14 +302,16 @@
                             "extends"
                             (ReferenceType
                               (ClassType
-                                TypeIdentifier
-                                (TypeArguments
-                                  "<"
-                                  ({TypeArgument ","}+
-                                    (TypeArgument
-                                      (ReferenceType
-                                        (ClassType TypeIdentifier))))
-                                  ">")))
+                                (MarkedClassType
+                                  (MarkedTypeComponent
+                                    TypeIdentifier
+                                    (TypeArguments
+                                      "<"
+                                      ({TypeArgument ","}+
+                                        (TypeArgument
+                                          (ReferenceType
+                                            (ClassType TypeIdentifier))))
+                                      ">")))))
                             (("&" ReferenceType)*
                               "&"
                               (ReferenceType
@@ -376,9 +382,8 @@
                                               (ReferenceType
                                                 (ClassType TypeIdentifier))))
                                           ">")
-                                        (MethodInvocation
-                                          Identifier
-                                          (Arguments "(" ")")))))))
+                                        Identifier
+                                        (Arguments "(" ")"))))))
                               ";")))
                         "}"))))
                 (ClassBodyDeclaration
@@ -418,11 +423,8 @@
                     (UnannType
                       (UnannReferenceType
                         (UnannClassType
-                          TypeIdentifier
-                          (("." Annotation* TypeIdentifier TypeArguments?)*
-                            "."
-                            TypeIdentifier
-                            "."
+                          ((Identifier ".")+ Identifier "." Identifier ".")
+                          (MarkedTypeComponent
                             TypeIdentifier
                             (TypeArguments
                               "<"
@@ -438,11 +440,8 @@
                     (UnannType
                       (UnannReferenceType
                         (UnannClassType
-                          TypeIdentifier
-                          (("." Annotation* TypeIdentifier TypeArguments?)*
-                            "."
-                            TypeIdentifier
-                            "."
+                          ((Identifier ".")+ Identifier "." Identifier ".")
+                          (MarkedTypeComponent
                             TypeIdentifier
                             (TypeArguments
                               "<"
@@ -462,11 +461,8 @@
                     (UnannType
                       (UnannReferenceType
                         (UnannClassType
-                          TypeIdentifier
-                          (("." Annotation* TypeIdentifier TypeArguments?)*
-                            "."
-                            TypeIdentifier
-                            "."
+                          ((Identifier ".")+ Identifier "." Identifier ".")
+                          (MarkedTypeComponent
                             TypeIdentifier
                             (TypeArguments
                               "<"
@@ -486,11 +482,8 @@
                     (UnannType
                       (UnannReferenceType
                         (UnannClassType
-                          TypeIdentifier
-                          (("." Annotation* TypeIdentifier TypeArguments?)*
-                            "."
-                            TypeIdentifier
-                            "."
+                          ((Identifier ".")+ Identifier "." Identifier ".")
+                          (MarkedTypeComponent
                             TypeIdentifier
                             (TypeArguments
                               "<"
@@ -502,19 +495,17 @@
                                 (TypeArgument
                                   (ReferenceType
                                     (ClassType
-                                      TypeIdentifier
-                                      (("." Annotation* TypeIdentifier TypeArguments?)*
-                                        "."
-                                        TypeIdentifier
-                                        "."
-                                        TypeIdentifier
-                                        (TypeArguments
-                                          "<"
-                                          ({TypeArgument ","}+
-                                            (TypeArgument
-                                              (ReferenceType
-                                                (ClassType TypeIdentifier))))
-                                          ">"))))))
+                                      (MarkedClassType
+                                        ((Identifier ".")* Identifier "." Identifier ".")
+                                        (MarkedTypeComponent
+                                          TypeIdentifier
+                                          (TypeArguments
+                                            "<"
+                                            ({TypeArgument ","}+
+                                              (TypeArgument
+                                                (ReferenceType
+                                                  (ClassType TypeIdentifier))))
+                                            ">")))))))
                               ">")))))
                     ({VariableDeclarator ","}+
                       (VariableDeclarator
@@ -525,11 +516,8 @@
                     (UnannType
                       (UnannReferenceType
                         (UnannClassType
-                          TypeIdentifier
-                          (("." Annotation* TypeIdentifier TypeArguments?)*
-                            "."
-                            TypeIdentifier
-                            "."
+                          ((Identifier ".")+ Identifier "." Identifier ".")
+                          (MarkedTypeComponent
                             TypeIdentifier
                             (TypeArguments
                               "<"
@@ -537,31 +525,31 @@
                                 (TypeArgument
                                   (ReferenceType
                                     (ClassType
-                                      TypeIdentifier
-                                      (TypeArguments
-                                        "<"
-                                        ({TypeArgument ","}+
-                                          (TypeArgument
-                                            (ReferenceType
-                                              (ClassType TypeIdentifier)))
-                                          ","
-                                          (TypeArgument
-                                            (ReferenceType
-                                              (ClassType
-                                                TypeIdentifier
-                                                (("." Annotation* TypeIdentifier TypeArguments?)*
-                                                  "."
-                                                  TypeIdentifier
-                                                  "."
-                                                  TypeIdentifier
-                                                  (TypeArguments
-                                                    "<"
-                                                    ({TypeArgument ","}+
-                                                      (TypeArgument
-                                                        (ReferenceType
-                                                          (ClassType TypeIdentifier))))
-                                                    ">"))))))
-                                        ">")))))
+                                      (MarkedClassType
+                                        (MarkedTypeComponent
+                                          TypeIdentifier
+                                          (TypeArguments
+                                            "<"
+                                            ({TypeArgument ","}+
+                                              (TypeArgument
+                                                (ReferenceType
+                                                  (ClassType TypeIdentifier)))
+                                              ","
+                                              (TypeArgument
+                                                (ReferenceType
+                                                  (ClassType
+                                                    (MarkedClassType
+                                                      ((Identifier ".")* Identifier "." Identifier ".")
+                                                      (MarkedTypeComponent
+                                                        TypeIdentifier
+                                                        (TypeArguments
+                                                          "<"
+                                                          ({TypeArgument ","}+
+                                                            (TypeArgument
+                                                              (ReferenceType
+                                                                (ClassType TypeIdentifier))))
+                                                          ">")))))))
+                                            ">")))))))
                               ">")))))
                     ({VariableDeclarator ","}+
                       (VariableDeclarator
@@ -572,11 +560,8 @@
                     (UnannType
                       (UnannReferenceType
                         (UnannClassType
-                          TypeIdentifier
-                          (("." Annotation* TypeIdentifier TypeArguments?)*
-                            "."
-                            TypeIdentifier
-                            "."
+                          ((Identifier ".")+ Identifier "." Identifier ".")
+                          (MarkedTypeComponent
                             TypeIdentifier
                             (TypeArguments
                               "<"
@@ -604,8 +589,8 @@
                     (UnannType
                       (UnannReferenceType
                         (UnannClassType
-                          TypeIdentifier
-                          (("." Annotation* TypeIdentifier TypeArguments?)* "." TypeIdentifier "." TypeIdentifier))))
+                          ((Identifier ".")* Identifier "." Identifier ".")
+                          TypeIdentifier)))
                     ({VariableDeclarator ","}+
                       (VariableDeclarator
                         (VariableDeclaratorId Identifier)))
@@ -639,7 +624,7 @@
                                   (VariableInitializer
                                     (Expression
                                       (MethodInvocation
-                                        Identifier
+                                        UnqualifiedMethodIdentifier
                                         (Arguments
                                           "("
                                           ({Expression ","}*

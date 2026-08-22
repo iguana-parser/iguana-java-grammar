@@ -113,9 +113,8 @@
                                 (Primary Identifier))
                               "."
                               (Selector
-                                (MethodInvocation
-                                  Identifier
-                                  (Arguments "(" ")")))))
+                                Identifier
+                                (Arguments "(" ")"))))
                           ")")
                         ";")
                       "}")))
@@ -196,9 +195,8 @@
                                     (Primary Identifier))
                                   "."
                                   (Selector
-                                    (MethodInvocation
-                                      Identifier
-                                      (Arguments "(" ")"))))))
+                                    Identifier
+                                    (Arguments "(" ")")))))
                             ";")))
                       "}")))
                 (ClassBodyDeclaration
@@ -211,16 +209,16 @@
                           (UnannType
                             (UnannReferenceType
                               (UnannClassType
-                                TypeIdentifier
-                                (("." Annotation* TypeIdentifier TypeArguments?)* "." TypeIdentifier "." TypeIdentifier))))
+                                ((Identifier ".")* Identifier "." Identifier ".")
+                                TypeIdentifier)))
                           (VariableDeclaratorId Identifier))))
                     ")"
                     (Throws
                       "throws"
                       ({ClassType ","}+
                         (ClassType
-                          TypeIdentifier
-                          (("." Annotation* TypeIdentifier TypeArguments?)* "." TypeIdentifier "." TypeIdentifier))))
+                          ((Identifier ".")* Identifier "." Identifier ".")
+                          TypeIdentifier)))
                     (ConstructorBody
                       "{"
                       (BlockStatement*
@@ -354,8 +352,7 @@
                       (ConstructorModifier
                         (Annotation
                           "@"
-                          (QualifiedIdentifier
-                            ({Identifier "."}+ Identifier)))))
+                          (TypeName TypeIdentifier))))
                     TypeIdentifier
                     "("
                     (FormalParameterList

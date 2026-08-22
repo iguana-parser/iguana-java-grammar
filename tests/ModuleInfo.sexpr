@@ -3,15 +3,15 @@
     (ImportDeclaration*
       (ImportDeclaration
         "import"
-        (QualifiedIdentifier
-          ({Identifier "."}+ Identifier "." Identifier "." Identifier "." Identifier))
+        (TypeName
+          ((Identifier ".")* Identifier "." Identifier "." Identifier ".")
+          TypeIdentifier)
         ";"))
     (ModuleDeclaration
       (Annotation*
         (Annotation
           "@"
-          (QualifiedIdentifier
-            ({Identifier "."}+ Identifier))))
+          (TypeName TypeIdentifier)))
       "open"
       "module"
       (QualifiedIdentifier
@@ -70,19 +70,23 @@
           ";")
         (ModuleDirective
           "uses"
-          (QualifiedIdentifier
-            ({Identifier "."}+ Identifier "." Identifier "." Identifier "." Identifier))
+          (TypeName
+            ((Identifier ".")* Identifier "." Identifier "." Identifier ".")
+            TypeIdentifier)
           ";")
         (ModuleDirective
           "provides"
-          (QualifiedIdentifier
-            ({Identifier "."}+ Identifier "." Identifier "." Identifier "." Identifier))
+          (TypeName
+            ((Identifier ".")* Identifier "." Identifier "." Identifier ".")
+            TypeIdentifier)
           "with"
-          ({QualifiedIdentifier ","}+
-            (QualifiedIdentifier
-              ({Identifier "."}+ Identifier "." Identifier "." Identifier "." Identifier "." Identifier))
+          ({TypeName ","}+
+            (TypeName
+              ((Identifier ".")* Identifier "." Identifier "." Identifier "." Identifier ".")
+              TypeIdentifier)
             ","
-            (QualifiedIdentifier
-              ({Identifier "."}+ Identifier "." Identifier "." Identifier "." Identifier "." Identifier)))
+            (TypeName
+              ((Identifier ".")* Identifier "." Identifier "." Identifier "." Identifier ".")
+              TypeIdentifier))
           ";"))
       "}")))

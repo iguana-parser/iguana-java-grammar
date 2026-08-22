@@ -1,0 +1,3 @@
+import yield;
+
+class YieldImport {}

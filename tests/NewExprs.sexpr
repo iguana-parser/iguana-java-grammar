@@ -3,13 +3,15 @@
     (ImportDeclaration*
       (ImportDeclaration
         "import"
-        (QualifiedIdentifier
-          ({Identifier "."}+ Identifier "." Identifier "." Identifier))
+        (TypeName
+          ((Identifier ".")* Identifier "." Identifier ".")
+          TypeIdentifier)
         ";")
       (ImportDeclaration
         "import"
-        (QualifiedIdentifier
-          ({Identifier "."}+ Identifier "." Identifier "." Identifier))
+        (TypeName
+          ((Identifier ".")* Identifier "." Identifier ".")
+          TypeIdentifier)
         ";"))
     (TypeDeclaration*
       (TypeDeclaration
@@ -239,8 +241,7 @@
                                         (MethodModifier
                                           (Annotation
                                             "@"
-                                            (QualifiedIdentifier
-                                              ({Identifier "."}+ Identifier))))
+                                            (TypeName TypeIdentifier)))
                                         (MethodModifier "public"))
                                       (Result
                                         (UnannType
@@ -294,8 +295,7 @@
                                         (MethodModifier
                                           (Annotation
                                             "@"
-                                            (QualifiedIdentifier
-                                              ({Identifier "."}+ Identifier))))
+                                            (TypeName TypeIdentifier)))
                                         (MethodModifier "public"))
                                       (Result
                                         (UnannType

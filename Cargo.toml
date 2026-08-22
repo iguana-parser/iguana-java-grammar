@@ -13,7 +13,7 @@ path = "src/main.rs"
 test = false
 
 [dependencies]
-iguana-runtime = "=0.1.0-alpha"
+iguana-runtime = "=0.1.0-alpha.1"
 clap = { version = "4.5.51", features = ["derive"] }
 log = "0.4"
 rustc-hash = "2.1.1"

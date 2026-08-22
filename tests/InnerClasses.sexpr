@@ -82,8 +82,7 @@
                                           (Expression
                                             (Expression
                                               (Primary
-                                                (QualifiedIdentifier
-                                                  ({Identifier "."}+ Identifier))
+                                                (TypeName TypeIdentifier)
                                                 "."
                                                 "this"))
                                             "."
@@ -316,8 +315,7 @@
                                                   (MethodModifier
                                                     (Annotation
                                                       "@"
-                                                      (QualifiedIdentifier
-                                                        ({Identifier "."}+ Identifier))))
+                                                      (TypeName TypeIdentifier)))
                                                   (MethodModifier "public"))
                                                 (Result
                                                   (UnannType
@@ -379,8 +377,7 @@
                                                   (MethodModifier
                                                     (Annotation
                                                       "@"
-                                                      (QualifiedIdentifier
-                                                        ({Identifier "."}+ Identifier))))
+                                                      (TypeName TypeIdentifier)))
                                                   (MethodModifier "public"))
                                                 (Result
                                                   (UnannType
@@ -417,9 +414,8 @@
                                                                         (Primary Identifier))
                                                                       "."
                                                                       (Selector
-                                                                        (MethodInvocation
-                                                                          Identifier
-                                                                          (Arguments "(" ")")))))
+                                                                        Identifier
+                                                                        (Arguments "(" ")"))))
                                                                   ")"))))
                                                           ";")))
                                                     "}")))))
@@ -453,8 +449,7 @@
                                                   (MethodModifier
                                                     (Annotation
                                                       "@"
-                                                      (QualifiedIdentifier
-                                                        ({Identifier "."}+ Identifier))))
+                                                      (TypeName TypeIdentifier)))
                                                   (MethodModifier "public"))
                                                 (Result
                                                   (UnannType
@@ -491,9 +486,8 @@
                                                                         (Primary Identifier))
                                                                       "."
                                                                       (Selector
-                                                                        (MethodInvocation
-                                                                          Identifier
-                                                                          (Arguments "(" ")")))))
+                                                                        Identifier
+                                                                        (Arguments "(" ")"))))
                                                                   ")"))))
                                                           ";")))
                                                     "}")))))
@@ -578,8 +572,7 @@
                                                                 (Expression
                                                                   (Expression
                                                                     (Primary
-                                                                      (QualifiedIdentifier
-                                                                        ({Identifier "."}+ Identifier))
+                                                                      (TypeName TypeIdentifier)
                                                                       "."
                                                                       "this"))
                                                                   "."

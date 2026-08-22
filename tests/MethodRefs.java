@@ -12,7 +12,7 @@ class MethodRefs {
     Function<Integer, Integer> bindExpr = (new MethodRefs())::times;
     Function<Map.Entry<String, Integer>, String> dottedName = Map.Entry::getKey;
 
-    // ParameterizedMethodRef   (LHS has type arguments)
+    // TypeMethodRef   (LHS is a class type marked by annotations or type arguments)
     Function<List<String>, Boolean> parameterized = List<String>::isEmpty;
 
     // ClassType :: TypeArguments? "new"
@@ -30,7 +30,7 @@ class MethodRefs {
         Runnable r = super::toString;
     }
 
-    // QualifiedIdentifier "." "super" :: Identifier
+    // TypeName "." "super" :: Identifier
     class Inner {
         Runnable r = MethodRefs.super::toString;
     }
