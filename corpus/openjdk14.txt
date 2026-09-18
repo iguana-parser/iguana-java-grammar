@@ -1,5 +1,5 @@
 # corpus: openjdk14
-# files=49131 ok=48808 amb=0 error=322 ioerror=1
+# files=49131 ok=48809 amb=0 error=321 ioerror=1
 doc/nashorn/source/EvalFile.java	ok
 doc/nashorn/source/EvalScript.java	ok
 doc/nashorn/source/InvokeScriptFunction.java	ok
@@ -46767,7 +46767,7 @@ test/langtools/tools/javac/lambda/BadConv03.java	ok
 test/langtools/tools/javac/lambda/BadConv04.java	ok
 test/langtools/tools/javac/lambda/BadExpressionLambda.java	ok
 test/langtools/tools/javac/lambda/BadLambdaExpr.java	ok
-test/langtools/tools/javac/lambda/BadLambdaPos.java	error	Parse error at line 18, column 28: Expected one of ",", ")"
+test/langtools/tools/javac/lambda/BadLambdaPos.java	ok
 test/langtools/tools/javac/lambda/BadMethodCall.java	ok
 test/langtools/tools/javac/lambda/BadMethodCall2.java	ok
 test/langtools/tools/javac/lambda/BadNestedLambda.java	ok
@@ -47133,7 +47133,7 @@ test/langtools/tools/javac/lambda/deduplication/Deduplication.java	error	Parse e
 test/langtools/tools/javac/lambda/deduplication/DeduplicationTest.java	ok
 test/langtools/tools/javac/lambda/funcInterfaces/Helper.java	ok
 test/langtools/tools/javac/lambda/funcInterfaces/LambdaTest1.java	ok
-test/langtools/tools/javac/lambda/funcInterfaces/LambdaTest1_neg1.java	error	Parse error at line 14, column 5: Expected one of ";", ","
+test/langtools/tools/javac/lambda/funcInterfaces/LambdaTest1_neg1.java	error	Parse error at line 14, column 5: Expected one of ";", ",", ".", "*", "[", "<", ">", "&", "|", "::", "++", "--", "+", "-", "/", "%", "<<", ">>", ">>>", "<=", ">=", "instanceof", "==", "!=", "^", "&&", "||", "?", AssignmentOperator
 test/langtools/tools/javac/lambda/funcInterfaces/LambdaTest1_neg2.java	ok
 test/langtools/tools/javac/lambda/funcInterfaces/LambdaTest1_neg3.java	ok
 test/langtools/tools/javac/lambda/funcInterfaces/LambdaTest2_SAM1.java	ok
@@ -48101,7 +48101,7 @@ test/langtools/tools/javac/switchextra/DefiniteAssignment2.java	ok
 test/langtools/tools/javac/switchextra/MultipleLabelsExpression.java	ok
 test/langtools/tools/javac/switchextra/MultipleLabelsStatement.java	ok
 test/langtools/tools/javac/switchextra/RuleParsingTest.java	ok
-test/langtools/tools/javac/switchextra/SwitchArrowBrokenConstant.java	error	Parse error at line 13, column 23: Expected ","
+test/langtools/tools/javac/switchextra/SwitchArrowBrokenConstant.java	error	Parse error at line 14, column 9: Expected one of ".", "*", "[", "<", ">", "&", "|", "::", "++", "--", "+", "-", "/", "%", "<<", ">>", ">>>", "<=", ">=", "instanceof", "==", "!=", "^", "&&", "||", "?", AssignmentOperator
 test/langtools/tools/javac/switchextra/SwitchNoExtraTypes.java	ok
 test/langtools/tools/javac/switchextra/SwitchObject.java	ok
 test/langtools/tools/javac/switchextra/SwitchStatementArrow.java	ok

@@ -10,7 +10,7 @@ on:
       iguana-version:
         description: The released iguana version to generate with
         type: string
-        default: 0.1.0-alpha
+        default: 0.1.0-alpha.2
 
 permissions:
   contents: read
