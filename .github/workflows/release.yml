@@ -125,6 +125,15 @@ jobs:
             exit 1
           }
 
+          # The manifest names the last release, so a release must advance it.
+          # Catching this here keeps a no-op bump from failing later, after a
+          # branch and a pull request already exist.
+          MANIFEST_VERSION=$(cargo metadata --no-deps --format-version 1 | jq -r '.packages[0].version')
+          test "$MANIFEST_VERSION" != "$RELEASE_VERSION" || {
+            echo "::error::The manifest already states $RELEASE_VERSION. A release must advance it."
+            exit 1
+          }
+
           PRERELEASE=false
           if [[ "$RELEASE_VERSION" == *-* ]]; then PRERELEASE=true; fi
 
