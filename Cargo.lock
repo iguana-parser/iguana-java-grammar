@@ -426,9 +426,9 @@ checksum = "3d3067d79b975e8844ca9eb072e16b31c3c1c36928edf9c6789548c524d0d954"
 
 [[package]]
 name = "iguana-runtime"
-version = "0.1.0-alpha.2"
+version = "0.1.0-alpha.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7422cb682ff7451b611669467af65f66f707128c9e16dda26adf6c1e037594a0"
+checksum = "deb5de1c46d916853c1198c97a9a273d7e4768e5119ee5dcd04d593e0a34b88e"
 dependencies = [
  "allocator-api2",
  "bumpalo",

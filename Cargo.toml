@@ -13,7 +13,7 @@ path = "src/main.rs"
 test = false
 
 [dependencies]
-iguana-runtime = { version = "=0.1.0-alpha.2", features = ["cli"] }
+iguana-runtime = { version = "=0.1.0-alpha.3", features = ["cli"] }
 rustc-hash = "2.1.1"
 serde_json = "1.0"
 

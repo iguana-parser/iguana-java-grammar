@@ -32185,7 +32185,7 @@ test/jdk/java/io/Serializable/records/AbsentStreamValuesTest.java	error	Parse er
 test/jdk/java/io/Serializable/records/BadCanonicalCtrTest.java	ok
 test/jdk/java/io/Serializable/records/BadValues.java	ok
 test/jdk/java/io/Serializable/records/BasicRecordSer.java	error	Parse error at line 60, column 21: Expected one of "{", "}", ";", ",", ".", "*", "@", ")", "[", "]", "throws", "<", ">", "&", "=", "default", ":", "->", "|", "::", "++", "--", "+", "-", "/", "%", "<<", ">>", ">>>", "<=", ">=", "instanceof", "==", "!=", "^", "&&", "||", "?", AssignmentOperator, EOF
-test/jdk/java/io/Serializable/records/ConstructorAccessTest.java	error	Parse error at line 48, column 14: Expected one of "module", ";", "static", "import", "class", "enum", "interface", "@", "public", "protected", "private", "abstract", "final", "strictfp", EOF
+test/jdk/java/io/Serializable/records/ConstructorAccessTest.java	error	Parse error at line 48, column 14: Expected one of "open", "module", ";", "static", "import", "class", "enum", "interface", "@", "public", "protected", "private", "abstract", "final", "strictfp", EOF
 test/jdk/java/io/Serializable/records/ConstructorPermissionTest.java	error	Parse error at line 60, column 18: Expected one of "{", "}", ";", ",", ".", "*", "@", ")", "[", "]", "throws", "<", ">", "&", "=", "default", ":", "->", "|", "::", "++", "--", "+", "-", "/", "%", "<<", ">>", ">>>", "<=", ">=", "instanceof", "==", "!=", "^", "&&", "||", "?", AssignmentOperator, EOF
 test/jdk/java/io/Serializable/records/CycleTest.java	error	Parse error at line 45, column 34: Expected one of "{", "}", ";", ",", ".", "*", "@", ")", "[", "]", "throws", "<", ">", "&", "=", "default", ":", "->", "|", "::", "++", "--", "+", "-", "/", "%", "<<", ">>", ">>>", "<=", ">=", "instanceof", "==", "!=", "^", "&&", "||", "?", AssignmentOperator, EOF
 test/jdk/java/io/Serializable/records/ProhibitedMethods.java	error	Parse error at line 83, column 22: Expected one of "{", "}", ";", ",", ".", "*", "@", ")", "[", "]", "throws", "<", ">", "&", "=", "default", ":", "->", "|", "::", "++", "--", "+", "-", "/", "%", "<<", ">>", ">>>", "<=", ">=", "instanceof", "==", "!=", "^", "&&", "||", "?", AssignmentOperator, EOF
@@ -43745,7 +43745,7 @@ test/langtools/tools/javac/HiddenAbstractMethod/Test.java	ok
 test/langtools/tools/javac/HiddenAbstractMethod/one/Parent.java	ok
 test/langtools/tools/javac/HiddenAbstractMethod/two/Child.java	ok
 test/langtools/tools/javac/IllDefinedOrderOfInit.java	ok
-test/langtools/tools/javac/IllegalAnnotation.java	error	Parse error at line 10, column 10: Expected one of "@", Identifier, TypeIdentifier, EOF
+test/langtools/tools/javac/IllegalAnnotation.java	error	Parse error at line 10, column 10: Expected one of Identifier, TypeIdentifier
 test/langtools/tools/javac/IllegallyOptimizedException.java	ok
 test/langtools/tools/javac/ImplicitToString.java	ok
 test/langtools/tools/javac/ImportCycle/Dummy.java	ok
@@ -45051,7 +45051,7 @@ test/langtools/tools/javac/diags/examples/AbstractMethodCantHaveBody.java	ok
 test/langtools/tools/javac/diags/examples/AccessorCantBeGeneric.java	error	Parse error at line 30, column 1: Expected one of "open", "module", ";", "static", "package", "import", "class", "enum", "interface", "@", "public", "protected", "private", "abstract", "final", "strictfp", EOF
 test/langtools/tools/javac/diags/examples/AccessorCantThrowException.java	error	Parse error at line 30, column 1: Expected one of "open", "module", ";", "static", "package", "import", "class", "enum", "interface", "@", "public", "protected", "private", "abstract", "final", "strictfp", EOF
 test/langtools/tools/javac/diags/examples/AccessorMethodCantBeStatic.java	error	Parse error at line 30, column 1: Expected one of "open", "module", ";", "static", "package", "import", "class", "enum", "interface", "@", "public", "protected", "private", "abstract", "final", "strictfp", EOF
-test/langtools/tools/javac/diags/examples/AccessorReturnTypeDoesntMatch.java	error	Parse error at line 31, column 1: Expected one of "module", ";", "static", "import", "class", "enum", "interface", "@", "public", "protected", "private", "abstract", "final", "strictfp", EOF
+test/langtools/tools/javac/diags/examples/AccessorReturnTypeDoesntMatch.java	error	Parse error at line 31, column 1: Expected one of "open", "module", ";", "static", "import", "class", "enum", "interface", "@", "public", "protected", "private", "abstract", "final", "strictfp", EOF
 test/langtools/tools/javac/diags/examples/AddExportsWithRelease.java	ok
 test/langtools/tools/javac/diags/examples/AddOpensIgnored.java	ok
 test/langtools/tools/javac/diags/examples/AddReadsWithRelease.java	ok
@@ -45083,7 +45083,7 @@ test/langtools/tools/javac/diags/examples/ApplicableMethodFound.java	ok
 test/langtools/tools/javac/diags/examples/ApplicableMethodFound1.java	ok
 test/langtools/tools/javac/diags/examples/ArrayAndReceiver.java	error	Parse error at line 27, column 33: Expected one of ",", ")", EOF
 test/langtools/tools/javac/diags/examples/ArrayAndVarargs.java	ok
-test/langtools/tools/javac/diags/examples/ArrayDimMissing.java	error	Parse error at line 27, column 28: Expected one of "open", "module", "{", "package", "@", "[", "...", "void", "?", "byte", "short", "char", "int", "long", "float", "double", "boolean", Identifier, TypeIdentifier, EOF
+test/langtools/tools/javac/diags/examples/ArrayDimMissing.java	error	Parse error at line 27, column 28: Expected one of "{", "@", "[", EOF
 test/langtools/tools/javac/diags/examples/ArrayRequired.java	ok
 test/langtools/tools/javac/diags/examples/AssertAsIdentifier2.java	error	Parse error at line 27, column 9: Expected one of "@", "[", Identifier
 test/langtools/tools/javac/diags/examples/AttrMustBeConstant.java	ok
@@ -45196,7 +45196,7 @@ test/langtools/tools/javac/diags/examples/DirPathElementNotFound.java	ok
 test/langtools/tools/javac/diags/examples/DivZero.java	ok
 test/langtools/tools/javac/diags/examples/DoesNotOverride.java	ok
 test/langtools/tools/javac/diags/examples/DoesntExist.java	ok
-test/langtools/tools/javac/diags/examples/DotClassExpected.java	error	Parse error at line 27, column 19: Expected one of "open", "module", "package", ".", "@", "[", "...", "void", "::", "?", "byte", "short", "char", "int", "long", "float", "double", "boolean", Identifier, TypeIdentifier, EOF
+test/langtools/tools/javac/diags/examples/DotClassExpected.java	error	Parse error at line 27, column 19: Expected one of ".", "@", "[", "::"
 test/langtools/tools/javac/diags/examples/DuplicateAnnotationJava8.java	ok
 test/langtools/tools/javac/diags/examples/DuplicateAnnotationMemberValue.java	ok
 test/langtools/tools/javac/diags/examples/DuplicateCaseLabel.java	ok
@@ -45221,7 +45221,7 @@ test/langtools/tools/javac/diags/examples/EnumAnnoValueMustBeEnumConst.java	ok
 test/langtools/tools/javac/diags/examples/EnumAnnoValueMustBeEnumConst2.java	ok
 test/langtools/tools/javac/diags/examples/EnumAsIdentifier2.java	error	Parse error at line 27, column 9: Expected one of "@", "[", Identifier
 test/langtools/tools/javac/diags/examples/EnumCantBeInstantiated.java	ok
-test/langtools/tools/javac/diags/examples/EnumConstantExpected.java	error	Parse error at line 28, column 5: Expected one of "}", ";", Identifier, EOF
+test/langtools/tools/javac/diags/examples/EnumConstantExpected.java	error	Parse error at line 28, column 5: Expected one of "}", ";", "@", Identifier, EOF
 test/langtools/tools/javac/diags/examples/EnumConstantNotExpected.java	error	Parse error at line 28, column 6: Expected one of ".", "@", "(", "[", "...", "this", "<", "|", Identifier, EOF
 test/langtools/tools/javac/diags/examples/EnumLabelUnqualified.java	ok
 test/langtools/tools/javac/diags/examples/EnumNoFinalize.java	ok
@@ -45263,9 +45263,9 @@ test/langtools/tools/javac/diags/examples/HasBeenDeprecatedRemovalModule/modules
 test/langtools/tools/javac/diags/examples/HasBeenDeprecatedRemovalModule/modulesourcepath/m2x/module-info.java	ok
 test/langtools/tools/javac/diags/examples/HideStatic.java	ok
 test/langtools/tools/javac/diags/examples/IdentifierExpected.java	error	Parse error at line 30, column 7: Expected TypeIdentifier
-test/langtools/tools/javac/diags/examples/IllegalAnnotationDeclaration.java	error	Parse error at line 28, column 10: Expected one of "@", Identifier, TypeIdentifier, EOF
+test/langtools/tools/javac/diags/examples/IllegalAnnotationDeclaration.java	error	Parse error at line 28, column 10: Expected one of Identifier, TypeIdentifier
 test/langtools/tools/javac/diags/examples/IllegalArgumentForOption/IllegalArgumentForOption.java	ok
-test/langtools/tools/javac/diags/examples/IllegalArrayCreation.java	error	Parse error at line 27, column 29: Expected one of "open", "module", "}", ";", ",", "package", ".", "*", "@", ")", "[", "]", "...", "void", "<", ">", "&", ":", "->", "|", "::", "++", "--", "+", "-", "/", "%", "<<", ">>", ">>>", "<=", ">=", "instanceof", "==", "!=", "^", "&&", "||", "?", "byte", "short", "char", "int", "long", "float", "double", "boolean", AssignmentOperator, Identifier, TypeIdentifier, EOF
+test/langtools/tools/javac/diags/examples/IllegalArrayCreation.java	error	Parse error at line 27, column 29: Expected one of "}", ";", ",", ".", "*", "@", ")", "[", "]", "<", ">", "&", ":", "->", "|", "::", "++", "--", "+", "-", "/", "%", "<<", ">>", ">>>", "<=", ">=", "instanceof", "==", "!=", "^", "&&", "||", "?", AssignmentOperator, EOF
 test/langtools/tools/javac/diags/examples/IllegalChar.java	error	Parse error at line 27, column 13: Expected one of "{", "@", "(", "this", "void", "super", "switch", "new", "++", "--", "+", "-", "!", "~", "byte", "short", "char", "int", "long", "float", "double", "boolean", IntegerLiteral, FloatingPointLiteral, BooleanLiteral, CharacterLiteral, StringLiteral, NullLiteral, Identifier, TypeIdentifier, UnqualifiedMethodIdentifier
 test/langtools/tools/javac/diags/examples/IllegalComboModifiers.java	ok
 test/langtools/tools/javac/diags/examples/IllegalDot.java	error	Parse error at line 27, column 19: Expected one of "@", Identifier, TypeIdentifier, EOF
@@ -47985,7 +47985,7 @@ test/langtools/tools/javac/records/RecordMemberTests.java	error	Parse error at l
 test/langtools/tools/javac/records/VarargsRecordsTest.java	ok
 test/langtools/tools/javac/records/mandated_members/CheckRecordMembers.java	ok
 test/langtools/tools/javac/records/mandated_members/read_resolve_method/CheckReadResolveMethodTest.java	error	Parse error at line 42, column 33: Expected one of "{", "}", ";", ",", ".", "*", "@", ")", "[", "]", "throws", "<", ">", "&", "=", "default", ":", "->", "|", "::", "++", "--", "+", "-", "/", "%", "<<", ">>", ">>>", "<=", ">=", "instanceof", "==", "!=", "^", "&&", "||", "?", AssignmentOperator, EOF
-test/langtools/tools/javac/records/writeread/Record.java	error	Parse error at line 26, column 1: Expected one of "module", ";", "static", "import", "class", "enum", "interface", "@", "public", "protected", "private", "abstract", "final", "strictfp", EOF
+test/langtools/tools/javac/records/writeread/Record.java	error	Parse error at line 26, column 1: Expected one of "open", "module", ";", "static", "import", "class", "enum", "interface", "@", "public", "protected", "private", "abstract", "final", "strictfp", EOF
 test/langtools/tools/javac/records/writeread/WriteReadTest.java	ok
 test/langtools/tools/javac/recovery/LocalVarHiding.java	ok
 test/langtools/tools/javac/redefineObject/Object1-test.java	ok

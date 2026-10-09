@@ -601,6 +601,7 @@ pub type StartLambdaParameterList<'a> = Start<&'a LambdaParameterList<'a>, &'a L
 pub type StartLambdaParameter<'a> = Start<&'a LambdaParameter<'a>, &'a Layout<'a>>;
 pub type StartLambdaParameterType<'a> = Start<&'a LambdaParameterType<'a>, &'a Layout<'a>>;
 pub type StartLambdaBody<'a> = Start<&'a LambdaBody<'a>, &'a Layout<'a>>;
+pub type StartLayout<'a> = Start<&'a Layout<'a>, ()>;
 #[derive(Debug, Clone, Copy)]
 pub enum ParseTree<'a> {
     CompilationUnit(&'a CompilationUnit<'a>),
@@ -1348,6 +1349,8 @@ pub enum ParseTree<'a> {
     StartLambdaParameterType(&'a Start<&'a LambdaParameterType<'a>, &'a Layout<'a>>),
     // LambdaBody
     StartLambdaBody(&'a Start<&'a LambdaBody<'a>, &'a Layout<'a>>),
+    // Layout
+    StartLayout(&'a Start<&'a Layout<'a>, ()>),
     Token(Token),
 }
 impl<'a> ParseTree<'a> {
@@ -2757,6 +2760,9 @@ impl<'a> ParseTree<'a> {
             ParseTree::StartLambdaBody(start_lambda_body) => (0..start_lambda_body.child_count())
                 .filter_map(|i| start_lambda_body.child(i))
                 .collect(),
+            ParseTree::StartLayout(start_layout) => (0..start_layout.child_count())
+                .filter_map(|i| start_layout.child(i))
+                .collect(),
             ParseTree::Token(_) => vec![],
         }
     }
@@ -3424,6 +3430,7 @@ impl<'a> ParseTree<'a> {
                 start_lambda_parameter_type.display_name()
             }
             ParseTree::StartLambdaBody(start_lambda_body) => start_lambda_body.display_name(),
+            ParseTree::StartLayout(start_layout) => start_layout.display_name(),
             ParseTree::Token(token) => token.kind.name(),
         }
     }
@@ -4087,6 +4094,7 @@ impl<'a> ParseTree<'a> {
                 start_lambda_parameter_type.child_count()
             }
             ParseTree::StartLambdaBody(start_lambda_body) => start_lambda_body.child_count(),
+            ParseTree::StartLayout(start_layout) => start_layout.child_count(),
             ParseTree::Token(_) => 0,
         }
     }
@@ -4696,6 +4704,7 @@ impl<'a> ParseTree<'a> {
                 start_lambda_parameter_type.span()
             }
             ParseTree::StartLambdaBody(start_lambda_body) => start_lambda_body.span(),
+            ParseTree::StartLayout(start_layout) => start_layout.span(),
             ParseTree::Token(token) => token.span(),
         }
     }
@@ -5302,6 +5311,7 @@ impl<'a> ParseTree<'a> {
             ParseTree::StartLambdaParameter(_) => false,
             ParseTree::StartLambdaParameterType(_) => false,
             ParseTree::StartLambdaBody(_) => false,
+            ParseTree::StartLayout(_) => false,
             ParseTree::Token(_) => false,
         }
     }
@@ -6090,6 +6100,7 @@ impl<'a> ParseTree<'a> {
             ParseTree::StartLambdaBody(start_lambda_body) => {
                 Some(*start_lambda_body as *const _ as usize)
             }
+            ParseTree::StartLayout(start_layout) => Some(*start_layout as *const _ as usize),
             ParseTree::Token(_) => None,
         }
     }
@@ -6705,6 +6716,7 @@ impl<'a> ParseTree<'a> {
                 start_lambda_parameter_type.origin()
             }
             ParseTree::StartLambdaBody(start_lambda_body) => start_lambda_body.origin(),
+            ParseTree::StartLayout(start_layout) => start_layout.origin(),
             ParseTree::Token(_) => None,
         }
     }
@@ -9561,6 +9573,12 @@ impl<'a> ParseTree<'a> {
     pub(crate) fn unwrap_start_lambda_body(self) -> &'a Start<&'a LambdaBody<'a>, &'a Layout<'a>> {
         match self {
             ParseTree::StartLambdaBody(start_lambda_body) => start_lambda_body,
+            _ => panic!(),
+        }
+    }
+    pub(crate) fn unwrap_start_layout(self) -> &'a Start<&'a Layout<'a>, ()> {
+        match self {
+            ParseTree::StartLayout(start_layout) => start_layout,
             _ => panic!(),
         }
     }
@@ -37499,6 +37517,29 @@ impl<'a> Start<&'a LambdaBody<'a>, &'a Layout<'a>> {
         Some(Origin::Start)
     }
 }
+impl<'a> Start<&'a Layout<'a>, ()> {
+    pub fn as_parse_tree(&'a self) -> ParseTree<'a> {
+        ParseTree::StartLayout(self)
+    }
+    pub fn child(&self, index: usize) -> Option<ParseTree<'a>> {
+        match index {
+            0 => Some(ParseTree::Layout(self.node)),
+            _ => None,
+        }
+    }
+    pub fn child_count(&self) -> usize {
+        1usize
+    }
+    pub fn span(&self) -> Span {
+        self.span
+    }
+    pub fn display_name(&self) -> &'static str {
+        "Start"
+    }
+    pub fn origin(&self) -> Option<Origin> {
+        Some(Origin::Start)
+    }
+}
 impl<'a> ListNode<'a> for Plus0<'a> {
     fn iter(&'a self) -> IntoIter<ParseTree<'a>> {
         let mut items = vec![];
@@ -50903,10 +50944,24 @@ impl<'a> ParseTreeBuilder<ParseTree<'a>> for JavaParseTreeBuilder<'a> {
                 }
                 _ => unreachable!(),
             },
-            // Expression
+            // StartLayout
             NonterminalId(423) => match nonterminal_node.return_slot {
+                // StartLayout = start:Layout
+                SlotId(2425) => {
+                    let [start] = children.into_array::<1usize>();
+                    ParseTree::StartLayout(self.arena.alloc(Start {
+                        before: (),
+                        node: start.unwrap_layout(),
+                        after: (),
+                        span: nonterminal_node.span,
+                    }))
+                }
+                _ => unreachable!(),
+            },
+            // Expression
+            NonterminalId(424) => match nonterminal_node.return_slot {
                 // Expression = Primary #Primary
-                SlotId(2427) => {
+                SlotId(2429) => {
                     let [primary] = children.into_array::<1usize>();
                     ParseTree::Expression(self.arena.alloc(Expression::Primary {
                         primary: primary.unwrap_primary(),
@@ -50915,7 +50970,7 @@ impl<'a> ParseTreeBuilder<ParseTree<'a>> for JavaParseTreeBuilder<'a> {
                 }
                 // Expression = "switch" Layout "(" Layout Expression Layout ")" Layout SwitchBlock
                 // #SwitchExpression
-                SlotId(2439) => {
+                SlotId(2441) => {
                     let [
                         lit_0,
                         layout_1,
@@ -50941,7 +50996,7 @@ impl<'a> ParseTreeBuilder<ParseTree<'a>> for JavaParseTreeBuilder<'a> {
                     }))
                 }
                 // Expression = MethodInvocation #MethodInvocation
-                SlotId(2443) => {
+                SlotId(2445) => {
                     let [method_invocation] = children.into_array::<1usize>();
                     ParseTree::Expression(self.arena.alloc(Expression::MethodInvocation {
                         method_invocation: method_invocation.unwrap_method_invocation(),
@@ -50950,7 +51005,7 @@ impl<'a> ParseTreeBuilder<ParseTree<'a>> for JavaParseTreeBuilder<'a> {
                 }
                 // Expression = MarkedClassType Layout "::" Layout TypeArguments? Layout Identifier
                 // #TypeMethodRef
-                SlotId(2453) => {
+                SlotId(2455) => {
                     let [
                         marked_class_type,
                         layout_1,
@@ -50972,7 +51027,7 @@ impl<'a> ParseTreeBuilder<ParseTree<'a>> for JavaParseTreeBuilder<'a> {
                     }))
                 }
                 // Expression = ClassType Layout "::" Layout TypeArguments? Layout "new" #ConstructorRef
-                SlotId(2463) => {
+                SlotId(2465) => {
                     let [
                         class_type,
                         layout_1,
@@ -50994,7 +51049,7 @@ impl<'a> ParseTreeBuilder<ParseTree<'a>> for JavaParseTreeBuilder<'a> {
                     }))
                 }
                 // Expression = ArrayType Layout "::" Layout "new" #ArrayConstructorRef
-                SlotId(2471) => {
+                SlotId(2473) => {
                     let [array_type, layout_1, lit_2, layout_3, lit_4] =
                         children.into_array::<5usize>();
                     ParseTree::Expression(self.arena.alloc(Expression::ArrayConstructorRef {
@@ -51007,7 +51062,7 @@ impl<'a> ParseTreeBuilder<ParseTree<'a>> for JavaParseTreeBuilder<'a> {
                     }))
                 }
                 // Expression = ArrayType Layout "::" Layout TypeArguments? Layout Identifier #ArrayMethodRef
-                SlotId(2481) => {
+                SlotId(2483) => {
                     let [
                         array_type,
                         layout_1,
@@ -51029,7 +51084,7 @@ impl<'a> ParseTreeBuilder<ParseTree<'a>> for JavaParseTreeBuilder<'a> {
                     }))
                 }
                 // Expression = "super" Layout "::" Layout TypeArguments? Layout Identifier #SuperMethodRef
-                SlotId(2491) => {
+                SlotId(2493) => {
                     let [
                         lit_0,
                         layout_1,
@@ -51052,7 +51107,7 @@ impl<'a> ParseTreeBuilder<ParseTree<'a>> for JavaParseTreeBuilder<'a> {
                 }
                 // Expression = TypeName Layout "." Layout "super" Layout "::" Layout TypeArguments? Layout
                 // Identifier #QualifiedSuperMethodRef
-                SlotId(2505) => {
+                SlotId(2507) => {
                     let [
                         type_name,
                         layout_1,
@@ -51082,7 +51137,7 @@ impl<'a> ParseTreeBuilder<ParseTree<'a>> for JavaParseTreeBuilder<'a> {
                     }))
                 }
                 // Expression = "new" Layout (ClassInstanceCreationExpression | ArrayCreationExpression) #New
-                SlotId(2511) => {
+                SlotId(2513) => {
                     let [lit_0, layout, alt_2] = children.into_array::<3usize>();
                     ParseTree::Expression(self.arena.alloc(Expression::New {
                         lit_0: lit_0.unwrap_token(),
@@ -51092,7 +51147,7 @@ impl<'a> ParseTreeBuilder<ParseTree<'a>> for JavaParseTreeBuilder<'a> {
                     }))
                 }
                 // Expression = Expression Layout "." Layout Selector #FieldAccess
-                SlotId(2522) => {
+                SlotId(2524) => {
                     let [expression, layout_1, lit_2, layout_3, selector] =
                         children.into_array::<5usize>();
                     ParseTree::Expression(self.arena.alloc(Expression::FieldAccess {
@@ -51105,7 +51160,7 @@ impl<'a> ParseTreeBuilder<ParseTree<'a>> for JavaParseTreeBuilder<'a> {
                     }))
                 }
                 // Expression = Expression Layout "[" Layout Expression Layout "]" #ArrayAccess
-                SlotId(2535) => {
+                SlotId(2537) => {
                     let [
                         expression_0,
                         layout_1,
@@ -51127,7 +51182,7 @@ impl<'a> ParseTreeBuilder<ParseTree<'a>> for JavaParseTreeBuilder<'a> {
                     }))
                 }
                 // Expression = Expression Layout ("++" | "--") #Postfix
-                SlotId(2544) => {
+                SlotId(2546) => {
                     let [expression, layout, alt_3] = children.into_array::<3usize>();
                     ParseTree::Expression(self.arena.alloc(Expression::Postfix {
                         expression: expression.unwrap_expression(),
@@ -51137,7 +51192,7 @@ impl<'a> ParseTreeBuilder<ParseTree<'a>> for JavaParseTreeBuilder<'a> {
                     }))
                 }
                 // Expression = Expression Layout "::" Layout TypeArguments? Layout Identifier #MethodRef
-                SlotId(2557) => {
+                SlotId(2559) => {
                     let [
                         expression,
                         layout_1,
@@ -51159,7 +51214,7 @@ impl<'a> ParseTreeBuilder<ParseTree<'a>> for JavaParseTreeBuilder<'a> {
                     }))
                 }
                 // Expression = ("+" | "-" | "++" | "--") Layout Expression #Prefix
-                SlotId(2563) => {
+                SlotId(2565) => {
                     let [alt_4, layout, expression] = children.into_array::<3usize>();
                     ParseTree::Expression(self.arena.alloc(Expression::Prefix {
                         alt_4: alt_4.unwrap_alt_4(),
@@ -51169,7 +51224,7 @@ impl<'a> ParseTreeBuilder<ParseTree<'a>> for JavaParseTreeBuilder<'a> {
                     }))
                 }
                 // Expression = ("!" | "~") Layout Expression #Complement
-                SlotId(2569) => {
+                SlotId(2571) => {
                     let [alt_5, layout, expression] = children.into_array::<3usize>();
                     ParseTree::Expression(self.arena.alloc(Expression::Complement {
                         alt_5: alt_5.unwrap_alt_5(),
@@ -51179,7 +51234,7 @@ impl<'a> ParseTreeBuilder<ParseTree<'a>> for JavaParseTreeBuilder<'a> {
                     }))
                 }
                 // Expression = "(" Layout PrimitiveType Layout ")" Layout Expression #PrimitiveCast
-                SlotId(2579) => {
+                SlotId(2581) => {
                     let [
                         lit_0,
                         layout_1,
@@ -51201,7 +51256,7 @@ impl<'a> ParseTreeBuilder<ParseTree<'a>> for JavaParseTreeBuilder<'a> {
                     }))
                 }
                 // Expression = "(" Layout {ReferenceType "&"}+ Layout ")" Layout Expression #RefCast
-                SlotId(2589) => {
+                SlotId(2591) => {
                     let [
                         lit_0,
                         layout_1,
@@ -51223,7 +51278,7 @@ impl<'a> ParseTreeBuilder<ParseTree<'a>> for JavaParseTreeBuilder<'a> {
                     }))
                 }
                 // Expression = Expression Layout ("*" | "/" | "%") Layout Expression
-                SlotId(2598) => {
+                SlotId(2600) => {
                     let [expression_0, layout_1, alt_6, layout_3, expression_4] =
                         children.into_array::<5usize>();
                     ParseTree::Expression(self.arena.alloc(Expression::Alt18 {
@@ -51236,7 +51291,7 @@ impl<'a> ParseTreeBuilder<ParseTree<'a>> for JavaParseTreeBuilder<'a> {
                     }))
                 }
                 // Expression = Expression Layout ("+" | "-") Layout Expression #Additive
-                SlotId(2608) => {
+                SlotId(2610) => {
                     let [expression_0, layout_1, alt_7, layout_3, expression_4] =
                         children.into_array::<5usize>();
                     ParseTree::Expression(self.arena.alloc(Expression::Additive {
@@ -51249,7 +51304,7 @@ impl<'a> ParseTreeBuilder<ParseTree<'a>> for JavaParseTreeBuilder<'a> {
                     }))
                 }
                 // Expression = Expression Layout ("<<" | ">>" | ">>>") Layout Expression
-                SlotId(2617) => {
+                SlotId(2619) => {
                     let [expression_0, layout_1, alt_8, layout_3, expression_4] =
                         children.into_array::<5usize>();
                     ParseTree::Expression(self.arena.alloc(Expression::Alt20 {
@@ -51262,7 +51317,7 @@ impl<'a> ParseTreeBuilder<ParseTree<'a>> for JavaParseTreeBuilder<'a> {
                     }))
                 }
                 // Expression = Expression Layout ("<" | ">" | "<=" | ">=") Layout Expression #Comparison
-                SlotId(2627) => {
+                SlotId(2629) => {
                     let [expression_0, layout_1, alt_9, layout_3, expression_4] =
                         children.into_array::<5usize>();
                     ParseTree::Expression(self.arena.alloc(Expression::Comparison {
@@ -51275,7 +51330,7 @@ impl<'a> ParseTreeBuilder<ParseTree<'a>> for JavaParseTreeBuilder<'a> {
                     }))
                 }
                 // Expression = Expression Layout "instanceof" Layout Type #InstanceOf
-                SlotId(2637) => {
+                SlotId(2639) => {
                     let [expression, layout_1, lit_2, layout_3, r#type] =
                         children.into_array::<5usize>();
                     ParseTree::Expression(self.arena.alloc(Expression::InstanceOf {
@@ -51288,7 +51343,7 @@ impl<'a> ParseTreeBuilder<ParseTree<'a>> for JavaParseTreeBuilder<'a> {
                     }))
                 }
                 // Expression = Expression Layout ("==" | "!=") Layout Expression
-                SlotId(2646) => {
+                SlotId(2648) => {
                     let [expression_0, layout_1, alt_10, layout_3, expression_4] =
                         children.into_array::<5usize>();
                     ParseTree::Expression(self.arena.alloc(Expression::Alt23 {
@@ -51301,7 +51356,7 @@ impl<'a> ParseTreeBuilder<ParseTree<'a>> for JavaParseTreeBuilder<'a> {
                     }))
                 }
                 // Expression = Expression Layout "&" Layout Expression
-                SlotId(2655) => {
+                SlotId(2657) => {
                     let [expression_0, layout_1, lit_2, layout_3, expression_4] =
                         children.into_array::<5usize>();
                     ParseTree::Expression(self.arena.alloc(Expression::Alt24 {
@@ -51314,7 +51369,7 @@ impl<'a> ParseTreeBuilder<ParseTree<'a>> for JavaParseTreeBuilder<'a> {
                     }))
                 }
                 // Expression = Expression Layout "^" Layout Expression
-                SlotId(2664) => {
+                SlotId(2666) => {
                     let [expression_0, layout_1, lit_2, layout_3, expression_4] =
                         children.into_array::<5usize>();
                     ParseTree::Expression(self.arena.alloc(Expression::Alt25 {
@@ -51327,7 +51382,7 @@ impl<'a> ParseTreeBuilder<ParseTree<'a>> for JavaParseTreeBuilder<'a> {
                     }))
                 }
                 // Expression = Expression Layout "|" Layout Expression
-                SlotId(2673) => {
+                SlotId(2675) => {
                     let [expression_0, layout_1, lit_2, layout_3, expression_4] =
                         children.into_array::<5usize>();
                     ParseTree::Expression(self.arena.alloc(Expression::Alt26 {
@@ -51340,7 +51395,7 @@ impl<'a> ParseTreeBuilder<ParseTree<'a>> for JavaParseTreeBuilder<'a> {
                     }))
                 }
                 // Expression = Expression Layout "&&" Layout Expression
-                SlotId(2682) => {
+                SlotId(2684) => {
                     let [expression_0, layout_1, lit_2, layout_3, expression_4] =
                         children.into_array::<5usize>();
                     ParseTree::Expression(self.arena.alloc(Expression::Alt27 {
@@ -51353,7 +51408,7 @@ impl<'a> ParseTreeBuilder<ParseTree<'a>> for JavaParseTreeBuilder<'a> {
                     }))
                 }
                 // Expression = Expression Layout "||" Layout Expression
-                SlotId(2691) => {
+                SlotId(2693) => {
                     let [expression_0, layout_1, lit_2, layout_3, expression_4] =
                         children.into_array::<5usize>();
                     ParseTree::Expression(self.arena.alloc(Expression::Alt28 {
@@ -51367,7 +51422,7 @@ impl<'a> ParseTreeBuilder<ParseTree<'a>> for JavaParseTreeBuilder<'a> {
                 }
                 // Expression = Expression Layout "?" Layout Expression Layout ":" Layout Expression
                 // #Conditional
-                SlotId(2705) => {
+                SlotId(2707) => {
                     let [
                         expression_0,
                         layout_1,
@@ -51393,7 +51448,7 @@ impl<'a> ParseTreeBuilder<ParseTree<'a>> for JavaParseTreeBuilder<'a> {
                     }))
                 }
                 // Expression = Expression Layout AssignmentOperator Layout Expression #Assignment
-                SlotId(2716) => {
+                SlotId(2718) => {
                     let [
                         expression_0,
                         layout_1,
@@ -51411,7 +51466,7 @@ impl<'a> ParseTreeBuilder<ParseTree<'a>> for JavaParseTreeBuilder<'a> {
                     }))
                 }
                 // Expression = Lambda #Lambda
-                SlotId(2720) => {
+                SlotId(2722) => {
                     let [lambda] = children.into_array::<1usize>();
                     ParseTree::Expression(self.arena.alloc(Expression::Lambda {
                         lambda: lambda.unwrap_lambda(),
@@ -51421,9 +51476,9 @@ impl<'a> ParseTreeBuilder<ParseTree<'a>> for JavaParseTreeBuilder<'a> {
                 _ => unreachable!(),
             },
             // Lambda
-            NonterminalId(424) => match nonterminal_node.return_slot {
+            NonterminalId(425) => match nonterminal_node.return_slot {
                 // Lambda = LambdaParameters Layout "->" Layout LambdaBody
-                SlotId(2727) => {
+                SlotId(2729) => {
                     let [lambda_parameters, layout_1, lit_2, layout_3, lambda_body] =
                         children.into_array::<5usize>();
                     ParseTree::Lambda(self.arena.alloc(Lambda::Alt0 {
@@ -51438,9 +51493,9 @@ impl<'a> ParseTreeBuilder<ParseTree<'a>> for JavaParseTreeBuilder<'a> {
                 _ => unreachable!(),
             },
             // LambdaBody
-            NonterminalId(425) => match nonterminal_node.return_slot {
+            NonterminalId(426) => match nonterminal_node.return_slot {
                 // LambdaBody = Expression
-                SlotId(2730) => {
+                SlotId(2732) => {
                     let [expression] = children.into_array::<1usize>();
                     ParseTree::LambdaBody(self.arena.alloc(LambdaBody::Alt0 {
                         expression: expression.unwrap_expression(),
@@ -51448,7 +51503,7 @@ impl<'a> ParseTreeBuilder<ParseTree<'a>> for JavaParseTreeBuilder<'a> {
                     }))
                 }
                 // LambdaBody = Block
-                SlotId(2733) => {
+                SlotId(2735) => {
                     let [block] = children.into_array::<1usize>();
                     ParseTree::LambdaBody(self.arena.alloc(LambdaBody::Alt1 {
                         block: block.unwrap_block(),
@@ -55271,6 +55326,21 @@ impl<'a> ParseTreeBuilder<ParseTree<'a>> for JavaParseTreeBuilder<'a> {
                     span: first.span,
                 }))
             }
+            grammar::START_LAYOUT => {
+                let first = alternatives[0].unwrap_start_layout();
+                let inner = self.arena.alloc_slice(
+                    alternatives
+                        .into_iter()
+                        .map(|a| a.unwrap_start_layout().node),
+                );
+                let node = &*self.arena.alloc(Layout::Amb(inner));
+                ParseTree::StartLayout(self.arena.alloc(Start {
+                    before: first.before,
+                    node,
+                    after: first.after,
+                    span: first.span,
+                }))
+            }
             _ => unreachable!("nonterminal cannot be ambiguous"),
         }
     }
@@ -57432,6 +57502,11 @@ pub fn create_parse_tree<'a>(
             visit_sppf(root_id, parser, builder)
                 .unwrap_one()
                 .unwrap_start_lambda_body(),
+        ),
+        grammar::START_LAYOUT => ParseTree::StartLayout(
+            visit_sppf(root_id, parser, builder)
+                .unwrap_one()
+                .unwrap_start_layout(),
         ),
         _ => panic!(),
     }
