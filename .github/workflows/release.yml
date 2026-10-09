@@ -1,0 +1,432 @@
+name: Release
+run-name: Release ${{ inputs.version }}
+
+# Releases the grammar as a tag and a GitHub release. The tag is the whole
+# artifact: the crate is not published, and the website pins the grammar by
+# the tag this workflow creates. Two approvals gate the run. The first
+# merges the tested version bump, the second publishes the release after
+# its notes have been edited.
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Version without v (for example 0.1.0)
+        required: true
+        type: string
+
+# A run that has already merged the candidate must finish before another
+# starts, so a second release can never tag the same version.
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+env:
+  RELEASE_VERSION: ${{ inputs.version }}
+
+defaults:
+  run:
+    shell: bash --noprofile --norc -euo pipefail {0}
+
+jobs:
+  plan:
+    name: Check the version and approval configuration
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      tag: ${{ steps.plan.outputs.tag }}
+      previous_tag: ${{ steps.plan.outputs.previous_tag }}
+      base_commit: ${{ steps.plan.outputs.base_commit }}
+      branch: ${{ steps.plan.outputs.branch }}
+      iguana_version: ${{ steps.plan.outputs.iguana_version }}
+      prerelease: ${{ steps.plan.outputs.prerelease }}
+    steps:
+      - name: Require a manual run on main in the grammar repository
+        run: |
+          test "$GITHUB_REF" = refs/heads/main
+          test "$GITHUB_REPOSITORY" = iguana-parser/iguana-java-grammar
+
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      # Releases push to main and create a protected tag, neither of which
+      # the workflow token may do. Fail before anything is created.
+      - name: Require the release token
+        env:
+          RELEASE_TOKEN: ${{ secrets.RELEASE_GITHUB_TOKEN }}
+        run: |
+          test -n "$RELEASE_TOKEN" || {
+            echo '::error::Missing RELEASE_GITHUB_TOKEN.'
+            exit 1
+          }
+
+      # Separate environments make each approval independent. Check them
+      # first so a missing environment cannot silently skip review.
+      - name: Require merge and publication approval gates
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for stage in merge publish; do
+            gh api "repos/$GITHUB_REPOSITORY/environments/release-$stage" > "$RUNNER_TEMP/environment.json"
+            jq -e --arg actor "$GITHUB_ACTOR" '
+              any(.protection_rules[];
+                .type == "required_reviewers" and .prevent_self_review == false and
+                any(.reviewers[]; .type == "User" and .reviewer.login == $actor))
+            ' "$RUNNER_TEMP/environment.json" > /dev/null || {
+              echo "::error::release-$stage must require your review and allow self-review."
+              exit 1
+            }
+          done
+
+      - name: Record the tag, the candidate base, and the pinned generator
+        id: plan
+        run: |
+          [[ "$RELEASE_VERSION" =~ ^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(-[0-9A-Za-z.-]+)?$ ]] || {
+            echo '::error::The version must be semver without a leading v, such as 0.1.0.'
+            exit 1
+          }
+          RELEASE_TAG="v$RELEASE_VERSION"
+          if git show-ref --verify --quiet "refs/tags/$RELEASE_TAG"; then
+            echo "::error::Tag $RELEASE_TAG already exists."
+            exit 1
+          fi
+
+          # versionsort.suffix orders a prerelease before its release, which
+          # git's own tag sort otherwise reverses. Ordering against the
+          # previous tag is reported rather than enforced for a prerelease,
+          # since sort -V places 0.2.0-rc.1 after 0.2.0.
+          PREVIOUS_TAG=$(git -c versionsort.suffix=- tag --list 'v*' --sort=-v:refname | head -n 1)
+          if [ -n "$PREVIOUS_TAG" ] && [[ "$RELEASE_VERSION" != *-* ]] && [[ "${PREVIOUS_TAG#v}" != *-* ]]; then
+            NEWEST=$(printf '%s\n%s\n' "${PREVIOUS_TAG#v}" "$RELEASE_VERSION" | sort -V | tail -n 1)
+            test "$NEWEST" = "$RELEASE_VERSION" || {
+              echo "::error::Version $RELEASE_VERSION does not advance past $PREVIOUS_TAG."
+              exit 1
+            }
+          fi
+
+          # The candidate is validated against the generator matching the
+          # runtime the manifest pins, not against whatever CI defaults to.
+          IGUANA_VERSION=$(sed -n 's/^iguana-runtime = .*version = "=\([^"]*\)".*/\1/p' Cargo.toml)
+          test -n "$IGUANA_VERSION" || {
+            echo '::error::Cannot read the pinned iguana-runtime version from Cargo.toml.'
+            exit 1
+          }
+
+          PRERELEASE=false
+          if [[ "$RELEASE_VERSION" == *-* ]]; then PRERELEASE=true; fi
+
+          BASE_COMMIT=$(git rev-parse HEAD)
+          RELEASE_BRANCH="release/$RELEASE_VERSION/$GITHUB_RUN_ID"
+
+          {
+            echo "tag=$RELEASE_TAG"
+            echo "previous_tag=$PREVIOUS_TAG"
+            echo "base_commit=$BASE_COMMIT"
+            echo "branch=$RELEASE_BRANCH"
+            echo "iguana_version=$IGUANA_VERSION"
+            echo "prerelease=$PRERELEASE"
+          } >> "$GITHUB_OUTPUT"
+
+          {
+            echo "Release **$RELEASE_VERSION**, tag **$RELEASE_TAG**."
+            if [ -n "$PREVIOUS_TAG" ]; then
+              echo "Previous tag: **$PREVIOUS_TAG**."
+            else
+              echo 'No previous tag: this is the first release of the grammar.'
+            fi
+            echo "Candidate base: $BASE_COMMIT. Branch: $RELEASE_BRANCH."
+            echo "Generated and validated with iguana $IGUANA_VERSION, the version the manifest pins."
+            echo 'Preparation and validation run automatically. The first approval is to merge the tested pull request.'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+  prepare:
+    name: Prepare the release pull request
+    needs: plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+      pull-requests: write
+    outputs:
+      commit: ${{ steps.prepare.outputs.commit }}
+      pr: ${{ steps.prepare.outputs.pr }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.plan.outputs.base_commit }}
+          fetch-depth: 0
+          token: ${{ secrets.RELEASE_GITHUB_TOKEN }}
+
+      - uses: dtolnay/rust-toolchain@stable
+
+      - name: Bump the manifest version and refresh the lockfile
+        env:
+          BASE_COMMIT: ${{ needs.plan.outputs.base_commit }}
+        run: |
+          test "$(grep -c '^version = ' Cargo.toml)" -eq 1
+          CURRENT=$(sed -n 's/^version = "\(.*\)"$/\1/p' Cargo.toml)
+          test -n "$CURRENT"
+          sed -i "s/^version = \"$CURRENT\"$/version = \"$RELEASE_VERSION\"/" Cargo.toml
+          grep -qx "version = \"$RELEASE_VERSION\"" Cargo.toml
+          cargo update --workspace
+
+          # The release commit carries the version and nothing else. Anything
+          # else in the tree means the candidate base was not what it claimed.
+          CHANGED=$(git diff --name-only | sort | tr '\n' ' ')
+          test "$CHANGED" = "Cargo.lock Cargo.toml " || {
+            echo "::error::The version bump changed unexpected files: $CHANGED"
+            exit 1
+          }
+
+          git config user.name "$GITHUB_ACTOR"
+          git config user.email "$GITHUB_ACTOR_ID+$GITHUB_ACTOR@users.noreply.github.com"
+          git commit --all --message "Release $RELEASE_VERSION"
+          COMMIT=$(git rev-parse HEAD)
+          test "$(git rev-list --parents -n 1 HEAD)" = "$COMMIT $BASE_COMMIT"
+
+      - name: Push the candidate and open its pull request
+        id: prepare
+        env:
+          GH_TOKEN: ${{ secrets.RELEASE_GITHUB_TOKEN }}
+          RELEASE_BRANCH: ${{ needs.plan.outputs.branch }}
+          IGUANA_VERSION: ${{ needs.plan.outputs.iguana_version }}
+        run: |
+          COMMIT=$(git rev-parse HEAD)
+          git push origin "HEAD:refs/heads/$RELEASE_BRANCH"
+
+          {
+            echo "Version bump for the $RELEASE_VERSION release. The commit carries Cargo.toml and Cargo.lock and nothing else."
+            echo
+            echo "Generated with iguana $IGUANA_VERSION, the version the manifest pins."
+            echo
+            echo '## Corpus baselines'
+            echo
+            echo '```'
+            awk '/^# corpus: /{name=$3} /^# files=/{sub(/^# /,""); print name ": " $0}' corpus/*.txt
+            echo '```'
+            echo
+            echo "Prepared by [this release run](https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID). Approve **release-merge** there to merge it."
+          } > "$RUNNER_TEMP/pr-body.md"
+
+          PR=$(gh pr create --repo "$GITHUB_REPOSITORY" --base main --head "$RELEASE_BRANCH" \
+            --title "Release $RELEASE_VERSION" --body-file "$RUNNER_TEMP/pr-body.md")
+          PR=${PR##*/}
+          [[ "$PR" =~ ^[1-9][0-9]*$ ]]
+
+          echo "commit=$COMMIT" >> "$GITHUB_OUTPUT"
+          echo "pr=$PR" >> "$GITHUB_OUTPUT"
+          echo "Candidate $COMMIT on branch $RELEASE_BRANCH, pull request #$PR." >> "$GITHUB_STEP_SUMMARY"
+
+  validate:
+    name: Validate the candidate
+    needs: [plan, prepare]
+    uses: ./.github/workflows/test.yml
+    with:
+      commit: ${{ needs.prepare.outputs.commit }}
+      iguana-version: ${{ needs.plan.outputs.iguana_version }}
+
+  review:
+    name: Summarize the tested candidate for approval
+    needs: [plan, prepare, validate]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Explain the merge approval
+        env:
+          RELEASE_PR: ${{ needs.prepare.outputs.pr }}
+          RELEASE_COMMIT: ${{ needs.prepare.outputs.commit }}
+          IGUANA_VERSION: ${{ needs.plan.outputs.iguana_version }}
+        run: |
+          {
+            echo "## Review pull request #$RELEASE_PR before approving release-merge"
+            echo
+            echo "**[Open the pull request](https://github.com/$GITHUB_REPOSITORY/pull/$RELEASE_PR)**"
+            echo
+            echo "The golden and corpus suites passed for candidate $RELEASE_COMMIT, generated with iguana $IGUANA_VERSION."
+            echo
+            echo 'Approving **release-merge** fast-forwards main to the candidate. It does not tag or publish anything.'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+  merge:
+    name: Approve merging pull request ${{ needs.prepare.outputs.pr }} for ${{ inputs.version }}
+    needs: [plan, prepare, review]
+    environment:
+      name: release-merge
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.prepare.outputs.commit }}
+          fetch-depth: 0
+          token: ${{ secrets.RELEASE_GITHUB_TOKEN }}
+
+      - name: Fast-forward main or recognize an already merged candidate
+        env:
+          RELEASE_COMMIT: ${{ needs.prepare.outputs.commit }}
+          RELEASE_BRANCH: ${{ needs.plan.outputs.branch }}
+        run: |
+          git fetch origin main
+          if git merge-base --is-ancestor "$RELEASE_COMMIT" FETCH_HEAD; then
+            echo "Candidate $RELEASE_COMMIT is already on main." >> "$GITHUB_STEP_SUMMARY"
+          else
+            git push origin "$RELEASE_COMMIT:refs/heads/main"
+            echo "Fast-forwarded main to $RELEASE_COMMIT." >> "$GITHUB_STEP_SUMMARY"
+          fi
+          git push origin --delete "$RELEASE_BRANCH" || true
+
+  draft:
+    name: Draft the release notes for publication approval
+    needs: [plan, prepare, merge]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    outputs:
+      release_id: ${{ steps.draft.outputs.release_id }}
+      releases_url: ${{ steps.draft.outputs.releases_url }}
+      approval_name: ${{ steps.draft.outputs.approval_name }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.prepare.outputs.commit }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Create or recover the draft without overwriting edited notes
+        id: draft
+        env:
+          GH_TOKEN: ${{ secrets.RELEASE_GITHUB_TOKEN }}
+          RELEASE_COMMIT: ${{ needs.prepare.outputs.commit }}
+          RELEASE_TAG: ${{ needs.plan.outputs.tag }}
+          PREVIOUS_TAG: ${{ needs.plan.outputs.previous_tag }}
+          IGUANA_VERSION: ${{ needs.plan.outputs.iguana_version }}
+          PRERELEASE: ${{ needs.plan.outputs.prerelease }}
+        run: |
+          git fetch origin main --tags
+          git merge-base --is-ancestor "$RELEASE_COMMIT" FETCH_HEAD
+
+          # The version bump itself is release bookkeeping, not a release note.
+          RANGE="$RELEASE_COMMIT^"
+          if [ -n "$PREVIOUS_TAG" ]; then RANGE="$PREVIOUS_TAG..$RELEASE_COMMIT^"; fi
+
+          {
+            echo '## Changes'
+            echo
+            git log --reverse --format='- %s (%h)' "$RANGE"
+            echo
+            echo '## Grammar'
+            echo
+            echo "- Generated with iguana $IGUANA_VERSION"
+            echo
+            echo '## Corpus outcomes'
+            echo
+            echo '```'
+            awk '/^# corpus: /{name=$3} /^# files=/{sub(/^# /,""); print name ": " $0}' corpus/*.txt
+            echo '```'
+          } > "$RUNNER_TEMP/notes.md"
+
+          # A rerun must not discard notes that have already been edited, so
+          # an existing draft for this version is reused as it stands.
+          gh api --paginate "repos/$GITHUB_REPOSITORY/releases" | jq -s 'add' > "$RUNNER_TEMP/releases.json"
+          RELEASE_ID=$(jq -r --arg tag "$RELEASE_TAG" 'map(select(.tag_name == $tag)) | first | .id // empty' "$RUNNER_TEMP/releases.json")
+          if [ -z "$RELEASE_ID" ]; then
+            jq -n --arg tag "$RELEASE_TAG" --arg commit "$RELEASE_COMMIT" --arg name "$RELEASE_VERSION" \
+              --rawfile body "$RUNNER_TEMP/notes.md" --argjson prerelease "$PRERELEASE" \
+              '{tag_name: $tag, target_commitish: $commit, name: $name, body: $body, draft: true, prerelease: $prerelease}' \
+              > "$RUNNER_TEMP/draft.json"
+            gh api --method POST "repos/$GITHUB_REPOSITORY/releases" --input "$RUNNER_TEMP/draft.json" > "$RUNNER_TEMP/release.json"
+          else
+            gh api "repos/$GITHUB_REPOSITORY/releases/$RELEASE_ID" > "$RUNNER_TEMP/release.json"
+          fi
+
+          RELEASE_ID=$(jq -r .id "$RUNNER_TEMP/release.json")
+          [[ "$RELEASE_ID" =~ ^[1-9][0-9]*$ ]]
+          DRAFT=$(jq -r '.draft == true' "$RUNNER_TEMP/release.json")
+          # Saving an untagged draft changes its editor URL. The Releases
+          # page always provides the current edit link for the same draft.
+          RELEASES_URL="https://github.com/$GITHUB_REPOSITORY/releases"
+
+          echo "release_id=$RELEASE_ID" >> "$GITHUB_OUTPUT"
+          echo "releases_url=$RELEASES_URL" >> "$GITHUB_OUTPUT"
+          if [ "$DRAFT" = true ]; then
+            echo "approval_name=Save notes in Releases, then approve publishing $RELEASE_VERSION" >> "$GITHUB_OUTPUT"
+            echo "::notice title=Edit release notes before approving publication::Open $RELEASES_URL and click the pencil button for draft $RELEASE_VERSION. Edit the notes and Save draft, then approve release-publish in this run."
+          else
+            echo "approval_name=Approve completing publication of $RELEASE_VERSION" >> "$GITHUB_OUTPUT"
+          fi
+
+          {
+            if [ "$DRAFT" = true ]; then
+              echo "## Before approving release-publish: edit the notes for $RELEASE_VERSION"
+              echo
+              echo "**[Open Releases to edit draft $RELEASE_VERSION]($RELEASES_URL)**"
+              echo
+              echo "1. Click the pencil button next to draft **$RELEASE_VERSION**. The generated notes are already loaded."
+              echo '2. Edit or preview the notes, then **Save draft**. Keep the version, target and prerelease settings unchanged.'
+              echo "3. Return to [this Actions run](https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID), select **Review deployments**, and approve **release-publish**."
+              echo
+              echo 'Saving the draft does not publish it. Use the Actions approval for publication. Do not click Publish release in the editor.'
+            else
+              echo "## Complete publication of $RELEASE_VERSION"
+              echo
+              echo 'The release is already public. Resuming will verify the tag and finish the run while preserving its notes.'
+            fi
+            echo
+            echo "Candidate: $RELEASE_COMMIT. Tag: $RELEASE_TAG."
+            echo '**Approving release-publish publishes the release, which creates the tag.**'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+  publish:
+    name: ${{ needs.draft.outputs.approval_name }}
+    needs: [plan, prepare, draft]
+    environment:
+      name: release-publish
+      url: ${{ needs.draft.outputs.releases_url }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.prepare.outputs.commit }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Publish the saved draft and verify its tag
+        env:
+          GH_TOKEN: ${{ secrets.RELEASE_GITHUB_TOKEN }}
+          RELEASE_COMMIT: ${{ needs.prepare.outputs.commit }}
+          RELEASE_TAG: ${{ needs.plan.outputs.tag }}
+          RELEASE_ID: ${{ needs.draft.outputs.release_id }}
+        run: |
+          [[ "$RELEASE_ID" =~ ^[1-9][0-9]*$ ]]
+          git fetch origin main --tags
+          git merge-base --is-ancestor "$RELEASE_COMMIT" FETCH_HEAD
+
+          # The notes are whatever was saved in the editor. Publication sets
+          # the target and the draft flag and touches nothing else.
+          jq -n --arg tag "$RELEASE_TAG" --arg commit "$RELEASE_COMMIT" \
+            '{tag_name: $tag, target_commitish: $commit, draft: false}' > "$RUNNER_TEMP/publish.json"
+          gh api --method PATCH "repos/$GITHUB_REPOSITORY/releases/$RELEASE_ID" \
+            --input "$RUNNER_TEMP/publish.json" > "$RUNNER_TEMP/published.json"
+
+          jq -e '.draft == false' "$RUNNER_TEMP/published.json" > /dev/null
+          URL=$(jq -r .html_url "$RUNNER_TEMP/published.json")
+          git fetch origin --tags --force
+          test "$(git rev-parse "$RELEASE_TAG^{commit}")" = "$RELEASE_COMMIT"
+
+          {
+            echo "## Published $RELEASE_VERSION"
+            echo
+            echo "[Release]($URL) at tag **$RELEASE_TAG**, commit $RELEASE_COMMIT."
+            echo
+            echo "Pin the website to **$RELEASE_TAG** to serve this grammar."
+          } >> "$GITHUB_STEP_SUMMARY"

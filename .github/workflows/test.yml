@@ -11,6 +11,10 @@ on:
         description: The released iguana version to generate with
         type: string
         default: 0.1.0-alpha.2
+      commit:
+        description: Exact commit to test, for a release candidate that is not yet on main
+        type: string
+        default: ''
 
 permissions:
   contents: read
@@ -19,10 +23,16 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      # A cross-repository caller gets its own repository from a bare
-      # checkout, not this one. The iguana-rs caller, when it exists, must
-      # pass this repository and a ref explicitly and check out both sides.
+      # A same-repository caller checks out its own ref unless it passes a
+      # commit, which the release workflow does to test a candidate that is
+      # not on main yet. A cross-repository caller gets its own repository
+      # from a bare checkout, not this one. The iguana-rs caller, when it
+      # exists, must pass this repository and a ref explicitly and check out
+      # both sides.
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.commit || github.sha }}
+          persist-credentials: false
 
       - uses: dtolnay/rust-toolchain@stable
 
