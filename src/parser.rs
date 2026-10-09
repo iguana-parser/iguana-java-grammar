@@ -19256,35 +19256,56 @@ impl<'i, 'arena> Parser<'i, 'arena> for JavaParser<'i, 'arena> {
                         };
                         self.pop(gss_node_id, SlotId(909), result, None, &FOLLOW_SET_PRIMARY);
                     }
-                    // Primary : . Opt_61 Layout [$ 0-9 A-Z _ a-z] !<< "this" !>> [$ 0-9 A-Z _ a-z]
+                    // Primary : . Identifier
                     SlotId(910) => {
+                        if let Some((j, right_child)) = self.match_terminal(
+                            TerminalId(32),
+                            input_index,
+                            SlotId(910),
+                            Some(gss_node_id),
+                        ) {
+                            // Primary : Identifier.
+                            input_index = j;
+                            result = Some(right_child);
+                            next = Some(SlotId(911));
+                        }
+                    }
+                    // Primary : Identifier.
+                    SlotId(911) => {
+                        let Some(result) = result else {
+                            unreachable!("result cannot be None here.")
+                        };
+                        self.pop(gss_node_id, SlotId(911), result, None, &FOLLOW_SET_PRIMARY);
+                    }
+                    // Primary : . Opt_61 Layout [$ 0-9 A-Z _ a-z] !<< "this" !>> [$ 0-9 A-Z _ a-z]
+                    SlotId(912) => {
                         self.create(
                             NonterminalId(272),
                             &PREDICTION_OPT_61,
                             result,
                             gss_node_id,
-                            SlotId(911),
+                            SlotId(913),
                             env,
                         );
                     }
                     // Primary : Opt_61 . Layout [$ 0-9 A-Z _ a-z] !<< "this" !>> [$ 0-9 A-Z _ a-z]
-                    SlotId(911) => {
+                    SlotId(913) => {
                         if let Some(right_child) = self
-                            .parse_layout_ll1(input_index, Some((SlotId(911), Some(gss_node_id))))
+                            .parse_layout_ll1(input_index, Some((SlotId(913), Some(gss_node_id))))
                         {
                             let j = self.sppf_node(right_child).right_extent();
                             if let Some(new_node) =
-                                self.create_intermediate_node(result, right_child, SlotId(912), env)
+                                self.create_intermediate_node(result, right_child, SlotId(914), env)
                             {
                                 // Primary : Opt_61 Layout . [$ 0-9 A-Z _ a-z] !<< "this" !>> [$ 0-9 A-Z _ a-z]
                                 input_index = j;
                                 result = Some(new_node);
-                                next = Some(SlotId(912));
+                                next = Some(SlotId(914));
                             }
                         }
                     }
                     // Primary : Opt_61 Layout . [$ 0-9 A-Z _ a-z] !<< "this" !>> [$ 0-9 A-Z _ a-z]
-                    SlotId(912) => {
+                    SlotId(914) => {
                         if input_index == 0
                             || self
                                 .scanner
@@ -19294,38 +19315,38 @@ impl<'i, 'arena> Parser<'i, 'arena> for JavaParser<'i, 'arena> {
                             if let Some((j, right_child)) = self.match_terminal(
                                 TerminalId(80),
                                 input_index,
-                                SlotId(912),
+                                SlotId(914),
                                 Some(gss_node_id),
                             ) {
                                 if let Some(failure) =
-                                    self.post_conditions(SlotId(913), input_index, j)
+                                    self.post_conditions(SlotId(915), input_index, j)
                                 {
-                                    self.add_failure(j, SlotId(913), Some(gss_node_id), failure);
+                                    self.add_failure(j, SlotId(915), Some(gss_node_id), failure);
                                 } else {
                                     if let Some(new_node) = self.create_intermediate_node(
                                         result,
                                         right_child,
-                                        SlotId(913),
+                                        SlotId(915),
                                         env,
                                     ) {
                                         // Primary : Opt_61 Layout [$ 0-9 A-Z _ a-z] !<< "this" !>> [$ 0-9 A-Z _ a-z].
                                         input_index = j;
                                         result = Some(new_node);
-                                        next = Some(SlotId(913));
+                                        next = Some(SlotId(915));
                                     }
                                 }
                             }
                         }
                     }
                     // Primary : Opt_61 Layout [$ 0-9 A-Z _ a-z] !<< "this" !>> [$ 0-9 A-Z _ a-z].
-                    SlotId(913) => {
+                    SlotId(915) => {
                         let Some(result) = result else {
                             unreachable!("result cannot be None here.")
                         };
-                        self.pop(gss_node_id, SlotId(913), result, None, &FOLLOW_SET_PRIMARY);
+                        self.pop(gss_node_id, SlotId(915), result, None, &FOLLOW_SET_PRIMARY);
                     }
                     // Primary : . [$ 0-9 A-Z _ a-z] !<< "super" !>> [$ 0-9 A-Z _ a-z] Layout SuperSuffix
-                    SlotId(914) => {
+                    SlotId(916) => {
                         if input_index == 0
                             || self
                                 .scanner
@@ -19335,71 +19356,50 @@ impl<'i, 'arena> Parser<'i, 'arena> for JavaParser<'i, 'arena> {
                             if let Some((j, right_child)) = self.match_terminal(
                                 TerminalId(83),
                                 input_index,
-                                SlotId(914),
+                                SlotId(916),
                                 Some(gss_node_id),
                             ) {
                                 if let Some(failure) =
-                                    self.post_conditions(SlotId(915), input_index, j)
+                                    self.post_conditions(SlotId(917), input_index, j)
                                 {
-                                    self.add_failure(j, SlotId(915), Some(gss_node_id), failure);
+                                    self.add_failure(j, SlotId(917), Some(gss_node_id), failure);
                                 } else {
                                     // Primary : [$ 0-9 A-Z _ a-z] !<< "super" !>> [$ 0-9 A-Z _ a-z] . Layout SuperSuffix
                                     input_index = j;
                                     result = Some(right_child);
-                                    next = Some(SlotId(915));
+                                    next = Some(SlotId(917));
                                 }
                             }
                         }
                     }
                     // Primary : [$ 0-9 A-Z _ a-z] !<< "super" !>> [$ 0-9 A-Z _ a-z] . Layout SuperSuffix
-                    SlotId(915) => {
+                    SlotId(917) => {
                         if let Some(right_child) = self
-                            .parse_layout_ll1(input_index, Some((SlotId(915), Some(gss_node_id))))
+                            .parse_layout_ll1(input_index, Some((SlotId(917), Some(gss_node_id))))
                         {
                             let j = self.sppf_node(right_child).right_extent();
                             if let Some(new_node) =
-                                self.create_intermediate_node(result, right_child, SlotId(916), env)
+                                self.create_intermediate_node(result, right_child, SlotId(918), env)
                             {
                                 // Primary : [$ 0-9 A-Z _ a-z] !<< "super" !>> [$ 0-9 A-Z _ a-z] Layout . SuperSuffix
                                 input_index = j;
                                 result = Some(new_node);
-                                next = Some(SlotId(916));
+                                next = Some(SlotId(918));
                             }
                         }
                     }
                     // Primary : [$ 0-9 A-Z _ a-z] !<< "super" !>> [$ 0-9 A-Z _ a-z] Layout . SuperSuffix
-                    SlotId(916) => {
+                    SlotId(918) => {
                         self.create(
                             NonterminalId(88),
                             &PREDICTION_SUPER_SUFFIX,
                             result,
                             gss_node_id,
-                            SlotId(917),
+                            SlotId(919),
                             env,
                         );
                     }
                     // Primary : [$ 0-9 A-Z _ a-z] !<< "super" !>> [$ 0-9 A-Z _ a-z] Layout SuperSuffix.
-                    SlotId(917) => {
-                        let Some(result) = result else {
-                            unreachable!("result cannot be None here.")
-                        };
-                        self.pop(gss_node_id, SlotId(917), result, None, &FOLLOW_SET_PRIMARY);
-                    }
-                    // Primary : . Identifier
-                    SlotId(918) => {
-                        if let Some((j, right_child)) = self.match_terminal(
-                            TerminalId(32),
-                            input_index,
-                            SlotId(918),
-                            Some(gss_node_id),
-                        ) {
-                            // Primary : Identifier.
-                            input_index = j;
-                            result = Some(right_child);
-                            next = Some(SlotId(919));
-                        }
-                    }
-                    // Primary : Identifier.
                     SlotId(919) => {
                         let Some(result) = result else {
                             unreachable!("result cannot be None here.")
@@ -40203,25 +40203,25 @@ impl<'i, 'arena> Parser<'i, 'arena> for JavaParser<'i, 'arena> {
                     None
                 }
             }
-            SlotId(913) => {
+            SlotId(915) => {
                 if self
                     .scanner
-                    .match_any(&FOLLOW_RESTRICTION_PRIMARY_ALT1_POS2, right_extent)
+                    .match_any(&FOLLOW_RESTRICTION_PRIMARY_ALT2_POS2, right_extent)
                 {
                     Some(GLLFailureKind::ForbiddenFollow(
-                        &FOLLOW_RESTRICTION_PRIMARY_ALT1_POS2,
+                        &FOLLOW_RESTRICTION_PRIMARY_ALT2_POS2,
                     ))
                 } else {
                     None
                 }
             }
-            SlotId(915) => {
+            SlotId(917) => {
                 if self
                     .scanner
-                    .match_any(&FOLLOW_RESTRICTION_PRIMARY_ALT2_POS0, right_extent)
+                    .match_any(&FOLLOW_RESTRICTION_PRIMARY_ALT3_POS0, right_extent)
                 {
                     Some(GLLFailureKind::ForbiddenFollow(
-                        &FOLLOW_RESTRICTION_PRIMARY_ALT2_POS0,
+                        &FOLLOW_RESTRICTION_PRIMARY_ALT3_POS0,
                     ))
                 } else {
                     None

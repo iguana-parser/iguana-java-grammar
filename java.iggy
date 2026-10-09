@@ -453,9 +453,9 @@ Expression
 
 Primary
   = Literal                     #Literal
+  | Identifier                  #Identifier
   | (TypeName ".")? "this"      #This
   | "super" SuperSuffix         #Super
-  | Identifier                  #Identifier
   | (Type | "void") "." "class" #Type
   | "(" Expression ")"          #Expression
 

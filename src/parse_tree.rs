@@ -11759,6 +11759,11 @@ pub enum Primary<'a> {
         literal: &'a Literal<'a>,
         span: Span,
     },
+    // Primary = Identifier #Identifier
+    Identifier {
+        identifier: Token,
+        span: Span,
+    },
     // Primary = (TypeName ".")? Layout "this" #This
     This {
         opt_61: &'a Opt61<'a>,
@@ -11771,11 +11776,6 @@ pub enum Primary<'a> {
         lit_0: Token,
         layout: &'a Layout<'a>,
         super_suffix: &'a SuperSuffix<'a>,
-        span: Span,
-    },
-    // Primary = Identifier #Identifier
-    Identifier {
-        identifier: Token,
         span: Span,
     },
     // Primary = (Type | "void") Layout "." Layout "class" #Type
@@ -22472,6 +22472,10 @@ impl<'a> Primary<'a> {
                 0 => Some(ParseTree::Literal(literal)),
                 _ => None,
             },
+            Primary::Identifier { identifier, .. } => match index {
+                0 => Some(ParseTree::Token(*identifier)),
+                _ => None,
+            },
             Primary::This {
                 opt_61,
                 layout,
@@ -22492,10 +22496,6 @@ impl<'a> Primary<'a> {
                 0 => Some(ParseTree::Token(*lit_0)),
                 1 => Some(ParseTree::Layout(layout)),
                 2 => Some(ParseTree::SuperSuffix(super_suffix)),
-                _ => None,
-            },
-            Primary::Identifier { identifier, .. } => match index {
-                0 => Some(ParseTree::Token(*identifier)),
                 _ => None,
             },
             Primary::Type {
@@ -22534,9 +22534,9 @@ impl<'a> Primary<'a> {
     pub fn child_count(&self) -> usize {
         match self {
             Primary::Literal { .. } => 1usize,
+            Primary::Identifier { .. } => 1usize,
             Primary::This { .. } => 3usize,
             Primary::Super { .. } => 3usize,
-            Primary::Identifier { .. } => 1usize,
             Primary::Type { .. } => 5usize,
             Primary::Expression { .. } => 5usize,
             Primary::Amb(alts) => alts.len(),
@@ -22545,9 +22545,9 @@ impl<'a> Primary<'a> {
     pub fn span(&self) -> Span {
         match self {
             Primary::Literal { span, .. } => *span,
+            Primary::Identifier { span, .. } => *span,
             Primary::This { span, .. } => *span,
             Primary::Super { span, .. } => *span,
-            Primary::Identifier { span, .. } => *span,
             Primary::Type { span, .. } => *span,
             Primary::Expression { span, .. } => *span,
             Primary::Amb(alts) => alts[0].span(),
@@ -44707,8 +44707,16 @@ impl<'a> ParseTreeBuilder<ParseTree<'a>> for JavaParseTreeBuilder<'a> {
                         span: nonterminal_node.span,
                     }))
                 }
+                // Primary = Identifier #Identifier
+                SlotId(911) => {
+                    let [identifier] = children.into_array::<1usize>();
+                    ParseTree::Primary(self.arena.alloc(Primary::Identifier {
+                        identifier: identifier.unwrap_token(),
+                        span: nonterminal_node.span,
+                    }))
+                }
                 // Primary = (TypeName ".")? Layout "this" #This
-                SlotId(913) => {
+                SlotId(915) => {
                     let [opt_61, layout, lit_2] = children.into_array::<3usize>();
                     ParseTree::Primary(self.arena.alloc(Primary::This {
                         opt_61: opt_61.unwrap_opt_61(),
@@ -44718,20 +44726,12 @@ impl<'a> ParseTreeBuilder<ParseTree<'a>> for JavaParseTreeBuilder<'a> {
                     }))
                 }
                 // Primary = "super" Layout SuperSuffix #Super
-                SlotId(917) => {
+                SlotId(919) => {
                     let [lit_0, layout, super_suffix] = children.into_array::<3usize>();
                     ParseTree::Primary(self.arena.alloc(Primary::Super {
                         lit_0: lit_0.unwrap_token(),
                         layout: layout.unwrap_layout(),
                         super_suffix: super_suffix.unwrap_super_suffix(),
-                        span: nonterminal_node.span,
-                    }))
-                }
-                // Primary = Identifier #Identifier
-                SlotId(919) => {
-                    let [identifier] = children.into_array::<1usize>();
-                    ParseTree::Primary(self.arena.alloc(Primary::Identifier {
-                        identifier: identifier.unwrap_token(),
                         span: nonterminal_node.span,
                     }))
                 }

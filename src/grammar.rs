@@ -6176,6 +6176,14 @@ impl Grammar for JavaGrammar {
             position: 1,
         },
         Slot {
+            display_name: "Primary : . Identifier",
+            position: 0,
+        },
+        Slot {
+            display_name: "Primary : Identifier.",
+            position: 1,
+        },
+        Slot {
             display_name: "Primary : . (TypeName \".\")? Layout [$ 0-9 A-Z _ a-z] !<< \"this\" !>> [$ 0-9 A-Z _ a-z]",
             position: 0,
         },
@@ -6206,14 +6214,6 @@ impl Grammar for JavaGrammar {
         Slot {
             display_name: "Primary : [$ 0-9 A-Z _ a-z] !<< \"super\" !>> [$ 0-9 A-Z _ a-z] Layout SuperSuffix.",
             position: 3,
-        },
-        Slot {
-            display_name: "Primary : . Identifier",
-            position: 0,
-        },
-        Slot {
-            display_name: "Primary : Identifier.",
-            position: 1,
         },
         Slot {
             display_name: "Primary : . (Type | [$ 0-9 A-Z _ a-z] !<< \"void\" !>> [$ 0-9 A-Z _ a-z]) Layout \".\" Layout [$ 0-9 A-Z _ a-z] !<< \"class\" !>> [$ 0-9 A-Z _ a-z]",
@@ -13655,8 +13655,8 @@ impl Grammar for JavaGrammar {
         &[
             SlotId(908),
             SlotId(910),
-            SlotId(914),
-            SlotId(918),
+            SlotId(912),
+            SlotId(916),
             SlotId(920),
             SlotId(926),
         ],
@@ -18503,13 +18503,13 @@ pub static FOLLOW_SET_PRIMARY: TerminalSet = TerminalSet {
 };
 // Primary : Opt_61 Layout . [$ 0-9 A-Z _ a-z] !<< "this" !>> [$ 0-9 A-Z _ a-z] !>> { [$ 0-9
 // A-Z _ a-z] }
-pub static FOLLOW_RESTRICTION_PRIMARY_ALT1_POS2: TerminalSet = TerminalSet {
+pub static FOLLOW_RESTRICTION_PRIMARY_ALT2_POS2: TerminalSet = TerminalSet {
     id: 1,
     terminals: &[TerminalId(148)],
 };
 // Primary : . [$ 0-9 A-Z _ a-z] !<< "super" !>> [$ 0-9 A-Z _ a-z] Layout SuperSuffix !>> {
 // [$ 0-9 A-Z _ a-z] }
-pub static FOLLOW_RESTRICTION_PRIMARY_ALT2_POS0: TerminalSet = TerminalSet {
+pub static FOLLOW_RESTRICTION_PRIMARY_ALT3_POS0: TerminalSet = TerminalSet {
     id: 1,
     terminals: &[TerminalId(148)],
 };
@@ -41593,22 +41593,22 @@ pub static PREDICTION_EXPRESSION: Prediction = {
 };
 // Primary
 // 0: Literal #Literal
-// 1: Opt_61 Layout [$ 0-9 A-Z _ a-z] !<< "this" !>> [$ 0-9 A-Z _ a-z] #This
-// 2: [$ 0-9 A-Z _ a-z] !<< "super" !>> [$ 0-9 A-Z _ a-z] Layout SuperSuffix #Super
-// 3: Identifier #Identifier
+// 1: Identifier #Identifier
+// 2: Opt_61 Layout [$ 0-9 A-Z _ a-z] !<< "this" !>> [$ 0-9 A-Z _ a-z] #This
+// 3: [$ 0-9 A-Z _ a-z] !<< "super" !>> [$ 0-9 A-Z _ a-z] Layout SuperSuffix #Super
 // 4: Alt_11 Layout "." Layout [$ 0-9 A-Z _ a-z] !<< "class" !>> [$ 0-9 A-Z _ a-z] #Type
 // 5: "(" Layout Expression(0, 0) Layout ")" #Expression
 pub static PREDICTION_PRIMARY: Prediction = {
     // WhiteSpace
-    const TERMINALS_1: &[(TerminalId, u16)] = &[(TerminalId(45), 1), (TerminalId(45), 4)];
+    const TERMINALS_1: &[(TerminalId, u16)] = &[(TerminalId(45), 2), (TerminalId(45), 4)];
     // StringLiteral
     const TERMINALS_2: &[(TerminalId, u16)] = &[(TerminalId(6), 0)];
     // Identifier, TypeIdentifier
     const TERMINALS_3: &[(TerminalId, u16)] = &[
         (TerminalId(32), 1),
-        (TerminalId(32), 3),
+        (TerminalId(32), 2),
         (TerminalId(32), 4),
-        (TerminalId(34), 1),
+        (TerminalId(34), 2),
         (TerminalId(34), 4),
     ];
     // CharacterLiteral
@@ -41618,7 +41618,7 @@ pub static PREDICTION_PRIMARY: Prediction = {
     // FloatingPointLiteral
     const TERMINALS_6: &[(TerminalId, u16)] = &[(TerminalId(2), 0)];
     // Comment
-    const TERMINALS_7: &[(TerminalId, u16)] = &[(TerminalId(46), 1), (TerminalId(46), 4)];
+    const TERMINALS_7: &[(TerminalId, u16)] = &[(TerminalId(46), 2), (TerminalId(46), 4)];
     // IntegerLiteral, FloatingPointLiteral
     const TERMINALS_8: &[(TerminalId, u16)] = &[(TerminalId(1), 0), (TerminalId(2), 0)];
     // "@"
@@ -41626,9 +41626,9 @@ pub static PREDICTION_PRIMARY: Prediction = {
     // Identifier, TypeIdentifier, "byte", "boolean"
     const TERMINALS_10: &[(TerminalId, u16)] = &[
         (TerminalId(32), 1),
-        (TerminalId(32), 3),
+        (TerminalId(32), 2),
         (TerminalId(32), 4),
-        (TerminalId(34), 1),
+        (TerminalId(34), 2),
         (TerminalId(34), 4),
         (TerminalId(140), 4),
         (TerminalId(147), 4),
@@ -41636,18 +41636,18 @@ pub static PREDICTION_PRIMARY: Prediction = {
     // Identifier, TypeIdentifier, "char"
     const TERMINALS_11: &[(TerminalId, u16)] = &[
         (TerminalId(32), 1),
-        (TerminalId(32), 3),
+        (TerminalId(32), 2),
         (TerminalId(32), 4),
-        (TerminalId(34), 1),
+        (TerminalId(34), 2),
         (TerminalId(34), 4),
         (TerminalId(142), 4),
     ];
     // Identifier, TypeIdentifier, "double"
     const TERMINALS_12: &[(TerminalId, u16)] = &[
         (TerminalId(32), 1),
-        (TerminalId(32), 3),
+        (TerminalId(32), 2),
         (TerminalId(32), 4),
-        (TerminalId(34), 1),
+        (TerminalId(34), 2),
         (TerminalId(34), 4),
         (TerminalId(146), 4),
     ];
@@ -41655,27 +41655,27 @@ pub static PREDICTION_PRIMARY: Prediction = {
     const TERMINALS_13: &[(TerminalId, u16)] = &[
         (TerminalId(3), 0),
         (TerminalId(32), 1),
-        (TerminalId(32), 3),
+        (TerminalId(32), 2),
         (TerminalId(32), 4),
-        (TerminalId(34), 1),
+        (TerminalId(34), 2),
         (TerminalId(34), 4),
         (TerminalId(145), 4),
     ];
     // Identifier, TypeIdentifier, "int"
     const TERMINALS_14: &[(TerminalId, u16)] = &[
         (TerminalId(32), 1),
-        (TerminalId(32), 3),
+        (TerminalId(32), 2),
         (TerminalId(32), 4),
-        (TerminalId(34), 1),
+        (TerminalId(34), 2),
         (TerminalId(34), 4),
         (TerminalId(143), 4),
     ];
     // Identifier, TypeIdentifier, "long"
     const TERMINALS_15: &[(TerminalId, u16)] = &[
         (TerminalId(32), 1),
-        (TerminalId(32), 3),
+        (TerminalId(32), 2),
         (TerminalId(32), 4),
-        (TerminalId(34), 1),
+        (TerminalId(34), 2),
         (TerminalId(34), 4),
         (TerminalId(144), 4),
     ];
@@ -41683,37 +41683,37 @@ pub static PREDICTION_PRIMARY: Prediction = {
     const TERMINALS_16: &[(TerminalId, u16)] = &[
         (TerminalId(7), 0),
         (TerminalId(32), 1),
-        (TerminalId(32), 3),
+        (TerminalId(32), 2),
         (TerminalId(32), 4),
-        (TerminalId(34), 1),
+        (TerminalId(34), 2),
         (TerminalId(34), 4),
     ];
     // Identifier, TypeIdentifier, "super", "short"
     const TERMINALS_17: &[(TerminalId, u16)] = &[
         (TerminalId(32), 1),
-        (TerminalId(32), 3),
+        (TerminalId(32), 2),
         (TerminalId(32), 4),
-        (TerminalId(34), 1),
+        (TerminalId(34), 2),
         (TerminalId(34), 4),
-        (TerminalId(83), 2),
+        (TerminalId(83), 3),
         (TerminalId(141), 4),
     ];
     // BooleanLiteral, Identifier, TypeIdentifier, "this"
     const TERMINALS_18: &[(TerminalId, u16)] = &[
         (TerminalId(3), 0),
         (TerminalId(32), 1),
-        (TerminalId(32), 3),
+        (TerminalId(32), 2),
         (TerminalId(32), 4),
-        (TerminalId(34), 1),
+        (TerminalId(34), 2),
         (TerminalId(34), 4),
-        (TerminalId(80), 1),
+        (TerminalId(80), 2),
     ];
     // Identifier, TypeIdentifier, "void"
     const TERMINALS_19: &[(TerminalId, u16)] = &[
         (TerminalId(32), 1),
-        (TerminalId(32), 3),
+        (TerminalId(32), 2),
         (TerminalId(32), 4),
-        (TerminalId(34), 1),
+        (TerminalId(34), 2),
         (TerminalId(34), 4),
         (TerminalId(81), 4),
     ];
