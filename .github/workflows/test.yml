@@ -1,16 +1,16 @@
 name: Test
 
-# Reusable test workflow: regenerate the parser with a released iguana,
-# verify the committed sources match, then run the golden and corpus
-# suites. The grammar repo's own CI calls it with the default version;
-# an iguana-rs caller can later pass a different source of the generator.
+# Reusable test workflow: regenerate the parser with the released iguana the
+# manifest pins, verify the committed sources match, then run the golden and
+# corpus suites. The iguana-version input overrides that pin, which an
+# iguana-rs caller can use to test a different source of the generator.
 on:
   workflow_call:
     inputs:
       iguana-version:
-        description: The released iguana version to generate with
+        description: Overrides the released iguana version to generate with, which otherwise comes from the manifest pin
         type: string
-        default: 0.1.0-alpha.2
+        default: ''
       commit:
         description: Exact commit to test, for a release candidate that is not yet on main
         type: string
@@ -45,16 +45,38 @@ jobs:
             target
           key: cargo-${{ runner.os }}-${{ hashFiles('Cargo.lock') }}
 
+      # The generator must match the runtime the manifest pins, or the
+      # regeneration check below compares the output of one release against
+      # sources written by another.
+      - name: Resolve the generator version
+        id: generator
+        env:
+          OVERRIDE: ${{ inputs.iguana-version }}
+        run: |
+          VERSION="$OVERRIDE"
+          if [ -z "$VERSION" ]; then
+            VERSION=$(cargo metadata --format-version 1 --locked | jq -r '
+              .packages[]
+              | select(.name == "iguana-runtime" and (.source // "" | startswith("registry+")))
+              | .version')
+          fi
+          test -n "$VERSION" || {
+            echo '::error::iguana-runtime must be a published version, not a path dependency.'
+            exit 1
+          }
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "Generating with iguana $VERSION." >> "$GITHUB_STEP_SUMMARY"
+
       - name: Cache the iguana binary
         id: iguana-bin
         uses: actions/cache@v4
         with:
           path: ~/.cargo/bin/iguana
-          key: iguana-${{ runner.os }}-${{ inputs.iguana-version }}
+          key: iguana-${{ runner.os }}-${{ steps.generator.outputs.version }}
 
       - name: Install iguana
         if: steps.iguana-bin.outputs.cache-hit != 'true'
-        run: cargo install iguana --version ${{ inputs.iguana-version }} --locked
+        run: cargo install iguana --version ${{ steps.generator.outputs.version }} --locked
 
       - name: Regenerate the parser
         run: iguana generate

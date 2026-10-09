@@ -53,6 +53,10 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
+      # The manifest is edition 2024, which the runner image's cargo need not
+      # support, and this job reads it with cargo metadata.
+      - uses: dtolnay/rust-toolchain@stable
+
       # Releases push to main and create a protected tag, neither of which
       # the workflow token may do. Fail before anything is created.
       - name: Require the release token
@@ -109,10 +113,15 @@ jobs:
           fi
 
           # The candidate is validated against the generator matching the
-          # runtime the manifest pins, not against whatever CI defaults to.
-          IGUANA_VERSION=$(sed -n 's/^iguana-runtime = .*version = "=\([^"]*\)".*/\1/p' Cargo.toml)
+          # runtime it resolves, not against whatever CI defaults to. A path
+          # dependency has no registry source, and releasing one would ship
+          # sources no published generator reproduces.
+          IGUANA_VERSION=$(cargo metadata --format-version 1 --locked | jq -r '
+            .packages[]
+            | select(.name == "iguana-runtime" and (.source // "" | startswith("registry+")))
+            | .version')
           test -n "$IGUANA_VERSION" || {
-            echo '::error::Cannot read the pinned iguana-runtime version from Cargo.toml.'
+            echo '::error::iguana-runtime must be a published version, not a path dependency.'
             exit 1
           }
 
