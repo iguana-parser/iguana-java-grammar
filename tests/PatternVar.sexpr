@@ -1,0 +1,3 @@
+Parse error at line 3, column 33: Expected "."
+        return o instanceof var v;
+                                ^

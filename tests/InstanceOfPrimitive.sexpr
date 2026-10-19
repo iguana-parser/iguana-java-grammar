@@ -1,0 +1,3 @@
+Parse error at line 3, column 32: Expected one of ",", ".", ")", "@", "[", ">", EOF
+        return o instanceof int;
+                               ^

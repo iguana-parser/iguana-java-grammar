@@ -1,0 +1,514 @@
+(CompilationUnit
+  (OrdinaryCompilationUnit
+    (ImportDeclaration*
+      (ImportDeclaration
+        "import"
+        (TypeName
+          ((Identifier ".")* Identifier "." Identifier ".")
+          TypeIdentifier)
+        ";")
+      (ImportDeclaration
+        "import"
+        (TypeName
+          ((Identifier ".")* Identifier "." Identifier ".")
+          TypeIdentifier)
+        ";"))
+    (TypeDeclaration*
+      (TypeDeclaration
+        (ClassDeclaration
+          (NormalClassDeclaration
+            "class"
+            TypeIdentifier
+            (ClassBody
+              "{"
+              (ClassBodyDeclaration*
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result
+                      (UnannType
+                        (UnannPrimitiveType "int")))
+                    (MethodDeclarator
+                      Identifier
+                      "("
+                      (FormalParameterList
+                        (LastFormalParameter
+                          (FormalParameter
+                            (UnannType
+                              (UnannReferenceType
+                                (UnannClassType TypeIdentifier)))
+                            (VariableDeclaratorId Identifier))))
+                      ")")
+                    (MethodBody
+                      (Block
+                        "{"
+                        (BlockStatement*
+                          (BlockStatement
+                            (Statement
+                              "if"
+                              "("
+                              (Expression
+                                (Expression
+                                  (Primary Identifier))
+                                "instanceof"
+                                (TypePattern
+                                  (UnannReferenceType
+                                    (UnannClassType TypeIdentifier))
+                                  Identifier))
+                              ")"
+                              (Statement
+                                (Block
+                                  "{"
+                                  (BlockStatement*
+                                    (BlockStatement
+                                      (Statement
+                                        "return"
+                                        (Expression
+                                          (Expression
+                                            (Primary Identifier))
+                                          "."
+                                          (Selector
+                                            Identifier
+                                            (Arguments "(" ")")))
+                                        ";")))
+                                  "}"))))
+                          (BlockStatement
+                            (Statement
+                              "if"
+                              "("
+                              (Expression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  "instanceof"
+                                  (TypePattern
+                                    (VariableModifier*
+                                      (VariableModifier "final"))
+                                    (UnannReferenceType
+                                      (UnannClassType TypeIdentifier))
+                                    Identifier))
+                                "&&"
+                                (Expression
+                                  (Expression
+                                    (Expression
+                                      (Primary Identifier))
+                                    "."
+                                    (Selector
+                                      Identifier
+                                      (Arguments "(" ")")))
+                                  ">"
+                                  (Expression
+                                    (Primary
+                                      (Literal IntegerLiteral)))))
+                              ")"
+                              (Statement
+                                (Block
+                                  "{"
+                                  (BlockStatement*
+                                    (BlockStatement
+                                      (Statement
+                                        "return"
+                                        (Expression
+                                          (Expression
+                                            (Primary Identifier))
+                                          "."
+                                          (Selector
+                                            Identifier
+                                            (Arguments "(" ")")))
+                                        ";")))
+                                  "}"))))
+                          (BlockStatement
+                            (Statement
+                              "if"
+                              "("
+                              (Expression
+                                "!"
+                                (Expression
+                                  (Primary
+                                    "("
+                                    (Expression
+                                      (Expression
+                                        (Primary Identifier))
+                                      "instanceof"
+                                      (TypePattern
+                                        (UnannReferenceType
+                                          (UnannClassType TypeIdentifier))
+                                        Identifier))
+                                    ")")))
+                              ")"
+                              (Statement
+                                (Block
+                                  "{"
+                                  (BlockStatement*
+                                    (BlockStatement
+                                      (Statement
+                                        "return"
+                                        (Expression
+                                          (Primary
+                                            (Literal IntegerLiteral)))
+                                        ";")))
+                                  "}"))))
+                          (BlockStatement
+                            (Statement
+                              "return"
+                              (Expression
+                                (Primary Identifier))
+                              ";")))
+                        "}"))))
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result
+                      (UnannType
+                        (UnannPrimitiveType "boolean")))
+                    (MethodDeclarator
+                      Identifier
+                      "("
+                      (FormalParameterList
+                        (LastFormalParameter
+                          (FormalParameter
+                            (UnannType
+                              (UnannReferenceType
+                                (UnannClassType TypeIdentifier)))
+                            (VariableDeclaratorId Identifier))))
+                      ")")
+                    (MethodBody
+                      (Block
+                        "{"
+                        (BlockStatement*
+                          (BlockStatement
+                            (Statement
+                              "return"
+                              (Expression
+                                (Expression
+                                  (Expression
+                                    (Expression
+                                      (Primary Identifier))
+                                    "instanceof"
+                                    (TypePattern
+                                      (UnannReferenceType
+                                        (UnannClassType
+                                          TypeIdentifier
+                                          (TypeArguments
+                                            "<"
+                                            ({TypeArgument ","}+
+                                              (TypeArgument "?"))
+                                            ">")))
+                                      Identifier))
+                                  "&&"
+                                  (Expression
+                                    "!"
+                                    (Expression
+                                      (Expression
+                                        (Primary Identifier))
+                                      "."
+                                      (Selector
+                                        Identifier
+                                        (Arguments "(" ")")))))
+                                "||"
+                                (Expression
+                                  (Expression
+                                    (Expression
+                                      (Primary Identifier))
+                                    "instanceof"
+                                    (TypePattern
+                                      (UnannReferenceType
+                                        (UnannClassType
+                                          ((Identifier ".")+ Identifier ".")
+                                          (MarkedTypeComponent
+                                            TypeIdentifier
+                                            (TypeArguments
+                                              "<"
+                                              ({TypeArgument ","}+
+                                                (TypeArgument "?")
+                                                ","
+                                                (TypeArgument "?"))
+                                              ">"))))
+                                      Identifier))
+                                  "&&"
+                                  (Expression
+                                    (Expression
+                                      (Expression
+                                        (Primary Identifier))
+                                      "."
+                                      (Selector
+                                        Identifier
+                                        (Arguments "(" ")")))
+                                    "!="
+                                    (Expression
+                                      (Primary
+                                        (Literal NullLiteral))))))
+                              ";")))
+                        "}"))))
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result
+                      (UnannType
+                        (UnannPrimitiveType "boolean")))
+                    (MethodDeclarator
+                      Identifier
+                      "("
+                      (FormalParameterList
+                        (LastFormalParameter
+                          (FormalParameter
+                            (UnannType
+                              (UnannReferenceType
+                                (UnannClassType
+                                  TypeIdentifier
+                                  (TypeArguments
+                                    "<"
+                                    ({TypeArgument ","}+
+                                      (TypeArgument
+                                        (ReferenceType
+                                          (ClassType TypeIdentifier))))
+                                    ">"))))
+                            (VariableDeclaratorId Identifier))))
+                      ")")
+                    (MethodBody
+                      (Block
+                        "{"
+                        (BlockStatement*
+                          (BlockStatement
+                            (Statement
+                              "return"
+                              (Expression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  "instanceof"
+                                  (TypePattern
+                                    (UnannReferenceType
+                                      (UnannClassType
+                                        TypeIdentifier
+                                        (TypeArguments
+                                          "<"
+                                          ({TypeArgument ","}+
+                                            (TypeArgument
+                                              (ReferenceType
+                                                (ClassType TypeIdentifier))))
+                                          ">")))
+                                    Identifier))
+                                "&&"
+                                (Expression
+                                  (Expression
+                                    (Expression
+                                      (Primary Identifier))
+                                    "."
+                                    (Selector
+                                      Identifier
+                                      (Arguments "(" ")")))
+                                  ">"
+                                  (Expression
+                                    (Primary
+                                      (Literal IntegerLiteral)))))
+                              ";")))
+                        "}"))))
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result
+                      (UnannType
+                        (UnannPrimitiveType "boolean")))
+                    (MethodDeclarator
+                      Identifier
+                      "("
+                      (FormalParameterList
+                        (LastFormalParameter
+                          (FormalParameter
+                            (UnannType
+                              (UnannReferenceType
+                                (UnannClassType TypeIdentifier)))
+                            (VariableDeclaratorId Identifier))))
+                      ")")
+                    (MethodBody
+                      (Block
+                        "{"
+                        (BlockStatement*
+                          (BlockStatement
+                            (Statement
+                              "return"
+                              (Expression
+                                (Expression
+                                  (Expression
+                                    (Expression
+                                      (Primary Identifier))
+                                    "instanceof"
+                                    (TypePattern
+                                      (UnannReferenceType
+                                        (UnannArrayType
+                                          (UnannPrimitiveType "int")
+                                          ((Annotation* "[" "]")+ "[" "]")))
+                                      Identifier))
+                                  "&&"
+                                  (Expression
+                                    (Expression
+                                      (Expression
+                                        (Primary Identifier))
+                                      "."
+                                      (Selector Identifier))
+                                    ">"
+                                    (Expression
+                                      (Primary
+                                        (Literal IntegerLiteral)))))
+                                "||"
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  "instanceof"
+                                  (TypePattern
+                                    (UnannReferenceType
+                                      (UnannArrayType
+                                        (UnannClassType TypeIdentifier)
+                                        ((Annotation* "[" "]")+ "[" "]" "[" "]")))
+                                    Identifier)))
+                              ";")))
+                        "}"))))
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result
+                      (UnannType
+                        (UnannPrimitiveType "boolean")))
+                    (MethodDeclarator
+                      Identifier
+                      "("
+                      (FormalParameterList
+                        (LastFormalParameter
+                          (FormalParameter
+                            (UnannType
+                              (UnannReferenceType
+                                (UnannClassType TypeIdentifier)))
+                            (VariableDeclaratorId Identifier))))
+                      ")")
+                    (MethodBody
+                      (Block
+                        "{"
+                        (BlockStatement*
+                          (BlockStatement
+                            (Statement
+                              "return"
+                              (Expression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  "instanceof"
+                                  (TypePattern
+                                    (VariableModifier*
+                                      (VariableModifier
+                                        (Annotation
+                                          "@"
+                                          (TypeName TypeIdentifier))))
+                                    (UnannReferenceType
+                                      (UnannClassType TypeIdentifier))
+                                    Identifier))
+                                "&&"
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  "."
+                                  (Selector
+                                    Identifier
+                                    (Arguments "(" ")"))))
+                              ";")))
+                        "}"))))
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result
+                      (UnannType
+                        (UnannReferenceType
+                          (UnannClassType TypeIdentifier))))
+                    (MethodDeclarator
+                      Identifier
+                      "("
+                      (FormalParameterList
+                        (LastFormalParameter
+                          (FormalParameter
+                            (UnannType
+                              (UnannReferenceType
+                                (UnannClassType TypeIdentifier)))
+                            (VariableDeclaratorId Identifier))))
+                      ")")
+                    (MethodBody
+                      (Block
+                        "{"
+                        (BlockStatement*
+                          (BlockStatement
+                            (Statement
+                              "return"
+                              (Expression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  "instanceof"
+                                  (TypePattern
+                                    (UnannReferenceType
+                                      (UnannClassType TypeIdentifier))
+                                    Identifier))
+                                "?"
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  "."
+                                  (Selector
+                                    Identifier
+                                    (Arguments "(" ")")))
+                                ":"
+                                (Expression
+                                  (Primary
+                                    (Literal StringLiteral))))
+                              ";")))
+                        "}"))))
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result
+                      (UnannType
+                        (UnannPrimitiveType "boolean")))
+                    (MethodDeclarator
+                      Identifier
+                      "("
+                      (FormalParameterList
+                        (LastFormalParameter
+                          (FormalParameter
+                            (UnannType
+                              (UnannReferenceType
+                                (UnannClassType TypeIdentifier)))
+                            (VariableDeclaratorId Identifier))))
+                      ")")
+                    (MethodBody
+                      (Block
+                        "{"
+                        (BlockStatement*
+                          (BlockStatement
+                            (Statement
+                              "return"
+                              (Expression
+                                (Expression
+                                  (Expression
+                                    (Expression
+                                      (Primary Identifier))
+                                    "instanceof"
+                                    (ReferenceType
+                                      (ClassType TypeIdentifier)))
+                                  "&&"
+                                  (Expression
+                                    (Expression
+                                      (Primary Identifier))
+                                    "instanceof"
+                                    (ReferenceType
+                                      (ClassType
+                                        ((Identifier ".")* Identifier "." Identifier ".")
+                                        TypeIdentifier))))
+                                "&&"
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  "instanceof"
+                                  (ReferenceType
+                                    (ClassType
+                                      (MarkedClassType
+                                        (MarkedTypeComponent
+                                          TypeIdentifier
+                                          (TypeArguments
+                                            "<"
+                                            ({TypeArgument ","}+
+                                              (TypeArgument "?"))
+                                            ">")))))))
+                              ";")))
+                        "}")))))
+              "}")))))))

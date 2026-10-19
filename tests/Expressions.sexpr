@@ -509,9 +509,8 @@
                                     (Expression
                                       (Primary Identifier))
                                     "instanceof"
-                                    (Type
-                                      (ReferenceType
-                                        (ClassType TypeIdentifier))))))
+                                    (ReferenceType
+                                      (ClassType TypeIdentifier)))))
                               ";"))
                           (BlockStatement
                             (Statement

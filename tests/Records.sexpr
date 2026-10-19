@@ -1,0 +1,595 @@
+(CompilationUnit
+  (OrdinaryCompilationUnit
+    (ImportDeclaration*
+      (ImportDeclaration
+        "import"
+        (TypeName
+          ((Identifier ".")* Identifier "." Identifier ".")
+          TypeIdentifier)
+        ";"))
+    (TypeDeclaration*
+      (TypeDeclaration
+        (ClassDeclaration
+          (RecordDeclaration
+            "record"
+            TypeIdentifier
+            (RecordHeader "(" ")")
+            (RecordBody "{" "}"))))
+      (TypeDeclaration
+        (ClassDeclaration
+          (RecordDeclaration
+            "record"
+            TypeIdentifier
+            (RecordHeader
+              "("
+              (RecordComponentList
+                ((RecordComponent ",")*
+                  (RecordComponent
+                    (UnannType
+                      (UnannPrimitiveType "int"))
+                    Identifier)
+                  ",")
+                (LastRecordComponent
+                  (RecordComponent
+                    (UnannType
+                      (UnannPrimitiveType "int"))
+                    Identifier)))
+              ")")
+            (RecordBody "{" "}"))))
+      (TypeDeclaration
+        (ClassDeclaration
+          (RecordDeclaration
+            "record"
+            TypeIdentifier
+            (TypeParameters
+              "<"
+              ({TypeParameter ","}+
+                (TypeParameter TypeIdentifier)
+                ","
+                (TypeParameter TypeIdentifier))
+              ">")
+            (RecordHeader
+              "("
+              (RecordComponentList
+                ((RecordComponent ",")*
+                  (RecordComponent
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannClassType TypeIdentifier)))
+                    Identifier)
+                  ",")
+                (LastRecordComponent
+                  (RecordComponent
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannClassType TypeIdentifier)))
+                    Identifier)))
+              ")")
+            "implements"
+            (ClassTypeList
+              ({ClassType ","}+
+                (ClassType
+                  (MarkedClassType
+                    (MarkedTypeComponent
+                      TypeIdentifier
+                      (TypeArguments
+                        "<"
+                        ({TypeArgument ","}+
+                          (TypeArgument
+                            (ReferenceType
+                              (ClassType
+                                (MarkedClassType
+                                  (MarkedTypeComponent
+                                    TypeIdentifier
+                                    (TypeArguments
+                                      "<"
+                                      ({TypeArgument ","}+
+                                        (TypeArgument
+                                          (ReferenceType
+                                            (ClassType TypeIdentifier)))
+                                        ","
+                                        (TypeArgument
+                                          (ReferenceType
+                                            (ClassType TypeIdentifier))))
+                                      ">")))))))
+                        ">"))))))
+            (RecordBody
+              "{"
+              (RecordBodyDeclaration*
+                (RecordBodyDeclaration
+                  (ClassBodyDeclaration
+                    (MethodDeclaration
+                      (MethodModifier*
+                        (MethodModifier "public"))
+                      (Result
+                        (UnannType
+                          (UnannPrimitiveType "int")))
+                      (MethodDeclarator
+                        Identifier
+                        "("
+                        (FormalParameterList
+                          (LastFormalParameter
+                            (FormalParameter
+                              (UnannType
+                                (UnannReferenceType
+                                  (UnannClassType
+                                    TypeIdentifier
+                                    (TypeArguments
+                                      "<"
+                                      ({TypeArgument ","}+
+                                        (TypeArgument
+                                          (ReferenceType
+                                            (ClassType TypeIdentifier)))
+                                        ","
+                                        (TypeArgument
+                                          (ReferenceType
+                                            (ClassType TypeIdentifier))))
+                                      ">"))))
+                              (VariableDeclaratorId Identifier))))
+                        ")")
+                      (MethodBody
+                        (Block
+                          "{"
+                          (BlockStatement*
+                            (BlockStatement
+                              (Statement
+                                "return"
+                                (Expression
+                                  (Primary
+                                    (Literal IntegerLiteral)))
+                                ";")))
+                          "}"))))))
+              "}"))))
+      (TypeDeclaration
+        (ClassDeclaration
+          (RecordDeclaration
+            "record"
+            TypeIdentifier
+            (RecordHeader
+              "("
+              (RecordComponentList
+                ((RecordComponent ",")*
+                  (RecordComponent
+                    (UnannType
+                      (UnannPrimitiveType "int"))
+                    Identifier)
+                  ",")
+                (LastRecordComponent
+                  (RecordComponent
+                    (UnannType
+                      (UnannPrimitiveType "int"))
+                    Identifier)))
+              ")")
+            (RecordBody
+              "{"
+              (RecordBodyDeclaration*
+                (RecordBodyDeclaration
+                  (CompactConstructorDeclaration
+                    TypeIdentifier
+                    (ConstructorBody
+                      "{"
+                      (BlockStatement*
+                        (BlockStatement
+                          (Statement
+                            "if"
+                            "("
+                            (Expression
+                              (Expression
+                                (Primary Identifier))
+                              ">"
+                              (Expression
+                                (Primary Identifier)))
+                            ")"
+                            (Statement
+                              (Block
+                                "{"
+                                (BlockStatement*
+                                  (BlockStatement
+                                    (Statement
+                                      "throw"
+                                      (Expression
+                                        "new"
+                                        (ClassInstanceCreationExpression
+                                          (ClassTypeToInstantiate Identifier)
+                                          (Arguments "(" ")")))
+                                      ";")))
+                                "}")))))
+                      "}")))
+                (RecordBodyDeclaration
+                  (ClassBodyDeclaration
+                    (MethodDeclaration
+                      (MethodModifier*
+                        (MethodModifier "static"))
+                      (Result
+                        (UnannType
+                          (UnannReferenceType
+                            (UnannClassType TypeIdentifier))))
+                      (MethodDeclarator Identifier "(" ")")
+                      (MethodBody
+                        (Block
+                          "{"
+                          (BlockStatement*
+                            (BlockStatement
+                              (Statement
+                                "return"
+                                (Expression
+                                  "new"
+                                  (ClassInstanceCreationExpression
+                                    (ClassTypeToInstantiate Identifier)
+                                    (Arguments
+                                      "("
+                                      ({Expression ","}*
+                                        (Expression
+                                          (Primary
+                                            (Literal IntegerLiteral)))
+                                        ","
+                                        (Expression
+                                          (Primary
+                                            (Literal IntegerLiteral))))
+                                      ")")))
+                                ";")))
+                          "}")))))
+                (RecordBodyDeclaration
+                  (ClassBodyDeclaration
+                    (MethodDeclaration
+                      (Result
+                        (UnannType
+                          (UnannPrimitiveType "int")))
+                      (MethodDeclarator Identifier "(" ")")
+                      (MethodBody
+                        (Block
+                          "{"
+                          (BlockStatement*
+                            (BlockStatement
+                              (Statement
+                                "return"
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  "-"
+                                  (Expression
+                                    (Primary Identifier)))
+                                ";")))
+                          "}")))))
+                (RecordBodyDeclaration
+                  (ClassBodyDeclaration
+                    (ClassDeclaration
+                      (RecordDeclaration
+                        "record"
+                        TypeIdentifier
+                        (RecordHeader
+                          "("
+                          (RecordComponentList
+                            (LastRecordComponent
+                              (RecordComponent
+                                (UnannType
+                                  (UnannReferenceType
+                                    (UnannClassType TypeIdentifier)))
+                                Identifier)))
+                          ")")
+                        (RecordBody "{" "}"))))))
+              "}"))))
+      (TypeDeclaration
+        (ClassDeclaration
+          (RecordDeclaration
+            "record"
+            TypeIdentifier
+            (RecordHeader
+              "("
+              (RecordComponentList
+                ((RecordComponent ",")*
+                  (RecordComponent
+                    (Annotation*
+                      (Annotation
+                        "@"
+                        (TypeName TypeIdentifier)))
+                    (UnannType
+                      (UnannPrimitiveType "int"))
+                    Identifier)
+                  ","
+                  (RecordComponent
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannClassType
+                          TypeIdentifier
+                          (TypeArguments
+                            "<"
+                            ({TypeArgument ","}+
+                              (TypeArgument
+                                (ReferenceType
+                                  (ClassType TypeIdentifier))))
+                            ">"))))
+                    Identifier)
+                  ",")
+                (LastRecordComponent
+                  (UnannType
+                    (UnannPrimitiveType "int"))
+                  (Annotation*
+                    (Annotation
+                      "@"
+                      (TypeName TypeIdentifier)))
+                  "..."
+                  Identifier))
+              ")")
+            (RecordBody
+              "{"
+              (RecordBodyDeclaration*
+                (RecordBodyDeclaration
+                  (ClassBodyDeclaration
+                    (ConstructorDeclaration
+                      (ConstructorModifier*
+                        (ConstructorModifier "public"))
+                      TypeIdentifier
+                      "("
+                      (FormalParameterList
+                        ((FormalParameter ",")*
+                          (FormalParameter
+                            (UnannType
+                              (UnannPrimitiveType "int"))
+                            (VariableDeclaratorId Identifier))
+                          ","
+                          (FormalParameter
+                            (UnannType
+                              (UnannReferenceType
+                                (UnannClassType
+                                  TypeIdentifier
+                                  (TypeArguments
+                                    "<"
+                                    ({TypeArgument ","}+
+                                      (TypeArgument
+                                        (ReferenceType
+                                          (ClassType TypeIdentifier))))
+                                    ">"))))
+                            (VariableDeclaratorId Identifier))
+                          ",")
+                        (LastFormalParameter
+                          (UnannType
+                            (UnannPrimitiveType "int"))
+                          "..."
+                          (VariableDeclaratorId Identifier)))
+                      ")"
+                      (ConstructorBody
+                        "{"
+                        (BlockStatement*
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Expression
+                                      (Primary "this"))
+                                    "."
+                                    (Selector Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Primary Identifier))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Expression
+                                      (Primary "this"))
+                                    "."
+                                    (Selector Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Primary Identifier))))
+                              ";"))
+                          (BlockStatement
+                            (Statement
+                              (StatementExpression
+                                (Expression
+                                  (Expression
+                                    (Expression
+                                      (Primary "this"))
+                                    "."
+                                    (Selector Identifier))
+                                  AssignmentOperator
+                                  (Expression
+                                    (Primary Identifier))))
+                              ";")))
+                        "}")))))
+              "}"))))
+      (TypeDeclaration
+        (ClassDeclaration
+          (RecordDeclaration
+            "record"
+            TypeIdentifier
+            (RecordHeader
+              "("
+              (RecordComponentList
+                (LastRecordComponent
+                  (RecordComponent
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannClassType TypeIdentifier)))
+                    Identifier)))
+              ")")
+            (RecordBody
+              "{"
+              (RecordBodyDeclaration*
+                (RecordBodyDeclaration
+                  (CompactConstructorDeclaration
+                    (ConstructorModifier*
+                      (ConstructorModifier
+                        (Annotation
+                          "@"
+                          (TypeName TypeIdentifier)))
+                      (ConstructorModifier "public"))
+                    TypeIdentifier
+                    (ConstructorBody
+                      "{"
+                      (BlockStatement*
+                        (BlockStatement
+                          (Statement
+                            (StatementExpression
+                              (Expression
+                                (Expression
+                                  (Primary Identifier))
+                                AssignmentOperator
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  "."
+                                  (Selector
+                                    Identifier
+                                    (Arguments "(" ")")))))
+                            ";")))
+                      "}"))))
+              "}"))))
+      (TypeDeclaration
+        (ClassDeclaration
+          (NormalClassDeclaration
+            "class"
+            TypeIdentifier
+            (ClassBody
+              "{"
+              (ClassBodyDeclaration*
+                (ClassBodyDeclaration
+                  (ClassDeclaration
+                    (RecordDeclaration
+                      "record"
+                      TypeIdentifier
+                      (RecordHeader
+                        "("
+                        (RecordComponentList
+                          (LastRecordComponent
+                            (RecordComponent
+                              (UnannType
+                                (UnannPrimitiveType "int"))
+                              Identifier)))
+                        ")")
+                      (RecordBody "{" "}"))))
+                (ClassBodyDeclaration
+                  (InterfaceDeclaration
+                    (NormalInterfaceDeclaration
+                      "interface"
+                      TypeIdentifier
+                      (InterfaceBody
+                        "{"
+                        (InterfaceMemberDeclaration*
+                          (InterfaceMemberDeclaration
+                            (ClassDeclaration
+                              (RecordDeclaration
+                                "record"
+                                TypeIdentifier
+                                (RecordHeader
+                                  "("
+                                  (RecordComponentList
+                                    (LastRecordComponent
+                                      (RecordComponent
+                                        (UnannType
+                                          (UnannPrimitiveType "int"))
+                                        Identifier)))
+                                  ")")
+                                (RecordBody "{" "}")))))
+                        "}"))))
+                (ClassBodyDeclaration
+                  (InterfaceDeclaration
+                    (AnnotationTypeDeclaration
+                      "@"
+                      "interface"
+                      TypeIdentifier
+                      (AnnotationTypeBody
+                        "{"
+                        (AnnotationTypeElementDeclaration*
+                          (AnnotationTypeElementDeclaration
+                            (ClassDeclaration
+                              (RecordDeclaration
+                                "record"
+                                TypeIdentifier
+                                (RecordHeader
+                                  "("
+                                  (RecordComponentList
+                                    (LastRecordComponent
+                                      (RecordComponent
+                                        (UnannType
+                                          (UnannPrimitiveType "int"))
+                                        Identifier)))
+                                  ")")
+                                (RecordBody "{" "}")))))
+                        "}"))))
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result "void")
+                    (MethodDeclarator Identifier "(" ")")
+                    (MethodBody
+                      (Block
+                        "{"
+                        (BlockStatement*
+                          (BlockStatement
+                            (ClassDeclaration
+                              (RecordDeclaration
+                                "record"
+                                TypeIdentifier
+                                (RecordHeader
+                                  "("
+                                  (RecordComponentList
+                                    (LastRecordComponent
+                                      (RecordComponent
+                                        (UnannType
+                                          (UnannPrimitiveType "int"))
+                                        Identifier)))
+                                  ")")
+                                (RecordBody "{" "}"))))
+                          (BlockStatement
+                            (LocalVariableDeclarationStatement
+                              (LocalVariableType
+                                (UnannType
+                                  (UnannReferenceType
+                                    (UnannClassType TypeIdentifier))))
+                              ({VariableDeclarator ","}+
+                                (VariableDeclarator
+                                  (VariableDeclaratorId Identifier)
+                                  "="
+                                  (VariableInitializer
+                                    (Expression
+                                      "new"
+                                      (ClassInstanceCreationExpression
+                                        (ClassTypeToInstantiate Identifier)
+                                        (Arguments
+                                          "("
+                                          ({Expression ","}*
+                                            (Expression
+                                              (Primary
+                                                (Literal IntegerLiteral))))
+                                          ")"))))))
+                              ";")))
+                        "}")))))
+              "}"))))
+      (TypeDeclaration
+        (InterfaceDeclaration
+          (AnnotationTypeDeclaration
+            (InterfaceModifier*
+              (InterfaceModifier
+                (Annotation
+                  "@"
+                  (TypeName
+                    ((Identifier ".")* Identifier "." Identifier "." Identifier ".")
+                    TypeIdentifier)
+                  (Values
+                    "("
+                    (AnnotationElement
+                      ({ElementValue ","}+
+                        (ElementValue
+                          (Expression
+                            (Expression
+                              (Expression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  "."
+                                  (Selector Identifier))
+                                "."
+                                (Selector Identifier))
+                              "."
+                              (Selector Identifier))
+                            "."
+                            (Selector Identifier)))))
+                    ")"))))
+            "@"
+            "interface"
+            TypeIdentifier
+            (AnnotationTypeBody "{" "}")))))))

@@ -1,0 +1,232 @@
+(CompilationUnit
+  (OrdinaryCompilationUnit
+    (TypeDeclaration*
+      (TypeDeclaration
+        (InterfaceDeclaration
+          (NormalInterfaceDeclaration
+            (InterfaceModifier*
+              (InterfaceModifier "sealed"))
+            "interface"
+            TypeIdentifier
+            "permits"
+            ({TypeName ","}+
+              (TypeName TypeIdentifier)
+              ","
+              (TypeName TypeIdentifier)
+              ","
+              (TypeName
+                ((Identifier ".")* Identifier ".")
+                TypeIdentifier)
+              ","
+              (TypeName TypeIdentifier))
+            (InterfaceBody "{" "}"))))
+      (TypeDeclaration
+        (ClassDeclaration
+          (NormalClassDeclaration
+            (ClassModifier*
+              (ClassModifier "final"))
+            "class"
+            TypeIdentifier
+            "implements"
+            (ClassTypeList
+              ({ClassType ","}+
+                (ClassType TypeIdentifier)))
+            (ClassBody "{" "}"))))
+      (TypeDeclaration
+        (ClassDeclaration
+          (NormalClassDeclaration
+            (ClassModifier*
+              (ClassModifier NonSealed))
+            "class"
+            TypeIdentifier
+            "implements"
+            (ClassTypeList
+              ({ClassType ","}+
+                (ClassType TypeIdentifier)))
+            (ClassBody "{" "}"))))
+      (TypeDeclaration
+        (ClassDeclaration
+          (NormalClassDeclaration
+            "class"
+            TypeIdentifier
+            (ClassBody
+              "{"
+              (ClassBodyDeclaration*
+                (ClassBodyDeclaration
+                  (ClassDeclaration
+                    (NormalClassDeclaration
+                      (ClassModifier*
+                        (ClassModifier "static")
+                        (ClassModifier "sealed")
+                        (ClassModifier "abstract"))
+                      "class"
+                      TypeIdentifier
+                      "implements"
+                      (ClassTypeList
+                        ({ClassType ","}+
+                          (ClassType TypeIdentifier)))
+                      "permits"
+                      ({TypeName ","}+
+                        (TypeName TypeIdentifier))
+                      (ClassBody "{" "}"))))
+                (ClassBodyDeclaration
+                  (ClassDeclaration
+                    (NormalClassDeclaration
+                      (ClassModifier*
+                        (ClassModifier "static")
+                        (ClassModifier "final"))
+                      "class"
+                      TypeIdentifier
+                      "extends"
+                      (ClassType TypeIdentifier)
+                      (ClassBody "{" "}")))))
+              "}"))))
+      (TypeDeclaration
+        (ClassDeclaration
+          (NormalClassDeclaration
+            (ClassModifier*
+              (ClassModifier "sealed"))
+            "class"
+            TypeIdentifier
+            (ClassBody "{" "}"))))
+      (TypeDeclaration
+        (ClassDeclaration
+          (NormalClassDeclaration
+            (ClassModifier*
+              (ClassModifier "final"))
+            "class"
+            TypeIdentifier
+            "extends"
+            (ClassType TypeIdentifier)
+            (ClassBody "{" "}"))))
+      (TypeDeclaration
+        (InterfaceDeclaration
+          (NormalInterfaceDeclaration
+            (InterfaceModifier*
+              (InterfaceModifier NonSealed))
+            "interface"
+            TypeIdentifier
+            "extends"
+            (ClassTypeList
+              ({ClassType ","}+
+                (ClassType TypeIdentifier)))
+            (InterfaceBody "{" "}"))))
+      (TypeDeclaration
+        (ClassDeclaration
+          (RecordDeclaration
+            "record"
+            TypeIdentifier
+            (RecordHeader "(" ")")
+            "implements"
+            (ClassTypeList
+              ({ClassType ","}+
+                (ClassType TypeIdentifier)))
+            (RecordBody "{" "}"))))
+      (TypeDeclaration
+        (InterfaceDeclaration
+          (NormalInterfaceDeclaration
+            (InterfaceModifier*
+              (InterfaceModifier "sealed"))
+            "interface"
+            TypeIdentifier
+            "permits"
+            ({TypeName ","}+
+              (TypeName TypeIdentifier))
+            (InterfaceBody "{" "}"))))
+      (TypeDeclaration
+        (ClassDeclaration
+          (NormalClassDeclaration
+            (ClassModifier*
+              (ClassModifier "abstract")
+              (ClassModifier "sealed"))
+            "class"
+            TypeIdentifier
+            (TypeParameters
+              "<"
+              ({TypeParameter ","}+
+                (TypeParameter TypeIdentifier))
+              ">")
+            "extends"
+            (ClassType TypeIdentifier)
+            "implements"
+            (ClassTypeList
+              ({ClassType ","}+
+                (ClassType
+                  (MarkedClassType
+                    (MarkedTypeComponent
+                      TypeIdentifier
+                      (TypeArguments
+                        "<"
+                        ({TypeArgument ","}+
+                          (TypeArgument
+                            (ReferenceType
+                              (ClassType TypeIdentifier))))
+                        ">"))))))
+            "permits"
+            ({TypeName ","}+
+              (TypeName
+                ((Identifier ".")* Identifier ".")
+                TypeIdentifier))
+            (ClassBody
+              "{"
+              (ClassBodyDeclaration*
+                (ClassBodyDeclaration
+                  (ClassDeclaration
+                    (NormalClassDeclaration
+                      (ClassModifier*
+                        (ClassModifier "static")
+                        (ClassModifier "final"))
+                      "class"
+                      TypeIdentifier
+                      (TypeParameters
+                        "<"
+                        ({TypeParameter ","}+
+                          (TypeParameter TypeIdentifier))
+                        ">")
+                      "extends"
+                      (ClassType
+                        (MarkedClassType
+                          (MarkedTypeComponent
+                            TypeIdentifier
+                            (TypeArguments
+                              "<"
+                              ({TypeArgument ","}+
+                                (TypeArgument
+                                  (ReferenceType
+                                    (ClassType TypeIdentifier))))
+                              ">"))))
+                      (ClassBody
+                        "{"
+                        (ClassBodyDeclaration*
+                          (ClassBodyDeclaration
+                            (MethodDeclaration
+                              (MethodModifier*
+                                (MethodModifier "public"))
+                              (Result
+                                (UnannType
+                                  (UnannPrimitiveType "int")))
+                              (MethodDeclarator
+                                Identifier
+                                "("
+                                (FormalParameterList
+                                  (LastFormalParameter
+                                    (FormalParameter
+                                      (UnannType
+                                        (UnannReferenceType
+                                          (UnannClassType TypeIdentifier)))
+                                      (VariableDeclaratorId Identifier))))
+                                ")")
+                              (MethodBody
+                                (Block
+                                  "{"
+                                  (BlockStatement*
+                                    (BlockStatement
+                                      (Statement
+                                        "return"
+                                        (Expression
+                                          (Primary
+                                            (Literal IntegerLiteral)))
+                                        ";")))
+                                  "}")))))
+                        "}")))))
+              "}")))))))

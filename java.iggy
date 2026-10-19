@@ -27,7 +27,7 @@ RequiresModifier
 PackageDeclaration
   = Annotation* "package" QualifiedIdentifier ";"
 
-// JLS 14 §7.5 defines four import forms, which differ in what each may name. A
+// JLS 17 §7.5 defines four import forms, which differ in what each may name. A
 // TypeName ends in a TypeIdentifier, so `import yield;` is not valid. The qualifier of
 // a non-static on-demand import and the member of a single static import are ordinary
 // identifiers, so `import yield.*;` and `import static A.yield;` are valid.
@@ -45,13 +45,42 @@ TypeDeclaration
 ClassDeclaration
   = NormalClassDeclaration
   | EnumDeclaration
+  | RecordDeclaration
 
 NormalClassDeclaration
   = ClassModifier* "class" TypeIdentifier TypeParameters? ("extends" ClassType)?
-      ("implements" ClassTypeList)? ClassBody
+      ("implements" ClassTypeList)? ("permits" { TypeName "," }+)? ClassBody
 
 EnumDeclaration
   = ClassModifier* "enum" TypeIdentifier ("implements" ClassTypeList)? EnumBody
+
+RecordDeclaration
+  = ClassModifier* "record" TypeIdentifier TypeParameters? RecordHeader
+      ("implements" ClassTypeList)? RecordBody
+
+RecordHeader
+  = "(" RecordComponentList? ")"
+
+// JLS 17 §8.10.1 allows a variable arity record component only at the end of the list.
+RecordComponentList
+  = (RecordComponent ",")* LastRecordComponent
+
+RecordComponent
+  = Annotation* UnannType Identifier
+
+LastRecordComponent
+  = Annotation* UnannType Annotation* "..." Identifier
+  | RecordComponent
+
+RecordBody
+  = "{" RecordBodyDeclaration* "}"
+
+RecordBodyDeclaration
+  = ClassBodyDeclaration
+  | CompactConstructorDeclaration
+
+CompactConstructorDeclaration
+  = ConstructorModifier* TypeIdentifier ConstructorBody
 
 InterfaceDeclaration
   = NormalInterfaceDeclaration
@@ -59,7 +88,7 @@ InterfaceDeclaration
 
 NormalInterfaceDeclaration
   = InterfaceModifier* "interface" TypeIdentifier TypeParameters?
-      ("extends" ClassTypeList)? InterfaceBody
+      ("extends" ClassTypeList)? ("permits" { TypeName "," }+)? InterfaceBody
 
 AnnotationTypeDeclaration
   = InterfaceModifier* "@" "interface" TypeIdentifier AnnotationTypeBody
@@ -156,6 +185,7 @@ Block
 BlockStatement
   = LocalVariableDeclarationStatement
   | ClassDeclaration
+  | NormalInterfaceDeclaration
   | Statement
 
 LocalVariableDeclarationStatement
@@ -248,6 +278,8 @@ ClassModifier
   | "abstract"
   | "static"
   | "final"
+  | "sealed"
+  | NonSealed
   | "strictfp"
 
 ConstructorModifier
@@ -263,6 +295,8 @@ InterfaceModifier
   | "private"
   | "abstract"
   | "static"
+  | "sealed"
+  | NonSealed
   | "strictfp"
 
 ConstantModifier
@@ -361,7 +395,7 @@ CaseConstant
   //              alternative.
   // !Assignment  An assignment as the case constant, as in `case a = 1:`, is
   //              not valid. This is not a disambiguation, since that input is not
-  //              ambiguous. It is a deliberate language reduction: JLS 14 §14.11
+  //              ambiguous. It is a deliberate language reduction: JLS 17 §14.11
   //              defines a case constant as a conditional expression, which an
   //              assignment is not.
   = Expression!Lambda!Assignment
@@ -409,8 +443,12 @@ Expression
   // !InstanceOf        `a instanceof Foo.Bar` should be parsed as one InstanceOf over
   //                    the qualified type `Foo.Bar`, not as `.Bar` selected from
   //                    `a instanceof Foo`. Dropping the InstanceOf alternative leaves
-  //                    one derivation.
-  // !SwitchExpression  A language reduction, not a disambiguation. JLS 14 §19 makes
+  //                    one derivation. In the other three alternatives below, the
+  //                    exclusion is a language reduction: JLS 17 §19 makes
+  //                    InstanceofExpression a RelationalExpression, so a postfix
+  //                    operator cannot follow it. `a instanceof Foo[0]` and
+  //                    `a instanceof Foo f++` are not valid.
+  // !SwitchExpression  A language reduction, not a disambiguation. JLS 17 §19 makes
   //                    SwitchExpression an alternative of UnaryExpressionNotPlusMinus
   //                    rather than of Primary or PostfixExpression, so a postfix
   //                    operator cannot follow a switch expression:
@@ -419,23 +457,30 @@ Expression
   //                    is a Primary. The exclusion applies to all four alternatives
   //                    below.
   > Expression!InstanceOf!SwitchExpression "." Selector                 #FieldAccess
-  | Expression!SwitchExpression "[" Expression "]"                      #ArrayAccess
-  | Expression!SwitchExpression ("++" | "--")                           #Postfix
-  | Expression!SwitchExpression "::" TypeArguments? Identifier          #MethodRef
+  | Expression!InstanceOf!SwitchExpression "[" Expression "]"           #ArrayAccess
+  | Expression!InstanceOf!SwitchExpression ("++" | "--")                #Postfix
+  | Expression!InstanceOf!SwitchExpression "::" TypeArguments? Identifier #MethodRef
   > ("+" !>> Plus | "-" !>> Minus | "++" | "--") Expression             #Prefix
   | ("!" | "~") Expression                                              #Complement
   | "(" PrimitiveType ")" Expression                                    #PrimitiveCast
   // !Prefix  `(a) - b` derives both as a subtraction and as a reference cast
   //          of `-b`. Dropping the Prefix alternative keeps the subtraction,
-  //          which is what JLS 14 §15.16 requires: a reference cast takes a
+  //          which is what JLS 17 §15.16 requires: a reference cast takes a
   //          unary expression that is not prefixed by + or -. The Complement
   //          alternative is untouched, so `(Integer) ~x` is still a cast.
   | "(" { ReferenceType "&" }+ ")" Expression!Prefix                    #RefCast
   > left Expression ("*" | "/" | "%") Expression
   > left Expression ("+" | "-") !>> Plus !>> Minus Expression           #Additive
   > left Expression ("<<" | ">>" | ">>>") Expression
-  > left Expression ("<" | ">" | "<=" | ">=") Expression                #Comparison
-  > Expression "instanceof" Type                                        #InstanceOf
+  // !InstanceOf  `o instanceof List<T> list` should be parsed as an InstanceOf with a
+  //              type pattern, not as the comparisons `((o instanceof List) < T) > list`.
+  //              JLS 17 §15.20 derives both, and dropping the InstanceOf alternative
+  //              from the left operand leaves the pattern. The exclusion also makes
+  //              `a instanceof B < c` not valid, a program that never compiles: the
+  //              operands of a comparison must be numeric (§15.20.1), and an
+  //              instanceof expression has type boolean.
+  > left Expression!InstanceOf ("<" | ">" | "<=" | ">=") Expression     #Comparison
+  > Expression "instanceof" (ReferenceType | TypePattern)                #InstanceOf
   > left Expression ("==" | "!=") Expression
   > left Expression "&" Expression
   > left Expression "^" Expression
@@ -444,12 +489,20 @@ Expression
   > left Expression "||" Expression
   > right Expression "?" Expression ":" Expression                      #Conditional
   // !Comparison  A language reduction, not a disambiguation. `a < b = c`
-  //              derives once and the exclusion deletes it: JLS 14 §15.26 takes
+  //              derives once and the exclusion deletes it: JLS 17 §15.26 takes
   //              the left side of an assignment from the expression names,
   //              field accesses, and array accesses, and a comparison is none
   //              of those.
-  > right Expression!Comparison AssignmentOperator Expression           #Assignment
+  // !InstanceOf  A language reduction for the same reason, which makes
+  //              `o instanceof String s = null` not valid.
+  > right Expression!Comparison!InstanceOf AssignmentOperator Expression #Assignment
   > Lambda                                                              #Lambda
+
+// JLS 17 §14.30.1 writes a type pattern as a local variable declaration and then
+// restricts it: the type is a reference type other than `var`, and the declaration has
+// one variable, no initializer, and no brackets after the variable name.
+TypePattern
+  = VariableModifier* UnannReferenceType Identifier
 
 Primary
   = Literal                     #Literal
@@ -462,7 +515,7 @@ Primary
 QualifiedIdentifier
   = { Identifier "." }+
 
-// JLS 14 §6.5 takes the last component of a type name from TypeIdentifier and the
+// JLS 17 §6.5 takes the last component of a type name from TypeIdentifier and the
 // qualifier before it from ordinary identifiers, so `yield.Foo` is valid while `@yield`
 // and `yield.this` are not.
 TypeName
@@ -486,7 +539,7 @@ ReferenceType
   = ClassType
   | ArrayType
 
-// JLS 14 §4.3 qualifies a class type with either a package name, whose components are
+// JLS 17 §4.3 qualifies a class type with either a package name, whose components are
 // ordinary identifiers, or another class or interface type, whose components are type
 // identifiers. A component with annotations or type arguments is therefore a type
 // component, and every component after it is one too, since a package name cannot
@@ -551,6 +604,7 @@ Literal
   | BooleanLiteral         #Boolean
   | CharacterLiteral       #Character
   | StringLiteral          #String
+  | TextBlock              #TextBlock
   | NullLiteral            #Null
 
 Selector
@@ -630,6 +684,32 @@ DecimalIntegerLiteral = ([0] | ([1-9] (Digits? | ([_]+ Digits)))) [lL]?
 @Regex
 StringLiteral = ["] StringCharacter* ["]
 
+// JLS 17 §3.10.6 opens a text block with three double quotes, optional spaces, tabs, or
+// form feeds, and a line terminator. The text block ends at the first three double quotes
+// that are not part of an escape sequence, so its content never has three in a row.
+@Regex
+TextBlock = ["] ["] ["] [\ \t\f]* LineTerminator TextBlockPart* ["] ["] ["]
+
+@Regex
+TextBlockPart = (["] ["]?)? TextBlockCharacter
+
+// JLS 17 §3.10.7 lists a backslash before a line terminator as an escape sequence, which
+// joins two lines of a text block. A string literal cannot contain a line terminator, even
+// after a backslash (§3.10.5), so the escape is part of TextBlockCharacter rather than
+// EscapeSequence.
+@Regex
+TextBlockCharacter
+  = ![\\"]
+  | UnicodeEscape
+  | EscapeSequence
+  | [\\] LineTerminator
+
+@Regex
+LineTerminator
+  = [\n]
+  | [\r]
+  | [\r] [\n]
+
 @Regex
 NullLiteral = "null"
 
@@ -704,7 +784,7 @@ StringCharacter
 
 @Regex
 EscapeSequence
-  = "\\" [btnfr"'\\]
+  = "\\" [bstnfr"'\\]
   | "\\" (ZeroToThree? OctalDigit)? OctalDigit
 
 @Regex
@@ -728,21 +808,24 @@ AssignmentOperator
   | ">>="
   | ">>>="
 
-// JLS 14 §3.8 takes an identifier from the identifier characters and excludes the
+// JLS 17 §3.8 takes an identifier from the identifier characters and excludes the
 // reserved words, `true`, `false`, and `null`, so none of them is a valid variable name.
 @Identifier @Regex
 Identifier = IdentifierChars \ Keyword \ BooleanLiteral \ NullLiteral
 
 @Regex
 TypeKeyword
-  = "var"
+  = "permits"
+  | "record"
+  | "sealed"
+  | "var"
   | "yield"
 
-// JLS 14 §3.8 calls `var` and `yield` restricted identifiers. A TypeIdentifier cannot be
-// a restricted identifier, so `class var {}` and `class yield {}` are not valid. The
+// JLS 17 §3.8 excludes five contextual keywords from TypeIdentifier: `permits`, `record`,
+// `sealed`, `var`, and `yield`. So `class var {}` and `class record {}` are not valid. The
 // restriction is on TypeIdentifier rather than on every identifier of a type name, which
-// is why `yield.Foo` is valid. `var` is an ordinary identifier in every other position;
-// `yield` is barred from one more, as the next rule says.
+// is why `yield.Foo` and `record.Foo` are valid. The five words are ordinary identifiers in
+// every other position, and `yield` is barred from one more, as the next rule says.
 @Regex
 TypeIdentifier = Identifier \ TypeKeyword
 
@@ -750,7 +833,7 @@ TypeIdentifier = Identifier \ TypeKeyword
 Yield = "yield"
 
 // Without the exclusion `yield(x);` has two derivations: a yield statement over `(x)`,
-// and a call to a method named yield. JLS 14 §3.8 prohibits an unqualified invocation of
+// and a call to a method named yield. JLS 17 §3.8 prohibits an unqualified invocation of
 // a method named yield, which leaves one. `this.yield(x)` is valid because `Selector`
 // uses plain Identifier.
 @Regex
@@ -767,6 +850,11 @@ JavaLetterOrDigit = [A-Za-z$_0-9]
 
 @Regex
 Else = "else" !>> JavaLetterOrDigit
+
+// JLS 17 §3.9 makes `non-sealed` one contextual keyword rather than `non`, `-`, and
+// `sealed`, and no letter or digit may immediately precede or follow it.
+@Regex
+NonSealed = JavaLetterOrDigit !<< "non-sealed" !>> JavaLetterOrDigit
 
 @Regex
 OpenBracket = "["
@@ -847,7 +935,7 @@ CommentChar
 @Regex
 TraditionalComment = "/*" CommentChar* [*]+ "/"
 
-// JLS 14 §3.7 ends a line comment at a line terminator or at the end of the input,
+// JLS 17 §3.7 ends a line comment at a line terminator or at the end of the input,
 // so the terminator is not part of the comment and a file may end in one.
 @Regex
 EndOfLineComment = "//" ![\r\n]*

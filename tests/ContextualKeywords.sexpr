@@ -153,6 +153,58 @@
                               (Literal IntegerLiteral))))))
                     ";"))
                 (ClassBodyDeclaration
+                  (FieldDeclaration
+                    (UnannType
+                      (UnannPrimitiveType "int"))
+                    ({VariableDeclarator ","}+
+                      (VariableDeclarator
+                        (VariableDeclaratorId Identifier)
+                        "="
+                        (VariableInitializer
+                          (Expression
+                            (Primary
+                              (Literal IntegerLiteral))))))
+                    ";"))
+                (ClassBodyDeclaration
+                  (FieldDeclaration
+                    (UnannType
+                      (UnannPrimitiveType "int"))
+                    ({VariableDeclarator ","}+
+                      (VariableDeclarator
+                        (VariableDeclaratorId Identifier)
+                        "="
+                        (VariableInitializer
+                          (Expression
+                            (Primary
+                              (Literal IntegerLiteral))))))
+                    ";"))
+                (ClassBodyDeclaration
+                  (FieldDeclaration
+                    (UnannType
+                      (UnannPrimitiveType "int"))
+                    ({VariableDeclarator ","}+
+                      (VariableDeclarator
+                        (VariableDeclaratorId Identifier)
+                        "="
+                        (VariableInitializer
+                          (Expression
+                            (Primary
+                              (Literal IntegerLiteral))))))
+                    ";"))
+                (ClassBodyDeclaration
+                  (FieldDeclaration
+                    (UnannType
+                      (UnannPrimitiveType "int"))
+                    ({VariableDeclarator ","}+
+                      (VariableDeclarator
+                        (VariableDeclaratorId Identifier)
+                        "="
+                        (VariableInitializer
+                          (Expression
+                            (Primary
+                              (Literal IntegerLiteral))))))
+                    ";"))
+                (ClassBodyDeclaration
                   (MethodDeclaration
                     (Result "void")
                     (MethodDeclarator Identifier "(" ")")
@@ -231,8 +283,51 @@
                                         (Expression
                                           (Primary Identifier)))
                                       ")"))))
+                              ";"))
+                          (BlockStatement
+                            (LocalVariableDeclarationStatement
+                              (LocalVariableType
+                                (UnannType
+                                  (UnannPrimitiveType "int")))
+                              ({VariableDeclarator ","}+
+                                (VariableDeclarator
+                                  (VariableDeclaratorId Identifier)
+                                  "="
+                                  (VariableInitializer
+                                    (Expression
+                                      (Expression
+                                        (Expression
+                                          (Expression
+                                            (Primary Identifier))
+                                          "-"
+                                          (Expression
+                                            (Primary Identifier)))
+                                        "+"
+                                        (Expression
+                                          (Primary Identifier)))
+                                      "-"
+                                      (Expression
+                                        (Primary Identifier))))))
                               ";")))
                         "}"))))
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result "void")
+                    (MethodDeclarator Identifier "(" ")")
+                    (MethodBody
+                      (Block "{" "}"))))
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result "void")
+                    (MethodDeclarator Identifier "(" ")")
+                    (MethodBody
+                      (Block "{" "}"))))
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result "void")
+                    (MethodDeclarator Identifier "(" ")")
+                    (MethodBody
+                      (Block "{" "}"))))
                 (ClassBodyDeclaration
                   (MethodDeclaration
                     (Result "void")

@@ -6,6 +6,8 @@ import yield.*;
 import a.yield.*;
 import static A.yield;
 import static a.b.C.yield;
+import record.*;
+import static A.sealed;
 
 class RestrictedTypeNames {
     yield.Foo a;
@@ -14,6 +16,8 @@ class RestrictedTypeNames {
     a.var.b.Foo d;
     yield.Foo<String> e;
     java.util.List<yield.Foo> f;
+    record.Foo g;
+    sealed.permits.Foo h;
 
     @yield.Ann
     void annotated() {}

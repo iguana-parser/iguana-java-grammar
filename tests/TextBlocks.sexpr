@@ -1,0 +1,134 @@
+(CompilationUnit
+  (OrdinaryCompilationUnit
+    (TypeDeclaration*
+      (TypeDeclaration
+        (ClassDeclaration
+          (NormalClassDeclaration
+            "class"
+            TypeIdentifier
+            (ClassBody
+              "{"
+              (ClassBodyDeclaration*
+                (ClassBodyDeclaration
+                  (FieldDeclaration
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannClassType TypeIdentifier)))
+                    ({VariableDeclarator ","}+
+                      (VariableDeclarator
+                        (VariableDeclaratorId Identifier)
+                        "="
+                        (VariableInitializer
+                          (Expression
+                            (Primary
+                              (Literal TextBlock))))))
+                    ";"))
+                (ClassBodyDeclaration
+                  (FieldDeclaration
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannClassType TypeIdentifier)))
+                    ({VariableDeclarator ","}+
+                      (VariableDeclarator
+                        (VariableDeclaratorId Identifier)
+                        "="
+                        (VariableInitializer
+                          (Expression
+                            (Primary
+                              (Literal TextBlock))))))
+                    ";"))
+                (ClassBodyDeclaration
+                  (FieldDeclaration
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannClassType TypeIdentifier)))
+                    ({VariableDeclarator ","}+
+                      (VariableDeclarator
+                        (VariableDeclaratorId Identifier)
+                        "="
+                        (VariableInitializer
+                          (Expression
+                            (Primary
+                              (Literal TextBlock))))))
+                    ";"))
+                (ClassBodyDeclaration
+                  (FieldDeclaration
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannClassType TypeIdentifier)))
+                    ({VariableDeclarator ","}+
+                      (VariableDeclarator
+                        (VariableDeclaratorId Identifier)
+                        "="
+                        (VariableInitializer
+                          (Expression
+                            (Primary
+                              (Literal TextBlock))))))
+                    ";"))
+                (ClassBodyDeclaration
+                  (FieldDeclaration
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannClassType TypeIdentifier)))
+                    ({VariableDeclarator ","}+
+                      (VariableDeclarator
+                        (VariableDeclaratorId Identifier)
+                        "="
+                        (VariableInitializer
+                          (Expression
+                            (Expression
+                              (Primary
+                                (Literal TextBlock)))
+                            "+"
+                            (Expression
+                              (Primary
+                                (Literal TextBlock)))))))
+                    ";"))
+                (ClassBodyDeclaration
+                  (FieldDeclaration
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannClassType TypeIdentifier)))
+                    ({VariableDeclarator ","}+
+                      (VariableDeclarator
+                        (VariableDeclaratorId Identifier)
+                        "="
+                        (VariableInitializer
+                          (Expression
+                            (Primary
+                              (Literal TextBlock))))))
+                    ";"))
+                (ClassBodyDeclaration
+                  (FieldDeclaration
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannClassType TypeIdentifier)))
+                    ({VariableDeclarator ","}+
+                      (VariableDeclarator
+                        (VariableDeclaratorId Identifier)
+                        "="
+                        (VariableInitializer
+                          (Expression
+                            (Primary
+                              (Literal StringLiteral))))))
+                    ";"))
+                (ClassBodyDeclaration
+                  (FieldDeclaration
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannClassType TypeIdentifier)))
+                    ({VariableDeclarator ","}+
+                      (VariableDeclarator
+                        (VariableDeclaratorId Identifier)
+                        "="
+                        (VariableInitializer
+                          (Expression
+                            (Expression
+                              (Primary
+                                (Literal TextBlock)))
+                            "."
+                            (Selector
+                              Identifier
+                              (Arguments "(" ")"))))))
+                    ";")))
+              "}")))))))

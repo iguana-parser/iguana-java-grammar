@@ -300,16 +300,15 @@
                                 (Expression
                                   (Primary Identifier))
                                 "instanceof"
-                                (Type
-                                  (ReferenceType
-                                    (ClassType
-                                      (MarkedClassType
-                                        (MarkedTypeComponent
-                                          (Annotation+
-                                            (Annotation
-                                              "@"
-                                              (TypeName TypeIdentifier)))
-                                          TypeIdentifier))))))
+                                (ReferenceType
+                                  (ClassType
+                                    (MarkedClassType
+                                      (MarkedTypeComponent
+                                        (Annotation+
+                                          (Annotation
+                                            "@"
+                                            (TypeName TypeIdentifier)))
+                                        TypeIdentifier)))))
                               ";")))
                         "}"))))
                 (ClassBodyDeclaration
@@ -763,17 +762,16 @@
                                 (Expression
                                   (Primary Identifier))
                                 "instanceof"
-                                (Type
-                                  (ReferenceType
-                                    (ArrayType
-                                      (PrimitiveType "int")
-                                      ((Annotation* "[" "]")+
-                                        (Annotation*
-                                          (Annotation
-                                            "@"
-                                            (TypeName TypeIdentifier)))
-                                        "["
-                                        "]")))))
+                                (ReferenceType
+                                  (ArrayType
+                                    (PrimitiveType "int")
+                                    ((Annotation* "[" "]")+
+                                      (Annotation*
+                                        (Annotation
+                                          "@"
+                                          (TypeName TypeIdentifier)))
+                                      "["
+                                      "]"))))
                               ";")))
                         "}"))))
                 (ClassBodyDeclaration

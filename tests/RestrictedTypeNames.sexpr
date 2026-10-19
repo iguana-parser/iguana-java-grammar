@@ -36,6 +36,20 @@
           TypeIdentifier)
         "."
         Identifier
+        ";")
+      (ImportDeclaration
+        "import"
+        (QualifiedIdentifier
+          ({Identifier "."}+ Identifier))
+        "."
+        "*"
+        ";")
+      (ImportDeclaration
+        "import"
+        "static"
+        (TypeName TypeIdentifier)
+        "."
+        Identifier
         ";"))
     (TypeDeclaration*
       (TypeDeclaration
@@ -126,6 +140,28 @@
                                       ((Identifier ".")* Identifier ".")
                                       TypeIdentifier))))
                               ">")))))
+                    ({VariableDeclarator ","}+
+                      (VariableDeclarator
+                        (VariableDeclaratorId Identifier)))
+                    ";"))
+                (ClassBodyDeclaration
+                  (FieldDeclaration
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannClassType
+                          ((Identifier ".")* Identifier ".")
+                          TypeIdentifier)))
+                    ({VariableDeclarator ","}+
+                      (VariableDeclarator
+                        (VariableDeclaratorId Identifier)))
+                    ";"))
+                (ClassBodyDeclaration
+                  (FieldDeclaration
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannClassType
+                          ((Identifier ".")* Identifier "." Identifier ".")
+                          TypeIdentifier)))
                     ({VariableDeclarator ","}+
                       (VariableDeclarator
                         (VariableDeclaratorId Identifier)))
