@@ -920,7 +920,7 @@ Keyword
   | "_"
 
 @Regex
-WhiteSpace = [\ \t\f\r\n]
+WhiteSpace = [\ \t\f\r\n]+
 
 @Regex
 Comment

@@ -11081,7 +11081,16 @@ static DFA_50: Dfa = Dfa::new(&[
         ],
         None,
     ),
-    State::new(&[], Some(TerminalId(50))),
+    State::new(
+        &[
+            ('\t', '\t', 1),
+            ('\n', '\n', 1),
+            ('\u{c}', '\u{c}', 1),
+            ('\r', '\r', 1),
+            (' ', ' ', 1),
+        ],
+        Some(TerminalId(50)),
+    ),
 ]);
 static DFA_51: Dfa = Dfa::new(&[
     State::new(&[('/', '/', 1)], None),
@@ -12563,7 +12572,7 @@ impl<'i, 'arena> JavaScanner<'i, 'arena> {
     pub fn match_terminal_49(&self, input_index: u32) -> Option<u32> {
         self.scan(&DFA_49, input_index)
     }
-    // WhiteSpace = [ \t \u{c} \r \n]
+    // WhiteSpace = [ \t \u{c} \r \n]+
     pub fn match_terminal_50(&self, input_index: u32) -> Option<u32> {
         self.scan(&DFA_50, input_index)
     }
