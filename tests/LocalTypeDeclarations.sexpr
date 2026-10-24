@@ -46,7 +46,7 @@
                                         Identifier
                                         "("
                                         (FormalParameterList
-                                          (LastFormalParameter
+                                          ({FormalParameter ","}+
                                             (FormalParameter
                                               (UnannType
                                                 (UnannReferenceType
@@ -63,13 +63,12 @@
                                 (RecordHeader
                                   "("
                                   (RecordComponentList
-                                    ((RecordComponent ",")*
+                                    ({RecordComponent ","}+
                                       (RecordComponent
                                         (UnannType
                                           (UnannPrimitiveType "int"))
                                         Identifier)
-                                      ",")
-                                    (LastRecordComponent
+                                      ","
                                       (RecordComponent
                                         (UnannType
                                           (UnannPrimitiveType "int"))
@@ -100,7 +99,7 @@
                                           Identifier
                                           "("
                                           (FormalParameterList
-                                            (LastFormalParameter
+                                            ({FormalParameter ","}+
                                               (FormalParameter
                                                 (UnannType
                                                   (UnannReferenceType

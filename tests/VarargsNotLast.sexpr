@@ -1,0 +1,54 @@
+(CompilationUnit
+  (OrdinaryCompilationUnit
+    (TypeDeclaration*
+      (TypeDeclaration
+        (ClassDeclaration
+          (NormalClassDeclaration
+            "class"
+            TypeIdentifier
+            (ClassBody
+              "{"
+              (ClassBodyDeclaration*
+                (ClassBodyDeclaration
+                  (ConstructorDeclaration
+                    TypeIdentifier
+                    "("
+                    (FormalParameterList
+                      ({FormalParameter ","}+
+                        (FormalParameter
+                          (VariableArityParameter
+                            (UnannType
+                              (UnannReferenceType
+                                (UnannClassType TypeIdentifier)))
+                            "..."
+                            Identifier))
+                        ","
+                        (FormalParameter
+                          (UnannType
+                            (UnannPrimitiveType "int"))
+                          (VariableDeclaratorId Identifier))))
+                    ")"
+                    (ConstructorBody "{" "}")))
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result "void")
+                    (MethodDeclarator
+                      Identifier
+                      "("
+                      (FormalParameterList
+                        ({FormalParameter ","}+
+                          (FormalParameter
+                            (VariableArityParameter
+                              (UnannType
+                                (UnannPrimitiveType "int"))
+                              "..."
+                              Identifier))
+                          ","
+                          (FormalParameter
+                            (UnannType
+                              (UnannPrimitiveType "int"))
+                            (VariableDeclaratorId Identifier))))
+                      ")")
+                    (MethodBody
+                      (Block "{" "}")))))
+              "}")))))))

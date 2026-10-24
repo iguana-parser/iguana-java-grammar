@@ -1,0 +1,3 @@
+Parse error at line 4, column 20: Expected one of ",", ".", "*", "[", "<", ">", "&", ":", "->", "|", "::", "++", "--", "+", "-", "/", "%", "<<", ">>", ">>>", "<=", ">=", "instanceof", "==", "!=", "^", "&&", "||", "?", AssignmentOperator
+            case 1 when b -> 1;
+                   ^^^^

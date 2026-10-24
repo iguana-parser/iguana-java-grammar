@@ -18,7 +18,7 @@
                       Identifier
                       "("
                       (FormalParameterList
-                        (LastFormalParameter
+                        ({FormalParameter ","}+
                           (FormalParameter
                             (UnannType
                               (UnannPrimitiveType "int"))
@@ -36,7 +36,7 @@
                       Identifier
                       "("
                       (FormalParameterList
-                        (LastFormalParameter
+                        ({FormalParameter ","}+
                           (FormalParameter
                             (UnannType
                               (UnannPrimitiveType "int"))
@@ -93,7 +93,7 @@
                       Identifier
                       "("
                       (FormalParameterList
-                        (LastFormalParameter
+                        ({FormalParameter ","}+
                           (FormalParameter
                             (UnannType
                               (UnannReferenceType
@@ -132,7 +132,7 @@
                       Identifier
                       "("
                       (FormalParameterList
-                        (LastFormalParameter
+                        ({FormalParameter ","}+
                           (FormalParameter
                             (UnannType
                               (UnannPrimitiveType "int"))

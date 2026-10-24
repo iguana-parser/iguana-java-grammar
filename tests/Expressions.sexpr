@@ -1050,7 +1050,8 @@
                                   AssignmentOperator
                                   (Expression
                                     (Lambda
-                                      (LambdaParameters Identifier)
+                                      (LambdaParameters
+                                        (ConciseLambdaParameter Identifier))
                                       "->"
                                       (LambdaBody
                                         (Expression
@@ -1073,7 +1074,10 @@
                                       (LambdaParameters
                                         "("
                                         (LambdaParameterList
-                                          ({Identifier ","}+ Identifier "," Identifier))
+                                          ({ConciseLambdaParameter ","}+
+                                            (ConciseLambdaParameter Identifier)
+                                            ","
+                                            (ConciseLambdaParameter Identifier)))
                                         ")")
                                       "->"
                                       (LambdaBody

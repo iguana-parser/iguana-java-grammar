@@ -28,7 +28,7 @@
                     TypeIdentifier
                     "("
                     (FormalParameterList
-                      (LastFormalParameter
+                      ({FormalParameter ","}+
                         (FormalParameter
                           (UnannType
                             (UnannPrimitiveType "int"))
@@ -56,13 +56,12 @@
                     TypeIdentifier
                     "("
                     (FormalParameterList
-                      ((FormalParameter ",")*
+                      ({FormalParameter ","}+
                         (FormalParameter
                           (UnannType
                             (UnannPrimitiveType "int"))
                           (VariableDeclaratorId Identifier))
-                        ",")
-                      (LastFormalParameter
+                        ","
                         (FormalParameter
                           (UnannType
                             (UnannPrimitiveType "int"))
@@ -94,7 +93,7 @@
                     TypeIdentifier
                     "("
                     (FormalParameterList
-                      (LastFormalParameter
+                      ({FormalParameter ","}+
                         (FormalParameter
                           (UnannType
                             (UnannReferenceType
@@ -103,7 +102,7 @@
                     ")"
                     (ConstructorBody
                       "{"
-                      (ExplicitConstructorInvocation
+                      (ConstructorInvocation
                         "this"
                         (Arguments
                           "("
@@ -123,7 +122,7 @@
                     TypeIdentifier
                     "("
                     (FormalParameterList
-                      (LastFormalParameter
+                      ({FormalParameter ","}+
                         (FormalParameter
                           (UnannType
                             (UnannPrimitiveType "double"))
@@ -131,7 +130,7 @@
                     ")"
                     (ConstructorBody
                       "{"
-                      (ExplicitConstructorInvocation
+                      (ConstructorInvocation
                         "super"
                         (Arguments "(" ")")
                         ";")
@@ -164,14 +163,13 @@
                     TypeIdentifier
                     "("
                     (FormalParameterList
-                      ((FormalParameter ",")*
+                      ({FormalParameter ","}+
                         (FormalParameter
                           (UnannType
                             (UnannReferenceType
                               (UnannClassType TypeIdentifier)))
                           (VariableDeclaratorId Identifier))
-                        ",")
-                      (LastFormalParameter
+                        ","
                         (FormalParameter
                           (UnannType
                             (UnannPrimitiveType "boolean"))
@@ -204,7 +202,7 @@
                     TypeIdentifier
                     "("
                     (FormalParameterList
-                      (LastFormalParameter
+                      ({FormalParameter ","}+
                         (FormalParameter
                           (UnannType
                             (UnannReferenceType
@@ -242,11 +240,13 @@
                     TypeIdentifier
                     "("
                     (FormalParameterList
-                      (LastFormalParameter
-                        (UnannType
-                          (UnannPrimitiveType "int"))
-                        "..."
-                        (VariableDeclaratorId Identifier)))
+                      ({FormalParameter ","}+
+                        (FormalParameter
+                          (VariableArityParameter
+                            (UnannType
+                              (UnannPrimitiveType "int"))
+                            "..."
+                            Identifier))))
                     ")"
                     (ConstructorBody
                       "{"
@@ -284,7 +284,7 @@
                     TypeIdentifier
                     "("
                     (FormalParameterList
-                      ((FormalParameter ",")*
+                      ({FormalParameter ","}+
                         (FormalParameter
                           (UnannType
                             (UnannPrimitiveType "int"))
@@ -294,8 +294,7 @@
                           (UnannType
                             (UnannPrimitiveType "int"))
                           (VariableDeclaratorId Identifier))
-                        ",")
-                      (LastFormalParameter
+                        ","
                         (FormalParameter
                           (UnannType
                             (UnannPrimitiveType "int"))
@@ -309,7 +308,7 @@
                     TypeIdentifier
                     "("
                     (FormalParameterList
-                      ((FormalParameter ",")*
+                      ({FormalParameter ","}+
                         (FormalParameter
                           (UnannType
                             (UnannPrimitiveType "int"))
@@ -324,8 +323,7 @@
                           (UnannType
                             (UnannPrimitiveType "int"))
                           (VariableDeclaratorId Identifier))
-                        ",")
-                      (LastFormalParameter
+                        ","
                         (FormalParameter
                           (UnannType
                             (UnannPrimitiveType "int"))
@@ -339,7 +337,7 @@
                     TypeIdentifier
                     "("
                     (FormalParameterList
-                      (LastFormalParameter
+                      ({FormalParameter ","}+
                         (FormalParameter
                           (UnannType
                             (UnannPrimitiveType "boolean"))
@@ -356,7 +354,7 @@
                     TypeIdentifier
                     "("
                     (FormalParameterList
-                      (LastFormalParameter
+                      ({FormalParameter ","}+
                         (FormalParameter
                           (UnannType
                             (UnannPrimitiveType "char"))
@@ -381,7 +379,7 @@
                     ")"
                     (ConstructorBody
                       "{"
-                      (ExplicitConstructorInvocation
+                      (ConstructorInvocation
                         "super"
                         (Arguments
                           "("
@@ -397,7 +395,7 @@
                     TypeIdentifier
                     "("
                     (FormalParameterList
-                      (LastFormalParameter
+                      ({FormalParameter ","}+
                         (FormalParameter
                           (UnannType
                             (UnannPrimitiveType "int"))
@@ -405,7 +403,7 @@
                     ")"
                     (ConstructorBody
                       "{"
-                      (ExplicitConstructorInvocation
+                      (ConstructorInvocation
                         "super"
                         (Arguments
                           "("
@@ -423,7 +421,7 @@
                     TypeIdentifier
                     "("
                     (FormalParameterList
-                      (LastFormalParameter
+                      ({FormalParameter ","}+
                         (FormalParameter
                           (UnannType
                             (UnannReferenceType
@@ -432,7 +430,7 @@
                     ")"
                     (ConstructorBody
                       "{"
-                      (ExplicitConstructorInvocation
+                      (ConstructorInvocation
                         "super"
                         (Arguments
                           "("

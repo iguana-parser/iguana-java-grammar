@@ -1,3 +1,25 @@
-Parse error at line 2, column 9: Expected one of "@", "[", Identifier
-    int _ = 9;
-        ^
+(CompilationUnit
+  (OrdinaryCompilationUnit
+    (TypeDeclaration*
+      (TypeDeclaration
+        (ClassDeclaration
+          (NormalClassDeclaration
+            "class"
+            TypeIdentifier
+            (ClassBody
+              "{"
+              (ClassBodyDeclaration*
+                (ClassBodyDeclaration
+                  (FieldDeclaration
+                    (UnannType
+                      (UnannPrimitiveType "int"))
+                    ({VariableDeclarator ","}+
+                      (VariableDeclarator
+                        (VariableDeclaratorId "_")
+                        "="
+                        (VariableInitializer
+                          (Expression
+                            (Primary
+                              (Literal IntegerLiteral))))))
+                    ";")))
+              "}")))))))

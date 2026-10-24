@@ -31,7 +31,7 @@
                       Identifier
                       "("
                       (FormalParameterList
-                        (LastFormalParameter
+                        ({FormalParameter ","}+
                           (FormalParameter
                             (UnannType
                               (UnannReferenceType
@@ -50,10 +50,13 @@
                                 (Expression
                                   (Primary Identifier))
                                 "instanceof"
-                                (TypePattern
-                                  (UnannReferenceType
-                                    (UnannClassType TypeIdentifier))
-                                  Identifier))
+                                (Pattern
+                                  (TypePattern
+                                    (LocalVariableType
+                                      (UnannType
+                                        (UnannReferenceType
+                                          (UnannClassType TypeIdentifier))))
+                                    (VariableDeclaratorId Identifier))))
                               ")"
                               (Statement
                                 (Block
@@ -80,12 +83,15 @@
                                   (Expression
                                     (Primary Identifier))
                                   "instanceof"
-                                  (TypePattern
-                                    (VariableModifier*
-                                      (VariableModifier "final"))
-                                    (UnannReferenceType
-                                      (UnannClassType TypeIdentifier))
-                                    Identifier))
+                                  (Pattern
+                                    (TypePattern
+                                      (VariableModifier*
+                                        (VariableModifier "final"))
+                                      (LocalVariableType
+                                        (UnannType
+                                          (UnannReferenceType
+                                            (UnannClassType TypeIdentifier))))
+                                      (VariableDeclaratorId Identifier))))
                                 "&&"
                                 (Expression
                                   (Expression
@@ -129,10 +135,13 @@
                                       (Expression
                                         (Primary Identifier))
                                       "instanceof"
-                                      (TypePattern
-                                        (UnannReferenceType
-                                          (UnannClassType TypeIdentifier))
-                                        Identifier))
+                                      (Pattern
+                                        (TypePattern
+                                          (LocalVariableType
+                                            (UnannType
+                                              (UnannReferenceType
+                                                (UnannClassType TypeIdentifier))))
+                                          (VariableDeclaratorId Identifier))))
                                     ")")))
                               ")"
                               (Statement
@@ -163,7 +172,7 @@
                       Identifier
                       "("
                       (FormalParameterList
-                        (LastFormalParameter
+                        ({FormalParameter ","}+
                           (FormalParameter
                             (UnannType
                               (UnannReferenceType
@@ -183,16 +192,19 @@
                                     (Expression
                                       (Primary Identifier))
                                     "instanceof"
-                                    (TypePattern
-                                      (UnannReferenceType
-                                        (UnannClassType
-                                          TypeIdentifier
-                                          (TypeArguments
-                                            "<"
-                                            ({TypeArgument ","}+
-                                              (TypeArgument "?"))
-                                            ">")))
-                                      Identifier))
+                                    (Pattern
+                                      (TypePattern
+                                        (LocalVariableType
+                                          (UnannType
+                                            (UnannReferenceType
+                                              (UnannClassType
+                                                TypeIdentifier
+                                                (TypeArguments
+                                                  "<"
+                                                  ({TypeArgument ","}+
+                                                    (TypeArgument "?"))
+                                                  ">")))))
+                                        (VariableDeclaratorId Identifier))))
                                   "&&"
                                   (Expression
                                     "!"
@@ -209,20 +221,23 @@
                                     (Expression
                                       (Primary Identifier))
                                     "instanceof"
-                                    (TypePattern
-                                      (UnannReferenceType
-                                        (UnannClassType
-                                          ((Identifier ".")+ Identifier ".")
-                                          (MarkedTypeComponent
-                                            TypeIdentifier
-                                            (TypeArguments
-                                              "<"
-                                              ({TypeArgument ","}+
-                                                (TypeArgument "?")
-                                                ","
-                                                (TypeArgument "?"))
-                                              ">"))))
-                                      Identifier))
+                                    (Pattern
+                                      (TypePattern
+                                        (LocalVariableType
+                                          (UnannType
+                                            (UnannReferenceType
+                                              (UnannClassType
+                                                ((Identifier ".")+ Identifier ".")
+                                                (MarkedTypeComponent
+                                                  TypeIdentifier
+                                                  (TypeArguments
+                                                    "<"
+                                                    ({TypeArgument ","}+
+                                                      (TypeArgument "?")
+                                                      ","
+                                                      (TypeArgument "?"))
+                                                    ">"))))))
+                                        (VariableDeclaratorId Identifier))))
                                   "&&"
                                   (Expression
                                     (Expression
@@ -247,7 +262,7 @@
                       Identifier
                       "("
                       (FormalParameterList
-                        (LastFormalParameter
+                        ({FormalParameter ","}+
                           (FormalParameter
                             (UnannType
                               (UnannReferenceType
@@ -274,18 +289,21 @@
                                   (Expression
                                     (Primary Identifier))
                                   "instanceof"
-                                  (TypePattern
-                                    (UnannReferenceType
-                                      (UnannClassType
-                                        TypeIdentifier
-                                        (TypeArguments
-                                          "<"
-                                          ({TypeArgument ","}+
-                                            (TypeArgument
-                                              (ReferenceType
-                                                (ClassType TypeIdentifier))))
-                                          ">")))
-                                    Identifier))
+                                  (Pattern
+                                    (TypePattern
+                                      (LocalVariableType
+                                        (UnannType
+                                          (UnannReferenceType
+                                            (UnannClassType
+                                              TypeIdentifier
+                                              (TypeArguments
+                                                "<"
+                                                ({TypeArgument ","}+
+                                                  (TypeArgument
+                                                    (ReferenceType
+                                                      (ClassType TypeIdentifier))))
+                                                ">")))))
+                                      (VariableDeclaratorId Identifier))))
                                 "&&"
                                 (Expression
                                   (Expression
@@ -310,7 +328,7 @@
                       Identifier
                       "("
                       (FormalParameterList
-                        (LastFormalParameter
+                        ({FormalParameter ","}+
                           (FormalParameter
                             (UnannType
                               (UnannReferenceType
@@ -330,12 +348,15 @@
                                     (Expression
                                       (Primary Identifier))
                                     "instanceof"
-                                    (TypePattern
-                                      (UnannReferenceType
-                                        (UnannArrayType
-                                          (UnannPrimitiveType "int")
-                                          ((Annotation* "[" "]")+ "[" "]")))
-                                      Identifier))
+                                    (Pattern
+                                      (TypePattern
+                                        (LocalVariableType
+                                          (UnannType
+                                            (UnannReferenceType
+                                              (UnannArrayType
+                                                (UnannPrimitiveType "int")
+                                                ((Annotation* "[" "]")+ "[" "]")))))
+                                        (VariableDeclaratorId Identifier))))
                                   "&&"
                                   (Expression
                                     (Expression
@@ -352,12 +373,15 @@
                                   (Expression
                                     (Primary Identifier))
                                   "instanceof"
-                                  (TypePattern
-                                    (UnannReferenceType
-                                      (UnannArrayType
-                                        (UnannClassType TypeIdentifier)
-                                        ((Annotation* "[" "]")+ "[" "]" "[" "]")))
-                                    Identifier)))
+                                  (Pattern
+                                    (TypePattern
+                                      (LocalVariableType
+                                        (UnannType
+                                          (UnannReferenceType
+                                            (UnannArrayType
+                                              (UnannClassType TypeIdentifier)
+                                              ((Annotation* "[" "]")+ "[" "]" "[" "]")))))
+                                      (VariableDeclaratorId Identifier)))))
                               ";")))
                         "}"))))
                 (ClassBodyDeclaration
@@ -369,7 +393,7 @@
                       Identifier
                       "("
                       (FormalParameterList
-                        (LastFormalParameter
+                        ({FormalParameter ","}+
                           (FormalParameter
                             (UnannType
                               (UnannReferenceType
@@ -388,15 +412,18 @@
                                   (Expression
                                     (Primary Identifier))
                                   "instanceof"
-                                  (TypePattern
-                                    (VariableModifier*
-                                      (VariableModifier
-                                        (Annotation
-                                          "@"
-                                          (TypeName TypeIdentifier))))
-                                    (UnannReferenceType
-                                      (UnannClassType TypeIdentifier))
-                                    Identifier))
+                                  (Pattern
+                                    (TypePattern
+                                      (VariableModifier*
+                                        (VariableModifier
+                                          (Annotation
+                                            "@"
+                                            (TypeName TypeIdentifier))))
+                                      (LocalVariableType
+                                        (UnannType
+                                          (UnannReferenceType
+                                            (UnannClassType TypeIdentifier))))
+                                      (VariableDeclaratorId Identifier))))
                                 "&&"
                                 (Expression
                                   (Expression
@@ -417,7 +444,7 @@
                       Identifier
                       "("
                       (FormalParameterList
-                        (LastFormalParameter
+                        ({FormalParameter ","}+
                           (FormalParameter
                             (UnannType
                               (UnannReferenceType
@@ -436,10 +463,13 @@
                                   (Expression
                                     (Primary Identifier))
                                   "instanceof"
-                                  (TypePattern
-                                    (UnannReferenceType
-                                      (UnannClassType TypeIdentifier))
-                                    Identifier))
+                                  (Pattern
+                                    (TypePattern
+                                      (LocalVariableType
+                                        (UnannType
+                                          (UnannReferenceType
+                                            (UnannClassType TypeIdentifier))))
+                                      (VariableDeclaratorId Identifier))))
                                 "?"
                                 (Expression
                                   (Expression
@@ -463,7 +493,7 @@
                       Identifier
                       "("
                       (FormalParameterList
-                        (LastFormalParameter
+                        ({FormalParameter ","}+
                           (FormalParameter
                             (UnannType
                               (UnannReferenceType

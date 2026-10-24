@@ -1,0 +1,506 @@
+(CompilationUnit
+  (OrdinaryCompilationUnit
+    (TypeDeclaration*
+      (TypeDeclaration
+        (ClassDeclaration
+          (NormalClassDeclaration
+            "class"
+            TypeIdentifier
+            (ClassBody
+              "{"
+              (ClassBodyDeclaration*
+                (ClassBodyDeclaration
+                  (ClassDeclaration
+                    (RecordDeclaration
+                      "record"
+                      TypeIdentifier
+                      (RecordHeader
+                        "("
+                        (RecordComponentList
+                          ({RecordComponent ","}+
+                            (RecordComponent
+                              (UnannType
+                                (UnannPrimitiveType "int"))
+                              Identifier)
+                            ","
+                            (RecordComponent
+                              (UnannType
+                                (UnannPrimitiveType "int"))
+                              Identifier)))
+                        ")")
+                      (RecordBody "{" "}"))))
+                (ClassBodyDeclaration
+                  (ClassDeclaration
+                    (RecordDeclaration
+                      "record"
+                      TypeIdentifier
+                      (RecordHeader
+                        "("
+                        (RecordComponentList
+                          ({RecordComponent ","}+
+                            (RecordComponent
+                              (UnannType
+                                (UnannReferenceType
+                                  (UnannClassType TypeIdentifier)))
+                              Identifier)
+                            ","
+                            (RecordComponent
+                              (UnannType
+                                (UnannReferenceType
+                                  (UnannClassType TypeIdentifier)))
+                              Identifier)))
+                        ")")
+                      (RecordBody "{" "}"))))
+                (ClassBodyDeclaration
+                  (ClassDeclaration
+                    (RecordDeclaration
+                      "record"
+                      TypeIdentifier
+                      (TypeParameters
+                        "<"
+                        ({TypeParameter ","}+
+                          (TypeParameter TypeIdentifier))
+                        ">")
+                      (RecordHeader
+                        "("
+                        (RecordComponentList
+                          ({RecordComponent ","}+
+                            (RecordComponent
+                              (UnannType
+                                (UnannReferenceType
+                                  (UnannClassType TypeIdentifier)))
+                              Identifier)))
+                        ")")
+                      (RecordBody "{" "}"))))
+                (ClassBodyDeclaration
+                  (ClassDeclaration
+                    (NormalClassDeclaration
+                      (ClassModifier*
+                        (ClassModifier "static"))
+                      "class"
+                      TypeIdentifier
+                      (ClassBody
+                        "{"
+                        (ClassBodyDeclaration*
+                          (ClassBodyDeclaration
+                            (ClassDeclaration
+                              (RecordDeclaration
+                                "record"
+                                TypeIdentifier
+                                (RecordHeader "(" ")")
+                                (RecordBody "{" "}")))))
+                        "}"))))
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result
+                      (UnannType
+                        (UnannPrimitiveType "int")))
+                    (MethodDeclarator
+                      Identifier
+                      "("
+                      (FormalParameterList
+                        ({FormalParameter ","}+
+                          (FormalParameter
+                            (UnannType
+                              (UnannReferenceType
+                                (UnannClassType TypeIdentifier)))
+                            (VariableDeclaratorId Identifier))))
+                      ")")
+                    (MethodBody
+                      (Block
+                        "{"
+                        (BlockStatement*
+                          (BlockStatement
+                            (Statement
+                              "if"
+                              "("
+                              (Expression
+                                (Expression
+                                  (Primary Identifier))
+                                "instanceof"
+                                (Pattern
+                                  (RecordPattern
+                                    (ReferenceType
+                                      (ClassType TypeIdentifier))
+                                    "("
+                                    ({ComponentPattern ","}*
+                                      (ComponentPattern
+                                        (Pattern
+                                          (TypePattern
+                                            (LocalVariableType
+                                              (UnannType
+                                                (UnannPrimitiveType "int")))
+                                            (VariableDeclaratorId Identifier))))
+                                      ","
+                                      (ComponentPattern
+                                        (Pattern
+                                          (TypePattern
+                                            (LocalVariableType
+                                              (UnannType
+                                                (UnannPrimitiveType "int")))
+                                            (VariableDeclaratorId Identifier)))))
+                                    ")")))
+                              ")"
+                              (Statement
+                                (Block
+                                  "{"
+                                  (BlockStatement*
+                                    (BlockStatement
+                                      (Statement
+                                        "return"
+                                        (Expression
+                                          (Expression
+                                            (Primary Identifier))
+                                          "+"
+                                          (Expression
+                                            (Primary Identifier)))
+                                        ";")))
+                                  "}"))))
+                          (BlockStatement
+                            (Statement
+                              "if"
+                              "("
+                              (Expression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  "instanceof"
+                                  (Pattern
+                                    (RecordPattern
+                                      (ReferenceType
+                                        (ClassType TypeIdentifier))
+                                      "("
+                                      ({ComponentPattern ","}*
+                                        (ComponentPattern
+                                          (Pattern
+                                            (RecordPattern
+                                              (ReferenceType
+                                                (ClassType TypeIdentifier))
+                                              "("
+                                              ({ComponentPattern ","}*
+                                                (ComponentPattern
+                                                  (Pattern
+                                                    (TypePattern
+                                                      (LocalVariableType "var")
+                                                      (VariableDeclaratorId Identifier))))
+                                                ","
+                                                (ComponentPattern
+                                                  (Pattern
+                                                    (TypePattern
+                                                      (LocalVariableType "var")
+                                                      (VariableDeclaratorId Identifier)))))
+                                              ")")))
+                                        ","
+                                        (ComponentPattern
+                                          (Pattern
+                                            (TypePattern
+                                              (LocalVariableType
+                                                (UnannType
+                                                  (UnannReferenceType
+                                                    (UnannClassType TypeIdentifier))))
+                                              (VariableDeclaratorId Identifier)))))
+                                      ")")))
+                                "&&"
+                                (Expression
+                                  (Expression
+                                    (Expression
+                                      (Primary Identifier))
+                                    "."
+                                    (Selector
+                                      Identifier
+                                      (Arguments "(" ")")))
+                                  ">"
+                                  (Expression
+                                    (Primary Identifier))))
+                              ")"
+                              (Statement
+                                (Block
+                                  "{"
+                                  (BlockStatement*
+                                    (BlockStatement
+                                      (Statement
+                                        "return"
+                                        (Expression
+                                          (Primary Identifier))
+                                        ";")))
+                                  "}"))))
+                          (BlockStatement
+                            (Statement
+                              "return"
+                              (Expression
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  "instanceof"
+                                  (Pattern
+                                    (RecordPattern
+                                      (ReferenceType
+                                        (ClassType
+                                          (MarkedClassType
+                                            (MarkedTypeComponent
+                                              TypeIdentifier
+                                              (TypeArguments
+                                                "<"
+                                                ({TypeArgument ","}+
+                                                  (TypeArgument "?"))
+                                                ">")))))
+                                      "("
+                                      ({ComponentPattern ","}*
+                                        (ComponentPattern
+                                          (Pattern
+                                            (TypePattern
+                                              (LocalVariableType
+                                                (UnannType
+                                                  (UnannReferenceType
+                                                    (UnannClassType TypeIdentifier))))
+                                              (VariableDeclaratorId Identifier)))))
+                                      ")")))
+                                "?"
+                                (Expression
+                                  (Expression
+                                    (Primary Identifier))
+                                  "."
+                                  (Selector
+                                    Identifier
+                                    (Arguments "(" ")")))
+                                ":"
+                                (Expression
+                                  (Primary
+                                    (Literal IntegerLiteral))))
+                              ";")))
+                        "}"))))
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result
+                      (UnannType
+                        (UnannReferenceType
+                          (UnannClassType TypeIdentifier))))
+                    (MethodDeclarator
+                      Identifier
+                      "("
+                      (FormalParameterList
+                        ({FormalParameter ","}+
+                          (FormalParameter
+                            (UnannType
+                              (UnannReferenceType
+                                (UnannClassType TypeIdentifier)))
+                            (VariableDeclaratorId Identifier))))
+                      ")")
+                    (MethodBody
+                      (Block
+                        "{"
+                        (BlockStatement*
+                          (BlockStatement
+                            (Statement
+                              "return"
+                              (Expression
+                                "switch"
+                                "("
+                                (Expression
+                                  (Primary Identifier))
+                                ")"
+                                (SwitchBlock
+                                  "{"
+                                  (SwitchRule+
+                                    (SwitchRule
+                                      (SwitchLabel
+                                        "case"
+                                        ({Pattern ","}+
+                                          (Pattern
+                                            (RecordPattern
+                                              (ReferenceType
+                                                (ClassType TypeIdentifier))
+                                              "("
+                                              ({ComponentPattern ","}*
+                                                (ComponentPattern
+                                                  (Pattern
+                                                    (TypePattern
+                                                      (VariableModifier*
+                                                        (VariableModifier "final"))
+                                                      (LocalVariableType
+                                                        (UnannType
+                                                          (UnannPrimitiveType "int")))
+                                                      (VariableDeclaratorId Identifier))))
+                                                ","
+                                                (ComponentPattern
+                                                  (Pattern
+                                                    (TypePattern
+                                                      (LocalVariableType
+                                                        (UnannType
+                                                          (UnannPrimitiveType "int")))
+                                                      (VariableDeclaratorId Identifier)))))
+                                              ")")))
+                                        (Guard
+                                          "when"
+                                          (Expression
+                                            (Expression
+                                              (Primary Identifier))
+                                            "=="
+                                            (Expression
+                                              (Primary Identifier)))))
+                                      "->"
+                                      (Expression
+                                        (Primary
+                                          (Literal StringLiteral)))
+                                      ";")
+                                    (SwitchRule
+                                      (SwitchLabel
+                                        "case"
+                                        ({Pattern ","}+
+                                          (Pattern
+                                            (RecordPattern
+                                              (ReferenceType
+                                                (ClassType TypeIdentifier))
+                                              "("
+                                              ({ComponentPattern ","}*
+                                                (ComponentPattern
+                                                  (Pattern
+                                                    (RecordPattern
+                                                      (ReferenceType
+                                                        (ClassType TypeIdentifier))
+                                                      "("
+                                                      ({ComponentPattern ","}*
+                                                        (ComponentPattern
+                                                          (Pattern
+                                                            (TypePattern
+                                                              (LocalVariableType "var")
+                                                              (VariableDeclaratorId Identifier))))
+                                                        ","
+                                                        (ComponentPattern
+                                                          (Pattern
+                                                            (TypePattern
+                                                              (LocalVariableType "var")
+                                                              (VariableDeclaratorId Identifier)))))
+                                                      ")")))
+                                                ","
+                                                (ComponentPattern
+                                                  (Pattern
+                                                    (RecordPattern
+                                                      (ReferenceType
+                                                        (ClassType TypeIdentifier))
+                                                      "("
+                                                      ({ComponentPattern ","}*
+                                                        (ComponentPattern
+                                                          (Pattern
+                                                            (TypePattern
+                                                              (LocalVariableType
+                                                                (UnannType
+                                                                  (UnannPrimitiveType "int")))
+                                                              (VariableDeclaratorId Identifier))))
+                                                        ","
+                                                        (ComponentPattern
+                                                          (Pattern
+                                                            (TypePattern
+                                                              (LocalVariableType
+                                                                (UnannType
+                                                                  (UnannPrimitiveType "int")))
+                                                              (VariableDeclaratorId Identifier)))))
+                                                      ")"))))
+                                              ")"))))
+                                      "->"
+                                      (Expression
+                                        (Primary
+                                          (Literal StringLiteral)))
+                                      ";")
+                                    (SwitchRule
+                                      (SwitchLabel
+                                        "case"
+                                        ({Pattern ","}+
+                                          (Pattern
+                                            (RecordPattern
+                                              (ReferenceType
+                                                (ClassType
+                                                  ((Identifier ".")* Identifier ".")
+                                                  TypeIdentifier))
+                                              "("
+                                              ")"))))
+                                      "->"
+                                      (Expression
+                                        (Primary
+                                          (Literal StringLiteral)))
+                                      ";")
+                                    (SwitchRule
+                                      (SwitchLabel "default")
+                                      "->"
+                                      (Expression
+                                        (Primary
+                                          (Literal StringLiteral)))
+                                      ";"))
+                                  "}"))
+                              ";")))
+                        "}"))))
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result
+                      (UnannType
+                        (UnannReferenceType
+                          (UnannClassType TypeIdentifier))))
+                    (MethodDeclarator
+                      Identifier
+                      "("
+                      (FormalParameterList
+                        ({FormalParameter ","}+
+                          (FormalParameter
+                            (UnannType
+                              (UnannReferenceType
+                                (UnannClassType
+                                  TypeIdentifier
+                                  (TypeArguments
+                                    "<"
+                                    ({TypeArgument ","}+
+                                      (TypeArgument
+                                        (ReferenceType
+                                          (ClassType TypeIdentifier))))
+                                    ">"))))
+                            (VariableDeclaratorId Identifier))))
+                      ")")
+                    (MethodBody
+                      (Block
+                        "{"
+                        (BlockStatement*
+                          (BlockStatement
+                            (Statement
+                              "return"
+                              (Expression
+                                "switch"
+                                "("
+                                (Expression
+                                  (Primary Identifier))
+                                ")"
+                                (SwitchBlock
+                                  "{"
+                                  (SwitchRule+
+                                    (SwitchRule
+                                      (SwitchLabel
+                                        "case"
+                                        ({Pattern ","}+
+                                          (Pattern
+                                            (RecordPattern
+                                              (ReferenceType
+                                                (ClassType
+                                                  (MarkedClassType
+                                                    (MarkedTypeComponent
+                                                      TypeIdentifier
+                                                      (TypeArguments
+                                                        "<"
+                                                        ({TypeArgument ","}+
+                                                          (TypeArgument
+                                                            (ReferenceType
+                                                              (ClassType TypeIdentifier))))
+                                                        ">")))))
+                                              "("
+                                              ({ComponentPattern ","}*
+                                                (ComponentPattern
+                                                  (Pattern
+                                                    (TypePattern
+                                                      (LocalVariableType "var")
+                                                      (VariableDeclaratorId Identifier)))))
+                                              ")"))))
+                                      "->"
+                                      (Expression
+                                        (Primary Identifier))
+                                      ";"))
+                                  "}"))
+                              ";")))
+                        "}")))))
+              "}")))))))

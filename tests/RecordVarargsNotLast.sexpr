@@ -1,3 +1,25 @@
-Parse error at line 1, column 42: Expected one of ")", EOF
-record RecordVarargsNotLast(int... values, int last) {}
-                                         ^
+(CompilationUnit
+  (OrdinaryCompilationUnit
+    (TypeDeclaration*
+      (TypeDeclaration
+        (ClassDeclaration
+          (RecordDeclaration
+            "record"
+            TypeIdentifier
+            (RecordHeader
+              "("
+              (RecordComponentList
+                ({RecordComponent ","}+
+                  (RecordComponent
+                    (VariableArityRecordComponent
+                      (UnannType
+                        (UnannPrimitiveType "int"))
+                      "..."
+                      Identifier))
+                  ","
+                  (RecordComponent
+                    (UnannType
+                      (UnannPrimitiveType "int"))
+                    Identifier)))
+              ")")
+            (RecordBody "{" "}")))))))

@@ -307,7 +307,7 @@
                       Identifier
                       "("
                       (FormalParameterList
-                        ((FormalParameter ",")*
+                        ({FormalParameter ","}+
                           (FormalParameter
                             (UnannType
                               (UnannReferenceType
@@ -315,8 +315,7 @@
                                   ((Identifier ".")* Identifier ".")
                                   TypeIdentifier)))
                             (VariableDeclaratorId Identifier))
-                          ",")
-                        (LastFormalParameter
+                          ","
                           (FormalParameter
                             (UnannType
                               (UnannReferenceType

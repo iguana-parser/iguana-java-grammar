@@ -1,0 +1,64 @@
+(CompilationUnit
+  (OrdinaryCompilationUnit
+    (ImportDeclaration*
+      (ImportDeclaration
+        "import"
+        "module"
+        (QualifiedIdentifier
+          ({Identifier "."}+ Identifier "." Identifier))
+        ";")
+      (ImportDeclaration
+        "import"
+        "module"
+        (QualifiedIdentifier
+          ({Identifier "."}+ Identifier "." Identifier))
+        ";")
+      (ImportDeclaration
+        "import"
+        (TypeName
+          ((Identifier ".")* Identifier ".")
+          TypeIdentifier)
+        ";")
+      (ImportDeclaration
+        "import"
+        (QualifiedIdentifier
+          ({Identifier "."}+ Identifier "." Identifier))
+        "."
+        "*"
+        ";"))
+    (TypeDeclaration*
+      (TypeDeclaration
+        (ClassDeclaration
+          (NormalClassDeclaration
+            "class"
+            TypeIdentifier
+            (ClassBody
+              "{"
+              (ClassBodyDeclaration*
+                (ClassBodyDeclaration
+                  (FieldDeclaration
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannClassType
+                          TypeIdentifier
+                          (TypeArguments
+                            "<"
+                            ({TypeArgument ","}+
+                              (TypeArgument
+                                (ReferenceType
+                                  (ClassType TypeIdentifier))))
+                            ">"))))
+                    ({VariableDeclarator ","}+
+                      (VariableDeclarator
+                        (VariableDeclaratorId Identifier)
+                        "="
+                        (VariableInitializer
+                          (Expression
+                            "new"
+                            (ClassInstanceCreationExpression
+                              (ClassTypeToInstantiate
+                                Identifier
+                                (TypeArgumentsOrDiamond "<" ">"))
+                              (Arguments "(" ")"))))))
+                    ";")))
+              "}")))))))

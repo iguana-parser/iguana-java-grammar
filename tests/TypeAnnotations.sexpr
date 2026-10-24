@@ -199,7 +199,7 @@
                       Identifier
                       "("
                       (FormalParameterList
-                        (LastFormalParameter
+                        ({FormalParameter ","}+
                           (FormalParameter
                             (UnannType
                               (UnannReferenceType
@@ -242,7 +242,7 @@
                       Identifier
                       "("
                       (FormalParameterList
-                        (LastFormalParameter
+                        ({FormalParameter ","}+
                           (FormalParameter
                             (UnannType
                               (UnannReferenceType
@@ -282,7 +282,7 @@
                       Identifier
                       "("
                       (FormalParameterList
-                        (LastFormalParameter
+                        ({FormalParameter ","}+
                           (FormalParameter
                             (UnannType
                               (UnannReferenceType
@@ -471,7 +471,7 @@
                       Identifier
                       "("
                       (FormalParameterList
-                        ((FormalParameter ",")*
+                        ({FormalParameter ","}+
                           (FormalParameter
                             (VariableModifier*
                               (VariableModifier
@@ -482,8 +482,7 @@
                               (UnannReferenceType
                                 (UnannClassType TypeIdentifier)))
                             (VariableDeclaratorId Identifier))
-                          ",")
-                        (LastFormalParameter
+                          ","
                           (FormalParameter
                             (VariableModifier*
                               (VariableModifier
@@ -503,15 +502,17 @@
                       Identifier
                       "("
                       (FormalParameterList
-                        (LastFormalParameter
-                          (UnannType
-                            (UnannPrimitiveType "int"))
-                          (Annotation*
-                            (Annotation
-                              "@"
-                              (TypeName TypeIdentifier)))
-                          "..."
-                          (VariableDeclaratorId Identifier)))
+                        ({FormalParameter ","}+
+                          (FormalParameter
+                            (VariableArityParameter
+                              (UnannType
+                                (UnannPrimitiveType "int"))
+                              (Annotation*
+                                (Annotation
+                                  "@"
+                                  (TypeName TypeIdentifier)))
+                              "..."
+                              Identifier))))
                       ")")
                     (MethodBody
                       (Block "{" "}"))))
@@ -522,16 +523,18 @@
                       Identifier
                       "("
                       (FormalParameterList
-                        (LastFormalParameter
-                          (UnannType
-                            (UnannReferenceType
-                              (UnannClassType TypeIdentifier)))
-                          (Annotation*
-                            (Annotation
-                              "@"
-                              (TypeName TypeIdentifier)))
-                          "..."
-                          (VariableDeclaratorId Identifier)))
+                        ({FormalParameter ","}+
+                          (FormalParameter
+                            (VariableArityParameter
+                              (UnannType
+                                (UnannReferenceType
+                                  (UnannClassType TypeIdentifier)))
+                              (Annotation*
+                                (Annotation
+                                  "@"
+                                  (TypeName TypeIdentifier)))
+                              "..."
+                              Identifier))))
                       ")")
                     (MethodBody
                       (Block "{" "}"))))
@@ -655,7 +658,7 @@
                       Identifier
                       "("
                       (FormalParameterList
-                        (LastFormalParameter
+                        ({FormalParameter ","}+
                           (FormalParameter
                             (UnannType
                               (UnannReferenceType
@@ -697,7 +700,7 @@
                       Identifier
                       "("
                       (FormalParameterList
-                        (LastFormalParameter
+                        ({FormalParameter ","}+
                           (FormalParameter
                             (UnannType
                               (UnannReferenceType
@@ -744,7 +747,7 @@
                       Identifier
                       "("
                       (FormalParameterList
-                        (LastFormalParameter
+                        ({FormalParameter ","}+
                           (FormalParameter
                             (UnannType
                               (UnannReferenceType
@@ -912,7 +915,7 @@
                       Identifier
                       "("
                       (FormalParameterList
-                        (LastFormalParameter
+                        ({FormalParameter ","}+
                           (FormalParameter
                             (UnannType
                               (UnannReferenceType
@@ -957,7 +960,7 @@
                       Identifier
                       "("
                       (FormalParameterList
-                        (LastFormalParameter
+                        ({FormalParameter ","}+
                           (FormalParameter
                             (UnannType
                               (UnannReferenceType
@@ -1027,7 +1030,7 @@
                       Identifier
                       "("
                       (FormalParameterList
-                        (LastFormalParameter
+                        ({FormalParameter ","}+
                           (FormalParameter
                             (UnannType
                               (UnannReferenceType
@@ -1101,7 +1104,7 @@
                       Identifier
                       "("
                       (FormalParameterList
-                        (LastFormalParameter
+                        ({FormalParameter ","}+
                           (FormalParameter
                             (UnannType
                               (UnannReferenceType
@@ -1153,7 +1156,7 @@
                       Identifier
                       "("
                       (FormalParameterList
-                        (LastFormalParameter
+                        ({FormalParameter ","}+
                           (FormalParameter
                             (VariableModifier*
                               (VariableModifier

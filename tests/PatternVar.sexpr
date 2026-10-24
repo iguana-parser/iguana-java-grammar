@@ -1,3 +1,45 @@
-Parse error at line 3, column 33: Expected "."
-        return o instanceof var v;
-                                ^
+(CompilationUnit
+  (OrdinaryCompilationUnit
+    (TypeDeclaration*
+      (TypeDeclaration
+        (ClassDeclaration
+          (NormalClassDeclaration
+            "class"
+            TypeIdentifier
+            (ClassBody
+              "{"
+              (ClassBodyDeclaration*
+                (ClassBodyDeclaration
+                  (MethodDeclaration
+                    (Result
+                      (UnannType
+                        (UnannPrimitiveType "boolean")))
+                    (MethodDeclarator
+                      Identifier
+                      "("
+                      (FormalParameterList
+                        ({FormalParameter ","}+
+                          (FormalParameter
+                            (UnannType
+                              (UnannReferenceType
+                                (UnannClassType TypeIdentifier)))
+                            (VariableDeclaratorId Identifier))))
+                      ")")
+                    (MethodBody
+                      (Block
+                        "{"
+                        (BlockStatement*
+                          (BlockStatement
+                            (Statement
+                              "return"
+                              (Expression
+                                (Expression
+                                  (Primary Identifier))
+                                "instanceof"
+                                (Pattern
+                                  (TypePattern
+                                    (LocalVariableType "var")
+                                    (VariableDeclaratorId Identifier))))
+                              ";")))
+                        "}")))))
+              "}")))))))

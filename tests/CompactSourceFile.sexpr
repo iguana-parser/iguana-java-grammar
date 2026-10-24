@@ -1,0 +1,214 @@
+(CompilationUnit
+  (CompactCompilationUnit
+    (ImportDeclaration*
+      (ImportDeclaration
+        "import"
+        "module"
+        (QualifiedIdentifier
+          ({Identifier "."}+ Identifier "." Identifier))
+        ";")
+      (ImportDeclaration
+        "import"
+        (TypeName
+          ((Identifier ".")* Identifier "." Identifier ".")
+          TypeIdentifier)
+        ";"))
+    (ClassMemberDeclarationNoMethod*
+      (ClassMemberDeclarationNoMethod
+        (FieldDeclaration
+          (FieldModifier*
+            (FieldModifier "final"))
+          (UnannType
+            (UnannReferenceType
+              (UnannClassType
+                TypeIdentifier
+                (TypeArguments
+                  "<"
+                  ({TypeArgument ","}+
+                    (TypeArgument
+                      (ReferenceType
+                        (ClassType TypeIdentifier))))
+                  ">"))))
+          ({VariableDeclarator ","}+
+            (VariableDeclarator
+              (VariableDeclaratorId Identifier)
+              "="
+              (VariableInitializer
+                (Expression
+                  (Expression
+                    (Primary Identifier))
+                  "."
+                  (Selector
+                    Identifier
+                    (Arguments
+                      "("
+                      ({Expression ","}*
+                        (Expression
+                          (Primary
+                            (Literal StringLiteral)))
+                        ","
+                        (Expression
+                          (Primary
+                            (Literal StringLiteral))))
+                      ")"))))))
+          ";"))
+      (ClassMemberDeclarationNoMethod
+        (ClassDeclaration
+          (RecordDeclaration
+            "record"
+            TypeIdentifier
+            (RecordHeader
+              "("
+              (RecordComponentList
+                ({RecordComponent ","}+
+                  (RecordComponent
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannClassType TypeIdentifier)))
+                    Identifier)
+                  ","
+                  (RecordComponent
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannClassType TypeIdentifier)))
+                    Identifier)))
+              ")")
+            (RecordBody "{" "}"))))
+      (ClassMemberDeclarationNoMethod
+        (ClassDeclaration
+          (EnumDeclaration
+            "enum"
+            TypeIdentifier
+            (EnumBody
+              "{"
+              ({EnumConstant ","}*
+                (EnumConstant Identifier)
+                ","
+                (EnumConstant Identifier))
+              "}"))))
+      (ClassMemberDeclarationNoMethod ";"))
+    (MethodDeclaration
+      (Result "void")
+      (MethodDeclarator Identifier "(" ")")
+      (MethodBody
+        (Block
+          "{"
+          (BlockStatement*
+            (BlockStatement
+              (Statement
+                "for"
+                "("
+                (ForControl
+                  (LocalVariableType
+                    (UnannType
+                      (UnannReferenceType
+                        (UnannClassType TypeIdentifier))))
+                  (VariableDeclaratorId Identifier)
+                  ":"
+                  (Expression
+                    (Primary Identifier)))
+                ")"
+                (Statement
+                  (Block
+                    "{"
+                    (BlockStatement*
+                      (BlockStatement
+                        (Statement
+                          (StatementExpression
+                            (Expression
+                              (Expression
+                                (Primary Identifier))
+                              "."
+                              (Selector
+                                Identifier
+                                (Arguments
+                                  "("
+                                  ({Expression ","}*
+                                    (Expression
+                                      (MethodInvocation
+                                        UnqualifiedMethodIdentifier
+                                        (Arguments
+                                          "("
+                                          ({Expression ","}*
+                                            (Expression
+                                              (Primary Identifier)))
+                                          ")"))))
+                                  ")"))))
+                          ";")))
+                    "}")))))
+          "}")))
+    (ClassMemberDeclaration*
+      (ClassMemberDeclaration
+        (MethodDeclaration
+          (MethodModifier*
+            (MethodModifier "static"))
+          (Result
+            (UnannType
+              (UnannReferenceType
+                (UnannClassType TypeIdentifier))))
+          (MethodDeclarator
+            Identifier
+            "("
+            (FormalParameterList
+              ({FormalParameter ","}+
+                (FormalParameter
+                  (UnannType
+                    (UnannReferenceType
+                      (UnannClassType TypeIdentifier)))
+                  (VariableDeclaratorId Identifier))))
+            ")")
+          (MethodBody
+            (Block
+              "{"
+              (BlockStatement*
+                (BlockStatement
+                  (Statement
+                    "return"
+                    (Expression
+                      (Expression
+                        (Primary
+                          (Literal StringLiteral)))
+                      "+"
+                      (Expression
+                        (Primary Identifier)))
+                    ";")))
+              "}"))))
+      (ClassMemberDeclaration
+        (ClassMemberDeclarationNoMethod
+          (InterfaceDeclaration
+            (NormalInterfaceDeclaration
+              "interface"
+              TypeIdentifier
+              (InterfaceBody
+                "{"
+                (InterfaceMemberDeclaration*
+                  (InterfaceMemberDeclaration
+                    (InterfaceMethodDeclaration
+                      (Result
+                        (UnannType
+                          (UnannReferenceType
+                            (UnannClassType TypeIdentifier))))
+                      (MethodDeclarator
+                        Identifier
+                        "("
+                        (FormalParameterList
+                          ({FormalParameter ","}+
+                            (FormalParameter
+                              (UnannType
+                                (UnannReferenceType
+                                  (UnannClassType TypeIdentifier)))
+                              (VariableDeclaratorId Identifier))))
+                        ")")
+                      ";")))
+                "}")))))
+      (ClassMemberDeclaration
+        (ClassMemberDeclarationNoMethod
+          (FieldDeclaration
+            (UnannType
+              (UnannPrimitiveType "int"))
+            ({VariableDeclarator ","}+
+              (VariableDeclarator
+                (VariableDeclaratorId Identifier)))
+            ";")))
+      (ClassMemberDeclaration
+        (ClassMemberDeclarationNoMethod ";")))))

@@ -91,7 +91,7 @@
                                   "("
                                   (CatchType
                                     (UnannClassType TypeIdentifier))
-                                  Identifier
+                                  (VariableDeclaratorId Identifier)
                                   ")"
                                   (Block
                                     "{"
@@ -141,7 +141,7 @@
                                     (("|" ClassType)*
                                       "|"
                                       (ClassType TypeIdentifier)))
-                                  Identifier
+                                  (VariableDeclaratorId Identifier)
                                   ")"
                                   (Block
                                     "{"
@@ -196,7 +196,7 @@
                                     (("|" ClassType)*
                                       "|"
                                       (ClassType TypeIdentifier)))
-                                  Identifier
+                                  (VariableDeclaratorId Identifier)
                                   ")"
                                   (Block
                                     "{"
@@ -245,7 +245,7 @@
                                     (UnannClassType
                                       ((Identifier ".")* Identifier "." Identifier ".")
                                       TypeIdentifier))
-                                  Identifier
+                                  (VariableDeclaratorId Identifier)
                                   ")"
                                   (Block
                                     "{"
@@ -313,7 +313,7 @@
                                   "("
                                   (CatchType
                                     (UnannClassType TypeIdentifier))
-                                  Identifier
+                                  (VariableDeclaratorId Identifier)
                                   ")"
                                   (Block
                                     "{"

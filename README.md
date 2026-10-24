@@ -1,10 +1,10 @@
 <h1 align="center">Java grammar for Iguana</h1>
 
-A Java 17 grammar for
+A Java 25 grammar for
 [Iguana](https://github.com/iguana-parser/iguana-rs), written in
 [Iggy](https://iguana-parser.org/docs/grammar-definition/) and based on the
 syntax described in the
-[Java Language Specification](https://docs.oracle.com/javase/specs/jls/se17/html/).
+[Java Language Specification](https://docs.oracle.com/javase/specs/jls/se25/html/).
 The grammar is defined in [`java.iggy`](java.iggy) and can be
 [browsed or run in the playground](https://iguana-parser.org/grammars/java/).
 
@@ -25,9 +25,9 @@ The grammar has three notable design choices:
   [layout](https://iguana-parser.org/docs/grammar-definition/layout/) and the
   measured effect of the
   [LL(1) optimization](https://iguana-parser.org/docs/performance/#the-ll-1-optimization).
-- **Contextual keywords** such as `var`, `yield`, `record`, `sealed`, and the
-  module-system words are reserved only where the grammar expects them. The
-  [single-phase parsing documentation](https://iguana-parser.org/docs/concepts/single-phase-parsing/)
+- **Contextual keywords** such as `var`, `yield`, `record`, `sealed`, `when`,
+  and the module-system words are reserved only where the grammar expects them.
+  The [single-phase parsing documentation](https://iguana-parser.org/docs/concepts/single-phase-parsing/)
   explains how token matching follows the grammar context.
 
 ## Development
@@ -42,7 +42,7 @@ cargo build --release
 ```
 
 The repository has golden-file tests for individual language features and
-corpus tests against nine Java codebases, including OpenJDK 17, Spring, and
+corpus tests against nine Java codebases, including OpenJDK 25, Spring, and
 Elasticsearch:
 
 ```sh

@@ -159,13 +159,12 @@
                       TypeIdentifier
                       "("
                       (FormalParameterList
-                        ((FormalParameter ",")*
+                        ({FormalParameter ","}+
                           (FormalParameter
                             (UnannType
                               (UnannPrimitiveType "double"))
                             (VariableDeclaratorId Identifier))
-                          ",")
-                        (LastFormalParameter
+                          ","
                           (FormalParameter
                             (UnannType
                               (UnannPrimitiveType "double"))
@@ -255,13 +254,12 @@
                             Identifier
                             "("
                             (FormalParameterList
-                              ((FormalParameter ",")*
+                              ({FormalParameter ","}+
                                 (FormalParameter
                                   (UnannType
                                     (UnannPrimitiveType "int"))
                                   (VariableDeclaratorId Identifier))
-                                ",")
-                              (LastFormalParameter
+                                ","
                                 (FormalParameter
                                   (UnannType
                                     (UnannPrimitiveType "int"))
@@ -300,13 +298,12 @@
                             Identifier
                             "("
                             (FormalParameterList
-                              ((FormalParameter ",")*
+                              ({FormalParameter ","}+
                                 (FormalParameter
                                   (UnannType
                                     (UnannPrimitiveType "int"))
                                   (VariableDeclaratorId Identifier))
-                                ",")
-                              (LastFormalParameter
+                                ","
                                 (FormalParameter
                                   (UnannType
                                     (UnannPrimitiveType "int"))
@@ -345,13 +342,12 @@
                             Identifier
                             "("
                             (FormalParameterList
-                              ((FormalParameter ",")*
+                              ({FormalParameter ","}+
                                 (FormalParameter
                                   (UnannType
                                     (UnannPrimitiveType "int"))
                                   (VariableDeclaratorId Identifier))
-                                ",")
-                              (LastFormalParameter
+                                ","
                                 (FormalParameter
                                   (UnannType
                                     (UnannPrimitiveType "int"))
@@ -388,13 +384,12 @@
                         Identifier
                         "("
                         (FormalParameterList
-                          ((FormalParameter ",")*
+                          ({FormalParameter ","}+
                             (FormalParameter
                               (UnannType
                                 (UnannPrimitiveType "int"))
                               (VariableDeclaratorId Identifier))
-                            ",")
-                          (LastFormalParameter
+                            ","
                             (FormalParameter
                               (UnannType
                                 (UnannPrimitiveType "int"))

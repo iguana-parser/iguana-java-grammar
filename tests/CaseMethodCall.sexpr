@@ -1,0 +1,3 @@
+Parse error at line 4, column 24: Expected one of "(", "@", "this", "void", "super", "_", "switch", "new", "++", "--", "+", "-", "!", "~", "byte", "short", "char", "int", "long", "float", "double", "boolean", IntegerLiteral, FloatingPointLiteral, BooleanLiteral, CharacterLiteral, StringLiteral, TextBlock, NullLiteral, Identifier, TypeIdentifier, UnqualifiedMethodIdentifier
+            case f(1) -> 1;
+                       ^

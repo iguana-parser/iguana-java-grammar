@@ -1,3 +1,3 @@
-Parse error at line 3, column 38: Expected one of ";", "*", "&", "|", "+", "-", "/", "%", "<<", ">>", ">>>", "instanceof", "==", "!=", "^", "&&", "||", "?"
+Parse error at line 3, column 38: Expected one of ";", "*", "&", "|", "+", "-", "/", "%", "<<", ">>", ">>>", "instanceof", "==", "!=", "^", "&&", "||", "?", EOF
         return o instanceof String s = null;
                                      ^

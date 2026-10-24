@@ -581,7 +581,7 @@
                       Identifier
                       "("
                       (FormalParameterList
-                        (LastFormalParameter
+                        ({FormalParameter ","}+
                           (FormalParameter
                             (UnannType
                               (UnannReferenceType
@@ -599,7 +599,7 @@
                       Identifier
                       "("
                       (FormalParameterList
-                        (LastFormalParameter
+                        ({FormalParameter ","}+
                           (FormalParameter
                             (UnannType
                               (UnannPrimitiveType "int"))
@@ -616,7 +616,7 @@
                       Identifier
                       "("
                       (FormalParameterList
-                        (LastFormalParameter
+                        ({FormalParameter ","}+
                           (FormalParameter
                             (UnannType
                               (UnannReferenceType
@@ -656,11 +656,13 @@
                       Identifier
                       "("
                       (FormalParameterList
-                        (LastFormalParameter
-                          (UnannType
-                            (UnannPrimitiveType "int"))
-                          "..."
-                          (VariableDeclaratorId Identifier)))
+                        ({FormalParameter ","}+
+                          (FormalParameter
+                            (VariableArityParameter
+                              (UnannType
+                                (UnannPrimitiveType "int"))
+                              "..."
+                              Identifier))))
                       ")")
                     (MethodBody
                       (Block "{" "}"))))
@@ -671,18 +673,19 @@
                       Identifier
                       "("
                       (FormalParameterList
-                        ((FormalParameter ",")*
+                        ({FormalParameter ","}+
                           (FormalParameter
                             (UnannType
                               (UnannReferenceType
                                 (UnannClassType TypeIdentifier)))
                             (VariableDeclaratorId Identifier))
-                          ",")
-                        (LastFormalParameter
-                          (UnannType
-                            (UnannPrimitiveType "int"))
-                          "..."
-                          (VariableDeclaratorId Identifier)))
+                          ","
+                          (FormalParameter
+                            (VariableArityParameter
+                              (UnannType
+                                (UnannPrimitiveType "int"))
+                              "..."
+                              Identifier))))
                       ")")
                     (MethodBody
                       (Block "{" "}"))))
@@ -693,14 +696,16 @@
                       Identifier
                       "("
                       (FormalParameterList
-                        (LastFormalParameter
-                          (UnannType
-                            (UnannReferenceType
-                              (UnannArrayType
-                                (UnannPrimitiveType "int")
-                                ((Annotation* "[" "]")+ "[" "]"))))
-                          "..."
-                          (VariableDeclaratorId Identifier)))
+                        ({FormalParameter ","}+
+                          (FormalParameter
+                            (VariableArityParameter
+                              (UnannType
+                                (UnannReferenceType
+                                  (UnannArrayType
+                                    (UnannPrimitiveType "int")
+                                    ((Annotation* "[" "]")+ "[" "]"))))
+                              "..."
+                              Identifier))))
                       ")")
                     (MethodBody
                       (Block "{" "}")))))

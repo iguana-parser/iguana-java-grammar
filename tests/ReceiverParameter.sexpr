@@ -129,13 +129,12 @@
                               (UnannClassType TypeIdentifier)))
                           "this")
                         ","
-                        ((FormalParameter ",")*
+                        ({FormalParameter ","}+
                           (FormalParameter
                             (UnannType
                               (UnannPrimitiveType "int"))
                             (VariableDeclaratorId Identifier))
-                          ",")
-                        (LastFormalParameter
+                          ","
                           (FormalParameter
                             (UnannType
                               (UnannReferenceType
@@ -161,11 +160,13 @@
                               (UnannClassType TypeIdentifier)))
                           "this")
                         ","
-                        (LastFormalParameter
-                          (UnannType
-                            (UnannPrimitiveType "int"))
-                          "..."
-                          (VariableDeclaratorId Identifier)))
+                        ({FormalParameter ","}+
+                          (FormalParameter
+                            (VariableArityParameter
+                              (UnannType
+                                (UnannPrimitiveType "int"))
+                              "..."
+                              Identifier))))
                       ")")
                     (MethodBody
                       (Block "{" "}"))))
@@ -239,7 +240,7 @@
                                     "."
                                     "this")
                                   ","
-                                  (LastFormalParameter
+                                  ({FormalParameter ","}+
                                     (FormalParameter
                                       (UnannType
                                         (UnannPrimitiveType "int"))

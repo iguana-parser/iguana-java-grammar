@@ -58,7 +58,8 @@
                         (VariableInitializer
                           (Expression
                             (Lambda
-                              (LambdaParameters Identifier)
+                              (LambdaParameters
+                                (ConciseLambdaParameter Identifier))
                               "->"
                               (LambdaBody
                                 (Expression
@@ -111,7 +112,8 @@
                               (LambdaParameters
                                 "("
                                 (LambdaParameterList
-                                  ({Identifier ","}+ Identifier))
+                                  ({ConciseLambdaParameter ","}+
+                                    (ConciseLambdaParameter Identifier)))
                                 ")")
                               "->"
                               (LambdaBody
@@ -138,7 +140,10 @@
                               (LambdaParameters
                                 "("
                                 (LambdaParameterList
-                                  ({Identifier ","}+ Identifier "," Identifier))
+                                  ({ConciseLambdaParameter ","}+
+                                    (ConciseLambdaParameter Identifier)
+                                    ","
+                                    (ConciseLambdaParameter Identifier)))
                                 ")")
                               "->"
                               (LambdaBody
@@ -164,8 +169,8 @@
                               (LambdaParameters
                                 "("
                                 (LambdaParameterList
-                                  ({LambdaParameter ","}+
-                                    (LambdaParameter
+                                  ({NormalLambdaParameter ","}+
+                                    (NormalLambdaParameter
                                       (LambdaParameterType
                                         (UnannType
                                           (UnannPrimitiveType "int")))
@@ -191,14 +196,14 @@
                               (LambdaParameters
                                 "("
                                 (LambdaParameterList
-                                  ({LambdaParameter ","}+
-                                    (LambdaParameter
+                                  ({NormalLambdaParameter ","}+
+                                    (NormalLambdaParameter
                                       (LambdaParameterType
                                         (UnannType
                                           (UnannPrimitiveType "int")))
                                       (VariableDeclaratorId Identifier))
                                     ","
-                                    (LambdaParameter
+                                    (NormalLambdaParameter
                                       (LambdaParameterType
                                         (UnannType
                                           (UnannPrimitiveType "int")))
@@ -228,8 +233,8 @@
                               (LambdaParameters
                                 "("
                                 (LambdaParameterList
-                                  ({LambdaParameter ","}+
-                                    (LambdaParameter
+                                  ({NormalLambdaParameter ","}+
+                                    (NormalLambdaParameter
                                       (VariableModifier*
                                         (VariableModifier "final"))
                                       (LambdaParameterType
@@ -257,8 +262,8 @@
                               (LambdaParameters
                                 "("
                                 (LambdaParameterList
-                                  ({LambdaParameter ","}+
-                                    (LambdaParameter
+                                  ({NormalLambdaParameter ","}+
+                                    (NormalLambdaParameter
                                       (LambdaParameterType "var")
                                       (VariableDeclaratorId Identifier))))
                                 ")")
@@ -287,12 +292,12 @@
                               (LambdaParameters
                                 "("
                                 (LambdaParameterList
-                                  ({LambdaParameter ","}+
-                                    (LambdaParameter
+                                  ({NormalLambdaParameter ","}+
+                                    (NormalLambdaParameter
                                       (LambdaParameterType "var")
                                       (VariableDeclaratorId Identifier))
                                     ","
-                                    (LambdaParameter
+                                    (NormalLambdaParameter
                                       (LambdaParameterType "var")
                                       (VariableDeclaratorId Identifier))))
                                 ")")
@@ -320,8 +325,8 @@
                               (LambdaParameters
                                 "("
                                 (LambdaParameterList
-                                  ({LambdaParameter ","}+
-                                    (LambdaParameter
+                                  ({NormalLambdaParameter ","}+
+                                    (NormalLambdaParameter
                                       (VariableModifier*
                                         (VariableModifier "final"))
                                       (LambdaParameterType "var")
@@ -347,8 +352,8 @@
                               (LambdaParameters
                                 "("
                                 (LambdaParameterList
-                                  ({LambdaParameter ","}+
-                                    (LambdaParameter
+                                  ({NormalLambdaParameter ","}+
+                                    (NormalLambdaParameter
                                       (VariableModifier*
                                         (VariableModifier
                                           (Annotation
@@ -377,8 +382,8 @@
                               (LambdaParameters
                                 "("
                                 (LambdaParameterList
-                                  ({LambdaParameter ","}+
-                                    (LambdaParameter
+                                  ({NormalLambdaParameter ","}+
+                                    (NormalLambdaParameter
                                       (LambdaParameterType
                                         (UnannType
                                           (UnannPrimitiveType "int")))
@@ -425,7 +430,8 @@
                         (VariableInitializer
                           (Expression
                             (Lambda
-                              (LambdaParameters Identifier)
+                              (LambdaParameters
+                                (ConciseLambdaParameter Identifier))
                               "->"
                               (LambdaBody
                                 (Block
@@ -500,12 +506,14 @@
                         (VariableInitializer
                           (Expression
                             (Lambda
-                              (LambdaParameters Identifier)
+                              (LambdaParameters
+                                (ConciseLambdaParameter Identifier))
                               "->"
                               (LambdaBody
                                 (Expression
                                   (Lambda
-                                    (LambdaParameters Identifier)
+                                    (LambdaParameters
+                                      (ConciseLambdaParameter Identifier))
                                     "->"
                                     (LambdaBody
                                       (Expression
@@ -546,7 +554,10 @@
                               (LambdaParameters
                                 "("
                                 (LambdaParameterList
-                                  ({Identifier ","}+ Identifier "," Identifier))
+                                  ({ConciseLambdaParameter ","}+
+                                    (ConciseLambdaParameter Identifier)
+                                    ","
+                                    (ConciseLambdaParameter Identifier)))
                                 ")")
                               "->"
                               (LambdaBody
@@ -602,7 +613,8 @@
                         (VariableInitializer
                           (Expression
                             (Lambda
-                              (LambdaParameters Identifier)
+                              (LambdaParameters
+                                (ConciseLambdaParameter Identifier))
                               "->"
                               (LambdaBody
                                 (Expression
@@ -618,7 +630,7 @@
                       Identifier
                       "("
                       (FormalParameterList
-                        (LastFormalParameter
+                        ({FormalParameter ","}+
                           (FormalParameter
                             (UnannType
                               (UnannReferenceType
@@ -651,7 +663,8 @@
                                       ({Expression ","}*
                                         (Expression
                                           (Lambda
-                                            (LambdaParameters Identifier)
+                                            (LambdaParameters
+                                              (ConciseLambdaParameter Identifier))
                                             "->"
                                             (LambdaBody
                                               (Expression
@@ -685,7 +698,8 @@
                                       ({Expression ","}*
                                         (Expression
                                           (Lambda
-                                            (LambdaParameters Identifier)
+                                            (LambdaParameters
+                                              (ConciseLambdaParameter Identifier))
                                             "->"
                                             (LambdaBody
                                               (Expression
@@ -714,7 +728,10 @@
                                             (LambdaParameters
                                               "("
                                               (LambdaParameterList
-                                                ({Identifier ","}+ Identifier "," Identifier))
+                                                ({ConciseLambdaParameter ","}+
+                                                  (ConciseLambdaParameter Identifier)
+                                                  ","
+                                                  (ConciseLambdaParameter Identifier)))
                                               ")")
                                             "->"
                                             (LambdaBody

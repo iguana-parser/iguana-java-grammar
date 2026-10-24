@@ -180,7 +180,7 @@
                       Identifier
                       "("
                       (FormalParameterList
-                        (LastFormalParameter
+                        ({FormalParameter ","}+
                           (FormalParameter
                             (UnannType
                               (UnannReferenceType
@@ -218,7 +218,7 @@
                       Identifier
                       "("
                       (FormalParameterList
-                        (LastFormalParameter
+                        ({FormalParameter ","}+
                           (FormalParameter
                             (UnannType
                               (UnannReferenceType
@@ -265,14 +265,13 @@
                       Identifier
                       "("
                       (FormalParameterList
-                        ((FormalParameter ",")*
+                        ({FormalParameter ","}+
                           (FormalParameter
                             (UnannType
                               (UnannReferenceType
                                 (UnannClassType TypeIdentifier)))
                             (VariableDeclaratorId Identifier))
-                          ",")
-                        (LastFormalParameter
+                          ","
                           (FormalParameter
                             (UnannType
                               (UnannReferenceType
@@ -325,7 +324,7 @@
                       Identifier
                       "("
                       (FormalParameterList
-                        (LastFormalParameter
+                        ({FormalParameter ","}+
                           (FormalParameter
                             (UnannType
                               (UnannReferenceType

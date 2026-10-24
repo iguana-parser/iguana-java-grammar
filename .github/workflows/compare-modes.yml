@@ -8,12 +8,6 @@ name: Compare modes
 #
 # The comparison parses the whole corpus twice, so it runs on request and
 # from the release workflow instead of on every push.
-#
-# It needs an iguana whose command-line interface has --digest, which
-# 0.1.0-alpha.3 does not have. Until the manifest pins a release that
-# carries it, a run stops at the capability check in the script. Dispatch
-# and call are the only triggers, so nothing runs on its own in the
-# meantime.
 on:
   workflow_dispatch:
   workflow_call:

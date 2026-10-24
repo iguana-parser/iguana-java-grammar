@@ -926,7 +926,7 @@
                                   "("
                                   (CatchType
                                     (UnannClassType TypeIdentifier))
-                                  Identifier
+                                  (VariableDeclaratorId Identifier)
                                   ")"
                                   (Block
                                     "{"
@@ -1004,7 +1004,7 @@
                                   "("
                                   (CatchType
                                     (UnannClassType TypeIdentifier))
-                                  Identifier
+                                  (VariableDeclaratorId Identifier)
                                   ")"
                                   (Block
                                     "{"
@@ -1028,7 +1028,7 @@
                                   "("
                                   (CatchType
                                     (UnannClassType TypeIdentifier))
-                                  Identifier
+                                  (VariableDeclaratorId Identifier)
                                   ")"
                                   (Block
                                     "{"
@@ -1091,7 +1091,7 @@
                                     (("|" ClassType)*
                                       "|"
                                       (ClassType TypeIdentifier)))
-                                  Identifier
+                                  (VariableDeclaratorId Identifier)
                                   ")"
                                   (Block
                                     "{"
@@ -1242,7 +1242,7 @@
                       Identifier
                       "("
                       (FormalParameterList
-                        (LastFormalParameter
+                        ({FormalParameter ","}+
                           (FormalParameter
                             (UnannType
                               (UnannPrimitiveType "int"))

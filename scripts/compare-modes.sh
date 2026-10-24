@@ -54,7 +54,7 @@ mkdir -p "$OUT_DIR"
 echo "Generating the first-parse parser..."
 cp java.iggy "$BUILD_DIR/"
 iguana generate --grammar "$BUILD_DIR/java.iggy" --output "$BUILD_DIR" \
-    --bin-name iguana-java --unsafe true > /dev/null
+    --bin-name iguana-java --first-parse true > /dev/null
 if ! (cd "$BUILD_DIR" && cargo build --release > "$OUT_DIR/build.log" 2>&1); then
     echo "Building the first-parse parser failed:" >&2
     tail -n 20 "$OUT_DIR/build.log" >&2

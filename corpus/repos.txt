@@ -5,12 +5,12 @@
 #
 # myproj java CompilationUnit https://github.com/owner/repo v1.0.0
 
-openjdk17        java CompilationUnit https://github.com/openjdk/jdk                      jdk-17-ga
+openjdk25        java CompilationUnit https://github.com/openjdk/jdk                      jdk-25-ga
 spring-framework java CompilationUnit https://github.com/spring-projects/spring-framework v6.0.13
-elasticsearch    java CompilationUnit https://github.com/elastic/elasticsearch            v8.0.0
+elasticsearch    java CompilationUnit https://github.com/elastic/elasticsearch            v9.5.5
 jooq             java CompilationUnit https://github.com/jOOQ/jOOQ                        version-3.18.7
-trino            java CompilationUnit https://github.com/trinodb/trino                    414
-jabref           java CompilationUnit https://github.com/JabRef/jabref                    v5.6
+trino            java CompilationUnit https://github.com/trinodb/trino                    479
+jabref           java CompilationUnit https://github.com/JabRef/jabref                    v6.0-beta.1
 reactor-core     java CompilationUnit https://github.com/reactor/reactor-core             v3.5.11
 vavr             java CompilationUnit https://github.com/vavr-io/vavr                     v0.10.7
 hibernate-orm    java CompilationUnit https://github.com/hibernate/hibernate-orm          7.0.0

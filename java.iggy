@@ -2,10 +2,25 @@ grammar Java
 
 CompilationUnit
   = OrdinaryCompilationUnit
+  | CompactCompilationUnit
   | ModularCompilationUnit
 
 OrdinaryCompilationUnit
   = PackageDeclaration? ImportDeclaration* TypeDeclaration*
+
+CompactCompilationUnit
+  = ImportDeclaration* ClassMemberDeclarationNoMethod* MethodDeclaration
+      ClassMemberDeclaration*
+
+ClassMemberDeclarationNoMethod
+  = FieldDeclaration
+  | ClassDeclaration
+  | InterfaceDeclaration
+  | ";"
+
+ClassMemberDeclaration
+  = ClassMemberDeclarationNoMethod
+  | MethodDeclaration
 
 ModularCompilationUnit
   = ImportDeclaration* ModuleDeclaration
@@ -27,7 +42,7 @@ RequiresModifier
 PackageDeclaration
   = Annotation* "package" QualifiedIdentifier ";"
 
-// JLS 17 §7.5 defines four import forms, which differ in what each may name. A
+// JLS §7.5 defines five import forms, which differ in what each may name. A
 // TypeName ends in a TypeIdentifier, so `import yield;` is not valid. The qualifier of
 // a non-static on-demand import and the member of a single static import are ordinary
 // identifiers, so `import yield.*;` and `import static A.yield;` are valid.
@@ -36,6 +51,7 @@ ImportDeclaration
   | "import" QualifiedIdentifier "." "*" ";"          #TypeImportOnDemand
   | "import" "static" TypeName "." Identifier ";"     #SingleStaticImport
   | "import" "static" TypeName "." "*" ";"            #StaticImportOnDemand
+  | "import" "module" QualifiedIdentifier ";"         #SingleModuleImport
 
 TypeDeclaration
   = ClassDeclaration
@@ -61,16 +77,15 @@ RecordDeclaration
 RecordHeader
   = "(" RecordComponentList? ")"
 
-// JLS 17 §8.10.1 allows a variable arity record component only at the end of the list.
 RecordComponentList
-  = (RecordComponent ",")* LastRecordComponent
+  = { RecordComponent "," }+
 
 RecordComponent
   = Annotation* UnannType Identifier
+  | VariableArityRecordComponent
 
-LastRecordComponent
+VariableArityRecordComponent
   = Annotation* UnannType Annotation* "..." Identifier
-  | RecordComponent
 
 RecordBody
   = "{" RecordBodyDeclaration* "}"
@@ -113,15 +128,15 @@ MethodDeclarator
   = Identifier "(" FormalParameterList? ")" (Annotation* "[" "]")*
 
 FormalParameterList
-  = ReceiverParameter ("," (FormalParameter ",")* LastFormalParameter)?
-  | (FormalParameter ",")* LastFormalParameter
+  = ReceiverParameter ("," { FormalParameter "," }+)?
+  | { FormalParameter "," }+
 
 FormalParameter
   = VariableModifier* UnannType VariableDeclaratorId
+  | VariableArityParameter
 
-LastFormalParameter
-  = VariableModifier* UnannType Annotation* "..." VariableDeclaratorId
-  | FormalParameter
+VariableArityParameter
+  = VariableModifier* UnannType Annotation* "..." Identifier
 
 ReceiverParameter
   = Annotation* UnannType (Identifier ".")? "this"
@@ -142,9 +157,16 @@ ConstructorDeclaration
       ")" Throws? ConstructorBody
 
 ConstructorBody
-  = "{" ExplicitConstructorInvocation? BlockStatement* "}"
+  = "{" (BlockStatement* ConstructorInvocation)? BlockStatement* "}"
 
-ExplicitConstructorInvocation
+// JLS §8.8.7.1 allows an expression name or a primary expression before `.super`. The
+// grammar uses Primary, which is narrower than the JLS primary expressions: method
+// invocation, field access, array access, and instance creation are alternatives of
+// Expression here. So `outer.super()`, `Outer.this.super()`, and `(a.b).super()` are
+// valid, while `holder.outer.super()`, `outer().super()`, and `new Outer().super()` are
+// not. Restricting Expression to the JLS primary expressions needs a way to admit only
+// the named alternatives of a nonterminal, which Iggy does not have.
+ConstructorInvocation
   = constructorInvocation:NonWildTypeArguments? "this" Arguments ";"
   | superConstructorInvocation:(Primary ".")? NonWildTypeArguments? "super"
       Arguments ";"
@@ -203,6 +225,7 @@ VariableDeclarator
 
 VariableDeclaratorId
   = Identifier (Annotation* "[" "]")*
+  | "_"
 
 VariableInitializer
   = ArrayInitializer
@@ -225,11 +248,14 @@ ElementValuePair
   = Identifier "=" ElementValue
 
 ElementValue
-  // !Assignment  `@A(x = y)` should be parsed as an ElementValuePair, not as
-  //              an ElementValue holding the assignment `x = y`. The exclusion
-  //              drops the Expression's Assignment alternative, so only the
-  //              first derivation survives.
-  = Expression!Assignment
+  // JLS defines ElementValue as a ConditionalExpression, which cannot be an assignment or
+  // a lambda expression at the top level. The grammar uses Expression!Assignment!Lambda
+  // for the same restriction.
+  // !Assignment  `@A(x = y)` is parsed as an ElementValuePair, setting the element `x`
+  //              to `y`, and not as a single ElementValue holding the assignment
+  //              `x = y`.
+  // !Lambda      `@A(x -> x)` is not valid.
+  = Expression!Assignment!Lambda
   | Annotation
   | ElementValueArrayInitializer
 
@@ -363,12 +389,18 @@ Statement
   | "for" "(" ForControl ")" Statement                      #For
 
 StatementExpression
-  // Each exclusion removes a derivation that would lead to ambiguity:
-  // !Comparison        `Map<K> m;` declares m of the generic type `Map<K>`, not the
-  //                    comparisons `(Map < K) > m`
-  // !SwitchExpression  `switch (d) { case 1: f(); };` is a switch statement and an
-  //                    empty statement, not one expression statement
-  // !Additive          `yield -1;` is a yield statement, not the sum `yield - 1`
+  // JLS defines StatementExpression as an assignment, an increment or decrement, a method
+  // invocation, or a class instance creation. The grammar uses Expression with three
+  // exclusions instead. The rule is broader than JLS: `1;` and `a * b;` are valid here.
+  // The exclusions remove the ambiguities that Expression would otherwise cause:
+  // !Comparison        `Map<K> m;` is parsed as a LocalVariableDeclarationStatement and
+  //                    not as an expression statement with the comparisons
+  //                    `(Map < K) > m`.
+  // !SwitchExpression  `switch (d) { case 1: f(); };` is parsed as a switch statement
+  //                    followed by an empty statement, and not as an expression
+  //                    statement with a switch expression.
+  // !Additive          `yield -1;` is parsed as a yield statement of `-1` and not as an
+  //                    expression statement with the subtraction `yield - 1`.
   = Expression!Comparison!SwitchExpression!Additive
 
 SwitchBlock
@@ -383,29 +415,53 @@ SwitchRule
 SwitchBlockStatementGroup
   = (SwitchLabel ":")+ BlockStatement+
 
+// JLS §14.11.1 writes the null label as `case null [, default]`. A CaseConstant can also
+// be `null`, so `case null` is ambiguous: it is both a constant label and a null label.
+// The grammar deliberately makes `, default` required in its NullDefault alternative, so
+// that `case null` cannot be parsed as a NullDefault label and is parsed only as a Case
+// label.
 SwitchLabel
-  = "case" { CaseConstant "," }+ #Case
-  | "default"                    #Default
+  = "case" { CaseConstant "," }+      #Case
+  | "case" NullLiteral "," "default"  #NullDefault
+  | "case" { Pattern "," }+ Guard?    #Pattern
+  | "default"                         #Default
 
 CaseConstant
-  // !Lambda      `case A -> B -> C;` should be parsed as a SwitchRule with the lambda
-  //              `B -> C` as its expression, not with its label parsed as the lambda
-  //              `A -> B`. The exclusion drops the Expression's Lambda alternative, so
-  //              only the first derivation survives, through SwitchRule's first
-  //              alternative.
-  // !Assignment  An assignment as the case constant, as in `case a = 1:`, is
-  //              not valid. This is not a disambiguation, since that input is not
-  //              ambiguous. It is a deliberate language reduction: JLS 17 §14.11
-  //              defines a case constant as a conditional expression, which an
-  //              assignment is not.
-  = Expression!Lambda!Assignment
+  // JLS 25 defines CaseConstant as a ConditionalExpression, which cannot be an assignment
+  // or a lambda expression at the top level. The grammar uses Expression!Lambda!Assignment
+  // for the same restriction. A lambda can still occur inside a constant, as the operand
+  // of a reference cast or the third operand of a conditional. The Lambda alternative of
+  // Expression resolves the ambiguities that such a lambda causes.
+  // !Lambda            `case x -> y:` is not valid.
+  // !Assignment        `case a = 1:` is not valid.
+  // !Comparison        `case Map<K, V> m` should be parsed as `case (Map<K, V> m)`,
+  //                    i.e., a type pattern, not as the two case constants in
+  //                    `case (Map < K), (V > m)`. A comparison is never a valid case
+  //                    constant: it has type boolean, and JLS 25 §14.11.1 allows a
+  //                    constant only for a selector of type char, byte, short, int,
+  //                    Character, Byte, Short, Integer, or String.
+  // !MethodInvocation  `case Foo()` should be parsed as a record pattern, i.e., the
+  //                    record `Foo` deconstructed with no components, not as the
+  //                    constant `Foo()`, a call of a method named Foo. JLS §14.11.1
+  //                    requires a case constant to be a constant expression or the
+  //                    name of an enum constant, and a method call is neither.
+  // !FieldAccess       `case a.Foo()` should be parsed as a record pattern of the type
+  //                    `a.Foo`, not as the constant `a.Foo()`, a call of Foo on `a`.
+  //                    A field access is not a constant expression either, except for
+  //                    a qualified name such as `Color.RED` (§15.29). A qualified name
+  //                    is valid through the QualifiedName alternative.
+  = Expression!Lambda!Assignment!Comparison!MethodInvocation!FieldAccess
+  | (Identifier ".")+ Identifier                                         #QualifiedName
+
+Guard
+  = "when" Expression
 
 ForControl
   = ForInit? ";" Expression? ";" ForUpdate?                                 #Traditional
   | VariableModifier* LocalVariableType VariableDeclaratorId ":" Expression #Enhanced
 
 CatchClause
-  = "catch" "(" VariableModifier* CatchType Identifier ")" Block
+  = "catch" "(" VariableModifier* CatchType VariableDeclaratorId ")" Block
 
 CatchType
   = UnannClassType ("|" ClassType)*
@@ -440,15 +496,16 @@ Expression
   | "super" "::" TypeArguments? Identifier                              #SuperMethodRef
   | TypeName "." "super" "::" TypeArguments? Identifier                 #QualifiedSuperMethodRef
   | "new" (ClassInstanceCreationExpression | ArrayCreationExpression)   #New
-  // !InstanceOf        `a instanceof Foo.Bar` should be parsed as one InstanceOf over
-  //                    the qualified type `Foo.Bar`, not as `.Bar` selected from
-  //                    `a instanceof Foo`. Dropping the InstanceOf alternative leaves
-  //                    one derivation. In the other three alternatives below, the
-  //                    exclusion is a language reduction: JLS 17 §19 makes
-  //                    InstanceofExpression a RelationalExpression, so a postfix
-  //                    operator cannot follow it. `a instanceof Foo[0]` and
-  //                    `a instanceof Foo f++` are not valid.
-  // !SwitchExpression  A language reduction, not a disambiguation. JLS 17 §19 makes
+  // !InstanceOf        The exclusion covers two cases:
+  //                    - In FieldAccess, a disambiguation. `a instanceof Foo.Bar`
+  //                      should be parsed as `a instanceof (Foo.Bar)`, i.e., one
+  //                      InstanceOf over the qualified type `Foo.Bar`, not as
+  //                      `(a instanceof Foo).Bar`.
+  //                    - In the other three alternatives below, a language reduction.
+  //                      JLS §19 makes InstanceofExpression a RelationalExpression,
+  //                      so a postfix operator cannot follow it. `a instanceof Foo[0]`
+  //                      and `a instanceof Foo f++` are not valid.
+  // !SwitchExpression  A language reduction, not a disambiguation. JLS §19 makes
   //                    SwitchExpression an alternative of UnaryExpressionNotPlusMinus
   //                    rather than of Primary or PostfixExpression, so a postfix
   //                    operator cannot follow a switch expression:
@@ -460,49 +517,94 @@ Expression
   | Expression!InstanceOf!SwitchExpression "[" Expression "]"           #ArrayAccess
   | Expression!InstanceOf!SwitchExpression ("++" | "--")                #Postfix
   | Expression!InstanceOf!SwitchExpression "::" TypeArguments? Identifier #MethodRef
-  > ("+" !>> Plus | "-" !>> Minus | "++" | "--") Expression             #Prefix
-  | ("!" | "~") Expression                                              #Complement
-  | "(" PrimitiveType ")" Expression                                    #PrimitiveCast
-  // !Prefix  `(a) - b` derives both as a subtraction and as a reference cast
-  //          of `-b`. Dropping the Prefix alternative keeps the subtraction,
-  //          which is what JLS 17 §15.16 requires: a reference cast takes a
-  //          unary expression that is not prefixed by + or -. The Complement
-  //          alternative is untouched, so `(Integer) ~x` is still a cast.
+  // !Lambda  JLS §15.15 to §15.24 take the operands of the unary and binary operators
+  //          from expression levels that do not include a lambda, so `!x -> y` and
+  //          `a + x -> y` are not valid. The exclusion applies to the operand of the
+  //          three alternatives below and to the right operand of every binary operator.
+  //          A reference cast, the third operand of a conditional, and the right side of
+  //          an assignment take a lambda in JLS, so they keep it.
+  > ("+" !>> Plus | "-" !>> Minus | "++" | "--") Expression!Lambda     #Prefix
+  | ("!" | "~") Expression!Lambda                                      #Complement
+  | "(" PrimitiveType ")" Expression!Lambda                            #PrimitiveCast
+  // !Prefix  `(a) - b` should be parsed as `((a) - b)`, i.e., a subtraction, not as
+  //          `((a) (-b))`, a reference cast of `-b`. JLS §15.16 rules out the cast: a
+  //          reference cast takes a unary expression that is not prefixed by + or -.
+  //          The Complement alternative is untouched, so `(Integer) ~x` is still a
+  //          cast.
   | "(" { ReferenceType "&" }+ ")" Expression!Prefix                    #RefCast
-  > left Expression ("*" | "/" | "%") Expression
-  > left Expression ("+" | "-") !>> Plus !>> Minus Expression           #Additive
-  > left Expression ("<<" | ">>" | ">>>") Expression
-  // !InstanceOf  `o instanceof List<T> list` should be parsed as an InstanceOf with a
-  //              type pattern, not as the comparisons `((o instanceof List) < T) > list`.
-  //              JLS 17 §15.20 derives both, and dropping the InstanceOf alternative
-  //              from the left operand leaves the pattern. The exclusion also makes
-  //              `a instanceof B < c` not valid, a program that never compiles: the
-  //              operands of a comparison must be numeric (§15.20.1), and an
-  //              instanceof expression has type boolean.
-  > left Expression!InstanceOf ("<" | ">" | "<=" | ">=") Expression     #Comparison
-  > Expression "instanceof" (ReferenceType | TypePattern)                #InstanceOf
-  > left Expression ("==" | "!=") Expression
-  > left Expression "&" Expression
-  > left Expression "^" Expression
-  > left Expression "|" Expression
-  > left Expression "&&" Expression
-  > left Expression "||" Expression
+  > left Expression ("*" | "/" | "%") Expression!Lambda
+  > left Expression ("+" | "-") !>> Plus !>> Minus Expression!Lambda    #Additive
+  > left Expression ("<<" | ">>" | ">>>") Expression!Lambda
+  // !InstanceOf  The exclusion covers two cases:
+  //              - A disambiguation. `o instanceof List<T> list` should be parsed as
+  //                `o instanceof (List<T> list)`, i.e., an InstanceOf with a type
+  //                pattern, not as the comparisons `((o instanceof List) < T) > list`.
+  //                JLS §15.20 derives both.
+  //              - A language reduction. `a instanceof B < c` is not valid. JLS syntax
+  //                allows it, but it never compiles: the operands of a comparison must
+  //                be numeric (§15.20.1), and an instanceof expression has type boolean.
+  > left Expression!InstanceOf ("<" | ">" | "<=" | ">=") Expression!Lambda #Comparison
+  > Expression "instanceof" (ReferenceType | Pattern)                    #InstanceOf
+  > left Expression ("==" | "!=") Expression!Lambda
+  > left Expression "&" Expression!Lambda
+  > left Expression "^" Expression!Lambda
+  > left Expression "|" Expression!Lambda
+  > left Expression "&&" Expression!Lambda
+  > left Expression "||" Expression!Lambda
   > right Expression "?" Expression ":" Expression                      #Conditional
-  // !Comparison  A language reduction, not a disambiguation. `a < b = c`
-  //              derives once and the exclusion deletes it: JLS 17 §15.26 takes
-  //              the left side of an assignment from the expression names,
-  //              field accesses, and array accesses, and a comparison is none
-  //              of those.
-  // !InstanceOf  A language reduction for the same reason, which makes
-  //              `o instanceof String s = null` not valid.
+  // JLS §15.26 takes the left side of an assignment from expression names, field
+  // accesses, and array accesses. The grammar uses Expression with two exclusions
+  // instead. The rule is broader than JLS: `1 = x` and `a + b = c` are valid here.
+  // !Comparison  `List<T> m = x;` is parsed as a LocalVariableDeclarationStatement and
+  //              not as an assignment to the comparisons `(List < T) > m`. As a
+  //              result, `a < b = c` is not valid.
+  // !InstanceOf  `o instanceof String s = null` is not valid.
   > right Expression!Comparison!InstanceOf AssignmentOperator Expression #Assignment
-  > Lambda                                                              #Lambda
+  // !>>> Arrow  A lambda followed by `->` ends a case constant or a guard, and such a
+  //             lambda never compiles: a case constant is a constant expression or the
+  //             name of an enum constant, and a guard has type boolean or Boolean. The
+  //             follow restriction drops these lambdas, which resolves three related
+  //             ambiguities:
+  //             - `case A a when b -> c -> d;` should be parsed as
+  //               `case A a when (b) -> (c -> d);`, i.e., with the guard `b` and the
+  //               rule's expression `c -> d`, not with the guard `b -> c` as in
+  //               `case A a when (b -> c) -> d;`.
+  //             - `case A a when (B) c -> d -> e;` should be parsed as
+  //               `case A a when ((B) c) -> (d -> e);`, not with the guard `(B) (c -> d)`
+  //               as in `case A a when ((B) (c -> d)) -> e;`. JLS derives both, because a
+  //               reference cast takes a lambda (§15.16), and an exclusion on the guard
+  //               cannot reach the cast's operand.
+  //             - `case K > 0 ? 1 : Q -> x -> x;` should be parsed as
+  //               `case (K > 0 ? 1 : Q) -> (x -> x);`, not with the constant
+  //               `K > 0 ? 1 : (Q -> x)` as in `case (K > 0 ? 1 : (Q -> x)) -> x;`. JLS
+  //               derives both, because the third operand of a conditional takes a
+  //               lambda (§15.25). The right side of an assignment takes a lambda too
+  //               (§15.26).
+  > Lambda !>>> Arrow                                                   #Lambda
 
-// JLS 17 §14.30.1 writes a type pattern as a local variable declaration and then
-// restricts it: the type is a reference type other than `var`, and the declaration has
-// one variable, no initializer, and no brackets after the variable name.
+Pattern
+  = TypePattern
+  | RecordPattern
+
+// JLS §14.30.1 defines a type pattern as a local variable declaration, which allows a
+// list of declarators and an initializer. Both make the grammar ambiguous:
+// - `f(o instanceof A a, b)` should be parsed as `f((o instanceof A a), b)`, i.e., with
+//   two arguments, not with one pattern that declares `a` and `b` as in
+//   `f((o instanceof A a, b))`.
+// - `a && o instanceof B b = c && d` could be parsed as `a && o instanceof B b = (c && d)`
+//   or as `(a && o instanceof B b = c) && d`, with the initializer ending at `d` or at
+//   `c`.
+// §14.30.1 allows only one declarator without an initializer, so a type pattern here has
+// a single VariableDeclaratorId, which resolves both.
 TypePattern
-  = VariableModifier* UnannReferenceType Identifier
+  = VariableModifier* LocalVariableType VariableDeclaratorId
+
+RecordPattern
+  = ReferenceType "(" { ComponentPattern "," }* ")"
+
+ComponentPattern
+  = Pattern
+  | "_"
 
 Primary
   = Literal                     #Literal
@@ -515,7 +617,7 @@ Primary
 QualifiedIdentifier
   = { Identifier "." }+
 
-// JLS 17 §6.5 takes the last component of a type name from TypeIdentifier and the
+// JLS §6.5 takes the last component of a type name from TypeIdentifier and the
 // qualifier before it from ordinary identifiers, so `yield.Foo` is valid while `@yield`
 // and `yield.this` are not.
 TypeName
@@ -539,7 +641,7 @@ ReferenceType
   = ClassType
   | ArrayType
 
-// JLS 17 §4.3 qualifies a class type with either a package name, whose components are
+// JLS §4.3 qualifies a class type with either a package name, whose components are
 // ordinary identifiers, or another class or interface type, whose components are type
 // identifiers. A component with annotations or type arguments is therefore a type
 // component, and every component after it is one too, since a package name cannot
@@ -633,15 +735,19 @@ Lambda
 
 LambdaParameters
   = "(" LambdaParameterList? ")"
-  | Identifier
+  | ConciseLambdaParameter
 
 LambdaParameterList
-  = { LambdaParameter "," }+
-  | { Identifier "," }+
+  = { NormalLambdaParameter "," }+
+  | { ConciseLambdaParameter "," }+
 
-LambdaParameter
+ConciseLambdaParameter
+  = Identifier
+  | "_"
+
+NormalLambdaParameter
   = VariableModifier* LambdaParameterType VariableDeclaratorId
-  | VariableModifier* UnannType Annotation* "..." VariableDeclaratorId
+  | VariableModifier* UnannType Annotation* "..." Identifier
 
 LambdaParameterType
   = UnannType
@@ -684,7 +790,7 @@ DecimalIntegerLiteral = ([0] | ([1-9] (Digits? | ([_]+ Digits)))) [lL]?
 @Regex
 StringLiteral = ["] StringCharacter* ["]
 
-// JLS 17 §3.10.6 opens a text block with three double quotes, optional spaces, tabs, or
+// JLS §3.10.6 opens a text block with three double quotes, optional spaces, tabs, or
 // form feeds, and a line terminator. The text block ends at the first three double quotes
 // that are not part of an escape sequence, so its content never has three in a row.
 @Regex
@@ -693,7 +799,7 @@ TextBlock = ["] ["] ["] [\ \t\f]* LineTerminator TextBlockPart* ["] ["] ["]
 @Regex
 TextBlockPart = (["] ["]?)? TextBlockCharacter
 
-// JLS 17 §3.10.7 lists a backslash before a line terminator as an escape sequence, which
+// JLS §3.10.7 lists a backslash before a line terminator as an escape sequence, which
 // joins two lines of a text block. A string literal cannot contain a line terminator, even
 // after a backslash (§3.10.5), so the escape is part of TextBlockCharacter rather than
 // EscapeSequence.
@@ -808,7 +914,7 @@ AssignmentOperator
   | ">>="
   | ">>>="
 
-// JLS 17 §3.8 takes an identifier from the identifier characters and excludes the
+// JLS §3.8 takes an identifier from the identifier characters and excludes the
 // reserved words, `true`, `false`, and `null`, so none of them is a valid variable name.
 @Identifier @Regex
 Identifier = IdentifierChars \ Keyword \ BooleanLiteral \ NullLiteral
@@ -821,7 +927,7 @@ TypeKeyword
   | "var"
   | "yield"
 
-// JLS 17 §3.8 excludes five contextual keywords from TypeIdentifier: `permits`, `record`,
+// JLS 25 §3.8 excludes five contextual keywords from TypeIdentifier: `permits`, `record`,
 // `sealed`, `var`, and `yield`. So `class var {}` and `class record {}` are not valid. The
 // restriction is on TypeIdentifier rather than on every identifier of a type name, which
 // is why `yield.Foo` and `record.Foo` are valid. The five words are ordinary identifiers in
@@ -832,10 +938,13 @@ TypeIdentifier = Identifier \ TypeKeyword
 @Regex
 Yield = "yield"
 
-// Without the exclusion `yield(x);` has two derivations: a yield statement over `(x)`,
-// and a call to a method named yield. JLS 17 §3.8 prohibits an unqualified invocation of
-// a method named yield, which leaves one. `this.yield(x)` is valid because `Selector`
-// uses plain Identifier.
+@Regex
+Arrow = "->"
+
+// JLS §3.8 defines UnqualifiedMethodIdentifier as an Identifier other than `yield`, and
+// the `\ Yield` here does the same. As a result, `yield(x);` is parsed as a yield
+// statement and not as an invocation of a method named yield. `this.yield(x)` is valid
+// because Selector uses Identifier.
 @Regex
 UnqualifiedMethodIdentifier = Identifier \ Yield
 
@@ -851,7 +960,7 @@ JavaLetterOrDigit = [A-Za-z$_0-9]
 @Regex
 Else = "else" !>> JavaLetterOrDigit
 
-// JLS 17 §3.9 makes `non-sealed` one contextual keyword rather than `non`, `-`, and
+// JLS §3.9 makes `non-sealed` one contextual keyword rather than `non`, `-`, and
 // `sealed`, and no letter or digit may immediately precede or follow it.
 @Regex
 NonSealed = JavaLetterOrDigit !<< "non-sealed" !>> JavaLetterOrDigit
@@ -935,7 +1044,7 @@ CommentChar
 @Regex
 TraditionalComment = "/*" CommentChar* [*]+ "/"
 
-// JLS 17 §3.7 ends a line comment at a line terminator or at the end of the input,
+// JLS §3.7 ends a line comment at a line terminator or at the end of the input,
 // so the terminator is not part of the comment and a file may end in one.
 @Regex
 EndOfLineComment = "//" ![\r\n]*

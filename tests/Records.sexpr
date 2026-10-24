@@ -23,13 +23,12 @@
             (RecordHeader
               "("
               (RecordComponentList
-                ((RecordComponent ",")*
+                ({RecordComponent ","}+
                   (RecordComponent
                     (UnannType
                       (UnannPrimitiveType "int"))
                     Identifier)
-                  ",")
-                (LastRecordComponent
+                  ","
                   (RecordComponent
                     (UnannType
                       (UnannPrimitiveType "int"))
@@ -51,14 +50,13 @@
             (RecordHeader
               "("
               (RecordComponentList
-                ((RecordComponent ",")*
+                ({RecordComponent ","}+
                   (RecordComponent
                     (UnannType
                       (UnannReferenceType
                         (UnannClassType TypeIdentifier)))
                     Identifier)
-                  ",")
-                (LastRecordComponent
+                  ","
                   (RecordComponent
                     (UnannType
                       (UnannReferenceType
@@ -108,7 +106,7 @@
                         Identifier
                         "("
                         (FormalParameterList
-                          (LastFormalParameter
+                          ({FormalParameter ","}+
                             (FormalParameter
                               (UnannType
                                 (UnannReferenceType
@@ -148,13 +146,12 @@
             (RecordHeader
               "("
               (RecordComponentList
-                ((RecordComponent ",")*
+                ({RecordComponent ","}+
                   (RecordComponent
                     (UnannType
                       (UnannPrimitiveType "int"))
                     Identifier)
-                  ",")
-                (LastRecordComponent
+                  ","
                   (RecordComponent
                     (UnannType
                       (UnannPrimitiveType "int"))
@@ -260,7 +257,7 @@
                         (RecordHeader
                           "("
                           (RecordComponentList
-                            (LastRecordComponent
+                            ({RecordComponent ","}+
                               (RecordComponent
                                 (UnannType
                                   (UnannReferenceType
@@ -277,7 +274,7 @@
             (RecordHeader
               "("
               (RecordComponentList
-                ((RecordComponent ",")*
+                ({RecordComponent ","}+
                   (RecordComponent
                     (Annotation*
                       (Annotation
@@ -300,16 +297,17 @@
                                   (ClassType TypeIdentifier))))
                             ">"))))
                     Identifier)
-                  ",")
-                (LastRecordComponent
-                  (UnannType
-                    (UnannPrimitiveType "int"))
-                  (Annotation*
-                    (Annotation
-                      "@"
-                      (TypeName TypeIdentifier)))
-                  "..."
-                  Identifier))
+                  ","
+                  (RecordComponent
+                    (VariableArityRecordComponent
+                      (UnannType
+                        (UnannPrimitiveType "int"))
+                      (Annotation*
+                        (Annotation
+                          "@"
+                          (TypeName TypeIdentifier)))
+                      "..."
+                      Identifier))))
               ")")
             (RecordBody
               "{"
@@ -322,7 +320,7 @@
                       TypeIdentifier
                       "("
                       (FormalParameterList
-                        ((FormalParameter ",")*
+                        ({FormalParameter ","}+
                           (FormalParameter
                             (UnannType
                               (UnannPrimitiveType "int"))
@@ -341,12 +339,13 @@
                                           (ClassType TypeIdentifier))))
                                     ">"))))
                             (VariableDeclaratorId Identifier))
-                          ",")
-                        (LastFormalParameter
-                          (UnannType
-                            (UnannPrimitiveType "int"))
-                          "..."
-                          (VariableDeclaratorId Identifier)))
+                          ","
+                          (FormalParameter
+                            (VariableArityParameter
+                              (UnannType
+                                (UnannPrimitiveType "int"))
+                              "..."
+                              Identifier))))
                       ")"
                       (ConstructorBody
                         "{"
@@ -400,7 +399,7 @@
             (RecordHeader
               "("
               (RecordComponentList
-                (LastRecordComponent
+                ({RecordComponent ","}+
                   (RecordComponent
                     (UnannType
                       (UnannReferenceType
@@ -455,7 +454,7 @@
                       (RecordHeader
                         "("
                         (RecordComponentList
-                          (LastRecordComponent
+                          ({RecordComponent ","}+
                             (RecordComponent
                               (UnannType
                                 (UnannPrimitiveType "int"))
@@ -478,7 +477,7 @@
                                 (RecordHeader
                                   "("
                                   (RecordComponentList
-                                    (LastRecordComponent
+                                    ({RecordComponent ","}+
                                       (RecordComponent
                                         (UnannType
                                           (UnannPrimitiveType "int"))
@@ -503,7 +502,7 @@
                                 (RecordHeader
                                   "("
                                   (RecordComponentList
-                                    (LastRecordComponent
+                                    ({RecordComponent ","}+
                                       (RecordComponent
                                         (UnannType
                                           (UnannPrimitiveType "int"))
@@ -527,7 +526,7 @@
                                 (RecordHeader
                                   "("
                                   (RecordComponentList
-                                    (LastRecordComponent
+                                    ({RecordComponent ","}+
                                       (RecordComponent
                                         (UnannType
                                           (UnannPrimitiveType "int"))

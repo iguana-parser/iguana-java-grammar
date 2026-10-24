@@ -209,7 +209,7 @@
                                 Identifier
                                 "("
                                 (FormalParameterList
-                                  (LastFormalParameter
+                                  ({FormalParameter ","}+
                                     (FormalParameter
                                       (UnannType
                                         (UnannReferenceType
