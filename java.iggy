@@ -952,10 +952,10 @@ UnqualifiedMethodIdentifier = Identifier \ Yield
 IdentifierChars = JavaLetter (JavaLetter | JavaLetterOrDigit)*
 
 @Regex
-JavaLetter = [A-Za-z$_]
+JavaLetter = [A-Za-z$_\u{80}-\u{10FFFF}]
 
 @Regex
-JavaLetterOrDigit = [A-Za-z$_0-9]
+JavaLetterOrDigit = [A-Za-z$_0-9\u{80}-\u{10FFFF}]
 
 @Regex
 Else = "else" !>> JavaLetterOrDigit
